@@ -1,6 +1,7 @@
 ---
 import { Github, Youtube, Mail, Copy, Check, ArrowUpRight, Music, Heart } from 'lucide-astro';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentYear = new Date().getFullYear();
 const contactEmail = 'kontakt@kacperczeczot.pl';
 ---
@@ -56,25 +57,25 @@ const contactEmail = 'kontakt@kacperczeczot.pl';
         <h4 class="text-xs font-semibold text-zinc-300 uppercase tracking-wider font-mono">Nawigacja</h4>
         <ul class="space-y-2 text-sm text-zinc-400">
           <li>
-            <a href="/" class="hover:text-amber-400 transition-colors flex items-center gap-1 group">
+            <a href={`${base}/`} class="hover:text-amber-400 transition-colors flex items-center gap-1 group">
               <span>Scena & Zespoły</span>
               <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
           </li>
           <li>
-            <a href="/projekty-autorskie" class="hover:text-amber-400 transition-colors flex items-center gap-1 group">
+            <a href={`${base}/projekty-autorskie`} class="hover:text-amber-400 transition-colors flex items-center gap-1 group">
               <span>Dzieła Autorskie</span>
               <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
           </li>
           <li>
-            <a href="/bio" class="hover:text-amber-400 transition-colors flex items-center gap-1 group">
+            <a href={`${base}/bio`} class="hover:text-amber-400 transition-colors flex items-center gap-1 group">
               <span>Bio & Warsztat</span>
               <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
           </li>
           <li>
-            <a href="/lab" class="hover:text-amber-400 transition-colors flex items-center gap-1 group">
+            <a href={`${base}/lab`} class="hover:text-amber-400 transition-colors flex items-center gap-1 group">
               <span>Laboratorium (Lab)</span>
               <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
@@ -115,7 +116,7 @@ const contactEmail = 'kontakt@kacperczeczot.pl';
 
     <!-- Copyright and Bottom Credits -->
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-mono">
-      <p>© {currentYear} Kacper. Wszystkie prawa zastrzeżone.</p>
+      <p>© {currentYear} Kacper Czeczot. Wszystkie prawa zastrzeżone.</p>
       <p class="flex items-center gap-1.5">
         <span>Zbudowano z precyzją w</span>
         <span class="text-amber-400 font-semibold">Astro</span>

@@ -1,5 +1,7 @@
 ---
 import { X, Award, Calendar, CheckCircle2, Image as ImageIcon, Sparkles, ExternalLink } from 'lucide-astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!-- Accessible Slide-over Drawer / Bottom Sheet for Ensemble Details -->
@@ -106,7 +108,7 @@ import { X, Award, Calendar, CheckCircle2, Image as ImageIcon, Sparkles, Externa
       <!-- Drawer Footer -->
       <div class="p-5 border-t border-zinc-800 bg-zinc-950/80 flex items-center justify-between gap-3">
         <a
-          href="/projekty-autorskie"
+          href={`${base}/projekty-autorskie`}
           class="flex items-center gap-2 text-xs font-medium text-zinc-400 hover:text-amber-400 transition-colors"
         >
           <span>Zobacz powiązane dzieła</span>

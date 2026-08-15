@@ -4,11 +4,13 @@ import Hero from '../components/Hero.astro';
 import RadialGraph from '../components/RadialGraph.astro';
 import { Radio, User, Terminal, ArrowRight, Sparkles, CheckCircle2, Disc3 } from 'lucide-astro';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const pillarsSummary = [
   {
     title: 'Dzieła Autorskie & Dyplomowe',
     description: 'Koncert dyplomowy „Finale” na orkiestrę symfoniczną i chór oraz jednoosobowa produkcja wielośladowa „Echo Epok”.',
-    link: '/projekty-autorskie',
+    link: `${base}/projekty-autorskie`,
     icon: Radio,
     accent: 'from-amber-500/20 via-amber-500/5 to-transparent',
     border: 'hover:border-amber-500/50',
@@ -17,7 +19,7 @@ const pillarsSummary = [
   {
     title: 'Bio, Edukacja & Warsztat',
     description: 'Ścieżka akademicka UWM z wyróżnieniem, PSM I i II st., wszechstronne instrumentarium oraz zaawansowany warsztat studyjny (Logic Pro, Pro Tools, MuseScore).',
-    link: '/bio',
+    link: `${base}/bio`,
     icon: User,
     accent: 'from-sky-500/20 via-sky-500/5 to-transparent',
     border: 'hover:border-sky-500/50',
@@ -26,7 +28,7 @@ const pillarsSummary = [
   {
     title: 'Laboratorium Technologiczne',
     description: 'StageSync — silnik synchronizacji scenicznej na żywo (WebAudio, MIDI Clock/SPP, DMX/Art-Net) oraz narzędzia wspomagające analizę partytur.',
-    link: '/lab',
+    link: `${base}/lab`,
     icon: Terminal,
     accent: 'from-cyan-500/20 via-cyan-500/5 to-transparent',
     border: 'hover:border-cyan-500/50',

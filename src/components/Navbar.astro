@@ -1,14 +1,14 @@
 ---
 import { Music, Radio, User, Terminal, Mail, Menu, X } from 'lucide-astro';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const pathname = new URL(Astro.request.url).pathname;
-const normalizedPath = pathname.replace(/\/$/, '') || '/';
 
 const navItems = [
-  { label: 'Scena & Zespoły', href: '/', icon: Music, active: normalizedPath === '/' },
-  { label: 'Dzieła Autorskie', href: '/projekty-autorskie', icon: Radio, active: normalizedPath === '/projekty-autorskie' },
-  { label: 'Bio & Warsztat', href: '/bio', icon: User, active: normalizedPath === '/bio' },
-  { label: 'Lab', href: '/lab', icon: Terminal, active: normalizedPath === '/lab' },
+  { label: 'Scena & Zespoły', href: `${base}/`, icon: Music, active: pathname === `${base}/` || pathname === `${base}` },
+  { label: 'Dzieła Autorskie', href: `${base}/projekty-autorskie`, icon: Radio, active: pathname.startsWith(`${base}/projekty-autorskie`) },
+  { label: 'Bio & Warsztat', href: `${base}/bio`, icon: User, active: pathname.startsWith(`${base}/bio`) },
+  { label: 'Lab', href: `${base}/lab`, icon: Terminal, active: pathname.startsWith(`${base}/lab`) },
 ];
 ---
 
@@ -17,7 +17,7 @@ const navItems = [
     <div class="flex items-center justify-between h-20">
       
       <!-- Brand Logo / Identity -->
-      <a href="/" class="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg p-1">
+      <a href={base || '/'} class="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg p-1">
         <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/20 to-zinc-900 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:border-amber-400 group-hover:scale-105 transition-all shadow-glow-amber">
           <span class="font-display font-bold text-lg tracking-wider">KC</span>
         </div>
@@ -129,7 +129,6 @@ const navItems = [
       }
     });
 
-    // Close mobile menu on link click
     mobileMenu.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
