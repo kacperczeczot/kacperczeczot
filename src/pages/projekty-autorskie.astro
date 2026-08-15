@@ -14,15 +14,15 @@ const echoWork = works.find(w => w.slug === 'echo-epok');
 
 <BaseLayout
   title="Dzieła Autorskie & Projekty Dyplomowe — Kacper Czeczot"
-  description="Nagrania wideo dzieł dyplomowych: Koncert Dyplomowy „Finale” (dyrygentura symfoniczno-chóralna) oraz „Echo Epok” (produkcja muzyczna)."
+  description="Dzieła dyplomowe Kacpra Czeczota: Koncert Dyplomowy „Finale” (dyrygentura symfoniczno-chóralna) oraz „Echo Epok” (produkcja muzyczna)."
 >
   <!-- Page Header -->
   <section class="relative pt-36 pb-20 md:pt-44 md:pb-24 overflow-hidden border-b border-sky-500/15 bg-[#070d1a]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <SectionHeader
         badge="Dzieła Autorskie & Dyplomowe"
-        title="Prezentacja Dzieł"
-        subtitle="Nagrania koncertowe i studyjne dokumentujące dyrygenturę symfoniczno-chóralną oraz autorską produkcję muzyczną."
+        title="Dzieła Autorskie"
+        subtitle="Dyrygentura symfoniczno-chóralna oraz autorska produkcja muzyczna."
         align="center"
       />
     </div>
@@ -63,8 +63,8 @@ const echoWork = works.find(w => w.slug === 'echo-epok');
                 <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-300 mt-0.5 font-display">Koncert Dyplomowy</div>
               </div>
               <div class="px-6 py-4 rounded-2xl bg-[#070d1a] border border-sky-400/30 text-center flex-1 sm:flex-none min-w-[140px] shadow-xs">
-                <div class="font-display font-bold text-2xl sm:text-3xl text-white">3</div>
-                <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-300 mt-0.5 font-display">Części Wideo</div>
+                <div class="font-display font-bold text-2xl sm:text-3xl text-white">{finaleWork.data.youtubeVideos.length}</div>
+                <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-300 mt-0.5 font-display">Części Koncertu</div>
               </div>
             </div>
           </div>
@@ -104,11 +104,11 @@ const echoWork = works.find(w => w.slug === 'echo-epok');
           <div class="flex items-center justify-between">
             <h3 class="font-display font-bold text-xl sm:text-2xl text-white flex items-center gap-3">
               <Film class="w-5 h-5 text-sky-400" />
-              <span>Zapis Wideo — Części Koncertu</span>
+              <span>Zapis Wideo — Części Koncertu ({finaleWork.data.youtubeVideos.length})</span>
             </h3>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             {finaleWork.data.youtubeVideos.map((video, idx) => (
               <YoutubeEmbed
                 youtubeId={video.youtubeId}
