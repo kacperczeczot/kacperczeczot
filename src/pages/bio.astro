@@ -13,46 +13,26 @@ import {
   Sparkles,
   Layers,
   CheckCircle2,
-  AudioWaveform,
 } from 'lucide-astro';
 
 const education = [
   {
-    period: 'Studia Wyższe Magisterskie',
-    institution: 'Uniwersytet Warmińsko-Mazurski w Olsztynie',
+    institution: 'Uniwersytet Warmińsko-Mazurski w Olsztynie (UWM)',
     degree: 'Dyplom z Wyróżnieniem',
-    specialization: 'Edukacja Artystyczna w Zakresie Sztuki Muzycznej — Dyrygentura',
-    highlights: [
-      'Główny dyplom dyrygencki z orkiestrą symfoniczną i chórem mieszanym w Filharmonii Warmińsko-Mazurskiej',
-      'Prowadzenie zespołów wokalnych, chóralnych i orkiestrowych',
-    ],
+    detail: 'Dyrygentura',
   },
   {
-    period: 'Szkoła Muzyczna II Stopnia',
-    institution: 'Państwowa Szkoła Muzyczna II st.',
-    degree: 'Dyplom Muzyka Instrumentalisty',
-    specialization: 'Klarnet & Fortepian',
-    highlights: [
-      'Wykonawstwo instrumentalne w klasie klarnetu i fortepianu',
-      'Praktyka w zespołach orkiestrowych i kameralnych',
-    ],
-  },
-  {
-    period: 'Szkoła Muzyczna I Stopnia',
-    institution: 'Państwowa Szkoła Muzyczna I st.',
-    degree: 'Świadectwo Ukończenia',
-    specialization: 'Klarnet & Fortepian',
-    highlights: [
-      'Podstawy wykonawstwa instrumentalnego i teorii muzyki',
-    ],
+    institution: 'Państwowa Szkoła Muzyczna I i II stopnia (PSM)',
+    degree: 'Edukacja Muzyczna',
+    detail: 'Klarnet / Fortepian',
   },
 ];
 
 const mainInstruments = [
   {
     name: 'Dyrygentura',
-    category: 'Dyscyplina Główna',
-    desc: 'Kierownictwo muzyczne i prowadzenie orkiestr oraz chórów.',
+    category: 'Główna Dyscyplina',
+    desc: 'Kierownictwo muzyczne i dyrygentura orkiestr oraz chórów.',
     icon: Sparkles,
   },
   {
@@ -70,7 +50,7 @@ const mainInstruments = [
   {
     name: 'Śpiew / Wokal',
     category: 'Głos',
-    desc: 'Śpiew solowy, spektakle muzyczne oraz partie chóralne (tenor).',
+    desc: 'Śpiew solowy, spektakle teatralno-muzyczne oraz chór.',
     icon: Mic2,
   },
 ];
@@ -78,134 +58,82 @@ const mainInstruments = [
 const additionalInstruments = [
   {
     name: 'Organy Liturgiczne',
-    desc: 'Akompaniament liturgiczny i oprawa uroczystości.',
+    desc: 'Akompaniament liturgiczny.',
   },
   {
     name: 'Perkusja / Kotły',
-    desc: 'Instrumentarium perkusyjne w składach orkiestrowych.',
+    desc: 'Składy orkiestrowe.',
   },
 ];
 ---
 
 <BaseLayout
   title="Bio & Edukacja — Kacper Czeczot"
-  description="Sylwetka artystyczna dyrygenta i muzyka Kacpra Czeczota: wykształcenie muzyczne UWM z wyróżnieniem, PSM I i II st. oraz instrumentarium."
+  description="Sylwetka artystyczna dyrygenta i muzyka Kacpra Czeczota."
 >
   <!-- Page Header -->
   <section class="relative pt-36 pb-20 md:pt-44 md:pb-24 overflow-hidden border-b border-sky-500/15 bg-[#070d1a]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <SectionHeader
-        badge="Sylwetka & Doświadczenie"
+        badge="Sylwetka Artystyczna"
         title="Bio & Edukacja"
-        subtitle="Wykształcenie dyrygenckie, wykonawstwo instrumentalne oraz działalność sceniczna."
+        subtitle="Dyrygentura, wykonawstwo instrumentalne oraz działalność sceniczna."
         align="center"
       />
     </div>
   </section>
 
-  <!-- 1. ARTISTIC BIOGRAPHY -->
+  <!-- 1. BIOGRAM -->
   <section class="py-24 bg-[#091224] border-b border-sky-500/15 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#0f1d38] text-sky-200 border border-sky-400/30 font-display">
-            <BookOpen class="w-3.5 h-3.5 text-sky-400" />
-            <span>Biogram</span>
-          </div>
-
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white leading-tight">
-            Dyrygentura, wykonawstwo instrumentalne i scena
-          </h2>
-
-          <div class="space-y-4 text-slate-300 font-sans leading-relaxed text-base sm:text-lg">
-            <p>
-              Wykształcenie muzyczne w Państwowych Szkołach Muzycznych I i II stopnia w klasie klarnetu i fortepianu oraz na Uniwersytecie Warmińsko-Mazurskim w Olsztynie, ukończone dyplomem z wyróżnieniem w specjalności dyrygenckiej.
-            </p>
-            <p>
-              Działalność sceniczna obejmuje ponad <strong class="text-sky-300 font-semibold">300 występów</strong> w ramach orkiestr dętych, chórów, spektakli teatralnych, musicalu oraz formacji estradowych.
-            </p>
-          </div>
-
-          <div class="pt-3 flex flex-wrap gap-4 text-xs font-bold uppercase tracking-wider text-slate-300 font-display">
-            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Dyrygentura orkiestr i chórów</span>
-            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Klarnet i fortepian</span>
-            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Śpiew i teatr muzyczny</span>
-          </div>
+      <div class="max-w-3xl mx-auto space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#0f1d38] text-sky-200 border border-sky-400/30 font-display">
+          <BookOpen class="w-3.5 h-3.5 text-sky-400" />
+          <span>Biogram Artystyczny</span>
         </div>
 
-        <div class="lg:col-span-5">
-          <div class="ocean-card p-8 rounded-3xl border border-sky-500/25 space-y-6 relative overflow-hidden shadow-ocean-card">
-            <div class="flex items-center justify-between border-b border-sky-500/15 pb-4">
-              <span class="font-display font-bold text-lg text-white">Obszary Działalności</span>
-              <span class="text-xs font-bold uppercase tracking-wider text-sky-400 font-display">Fakty</span>
-            </div>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white leading-tight">
+          Dyrygentura i wykonawstwo sceniczne
+        </h2>
 
-            <div class="space-y-3.5 text-xs text-slate-300">
-              <div class="p-4 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1 shadow-xs">
-                <span class="text-sky-300 font-display font-bold uppercase tracking-wider block">DYRYGENTURA</span>
-                <span class="text-slate-400 text-xs">Prowadzenie orkiestr dętych, symfonicznych i chórów.</span>
-              </div>
-              <div class="p-4 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1 shadow-xs">
-                <span class="text-slate-200 font-display font-bold uppercase tracking-wider block">WYKONAWSTWO INSTRUMENTALNE & ŚPIEW</span>
-                <span class="text-slate-400 text-xs">Klarnet, fortepian, śpiew sceniczny i chóralny, organy.</span>
-              </div>
-              <div class="p-4 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1 shadow-xs">
-                <span class="text-sky-400 font-display font-bold uppercase tracking-wider block">PRODUKCJA & ARANŻACJE</span>
-                <span class="text-slate-400 text-xs">Aranżacje partytur oraz realizacja dźwięku.</span>
-              </div>
-            </div>
-          </div>
+        <div class="space-y-4 text-slate-300 font-sans leading-relaxed text-base sm:text-lg">
+          <p>
+            Działalność muzyczna obejmująca dyrygenturę orkiestrową i chóralną, wykonawstwo instrumentalne (klarnet, fortepian, organy liturgiczne) oraz śpiew sceniczny.
+          </p>
+          <p>
+            Ponad <strong class="text-sky-300 font-semibold">300 występów scenicznych</strong> w ramach orkiestr dętych, chórów, teatru, musicalu i formacji estradowych.
+          </p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- 2. EDUCATION & QUALIFICATIONS TIMELINE -->
+  <!-- 2. EDUKACJA -->
   <section class="py-24 bg-[#070d1a] border-b border-sky-500/15 relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
       <div class="text-center max-w-3xl mx-auto space-y-3">
         <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 font-display">
-          Kwalifikacje
+          Edukacja
         </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white">
           Edukacja <span class="text-blue-gradient">Muzyczna</span>
         </h2>
       </div>
 
-      <div class="space-y-6 max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         {education.map((item) => (
-          <div class="ocean-card rounded-3xl p-7 sm:p-9 border border-sky-500/20 hover:border-sky-400/50 transition-all relative group shadow-ocean-card">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-sky-500/15">
-              <div class="space-y-1">
-                <span class="text-xs font-bold uppercase tracking-wider text-sky-400 font-display">
-                  {item.period}
-                </span>
-                <h3 class="text-xl sm:text-2xl font-display font-bold text-white group-hover:text-sky-300 transition-colors">
-                  {item.institution}
-                </h3>
-              </div>
-              <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#070d1a] text-sky-300 border border-sky-400/30 self-start sm:self-auto font-display">
-                <Award class="w-3.5 h-3.5 text-sky-400" />
-                {item.degree}
-              </span>
-            </div>
-
-            <div class="pt-5 space-y-3.5">
-              <p class="text-sm font-semibold uppercase tracking-wider text-slate-200 font-display">
-                Specjalność: <span class="text-slate-300 font-normal font-sans normal-case">{item.specialization}</span>
-              </p>
-              <ul class="space-y-2 text-sm text-slate-300 font-sans">
-                {item.highlights.map(h => (
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-sky-400 mt-1">•</span>
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div class="ocean-card rounded-3xl p-7 border border-sky-500/20 shadow-ocean-card space-y-3">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#070d1a] text-sky-300 border border-sky-400/30 font-display">
+              <Award class="w-3.5 h-3.5 text-sky-400" />
+              {item.degree}
+            </span>
+            <h3 class="text-lg font-display font-bold text-white">
+              {item.institution}
+            </h3>
+            <p class="text-xs text-slate-400 font-sans">
+              {item.detail}
+            </p>
           </div>
         ))}
       </div>
@@ -215,13 +143,13 @@ const additionalInstruments = [
 
   <!-- 3. INSTRUMENTARIUM -->
   <section class="py-24 bg-[#091224] relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
       <div class="text-center max-w-3xl mx-auto space-y-3">
         <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 font-display">
           Dyscypliny & Instrumentarium
         </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white">
           Praktyka <span class="text-blue-gradient">Wykonawcza</span>
         </h2>
       </div>
@@ -231,16 +159,16 @@ const additionalInstruments = [
         {mainInstruments.map((inst) => {
           const Icon = inst.icon;
           return (
-            <div class="ocean-card p-7 rounded-3xl border border-sky-500/20 hover:border-sky-400/50 flex flex-col justify-between group hover:-translate-y-1.5 transition-all shadow-ocean-card">
-              <div class="space-y-4">
-                <div class="w-12 h-12 rounded-2xl bg-[#070d1a] border border-sky-400/25 text-sky-400 flex items-center justify-center group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all">
-                  <Icon class="w-6 h-6" />
+            <div class="ocean-card p-6 rounded-3xl border border-sky-500/20 flex flex-col justify-between group shadow-ocean-card">
+              <div class="space-y-3">
+                <div class="w-10 h-10 rounded-xl bg-[#070d1a] border border-sky-400/25 text-sky-400 flex items-center justify-center">
+                  <Icon class="w-5 h-5" />
                 </div>
                 <div>
-                  <span class="text-[11px] font-bold uppercase tracking-wider text-sky-300 block mb-1 font-display">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-sky-300 block mb-1 font-display">
                     {inst.category}
                   </span>
-                  <h3 class="text-xl font-display font-bold text-white group-hover:text-sky-300 transition-colors">
+                  <h3 class="text-lg font-display font-bold text-white">
                     {inst.name}
                   </h3>
                 </div>
@@ -254,16 +182,16 @@ const additionalInstruments = [
       </div>
 
       <!-- Additional Instruments Box -->
-      <div class="ocean-card p-8 sm:p-10 rounded-3xl border border-sky-500/20 max-w-5xl mx-auto shadow-ocean-card">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-6 flex items-center gap-2.5 font-display">
+      <div class="ocean-card p-6 rounded-3xl border border-sky-500/20 max-w-3xl mx-auto shadow-ocean-card">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2 font-display">
           <Layers class="w-4 h-4 text-sky-400" />
           <span>Instrumentarium Dodatkowe</span>
         </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {additionalInstruments.map((item) => (
-            <div class="p-5 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1.5 shadow-xs">
+            <div class="p-4 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1 shadow-xs">
               <h4 class="text-sm font-bold text-white font-display">{item.name}</h4>
-              <p class="text-xs text-slate-300 font-sans leading-relaxed">{item.desc}</p>
+              <p class="text-xs text-slate-300 font-sans">{item.desc}</p>
             </div>
           ))}
         </div>
