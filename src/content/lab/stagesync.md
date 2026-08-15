@@ -9,7 +9,6 @@ tags:
   - "RxJS"
   - "TailwindCSS"
 githubUrl: "https://github.com/kacperczeczot/stagesync"
-liveUrl: "https://stagesync-demo.dev"
 featured: true
 order: 1
 ---

@@ -8,7 +8,6 @@ tags:
   - "VexFlow"
   - "Astro"
 githubUrl: "https://github.com/kacperczeczot/harmoniq-analyzer"
-liveUrl: "https://harmoniq.dev"
 featured: false
 order: 2
 ---
