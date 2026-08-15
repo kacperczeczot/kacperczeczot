@@ -14,15 +14,15 @@ const echoWork = works.find(w => w.slug === 'echo-epok');
 
 <BaseLayout
   title="Dzieła Autorskie & Projekty Dyplomowe — Kacper Czeczot"
-  description="Nagrania wideo i partytury dzieł dyplomowych: Koncert Dyplomowy „Finale” (dyrygentura symfoniczno-chóralna) oraz „Echo Epok” (produkcja muzyczna wielośladowa)."
+  description="Nagrania wideo dzieł dyplomowych: Koncert Dyplomowy „Finale” (dyrygentura symfoniczno-chóralna) oraz „Echo Epok” (produkcja muzyczna wielośladowa)."
 >
   <!-- Page Header -->
   <section class="relative pt-36 pb-20 md:pt-44 md:pb-24 overflow-hidden border-b border-[#e2ba64]/15 bg-[#070709]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <SectionHeader
         badge="Dzieła Autorskie & Dyplomowe"
-        title="Kinowa Prezentacja Dzieł"
-        subtitle="Reprezentacyjne nagrania koncertowe i studyjne dokumentujące pełnię warsztatu dyrygenckiego, orkiestrowego oraz inżynierii dźwięku."
+        title="Prezentacja Dzieł"
+        subtitle="Nagrania koncertowe i studyjne dokumentujące dyrygenturę symfoniczno-chóralną oraz autorską produkcję muzyczną."
         align="center"
       />
     </div>
@@ -56,15 +56,15 @@ const echoWork = works.find(w => w.slug === 'echo-epok');
               </p>
             </div>
 
-            <!-- Stats badges -->
+            <!-- Badges -->
             <div class="flex flex-wrap sm:flex-nowrap gap-4">
               <div class="px-6 py-4 rounded-2xl bg-[#070709] border border-[#e2ba64]/30 text-center flex-1 sm:flex-none min-w-[140px]">
-                <div class="font-display font-bold text-2xl sm:text-3xl text-gold">70+</div>
-                <div class="text-[11px] font-display uppercase tracking-wider text-zinc-400 mt-0.5">Wykonawców</div>
+                <div class="font-display font-bold text-2xl sm:text-3xl text-gold">UWM</div>
+                <div class="text-[11px] font-display uppercase tracking-wider text-zinc-400 mt-0.5">Koncert Dyplomowy</div>
               </div>
               <div class="px-6 py-4 rounded-2xl bg-[#070709] border border-[#e2ba64]/30 text-center flex-1 sm:flex-none min-w-[140px]">
                 <div class="font-display font-bold text-2xl sm:text-3xl text-[#faecd0]">3</div>
-                <div class="text-[11px] font-display uppercase tracking-wider text-zinc-400 mt-0.5">Części Dzieła</div>
+                <div class="text-[11px] font-display uppercase tracking-wider text-zinc-400 mt-0.5">Części Wideo</div>
               </div>
             </div>
           </div>
@@ -73,28 +73,21 @@ const echoWork = works.find(w => w.slug === 'echo-epok');
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pt-8">
             <div class="lg:col-span-7 space-y-4 text-zinc-300 font-serif leading-relaxed text-base sm:text-lg font-light">
               <p>{finaleWork.data.description}</p>
-              <p class="text-zinc-400 text-sm font-sans leading-relaxed">
-                Przygotowanie partytury wymagało wielomiesięcznej pracy analitycznej, prób sekcyjnych z kwintetem smyczkowym, sekcją dętą drewnianą i blaszaną oraz zintegrowania brzmienia 36-osobowego chóru mieszanego z orkiestrą symfoniczną.
-              </p>
             </div>
 
             <div class="lg:col-span-5 space-y-4 bg-[#070709]/90 p-6 rounded-2xl border border-[#e2ba64]/25">
               <h3 class="text-xs font-display font-bold uppercase tracking-widest text-[#f6d289] flex items-center gap-2">
                 <Users class="w-4 h-4 text-[#e2ba64]" />
-                <span>Aparat Wykonawczy & Obsada</span>
+                <span>Aparat Wykonawczy</span>
               </h3>
               <ul class="space-y-2.5 text-xs font-sans text-zinc-300">
                 <li class="flex items-center justify-between py-1.5 border-b border-[#e2ba64]/10">
-                  <span class="text-zinc-400 font-serif italic text-sm">Orkiestra Symfoniczna:</span>
-                  <span class="text-zinc-100 font-display font-semibold">42 instrumentalistów</span>
+                  <span class="text-zinc-400 font-serif italic text-sm">Orkiestra:</span>
+                  <span class="text-zinc-100 font-display font-semibold">Orkiestra Symfoniczna</span>
                 </li>
                 <li class="flex items-center justify-between py-1.5 border-b border-[#e2ba64]/10">
-                  <span class="text-zinc-400 font-serif italic text-sm">Chór Mieszany (SATB):</span>
-                  <span class="text-zinc-100 font-display font-semibold">36 głosów</span>
-                </li>
-                <li class="flex items-center justify-between py-1.5 border-b border-[#e2ba64]/10">
-                  <span class="text-zinc-400 font-serif italic text-sm">Soliści Wokalni:</span>
-                  <span class="text-zinc-100 font-display font-semibold">2 solistów</span>
+                  <span class="text-zinc-400 font-serif italic text-sm">Chór:</span>
+                  <span class="text-zinc-100 font-display font-semibold">Chór Mieszany</span>
                 </li>
                 <li class="flex items-center justify-between py-1.5">
                   <span class="text-zinc-400 font-serif italic text-sm">Kierownictwo i Dyrygentura:</span>
@@ -113,7 +106,6 @@ const echoWork = works.find(w => w.slug === 'echo-epok');
               <Film class="w-5 h-5 text-[#e2ba64]" />
               <span>Zapis Wideo — Trzy Części Koncertu</span>
             </h3>
-            <span class="text-xs font-serif italic text-zinc-400">Audio 24-bit / 48kHz • Rejestracja Multi-cam</span>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -145,7 +137,7 @@ const echoWork = works.find(w => w.slug === 'echo-epok');
               <div class="flex flex-wrap items-center gap-3">
                 <span class="px-4 py-1.5 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-[#070709] text-[#f6d289] border border-[#e2ba64]/40 flex items-center gap-2">
                   <Sliders class="w-3.5 h-3.5 text-[#e2ba64]" />
-                  Produkcja Muzyczna & Sound Engineering
+                  Produkcja Muzyczna & Realizacja Dźwięku
                 </span>
                 <span class="text-xs font-display uppercase tracking-wider text-zinc-400 px-3.5 py-1.5 rounded-full bg-[#15141a] border border-[#e2ba64]/20">
                   Rok: {echoWork.data.year}
@@ -161,46 +153,31 @@ const echoWork = works.find(w => w.slug === 'echo-epok');
 
             <div class="flex flex-wrap sm:flex-nowrap gap-4">
               <div class="px-6 py-4 rounded-2xl bg-[#070709] border border-[#e2ba64]/30 text-center flex-1 sm:flex-none min-w-[140px]">
-                <div class="font-display font-bold text-2xl sm:text-3xl text-gold">100%</div>
-                <div class="text-[11px] font-display uppercase tracking-wider text-zinc-400 mt-0.5">Zapis Jednoosobowy</div>
-              </div>
-              <div class="px-6 py-4 rounded-2xl bg-[#070709] border border-[#e2ba64]/30 text-center flex-1 sm:flex-none min-w-[140px]">
-                <div class="font-display font-bold text-2xl sm:text-3xl text-[#faecd0]">48+</div>
-                <div class="text-[11px] font-display uppercase tracking-wider text-zinc-400 mt-0.5">Ścieżek Audio</div>
+                <div class="font-display font-bold text-2xl sm:text-3xl text-gold">Autorskie</div>
+                <div class="text-[11px] font-display uppercase tracking-wider text-zinc-400 mt-0.5">Dzieło Dyplomowe</div>
               </div>
             </div>
           </div>
 
-          <!-- Description & Engineering Breakdown -->
+          <!-- Description -->
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pt-8">
             <div class="lg:col-span-7 space-y-4 text-zinc-300 font-serif leading-relaxed text-base sm:text-lg font-light">
               <p>{echoWork.data.description}</p>
-              <p class="text-zinc-400 text-sm font-sans leading-relaxed">
-                Każdy instrument akustyczny — od sekcji klarnetów, przez fortepian koncertowy i perkusjonalia, aż po 12 nakładających się partii wokalnych — został zarejestrowany samodzielnie w dedykowanym torze studyjnym z lampową saturacją i konwolucyjnymi pogłosami sal filharmonicznych.
-              </p>
             </div>
 
             <div class="lg:col-span-5 space-y-4 bg-[#070709]/90 p-6 rounded-2xl border border-[#e2ba64]/25">
               <h3 class="text-xs font-display font-bold uppercase tracking-widest text-[#f6d289] flex items-center gap-2">
                 <Music class="w-4 h-4 text-[#e2ba64]" />
-                <span>Środowisko Studyjne & Sprzęt</span>
+                <span>Środowisko Realizacyjne</span>
               </h3>
               <ul class="space-y-2.5 text-xs font-sans text-zinc-300">
                 <li class="flex items-center justify-between py-1.5 border-b border-[#e2ba64]/10">
                   <span class="text-zinc-400 font-serif italic text-sm">DAW & Miks:</span>
                   <span class="text-zinc-100 font-display font-semibold">Logic Pro / Pro Tools</span>
                 </li>
-                <li class="flex items-center justify-between py-1.5 border-b border-[#e2ba64]/10">
-                  <span class="text-zinc-400 font-serif italic text-sm">Mikrofony:</span>
-                  <span class="text-zinc-100 font-display font-semibold">Neumann, AKG, Røde Stereo Pair</span>
-                </li>
-                <li class="flex items-center justify-between py-1.5 border-b border-[#e2ba64]/10">
-                  <span class="text-zinc-400 font-serif italic text-sm">Przetworniki & Preampy:</span>
-                  <span class="text-zinc-100 font-display font-semibold">Universal Audio Apollo / Heritage</span>
-                </li>
                 <li class="flex items-center justify-between py-1.5">
-                  <span class="text-zinc-400 font-serif italic text-sm">Mastering Standard:</span>
-                  <span class="text-[#e2ba64] font-display font-bold">EBU R128 / -14 LUFS</span>
+                  <span class="text-zinc-400 font-serif italic text-sm">Realizacja:</span>
+                  <span class="text-[#e2ba64] font-display font-bold">Kacper Czeczot</span>
                 </li>
               </ul>
             </div>
@@ -213,9 +190,8 @@ const echoWork = works.find(w => w.slug === 'echo-epok');
           <div class="flex items-center justify-between">
             <h3 class="font-display font-bold text-xl sm:text-2xl text-white flex items-center gap-3">
               <Disc class="w-5 h-5 text-[#e2ba64]" />
-              <span>Pełny Zapis Sesji Nagraniowej & Produkcji</span>
+              <span>Zapis Wideo — Sesja Nagraniowa</span>
             </h3>
-            <span class="text-xs font-serif italic text-zinc-400">Master 4K • Studio Session Documentary</span>
           </div>
 
           <div class="max-w-4xl mx-auto">

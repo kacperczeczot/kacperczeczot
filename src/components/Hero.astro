@@ -1,22 +1,22 @@
 ---
-import { Award, Music2, Users, Sparkles, ChevronRight, Disc3 } from 'lucide-astro';
+import { Music2, ChevronRight, Award, Layers, Sparkles } from 'lucide-astro';
 
-const artisticStats = [
-  { value: '300+', label: 'Występów Scenicznych', detail: 'Filharmonie, teatry i estrady' },
-  { value: '70+', label: 'Koncertów pod Batutą', detail: 'Orkiestry dęte i symfoniczne' },
-  { value: '9', label: 'Formacji & Zespołów', detail: 'Dyrygentura, wokal i instrumenty' },
-  { value: '20+', label: 'Lat na Scenie', detail: 'Dyscyplina i kunszt wykonawczy' },
+const credentials = [
+  { value: '300+', label: 'Występów Scenicznych', detail: 'Orkiestry, chóry, teatr i estrada' },
+  { value: '4', label: 'Filary Wykonawcze', detail: 'Orkiestry, Chóry, Teatr, Estrada' },
+  { value: 'UWM', label: 'Dyplom z Wyróżnieniem', detail: 'Dyrygentura i edukacja muzyczna' },
+  { value: 'PSM I & II', label: 'Szkoły Muzyczne', detail: 'Klarnet, fortepian i teoria' },
 ];
 ---
 
-<section class="relative pt-36 pb-20 md:pt-48 md:pb-28 overflow-hidden">
+<section class="relative pt-36 pb-20 md:pt-48 md:pb-24 overflow-hidden">
   
   <!-- Subtle Stage Spotlight Glow -->
   <div class="absolute top-12 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-radial from-[#e2ba64]/12 via-[#e2ba64]/3 to-transparent blur-3xl pointer-events-none -z-10"></div>
 
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
     
-    <!-- Prestigious Artistic Subtitle Badge -->
+    <!-- Artistic Subtitle Badge -->
     <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#e2ba64]/30 bg-[#15141a]/90 shadow-gold-glow mb-8">
       <span class="w-1.5 h-1.5 rounded-full bg-[#e2ba64] animate-pulse"></span>
       <span class="text-xs sm:text-sm font-display tracking-widest text-[#faecd0] uppercase">
@@ -25,7 +25,7 @@ const artisticStats = [
       <span class="w-1.5 h-1.5 rounded-full bg-[#e2ba64] animate-pulse"></span>
     </div>
 
-    <!-- Artist Name (Prominent Classical Typography) -->
+    <!-- Artist Name -->
     <h1 class="text-5xl sm:text-7xl lg:text-8xl font-display font-extrabold tracking-tight text-white mb-6 leading-none">
       <span class="block text-gold">KACPER</span>
       <span class="block tracking-wide text-zinc-100 mt-1">CZECZOT</span>
@@ -38,17 +38,13 @@ const artisticStats = [
       <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#e2ba64] to-transparent"></div>
     </div>
 
-    <!-- Artistic Persona / Narrative Quote -->
-    <p class="text-xl sm:text-2xl lg:text-3xl font-serif italic text-zinc-300 max-w-3xl mx-auto leading-relaxed mb-6 font-light">
-      „Muzyka to przestrzeń między dźwiękami — architektura emocji, precyzja intonacji i charyzma scenicznego gestu.”
+    <!-- Description -->
+    <p class="text-lg sm:text-xl text-zinc-300 max-w-3xl mx-auto font-sans leading-relaxed mb-12">
+      Działalność muzyczna, wykonawcza i dyrygencka: prowadzenie orkiestr i chórów, występy teatralno-musicalowe, dzieła autorskie oraz zaplecze studyjne i technologiczne.
     </p>
 
-    <p class="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto font-sans leading-relaxed mb-12">
-      Ponad dwie dekady działalności artystycznej: od prowadzenia wielkich orkiestr i chórów, przez kreacje solowe na deskach teatrów muzycznych, po autorską produkcję studyjną i reżyserię dźwięku.
-    </p>
-
-    <!-- Refined Artistic CTA Actions -->
-    <div class="flex flex-wrap items-center justify-center gap-5 mb-20">
+    <!-- CTA Actions -->
+    <div class="flex flex-wrap items-center justify-center gap-5 mb-16">
       <a
         href="#drzewo-radialne"
         class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-display text-sm tracking-wider uppercase font-bold text-[#070709] bg-gradient-to-r from-[#f6d289] via-[#e2ba64] to-[#c59b41] hover:from-[#faecd0] hover:to-[#e2ba64] shadow-theatre-spot transition-all duration-300 hover:scale-105 active:scale-95"
@@ -65,11 +61,11 @@ const artisticStats = [
       </a>
     </div>
 
-    <!-- Prestigious Philharmonic Credentials Grid -->
+    <!-- Credentials Grid (Only verified academic & artistic facts) -->
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto pt-6 border-t border-[#e2ba64]/15">
-      {artisticStats.map((item) => (
+      {credentials.map((item) => (
         <div class="theatre-card p-6 rounded-2xl text-center group hover:border-[#e2ba64]/50 transition-all duration-300">
-          <div class="font-display font-extrabold text-3xl sm:text-4xl text-gold mb-1 group-hover:scale-105 transition-transform">
+          <div class="font-display font-extrabold text-2xl sm:text-3xl text-gold mb-1 group-hover:scale-105 transition-transform">
             {item.value}
           </div>
           <div class="font-display font-semibold text-xs sm:text-sm text-zinc-200 tracking-wide mb-1">

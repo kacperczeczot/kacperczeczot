@@ -23,9 +23,9 @@ const education = [
     degree: 'Dyplom z Wyróżnieniem',
     specialization: 'Edukacja Artystyczna w Zakresie Sztuki Muzycznej / Dyrygentura i Prowadzenie Zespołów',
     highlights: [
-      'Główny dyplom dyrygencki z orkiestrą symfoniczną i chórem mieszanym (ocena celująca z wyróżnieniem)',
-      'Specjalizacja w zakresie metodyki prowadzenia chórów, orkiestr dętych i zespołów kameralnych',
-      'Aktywna działalność w strukturach artystycznych uczelni oraz kierownictwo biblioteki nutowej',
+      'Główny dyplom dyrygencki z orkiestrą symfoniczną i chórem mieszanym (dyplom z wyróżnieniem)',
+      'Metodyka prowadzenia chórów, orkiestr dętych i zespołów kameralnych',
+      'Działalność w strukturach artystycznych uczelni oraz prowadzenie biblioteki nutowej',
     ],
   },
   {
@@ -34,8 +34,7 @@ const education = [
     degree: 'Dyplom Zawodowego Muzyka Instrumentalisty',
     specialization: 'Klasa Klarnetu & Fortepian Dodatkowy',
     highlights: [
-      'Kompleksowe wykształcenie w zakresie literatury klarnetowej od klasycyzmu po wiek XX',
-      'Praktyka w orkiestrze symfonicznej szkoły muzycznej oraz zespołach kameralnych dętych',
+      'Literatura klarnetowa, gra w orkiestrze symfonicznej szkoły muzycznej oraz zespołach kameralnych dętych',
       'Harmonia klasyczna, kontrapunkt, kształcenie słuchu i analiza dzieła muzycznego',
     ],
   },
@@ -45,8 +44,7 @@ const education = [
     degree: 'Świadectwo Ukończenia z Wyróżnieniem',
     specialization: 'Klasa Klarnetu & Fortepian',
     highlights: [
-      'Fundamenty aparatu gry na klarnecie, intonacji i techniki palcowej',
-      'Występy estradowe, konkursy regionalne i pierwsze doświadczenia orkiestrowe',
+      'Aparat gry na klarnecie, intonacja, technika palcowa i pierwsze występy sceniczne',
     ],
   },
 ];
@@ -55,61 +53,61 @@ const mainInstruments = [
   {
     name: 'Dyrygentura',
     category: 'Główna Dyscyplina',
-    desc: 'Kierowanie aparatem symfonicznym, orkiestrami dętymi i chórami. Praca nad intonacją, agogiką, dynamiką i wyrazem dramaturgicznym partytury.',
+    desc: 'Prowadzenie orkiestr symfonicznych, dętych i chórów. Praca nad intonacją, dynamiką i wyrazem partytury.',
     icon: Sparkles,
   },
   {
-    name: 'Klarnet (B & A)',
+    name: 'Klarnet',
     category: 'Instrument Główny',
-    desc: 'Klasyczny aparat wykonawczy, technika biegłościowa, partie solowe oraz orkiestrowe w repertuarze symfonicznym i kameralnym.',
+    desc: 'Wykonawstwo solowe, kameralne oraz orkiestrowe w repertuarze symfonicznym i marszowym.',
     icon: Music,
   },
   {
     name: 'Fortepian',
     category: 'Instrument Główny',
-    desc: 'Baza harmoniczna, czytanie partytur fortepianowych i wyciągów orkiestrowych a vista, akompaniament chóralny i solowy.',
+    desc: 'Czytanie partytur i wyciągów fortepianowych, realizacja harmonii i akompaniament.',
     icon: Piano,
   },
   {
-    name: 'Śpiew / Wokal (Tenor)',
+    name: 'Śpiew / Wokal',
     category: 'Głos Solowy & Chóralny',
-    desc: 'Klasyczna emisja głosu, role solowe w operetkach i musicalach, wielogłosowa polifonia dawna oraz techniki studyjne.',
+    desc: 'Emisja głosu, partie solowe w spektaklach operetkowych i musicalowych oraz śpiew chóralny.',
     icon: Mic2,
   },
 ];
 
 const additionalInstruments = [
   {
-    name: 'Organy Liturgiczne & Piszczałkowe',
-    desc: 'Akompaniament liturgiczny, improwizacja modalna, obsługa manuałów i pedału w obiektach sakralnych.',
+    name: 'Organy Liturgiczne',
+    desc: 'Akompaniament liturgiczny i obsługa instrumentu w obiektach sakralnych.',
   },
   {
-    name: 'Perkusja & Kotły Symfoniczne',
-    desc: 'Precyzja rytmiczna, technika gry na kotłach symfonicznych w orkiestrze, instrumentarium perkusyjne estrady.',
+    name: 'Perkusja / Kotły',
+    desc: 'Gra na kotłach i instrumentarium perkusyjnym w składach orkiestrowych.',
   },
   {
-    name: 'Syntezatory & Klawisze MIDI',
-    desc: 'Sterowniki MIDI, programowanie barw syntetycznych, integracja warstw cyfrowych w zespole live.',
+    name: 'Klawisze MIDI & Syntezatory',
+    desc: 'Sterowanie barwami cyfrowymi i integracja warstw elektronicznych w składach na żywo.',
   },
 ];
 
 const studioWorkflows = [
   {
     category: 'Partytury & Notacja',
-    software: ['MuseScore 4', 'Sibelius', 'MusicXML / LilyPond'],
-    desc: 'Kompleksowe przygotowanie czytelnych głosów orkiestrowych, aranżacje symfoniczne, transkrypcje wielogłosowe i edycja partytur do druku.',
+    software: ['MuseScore', 'Sibelius', 'MusicXML'],
+    desc: 'Aranżacje, transkrypcje i przygotowanie partytur oraz głosów wykonawczych dla zespołów.',
     icon: FileCode2,
   },
   {
     category: 'Produkcja Audio & Miks',
-    software: ['Logic Pro', 'Pro Tools', 'Reaper', 'Universal Audio UAD'],
-    desc: 'Wielośladowy zapis sesyjny, edycja intonacji (Melodyne), nasycenie analogowe, miks przestrzenny i mastering zgodny ze standardami emisyjnymi.',
+    software: ['Logic Pro', 'Pro Tools'],
+    desc: 'Wielośladowy zapis sesyjny, edycja ścieżek, miks oraz mastering.',
     icon: Sliders,
   },
   {
-    category: 'Sprzęt & Akustyka',
-    software: ['Mikrofony Neumann / AKG', 'Preamps Heritage / UA', 'Kalibracja Sonarworks'],
-    desc: 'Techniki mikrofonowe stereo (ORTF, Blumlein, MS), adaptacja akustyczna pomieszczeń i tor odsłuchowy o liniowej charakterystyce.',
+    category: 'Realizacja Sceniczna',
+    software: ['Miksery Cyfrowe', 'Odsłuchy IEM', 'MIDI Sync'],
+    desc: 'Konfiguracja torów audio i synchronizacja sygnałów scenicznych podczas koncertów na żywo.',
     icon: AudioWaveform,
   },
 ];
@@ -125,7 +123,7 @@ const studioWorkflows = [
       <SectionHeader
         badge="Sylwetka & Doświadczenie"
         title="Bio, Edukacja & Warsztat Twórczy"
-        subtitle="Droga artystyczna ukształtowana przez akademicką dyscyplinę dyrygencką, wszechstronne wykonawstwo instrumentalne oraz profesjonalną inżynierię dźwięku."
+        subtitle="Droga artystyczna ukształtowana przez akademicką dyrygenturę, wykonawstwo instrumentalne oraz realizację dźwięku."
         align="center"
       />
     </div>
@@ -143,25 +141,25 @@ const studioWorkflows = [
           </div>
 
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white leading-tight">
-            Od partytury symfonicznej po cyfrową reżyserię brzmienia
+            Dyrygentura, wykonawstwo sceniczne i praca studyjna
           </h2>
 
           <div class="space-y-4 text-zinc-300 font-serif leading-relaxed text-base sm:text-lg font-light">
             <p>
-              Działalność muzyczną rozpocząłem od wczesnych lat szkolnych w klasie klarnetu i fortepianu, by z biegiem lat rozszerzyć horyzont o dyrygenturę symfoniczno-chóralną, śpiew sceniczny oraz zaawansowaną produkcję studyjną.
+              Edukację muzyczną rozwijałem w szkołach muzycznych I i II stopnia w klasie klarnetu i fortepianu, a następnie na studiach wyższych magisterskich na Uniwersytecie Warmińsko-Mazurskim w Olsztynie, ukończonych dyplomem z wyróżnieniem w specjalności dyrygenckiej.
             </p>
             <p>
-              Przez ponad dwie dekady praktyki artystycznej wziąłem udział w ponad <strong class="text-[#f6d289] font-semibold">300 koncertach i spektaklach</strong> w kraju i za granicą. Kierowałem orkiestrami dętymi, przygotowywałem chóry do wielkich dzieł oratoryjnych, kreowałem role w spektaklach operetkowych i musicalowych, a także współtworzyłem energetyczne formacje estradowe.
+              Działalność sceniczna obejmuje ponad <strong class="text-[#f6d289] font-semibold">300 występów</strong>: prowadzenie orkiestr dętych, chórów akademickich i kameralnych, udział w spektaklach teatralno-operetkowych i musicalach, a także występy z formacjami estradowymi.
             </p>
             <p class="text-zinc-400 font-sans text-sm leading-relaxed">
-              Równolegle rozwijam pasję do technologii i inżynierii dźwięku — tworząc autorskie aranżacje partytur w środowiskach cyfrowych, realizując nagrania wielośladowe oraz projektując oprogramowanie sceniczne wspierające precyzyjną synchronizację występów live.
+              Równolegle zajmuję się pracą aranżacyjną (edycja partytur w programie MuseScore), realizacją nagrań wielośladowych w środowiskach Logic Pro i Pro Tools oraz inżynierią dźwięku scenicznego.
             </p>
           </div>
 
           <div class="pt-3 flex flex-wrap gap-4 text-xs font-display uppercase tracking-wider text-zinc-300">
             <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-[#e2ba64]" /> Dyrygentura orkiestr i chórów</span>
-            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-[#e2ba64]" /> Aranżacja i edycja nutowa</span>
-            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-[#e2ba64]" /> Realizacja nagrań i miks DAW</span>
+            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-[#e2ba64]" /> Aranżacja i edycja partytur</span>
+            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-[#e2ba64]" /> Realizacja dźwięku DAW</span>
           </div>
         </div>
 
@@ -169,21 +167,21 @@ const studioWorkflows = [
           <div class="theatre-card p-8 rounded-3xl border border-[#e2ba64]/30 space-y-6 relative overflow-hidden shadow-2xl">
             <div class="flex items-center justify-between border-b border-[#e2ba64]/20 pb-4">
               <span class="font-display font-bold text-lg text-white">Główne Obszary</span>
-              <span class="text-xs font-display uppercase tracking-wider text-[#e2ba64]">Praktyka 360°</span>
+              <span class="text-xs font-display uppercase tracking-wider text-[#e2ba64]">Praktyka</span>
             </div>
 
             <div class="space-y-4 text-xs text-zinc-300">
               <div class="p-4 rounded-2xl bg-[#070709] border border-[#e2ba64]/20 space-y-1">
                 <span class="text-[#f6d289] font-display font-bold uppercase tracking-wider block">DYRYGENTURA & APARAT WYKONAWCZY</span>
-                <span class="text-zinc-400 font-serif italic text-sm">Prowadzenie orkiestr symfonicznych, dętych i chórów mieszanych z naciskiem na spójność brzmieniową.</span>
+                <span class="text-zinc-400 font-serif italic text-sm">Prowadzenie orkiestr symfonicznych, dętych i chórów.</span>
               </div>
               <div class="p-4 rounded-2xl bg-[#070709] border border-[#e2ba64]/20 space-y-1">
                 <span class="text-[#faecd0] font-display font-bold uppercase tracking-wider block">WYKONAWSTWO INSTRUMENTALNE & WOKAL</span>
-                <span class="text-zinc-400 font-serif italic text-sm">Klarnet (B/A), fortepian, partie wokalne (tenor solowy/ansambl), organy liturgiczne.</span>
+                <span class="text-zinc-400 font-serif italic text-sm">Klarnet, fortepian, śpiew solowy i zespołowy, organy.</span>
               </div>
               <div class="p-4 rounded-2xl bg-[#070709] border border-[#e2ba64]/20 space-y-1">
-                <span class="text-[#e2ba64] font-display font-bold uppercase tracking-wider block">PRODUKCJA STUDYJNA & SOFTWARE</span>
-                <span class="text-zinc-400 font-serif italic text-sm">Realizacja wielośladowa w Logic Pro / Pro Tools, transkrypcje MuseScore oraz silniki WebAudio/MIDI.</span>
+                <span class="text-[#e2ba64] font-display font-bold uppercase tracking-wider block">STUDIO, PARTYTURY & SOFTWARE</span>
+                <span class="text-zinc-400 font-serif italic text-sm">Logic Pro, Pro Tools, MuseScore oraz oprogramowanie sceniczne.</span>
               </div>
             </div>
           </div>
@@ -205,7 +203,7 @@ const studioWorkflows = [
           Edukacja <span class="text-gold">Muzyczna</span>
         </h2>
         <p class="text-zinc-300 font-serif italic text-base sm:text-lg font-light">
-          Solidny fundament wykształcenia artystycznego poparty dyplomami z wyróżnieniem.
+          Ukończone uczelnie i szkoły muzyczne.
         </p>
       </div>
 
@@ -259,7 +257,7 @@ const studioWorkflows = [
           Instrumentarium & <span class="text-gold">Kompetencje</span>
         </h2>
         <p class="text-zinc-300 font-serif italic text-base sm:text-lg font-light">
-          Główne filary warsztatu instrumentalnego, wokalnego i dyrygenckiego.
+          Główne i dodatkowe instrumenty oraz dyscypliny muzyczne.
         </p>
       </div>
 
@@ -294,7 +292,7 @@ const studioWorkflows = [
       <div class="theatre-card p-8 sm:p-10 rounded-3xl border border-[#e2ba64]/20 max-w-5xl mx-auto shadow-lg">
         <h3 class="text-xs font-display font-bold uppercase tracking-widest text-[#f6d289] mb-6 flex items-center gap-2.5">
           <Layers class="w-4 h-4 text-[#e2ba64]" />
-          <span>Instrumentarium Dodatkowe & Konteksty Wykonawcze</span>
+          <span>Instrumentarium Dodatkowe</span>
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {additionalInstruments.map((item) => (
@@ -321,7 +319,7 @@ const studioWorkflows = [
           Studio, Partytury & <span class="text-gold">Realizacja Dźwięku</span>
         </h2>
         <p class="text-zinc-300 font-serif italic text-base sm:text-lg font-light">
-          Zaawansowane oprogramowanie i technologia wspierająca proces od pierwszej nuty partytury do finalnego masteringu.
+          Oprogramowanie do edycji partytur i produkcji muzycznej.
         </p>
       </div>
 
