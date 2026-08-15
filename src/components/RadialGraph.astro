@@ -22,14 +22,14 @@ const chory = allEnsembles.filter(e => e.data.pillar === 'chory').sort((a, b) =>
 const teatr = allEnsembles.filter(e => e.data.pillar === 'teatr').sort((a, b) => a.data.order - b.data.order);
 const estrada = allEnsembles.filter(e => e.data.pillar === 'estrada').sort((a, b) => a.data.order - b.data.order);
 
-// 4 Main Pillars with exact geometry
+// 4 Main Pillars with mathematically symmetric geometry (viewBox 900 x 680, Center 450, 340)
 const pillars = [
   {
     id: 'orkiestry',
     name: 'Orkiestry',
     count: '3 zespoły',
     icon: Music,
-    cx: 260,
+    cx: 250,
     cy: 180,
     ensembles: orkiestry,
   },
@@ -38,7 +38,7 @@ const pillars = [
     name: 'Chóry',
     count: '2 zespoły',
     icon: Mic,
-    cx: 640,
+    cx: 650,
     cy: 180,
     ensembles: chory,
   },
@@ -47,7 +47,7 @@ const pillars = [
     name: 'Teatr & Scena',
     count: '2 produkcje',
     icon: Drama,
-    cx: 640,
+    cx: 650,
     cy: 500,
     ensembles: teatr,
   },
@@ -56,7 +56,7 @@ const pillars = [
     name: 'Estrada',
     count: '2 składy',
     icon: Radio,
-    cx: 260,
+    cx: 250,
     cy: 500,
     ensembles: estrada,
   },
@@ -97,7 +97,7 @@ const pillars = [
     <!-- ========================================== -->
     <div class="hidden lg:block relative w-full max-w-5xl mx-auto aspect-[900/680] rounded-3xl border border-sky-500/20 bg-[#0b1528]/90 backdrop-blur-2xl p-4 shadow-ocean-card overflow-hidden" id="radial-container">
       
-      <!-- SVG Orbital Lines -->
+      <!-- SVG Orbital Lines (Exact 900x680 geometry) -->
       <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 900 680" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="azureGlow" cx="450" cy="340" r="320" gradientUnits="userSpaceOnUse">
@@ -114,28 +114,29 @@ const pillars = [
 
         <circle cx="450" cy="340" r="300" fill="url(#azureGlow)"/>
 
-        <!-- Concentric Orbital Rings -->
+        <!-- Concentric Orbital Rings centered at 450, 340 -->
         <circle cx="450" cy="340" r="130" stroke="rgba(56, 189, 248, 0.2)" stroke-width="1.5" stroke-dasharray="4 6" class="animate-orbit-slow origin-[450px_340px]" />
         <circle cx="450" cy="340" r="255" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.5" stroke-dasharray="6 8" class="animate-spin-reverse-slow origin-[450px_340px]" />
-        <circle cx="450" cy="340" r="375" stroke="rgba(56, 189, 248, 0.1)" stroke-width="1" />
+        <circle cx="450" cy="340" r="365" stroke="rgba(56, 189, 248, 0.1)" stroke-width="1" />
 
-        <!-- Diagonal Acoustic Spokes -->
-        <line x1="450" y1="340" x2="260" y2="180" stroke="url(#azureSpoke)" stroke-width="1.5" stroke-dasharray="4 4" />
-        <line x1="450" y1="340" x2="640" y2="180" stroke="url(#azureSpoke)" stroke-width="1.5" stroke-dasharray="4 4" />
-        <line x1="450" y1="340" x2="640" y2="500" stroke="url(#azureSpoke)" stroke-width="1.5" stroke-dasharray="4 4" />
-        <line x1="450" y1="340" x2="260" y2="500" stroke="url(#azureSpoke)" stroke-width="1.5" stroke-dasharray="4 4" />
+        <!-- Symmetrical Spokes from center (450, 340) to pillars -->
+        <line x1="450" y1="340" x2="250" y2="180" stroke="url(#azureSpoke)" stroke-width="1.5" stroke-dasharray="4 4" />
+        <line x1="450" y1="340" x2="650" y2="180" stroke="url(#azureSpoke)" stroke-width="1.5" stroke-dasharray="4 4" />
+        <line x1="450" y1="340" x2="650" y2="500" stroke="url(#azureSpoke)" stroke-width="1.5" stroke-dasharray="4 4" />
+        <line x1="450" y1="340" x2="250" y2="500" stroke="url(#azureSpoke)" stroke-width="1.5" stroke-dasharray="4 4" />
 
         <!-- Dynamic Satellite Connector Lines -->
         <g id="svg-satellite-lines"></g>
       </svg>
 
-      <!-- 1. CENTRAL MEDALLION: 300+ WYSTĘPÓW -->
+      <!-- 1. CENTRAL MEDALLION (Exactly at left: 50%, top: 50%) -->
       <div
         id="central-node"
         role="button"
         tabindex="0"
         title="Widok ogólny"
-        class="absolute top-[340px] left-[450px] -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer group focus:outline-none"
+        style="left: 50%; top: 50%;"
+        class="absolute -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer group focus:outline-none"
       >
         <div class="relative flex flex-col items-center justify-center w-44 h-44 rounded-full bg-[#0f1d38] border-2 border-sky-400 shadow-blue-glow group-hover:scale-105 transition-all duration-300 backdrop-blur-md">
           
@@ -153,16 +154,18 @@ const pillars = [
         </div>
       </div>
 
-      <!-- 2. ORBIT 1: 4 PILLAR MEDALLIONS -->
+      <!-- 2. ORBIT 1: 4 PILLAR MEDALLIONS (Percentages aligned perfectly with SVG) -->
       {pillars.map((pillar) => {
         const Icon = pillar.icon;
+        const leftPercent = (pillar.cx / 900) * 100;
+        const topPercent = (pillar.cy / 680) * 100;
         return (
           <div
             id={`pillar-node-${pillar.id}`}
             data-pillar-id={pillar.id}
             role="button"
             tabindex="0"
-            style={`top: ${pillar.cy}px; left: ${pillar.cx}px;`}
+            style={`left: ${leftPercent}%; top: ${topPercent}%;`}
             class={`pillar-btn absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group focus:outline-none transition-all duration-300`}
           >
             <div class="relative flex flex-col items-center justify-center w-36 h-36 rounded-3xl bg-[#0f1d38]/90 border border-sky-400/25 hover:border-sky-400 shadow-ocean-card backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-blue-glow">
@@ -280,24 +283,24 @@ const pillars = [
   const centralNode = document.getElementById('central-node');
   const pillarBtns = document.querySelectorAll('.pillar-btn');
 
-  // Satellite positions layout
+  // Mathematically balanced satellite offsets
   const satelliteOffsets = {
     orkiestry: [
-      { dx: -130, dy: -65 },
-      { dx: -140, dy: 55 },
-      { dx: -15, dy: -125 },
+      { dx: -135, dy: -55 },
+      { dx: -135, dy: 55 },
+      { dx: 0, dy: -125 },
     ],
     chory: [
-      { dx: 130, dy: -60 },
-      { dx: 15, dy: -125 },
+      { dx: 135, dy: -50 },
+      { dx: 0, dy: -125 },
     ],
     teatr: [
-      { dx: 130, dy: 60 },
-      { dx: 15, dy: 125 },
+      { dx: 135, dy: 50 },
+      { dx: 0, dy: 125 },
     ],
     estrada: [
-      { dx: -130, dy: 60 },
-      { dx: -15, dy: 125 },
+      { dx: -135, dy: 50 },
+      { dx: 0, dy: 125 },
     ],
   };
 
@@ -319,7 +322,7 @@ const pillars = [
     pillarBtns.forEach((btn) => {
       const card = btn.querySelector('div');
       if (card) {
-        card.classList.remove('border-sky-400', 'shadow-blue-glow', 'scale-105', 'bg-sky-950/80');
+        card.classList.remove('border-sky-400', 'shadow-blue-glow', 'scale-105', 'bg-[#142548]');
       }
       const badge = btn.querySelector('span.absolute');
       if (badge) {
@@ -356,7 +359,7 @@ const pillars = [
       const satX = pillar.cx + offset.dx;
       const satY = pillar.cy + offset.dy;
 
-      // 1. Draw SVG connection line
+      // 1. Draw SVG connection line in 900x680 coordinate space
       if (svgLinesLayer) {
         const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
         line.setAttribute('x1', pillar.cx.toString());
@@ -366,17 +369,20 @@ const pillars = [
         line.setAttribute('stroke', '#38bdf8');
         line.setAttribute('stroke-width', '1.5');
         line.setAttribute('stroke-dasharray', '3 3');
-        line.setAttribute('opacity', '0.7');
+        line.setAttribute('opacity', '0.8');
         line.classList.add('transition-all', 'duration-500');
         svgLinesLayer.appendChild(line);
       }
 
-      // 2. Create interactive Satellite Node
+      // 2. Create interactive Satellite Node with exact percentage positioning
       if (satellitesLayer) {
         const satNode = document.createElement('div');
         satNode.className = 'satellite-node absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto cursor-pointer group z-30 transition-all duration-300 hover:scale-105';
-        satNode.style.left = `${satX}px`;
-        satNode.style.top = `${satY}px`;
+        
+        const satLeftPercent = (satX / 900) * 100;
+        const satTopPercent = (satY / 680) * 100;
+        satNode.style.left = `${satLeftPercent}%`;
+        satNode.style.top = `${satTopPercent}%`;
 
         satNode.innerHTML = `
           <div class="relative p-3.5 rounded-2xl bg-[#0f1d38] border border-sky-400/40 hover:border-sky-400 shadow-ocean-card hover:shadow-blue-glow w-48 text-left transition-all duration-300">
