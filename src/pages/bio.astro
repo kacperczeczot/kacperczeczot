@@ -21,30 +21,29 @@ const education = [
     period: 'Studia Wyższe Magisterskie',
     institution: 'Uniwersytet Warmińsko-Mazurski w Olsztynie',
     degree: 'Dyplom z Wyróżnieniem',
-    specialization: 'Edukacja Artystyczna w Zakresie Sztuki Muzycznej / Dyrygentura i Prowadzenie Zespołów',
+    specialization: 'Edukacja Artystyczna w Zakresie Sztuki Muzycznej — Dyrygentura',
     highlights: [
-      'Główny dyplom dyrygencki z orkiestrą symfoniczną i chórem mieszanym (dyplom z wyróżnieniem)',
-      'Metodyka prowadzenia chórów, orkiestr dętych i zespołów kameralnych',
-      'Działalność w strukturach artystycznych uczelni oraz prowadzenie biblioteki nutowej',
+      'Główny dyplom dyrygencki z orkiestrą symfoniczną i chórem mieszanym w Filharmonii Warmińsko-Mazurskiej',
+      'Prowadzenie zespołów wokalnych, chóralnych i orkiestrowych',
     ],
   },
   {
-    period: 'Państwowa Szkoła Muzyczna II Stopnia',
-    institution: 'PSM II st. im. Fryderyka Chopina',
-    degree: 'Dyplom Zawodowego Muzyka Instrumentalisty',
-    specialization: 'Klasa Klarnetu & Fortepian Dodatkowy',
+    period: 'Szkoła Muzyczna II Stopnia',
+    institution: 'Państwowa Szkoła Muzyczna II st.',
+    degree: 'Dyplom Muzyka Instrumentalisty',
+    specialization: 'Klarnet & Fortepian',
     highlights: [
-      'Literatura klarnetowa, gra w orkiestrze symfonicznej szkoły muzycznej oraz zespołach kameralnych dętych',
-      'Harmonia klasyczna, kontrapunkt, kształcenie słuchu i analiza dzieła muzycznego',
+      'Wykonawstwo instrumentalne w klasie klarnetu i fortepianu',
+      'Praktyka w zespołach orkiestrowych i kameralnych',
     ],
   },
   {
-    period: 'Państwowa Szkoła Muzyczna I Stopnia',
-    institution: 'PSM I st.',
-    degree: 'Świadectwo Ukończenia z Wyróżnieniem',
-    specialization: 'Klasa Klarnetu & Fortepian',
+    period: 'Szkoła Muzyczna I Stopnia',
+    institution: 'Państwowa Szkoła Muzyczna I st.',
+    degree: 'Świadectwo Ukończenia',
+    specialization: 'Klarnet & Fortepian',
     highlights: [
-      'Aparat gry na klarnecie, intonacja, technika palcowa i pierwsze występy sceniczne',
+      'Podstawy wykonawstwa instrumentalnego i teorii muzyki',
     ],
   },
 ];
@@ -52,26 +51,26 @@ const education = [
 const mainInstruments = [
   {
     name: 'Dyrygentura',
-    category: 'Główna Dyscyplina',
-    desc: 'Prowadzenie orkiestr symfonicznych, dętych i chórów. Praca nad intonacją, dynamiką i wyrazem partytury.',
+    category: 'Dyscyplina Główna',
+    desc: 'Kierownictwo muzyczne i prowadzenie orkiestr oraz chórów.',
     icon: Sparkles,
   },
   {
     name: 'Klarnet',
     category: 'Instrument Główny',
-    desc: 'Wykonawstwo solowe, kameralne oraz orkiestrowe w repertuarze symfonicznym i marszowym.',
+    desc: 'Wykonawstwo solowe, kameralne oraz orkiestrowe.',
     icon: Music,
   },
   {
     name: 'Fortepian',
     category: 'Instrument Główny',
-    desc: 'Czytanie partytur i wyciągów fortepianowych, realizacja harmonii i akompaniament.',
+    desc: 'Wykonawstwo instrumentalne i praca z partyturą.',
     icon: Piano,
   },
   {
     name: 'Śpiew / Wokal',
-    category: 'Głos Solowy & Chóralny',
-    desc: 'Emisja głosu, partie solowe w spektaklach operetkowych i musicalowych oraz śpiew chóralny.',
+    category: 'Głos',
+    desc: 'Śpiew solowy, spektakle muzyczne oraz partie chóralne (tenor).',
     icon: Mic2,
   },
 ];
@@ -79,48 +78,26 @@ const mainInstruments = [
 const additionalInstruments = [
   {
     name: 'Organy Liturgiczne',
-    desc: 'Akompaniament liturgiczny i obsługa instrumentu w obiektach sakralnych.',
+    desc: 'Akompaniament liturgiczny i oprawa uroczystości.',
   },
   {
     name: 'Perkusja / Kotły',
-    desc: 'Gra na kotłach i instrumentarium perkusyjnym w składach orkiestrowych.',
-  },
-  {
-    name: 'Klawisze MIDI & Syntezatory',
-    desc: 'Sterowanie barwami cyfrowymi i integracja warstw elektronicznych w składach na żywo.',
-  },
-];
-
-const studioWorkflows = [
-  {
-    category: 'Partytury & Notacja',
-    desc: 'Aranżacje, transkrypcje i przygotowanie partytur oraz głosów wykonawczych dla zespołów.',
-    icon: FileCode2,
-  },
-  {
-    category: 'Produkcja Audio & Miks',
-    desc: 'Zapis sesyjny, edycja ścieżek, miks oraz produkcja nagrań muzycznych.',
-    icon: Sliders,
-  },
-  {
-    category: 'Realizacja Sceniczna',
-    desc: 'Konfiguracja torów audio i synchronizacja sygnałów scenicznych podczas wydarzeń na żywo.',
-    icon: AudioWaveform,
+    desc: 'Instrumentarium perkusyjne w składach orkiestrowych.',
   },
 ];
 ---
 
 <BaseLayout
-  title="Bio, Edukacja & Warsztat Twórczy — Kacper Czeczot"
-  description="Sylwetka artystyczna dyrygenta i instrumentalisty Kacpra Czeczota: wykształcenie muzyczne na UWM z wyróżnieniem, PSM I i II st., instrumentarium oraz warsztat partytur i produkcji muzycznej."
+  title="Bio & Edukacja — Kacper Czeczot"
+  description="Sylwetka artystyczna dyrygenta i muzyka Kacpra Czeczota: wykształcenie muzyczne UWM z wyróżnieniem, PSM I i II st. oraz instrumentarium."
 >
   <!-- Page Header -->
   <section class="relative pt-36 pb-20 md:pt-44 md:pb-24 overflow-hidden border-b border-sky-500/15 bg-[#070d1a]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <SectionHeader
         badge="Sylwetka & Doświadczenie"
-        title="Bio, Edukacja & Warsztat Twórczy"
-        subtitle="Droga artystyczna ukształtowana przez akademicką dyrygenturę, wykonawstwo instrumentalne oraz realizację dźwięku."
+        title="Bio & Edukacja"
+        subtitle="Wykształcenie dyrygenckie, wykonawstwo instrumentalne oraz działalność sceniczna."
         align="center"
       />
     </div>
@@ -134,51 +111,48 @@ const studioWorkflows = [
         <div class="lg:col-span-7 space-y-6">
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#0f1d38] text-sky-200 border border-sky-400/30 font-display">
             <BookOpen class="w-3.5 h-3.5 text-sky-400" />
-            <span>Biogram Artystyczny</span>
+            <span>Biogram</span>
           </div>
 
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white leading-tight">
-            Dyrygentura, wykonawstwo sceniczne i produkcja muzyczna
+            Dyrygentura, wykonawstwo instrumentalne i scena
           </h2>
 
           <div class="space-y-4 text-slate-300 font-sans leading-relaxed text-base sm:text-lg">
             <p>
-              Edukację muzyczną rozwijałem w szkołach muzycznych I i II stopnia w klasie klarnetu i fortepianu, a następnie na studiach wyższych magisterskich na Uniwersytecie Warmińsko-Mazurskim w Olsztynie, ukończonych dyplomem z wyróżnieniem w specjalności dyrygenckiej.
+              Wykształcenie muzyczne w Państwowych Szkołach Muzycznych I i II stopnia w klasie klarnetu i fortepianu oraz na Uniwersytecie Warmińsko-Mazurskim w Olsztynie, ukończone dyplomem z wyróżnieniem w specjalności dyrygenckiej.
             </p>
             <p>
-              Działalność sceniczna obejmuje ponad <strong class="text-sky-300 font-semibold">300 występów</strong>: prowadzenie orkiestr dętych, chórów akademickich i kameralnych, udział w spektaklach teatralno-operetkowych i musicalach, a także występy z formacjami estradowymi.
-            </p>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Równolegle zajmuję się pracą aranżacyjną, edycją partytur nutowych, realizacją nagrań wielośladowych oraz inżynierią dźwięku scenicznego.
+              Działalność sceniczna obejmuje ponad <strong class="text-sky-300 font-semibold">300 występów</strong> w ramach orkiestr dętych, chórów, spektakli teatralnych, musicalu oraz formacji estradowych.
             </p>
           </div>
 
           <div class="pt-3 flex flex-wrap gap-4 text-xs font-bold uppercase tracking-wider text-slate-300 font-display">
             <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Dyrygentura orkiestr i chórów</span>
-            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Aranżacja i edycja partytur</span>
-            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Realizacja i produkcja dźwięku</span>
+            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Klarnet i fortepian</span>
+            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Śpiew i teatr muzyczny</span>
           </div>
         </div>
 
         <div class="lg:col-span-5">
           <div class="ocean-card p-8 rounded-3xl border border-sky-500/25 space-y-6 relative overflow-hidden shadow-ocean-card">
             <div class="flex items-center justify-between border-b border-sky-500/15 pb-4">
-              <span class="font-display font-bold text-lg text-white">Główne Obszary</span>
-              <span class="text-xs font-bold uppercase tracking-wider text-sky-400 font-display">Praktyka</span>
+              <span class="font-display font-bold text-lg text-white">Obszary Działalności</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-sky-400 font-display">Fakty</span>
             </div>
 
             <div class="space-y-3.5 text-xs text-slate-300">
               <div class="p-4 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1 shadow-xs">
-                <span class="text-sky-300 font-display font-bold uppercase tracking-wider block">DYRYGENTURA & APARAT WYKONAWCZY</span>
-                <span class="text-slate-400 text-xs">Prowadzenie orkiestr symfonicznych, dętych i chórów.</span>
+                <span class="text-sky-300 font-display font-bold uppercase tracking-wider block">DYRYGENTURA</span>
+                <span class="text-slate-400 text-xs">Prowadzenie orkiestr dętych, symfonicznych i chórów.</span>
               </div>
               <div class="p-4 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1 shadow-xs">
-                <span class="text-slate-200 font-display font-bold uppercase tracking-wider block">WYKONAWSTWO INSTRUMENTALNE & WOKAL</span>
-                <span class="text-slate-400 text-xs">Klarnet, fortepian, śpiew solowy i zespołowy, organy.</span>
+                <span class="text-slate-200 font-display font-bold uppercase tracking-wider block">WYKONAWSTWO INSTRUMENTALNE & ŚPIEW</span>
+                <span class="text-slate-400 text-xs">Klarnet, fortepian, śpiew sceniczny i chóralny, organy.</span>
               </div>
               <div class="p-4 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1 shadow-xs">
-                <span class="text-sky-400 font-display font-bold uppercase tracking-wider block">STUDIO, PARTYTURY & SOFTWARE</span>
-                <span class="text-slate-400 text-xs">Aranżacje, edycja partytur oraz oprogramowanie sceniczne.</span>
+                <span class="text-sky-400 font-display font-bold uppercase tracking-wider block">PRODUKCJA & ARANŻACJE</span>
+                <span class="text-slate-400 text-xs">Aranżacje partytur oraz realizacja dźwięku.</span>
               </div>
             </div>
           </div>
@@ -194,14 +168,11 @@ const studioWorkflows = [
       
       <div class="text-center max-w-3xl mx-auto space-y-3">
         <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 font-display">
-          Ścieżka Akademicka & Kwalifikacje
+          Kwalifikacje
         </span>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
           Edukacja <span class="text-blue-gradient">Muzyczna</span>
         </h2>
-        <p class="text-slate-300 text-base sm:text-lg font-normal">
-          Ukończone uczelnie i szkoły muzyczne.
-        </p>
       </div>
 
       <div class="space-y-6 max-w-4xl mx-auto">
@@ -224,7 +195,7 @@ const studioWorkflows = [
 
             <div class="pt-5 space-y-3.5">
               <p class="text-sm font-semibold uppercase tracking-wider text-slate-200 font-display">
-                Kierunek / Specjalność: <span class="text-slate-300 font-normal font-sans normal-case">{item.specialization}</span>
+                Specjalność: <span class="text-slate-300 font-normal font-sans normal-case">{item.specialization}</span>
               </p>
               <ul class="space-y-2 text-sm text-slate-300 font-sans">
                 {item.highlights.map(h => (
@@ -243,19 +214,16 @@ const studioWorkflows = [
   </section>
 
   <!-- 3. INSTRUMENTARIUM -->
-  <section class="py-24 bg-[#091224] border-b border-sky-500/15 relative">
+  <section class="py-24 bg-[#091224] relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
       
       <div class="text-center max-w-3xl mx-auto space-y-3">
         <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 font-display">
-          Praktyka Wykonawcza
+          Dyscypliny & Instrumentarium
         </span>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
-          Instrumentarium & <span class="text-blue-gradient">Kompetencje</span>
+          Praktyka <span class="text-blue-gradient">Wykonawcza</span>
         </h2>
-        <p class="text-slate-300 text-base sm:text-lg font-normal">
-          Główne i dodatkowe instrumenty oraz dyscypliny muzyczne.
-        </p>
       </div>
 
       <!-- Main Instruments Grid -->
@@ -291,7 +259,7 @@ const studioWorkflows = [
           <Layers class="w-4 h-4 text-sky-400" />
           <span>Instrumentarium Dodatkowe</span>
         </h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           {additionalInstruments.map((item) => (
             <div class="p-5 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1.5 shadow-xs">
               <h4 class="text-sm font-bold text-white font-display">{item.name}</h4>
@@ -299,46 +267,6 @@ const studioWorkflows = [
             </div>
           ))}
         </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 4. STUDIO, ARANŻACJE & PARTYTURY -->
-  <section class="py-24 bg-[#070d1a] relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
-      
-      <div class="text-center max-w-3xl mx-auto space-y-3">
-        <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 font-display">
-          Środowisko Pracy
-        </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
-          Partytury & <span class="text-blue-gradient">Produkcja Muzyczna</span>
-        </h2>
-        <p class="text-slate-300 text-base sm:text-lg font-normal">
-          Edycja partytur, aranżacja i produkcja muzyczna.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
-        {studioWorkflows.map((item) => {
-          const Icon = item.icon;
-          return (
-            <div class="ocean-card p-8 rounded-3xl border border-sky-500/20 hover:border-sky-400/50 transition-all flex flex-col justify-between group shadow-ocean-card">
-              <div class="space-y-4">
-                <div class="w-12 h-12 rounded-2xl bg-[#070d1a] border border-sky-400/25 text-sky-400 flex items-center justify-center group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all">
-                  <Icon class="w-6 h-6" />
-                </div>
-                <h3 class="text-xl font-display font-bold text-white group-hover:text-sky-300 transition-colors">
-                  {item.category}
-                </h3>
-                <p class="text-xs text-slate-300 font-sans leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            </div>
-          );
-        })}
       </div>
 
     </div>
