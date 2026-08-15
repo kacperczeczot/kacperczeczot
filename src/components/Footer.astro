@@ -1,33 +1,33 @@
 ---
-import { Github, Youtube, Mail, Copy, Check, ArrowUpRight, Music2 } from 'lucide-astro';
+import { Github, Youtube, Mail, Copy, Check, ArrowUpRight } from 'lucide-astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentYear = new Date().getFullYear();
 const contactEmail = 'kacperczeczot7@gmail.com';
 ---
 
-<footer id="kontakt" class="relative border-t border-[#e2ba64]/20 bg-[#070709] pt-20 pb-12 overflow-hidden">
+<footer id="kontakt" class="relative border-t border-slate-200 bg-white pt-20 pb-12 overflow-hidden">
   
-  <!-- Theatrical Glow -->
-  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-gradient-to-t from-[#e2ba64]/8 to-transparent blur-3xl pointer-events-none"></div>
+  <!-- Subtle Azure Glow -->
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-gradient-to-t from-sky-100/50 to-transparent blur-3xl pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-14 border-b border-[#e2ba64]/15">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-14 border-b border-slate-200">
       
       <!-- Brand & Artistic Statement -->
       <div class="md:col-span-5 space-y-5">
         <div class="flex items-center gap-3.5">
-          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#f6d289]/20 via-[#15141a] to-[#070709] border border-[#e2ba64]/40 flex items-center justify-center text-[#f6d289] shadow-gold-glow">
-            <span class="font-display font-extrabold text-base tracking-widest">KC</span>
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center text-white font-display font-extrabold text-base shadow-azure-sm">
+            KC
           </div>
           <div>
-            <h3 class="font-display font-bold text-white text-lg tracking-wide">Kacper Czeczot</h3>
-            <p class="text-xs text-[#e2ba64] font-display tracking-widest uppercase">DYRYGENT • MUZYK • REŻYSER DŹWIĘKU</p>
+            <h3 class="font-display font-bold text-slate-900 text-lg tracking-tight">Kacper Czeczot</h3>
+            <p class="text-xs text-sky-700 font-semibold uppercase tracking-wider font-display">DYRYGENT • MUZYK • REŻYSER DŹWIĘKU</p>
           </div>
         </div>
 
-        <p class="text-zinc-300 font-serif italic text-base leading-relaxed max-w-md font-light">
-          Łączenie klasycznej dyscypliny symfoniczno-chóralnej ze współczesną produkcją muzyczną, kunsztem instrumentalnym oraz reżyserią dźwięku.
+        <p class="text-slate-600 font-sans text-base leading-relaxed max-w-md font-normal">
+          Dyscyplina dyrygentury symfoniczno-chóralnej, wykonawstwo instrumentalne oraz współczesna realizacja dźwięku.
         </p>
 
         <!-- Social Media Links -->
@@ -37,16 +37,16 @@ const contactEmail = 'kacperczeczot7@gmail.com';
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Profil GitHub"
-            class="p-3 rounded-xl bg-[#15141a] border border-[#e2ba64]/20 text-zinc-300 hover:text-white hover:border-[#e2ba64] hover:bg-[#1e1c24] transition-all shadow-sm"
+            class="p-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-sky-600 hover:border-sky-300 hover:bg-sky-50 transition-all shadow-xs"
           >
-            <Github class="w-4 h-4 text-[#e2ba64]" />
+            <Github class="w-4 h-4" />
           </a>
           <a
-            href="https://youtube.com"
+            href="https://youtube.com/@Czeczotmordo"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Kanał YouTube"
-            class="p-3 rounded-xl bg-[#15141a] border border-[#e2ba64]/20 text-zinc-300 hover:text-red-400 hover:border-red-500/40 hover:bg-[#1e1c24] transition-all shadow-sm"
+            class="p-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-red-500 hover:border-red-200 hover:bg-red-50 transition-all shadow-xs"
           >
             <Youtube class="w-4 h-4" />
           </a>
@@ -55,30 +55,30 @@ const contactEmail = 'kacperczeczot7@gmail.com';
 
       <!-- Quick Navigation Links -->
       <div class="md:col-span-3 space-y-4">
-        <h4 class="text-xs font-display font-bold text-[#e2ba64] uppercase tracking-widest">Nawigacja</h4>
-        <ul class="space-y-2.5 text-sm text-zinc-300">
+        <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider font-display">Nawigacja</h4>
+        <ul class="space-y-2.5 text-sm text-slate-600 font-medium">
           <li>
-            <a href={`${base}/`} class="hover:text-[#f6d289] transition-colors flex items-center gap-1 group font-serif text-base font-light">
+            <a href={`${base}/`} class="hover:text-sky-600 transition-colors flex items-center gap-1 group">
               <span>Scena & Zespoły</span>
-              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#e2ba64]" />
+              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-sky-600" />
             </a>
           </li>
           <li>
-            <a href={`${base}/projekty-autorskie`} class="hover:text-[#f6d289] transition-colors flex items-center gap-1 group font-serif text-base font-light">
+            <a href={`${base}/projekty-autorskie`} class="hover:text-sky-600 transition-colors flex items-center gap-1 group">
               <span>Dzieła Autorskie</span>
-              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#e2ba64]" />
+              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-sky-600" />
             </a>
           </li>
           <li>
-            <a href={`${base}/bio`} class="hover:text-[#f6d289] transition-colors flex items-center gap-1 group font-serif text-base font-light">
+            <a href={`${base}/bio`} class="hover:text-sky-600 transition-colors flex items-center gap-1 group">
               <span>Bio & Warsztat</span>
-              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#e2ba64]" />
+              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-sky-600" />
             </a>
           </li>
           <li>
-            <a href={`${base}/lab`} class="hover:text-[#f6d289] transition-colors flex items-center gap-1 group font-serif text-base font-light">
+            <a href={`${base}/lab`} class="hover:text-sky-600 transition-colors flex items-center gap-1 group">
               <span>Laboratorium (Lab)</span>
-              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#e2ba64]" />
+              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-sky-600" />
             </a>
           </li>
         </ul>
@@ -86,28 +86,28 @@ const contactEmail = 'kacperczeczot7@gmail.com';
 
       <!-- Direct Contact & Copy Email Box -->
       <div class="md:col-span-4 space-y-4">
-        <h4 class="text-xs font-display font-bold text-[#e2ba64] uppercase tracking-widest">Kontakt Bezpośredni</h4>
-        <p class="text-sm text-zinc-300 font-serif leading-relaxed font-light">
-          Otwarty na projekty dyrygenckie, aranżacje partytur, produkcję muzyczną oraz współpracę sceniczną.
+        <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider font-display">Kontakt Bezpośredni</h4>
+        <p class="text-sm text-slate-600 font-normal leading-relaxed">
+          Projekty dyrygenckie, aranżacje partytur, produkcja muzyczna oraz współpraca sceniczna.
         </p>
 
         <div class="pt-1">
-          <div class="flex items-center justify-between p-2 pl-4 rounded-2xl bg-[#15141a] border border-[#e2ba64]/30 hover:border-[#e2ba64] transition-all shadow-md">
-            <div class="flex items-center gap-2.5 text-sm text-zinc-200">
-              <Mail class="w-4 h-4 text-[#e2ba64]" />
-              <span id="footer-email-text" class="font-display tracking-wider text-xs sm:text-sm font-semibold text-[#faecd0]">{contactEmail}</span>
+          <div class="flex items-center justify-between p-2 pl-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-300 transition-all shadow-xs">
+            <div class="flex items-center gap-2.5 text-sm text-slate-800">
+              <Mail class="w-4 h-4 text-sky-600" />
+              <span id="footer-email-text" class="font-semibold text-xs sm:text-sm text-slate-900">{contactEmail}</span>
             </div>
             <button
               id="copy-email-btn"
               type="button"
-              class="p-2.5 rounded-xl bg-[#070709] hover:bg-[#e2ba64] hover:text-[#070709] text-[#f6d289] transition-all focus:outline-none"
+              class="p-2.5 rounded-xl bg-white hover:bg-sky-600 hover:text-white text-slate-700 transition-all focus:outline-none border border-slate-200 shadow-xs"
               title="Kopiuj adres e-mail"
             >
               <Copy id="copy-icon" class="w-4 h-4" />
-              <Check id="check-icon" class="w-4 h-4 hidden text-emerald-400" />
+              <Check id="check-icon" class="w-4 h-4 hidden text-emerald-600" />
             </button>
           </div>
-          <p id="copy-feedback" class="text-xs text-[#f6d289] mt-2 hidden font-serif italic">
+          <p id="copy-feedback" class="text-xs text-sky-700 mt-2 hidden font-semibold">
             ✓ Skopiowano adres e-mail do schowka
           </p>
         </div>
@@ -116,11 +116,11 @@ const contactEmail = 'kacperczeczot7@gmail.com';
     </div>
 
     <!-- Copyright and Philharmonic Credits -->
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400 font-display">
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
       <p>© {currentYear} Kacper Czeczot. Wszelkie prawa zastrzeżone.</p>
-      <p class="flex items-center gap-2 text-zinc-400">
+      <p class="flex items-center gap-2 text-slate-500">
         <span>Portfolio Artystyczne</span>
-        <span class="text-[#e2ba64]">✦</span>
+        <span class="text-sky-500">✦</span>
         <span>Dyrygentura & Muzyka</span>
       </p>
     </div>

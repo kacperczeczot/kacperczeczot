@@ -4,7 +4,7 @@ import { X, Award, Calendar, CheckCircle2, Image as ImageIcon, Sparkles, Externa
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<!-- Accessible Theatrical Slide-over Drawer / Bottom Sheet -->
+<!-- Accessible Slide-over Drawer / Bottom Sheet -->
 <aside
   id="ensemble-drawer"
   class="fixed inset-0 z-50 pointer-events-none transition-all duration-300"
@@ -13,23 +13,23 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   aria-labelledby="drawer-ensemble-name"
   aria-hidden="true"
 >
-  <!-- Backdrop Overlay with Theater Darkness -->
+  <!-- Backdrop Overlay -->
   <div
     id="drawer-backdrop"
-    class="absolute inset-0 bg-black/85 backdrop-blur-md opacity-0 transition-opacity duration-300 pointer-events-none"
+    class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"
   ></div>
 
   <!-- Drawer Container -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none flex justify-end">
     <div
       id="drawer-panel"
-      class="pointer-events-auto w-full md:max-w-xl h-full bg-[#0e0e12]/98 border-l border-[#e2ba64]/25 shadow-2xl flex flex-col transform translate-x-full md:translate-x-full transition-transform duration-400 ease-out z-10"
+      class="pointer-events-auto w-full md:max-w-xl h-full bg-white border-l border-slate-200 shadow-2xl flex flex-col transform translate-x-full md:translate-x-full transition-transform duration-300 ease-out z-10"
     >
       
-      <!-- Top Theatrical Header -->
-      <div class="px-6 py-5 border-b border-[#e2ba64]/20 flex items-center justify-between gap-4 bg-[#15141a]/80 backdrop-blur-md">
+      <!-- Top Header -->
+      <div class="px-6 py-5 border-b border-slate-100 flex items-center justify-between gap-4 bg-slate-50/80 backdrop-blur-md">
         <div class="flex items-center gap-3">
-          <span id="drawer-pillar-badge" class="px-3.5 py-1 rounded-full text-xs font-display font-semibold uppercase tracking-wider bg-[#070709] text-[#f6d289] border border-[#e2ba64]/30">
+          <span id="drawer-pillar-badge" class="px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-sky-50 text-sky-700 border border-sky-200">
             Filar Sceniczny
           </span>
         </div>
@@ -37,7 +37,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           id="drawer-close-btn"
           type="button"
           aria-label="Zamknij panel szczegółów"
-          class="p-2 rounded-xl text-zinc-400 hover:text-white bg-[#15141a] border border-[#e2ba64]/20 hover:border-[#e2ba64]/60 transition-all focus:outline-none focus:ring-2 focus:ring-[#e2ba64]"
+          class="p-2 rounded-xl text-slate-400 hover:text-slate-700 bg-white border border-slate-200 hover:border-slate-300 transition-all focus:outline-none focus:ring-2 focus:ring-sky-500"
         >
           <X class="w-5 h-5" />
         </button>
@@ -48,30 +48,30 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         
         <!-- Ensemble Title & Role Header -->
         <div class="space-y-4">
-          <h3 id="drawer-ensemble-name" class="text-2xl sm:text-3xl font-display font-bold text-white leading-tight">
+          <h3 id="drawer-ensemble-name" class="text-2xl sm:text-3xl font-display font-bold text-slate-900 leading-tight">
             Nazwa Formacji
           </h3>
           
           <div class="flex flex-wrap items-center gap-3 pt-1">
             <!-- Role Badge -->
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#15141a] border border-[#e2ba64]/30 text-xs sm:text-sm font-display tracking-wide text-zinc-200">
-              <Sparkles class="w-4 h-4 text-[#e2ba64]" />
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800">
+              <Sparkles class="w-4 h-4 text-sky-600" />
               <span id="drawer-role-text">Rola w zespole</span>
             </div>
 
             <!-- Concert Count Pill -->
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#e2ba64]/10 border border-[#e2ba64]/30 text-xs sm:text-sm font-display font-bold text-[#f6d289]">
-              <Calendar class="w-4 h-4 text-[#e2ba64]" />
-              <span id="drawer-concert-count">Ponad 70 występów</span>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-sky-50 border border-sky-200 text-xs sm:text-sm font-bold text-sky-800">
+              <Calendar class="w-4 h-4 text-sky-600" />
+              <span id="drawer-concert-count">Występy</span>
             </div>
           </div>
         </div>
 
         <!-- Highlights Section -->
         <div class="space-y-3 pt-2">
-          <h4 class="text-xs font-display uppercase tracking-widest text-[#e2ba64] flex items-center gap-2">
-            <Award class="w-4 h-4 text-[#e2ba64]" />
-            <span>Kluczowe Osiągnięcia & Rola Sceniczna</span>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+            <Award class="w-4 h-4 text-sky-600" />
+            <span>Kluczowe Osiągnięcia & Rola</span>
           </h4>
           <ul id="drawer-highlights-list" class="space-y-2.5">
             <!-- Dynamically populated -->
@@ -79,23 +79,23 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </div>
 
         <!-- Description / Markdown Content -->
-        <div class="space-y-2 pt-4 border-t border-[#e2ba64]/15">
-          <h4 class="text-xs font-display uppercase tracking-widest text-zinc-400">
-            Charakterystyka & Warsztat
+        <div class="space-y-2 pt-4 border-t border-slate-100">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500">
+            Charakterystyka & Działalność
           </h4>
-          <div id="drawer-description" class="text-sm font-serif text-zinc-300 leading-relaxed space-y-3 text-base font-light">
+          <div id="drawer-description" class="text-sm font-sans text-slate-600 leading-relaxed space-y-3">
             <!-- Dynamically populated -->
           </div>
         </div>
 
         <!-- Photo Gallery (Lightbox-enabled) -->
-        <div class="space-y-3 pt-4 border-t border-[#e2ba64]/15">
-          <h4 class="text-xs font-display uppercase tracking-widest text-[#e2ba64] flex items-center justify-between">
+        <div class="space-y-3 pt-4 border-t border-slate-100">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center justify-between">
             <span class="flex items-center gap-2">
-              <ImageIcon class="w-4 h-4 text-[#e2ba64]" />
+              <ImageIcon class="w-4 h-4 text-sky-600" />
               <span>Archiwum Fotograficzne</span>
             </span>
-            <span class="text-[11px] font-serif italic text-zinc-400 lowercase font-normal">kliknij, aby powiększyć</span>
+            <span class="text-[11px] text-slate-400 font-normal">kliknij, aby powiększyć</span>
           </h4>
 
           <div id="drawer-photos-grid" class="grid grid-cols-2 gap-3.5">
@@ -106,18 +106,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </div>
 
       <!-- Drawer Footer -->
-      <div class="p-6 border-t border-[#e2ba64]/20 bg-[#0e0e12] flex items-center justify-between gap-3">
+      <div class="p-6 border-t border-slate-100 bg-slate-50 flex items-center justify-between gap-3">
         <a
           href={`${base}/projekty-autorskie`}
-          class="flex items-center gap-2 text-xs font-display uppercase tracking-wider font-semibold text-[#e2ba64] hover:text-[#f6d289] transition-colors"
+          class="flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-sky-600 hover:text-sky-700 transition-colors"
         >
-          <span>Zobacz powiązane dzieła</span>
+          <span>Zobacz dzieła autorskie</span>
           <ExternalLink class="w-3.5 h-3.5" />
         </a>
         <button
           id="drawer-bottom-close-btn"
           type="button"
-          class="px-5 py-2.5 rounded-xl text-xs font-display uppercase tracking-wider font-semibold text-zinc-300 bg-[#15141a] border border-[#e2ba64]/20 hover:border-[#e2ba64] hover:text-white transition-all"
+          class="px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider font-semibold text-slate-700 bg-white border border-slate-200 hover:border-slate-300 transition-all shadow-xs"
         >
           Zamknij
         </button>
@@ -178,9 +178,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         highlightsEl.innerHTML = '';
         (data.highlights || []).forEach((item) => {
           const li = document.createElement('li');
-          li.className = 'flex items-start gap-2.5 text-sm text-zinc-300 font-sans';
+          li.className = 'flex items-start gap-2.5 text-sm text-slate-700 font-sans';
           li.innerHTML = `
-            <span class="w-1.5 h-1.5 rounded-full bg-[#e2ba64] mt-2 flex-shrink-0"></span>
+            <span class="w-2 h-2 rounded-full bg-sky-500 mt-1.5 flex-shrink-0"></span>
             <span>${item}</span>
           `;
           highlightsEl.appendChild(li);
@@ -190,25 +190,25 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       if (descEl) {
         descEl.innerHTML = data.bodyText
           ? `<p>${data.bodyText}</p>`
-          : `<p>Wieloletnia działalność wykonawcza i dyrygencka w ramach repertuaru klasycznego, teatralnego i estradowego.</p>`;
+          : `<p>Działalność wykonawcza i dyrygencka w ramach repertuaru klasycznego, teatralnego i estradowego.</p>`;
       }
 
       if (photosGrid) {
         photosGrid.innerHTML = '';
         const photos = data.photos || [];
         if (photos.length === 0) {
-          photosGrid.innerHTML = `<p class="text-xs text-zinc-500 col-span-2">Brak materiałów archiwalnych.</p>`;
+          photosGrid.innerHTML = `<p class="text-xs text-slate-400 col-span-2">Brak materiałów archiwalnych.</p>`;
         } else {
           photos.forEach((photoUrl, idx) => {
             const btn = document.createElement('button');
             btn.type = 'button';
             btn.setAttribute('data-lightbox-src', photoUrl);
             btn.setAttribute('data-lightbox-alt', `${data.name} — Fotografia archiwalna ${idx + 1}`);
-            btn.className = 'group relative rounded-xl overflow-hidden border border-[#e2ba64]/25 hover:border-[#e2ba64] aspect-[16/10] bg-[#15141a] transition-all focus:outline-none focus:ring-2 focus:ring-[#e2ba64] shadow-md';
+            btn.className = 'group relative rounded-xl overflow-hidden border border-slate-200 hover:border-sky-400 aspect-[16/10] bg-slate-100 transition-all focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-xs';
             btn.innerHTML = `
-              <img src="${photoUrl}" alt="${data.name} — Zdjęcie ${idx + 1}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400" loading="lazy" />
-              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span class="px-2.5 py-1 rounded-lg bg-[#070709]/90 text-[#f6d289] text-xs font-display tracking-wider uppercase font-semibold">Powiększ</span>
+              <img src="${photoUrl}" alt="${data.name} — Zdjęcie ${idx + 1}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="px-2.5 py-1 rounded-lg bg-white text-slate-900 text-xs font-semibold shadow-md">Powiększ</span>
               </div>
             `;
             photosGrid.appendChild(btn);

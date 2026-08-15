@@ -2,21 +2,21 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import RadialGraph from '../components/RadialGraph.astro';
-import { Radio, User, Terminal, ArrowRight, Sparkles, Music2 } from 'lucide-astro';
+import { Radio, User, Terminal, ArrowRight, Sparkles } from 'lucide-astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const pillarsSummary = [
   {
     title: 'Dzieła Autorskie & Dyplomowe',
-    description: 'Koncert dyplomowy „Finale” na orkiestrę symfoniczną i chór mieszany oraz jednoosobowa produkcja wielośladowa „Echo Epok”.',
+    description: 'Koncert dyplomowy „Finale” na orkiestrę symfoniczną i chór mieszany oraz autorski projekt muzyczny „Echo Epok”.',
     link: `${base}/projekty-autorskie`,
     icon: Radio,
     badge: 'Dyrygentura & Produkcja',
   },
   {
     title: 'Bio, Edukacja & Warsztat',
-    description: 'Ścieżka akademicka na UWM z wyróżnieniem, PSM I i II stopnia, wszechstronne instrumentarium oraz profesjonalny warsztat studyjny.',
+    description: 'Ścieżka akademicka na UWM z wyróżnieniem, PSM I i II stopnia, wszechstronne instrumentarium oraz warsztat studyjny.',
     link: `${base}/bio`,
     icon: User,
     badge: 'Sylwetka & Doświadczenie',
@@ -42,17 +42,17 @@ const pillarsSummary = [
   <RadialGraph />
 
   <!-- Artistic Pathways Section -->
-  <section class="py-24 border-t border-[#e2ba64]/15 bg-[#0a0a0e] relative">
+  <section class="py-24 border-t border-slate-200 bg-slate-50 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-        <span class="text-xs font-display font-semibold uppercase tracking-widest text-[#e2ba64]">
+        <span class="text-xs font-semibold uppercase tracking-wider text-sky-700 font-display">
           Domeny Działalności
         </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
-          Wymiary <span class="text-gold">Twórczości</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900">
+          Wymiary <span class="text-azure">Twórczości</span>
         </h2>
-        <p class="text-zinc-300 font-serif italic text-base sm:text-lg font-light">
+        <p class="text-slate-600 text-base sm:text-lg font-normal">
           Poznaj szczegółowo dorobek dyrygencki, dzieła autorskie oraz zaplecze studyjno-laboratoryjne.
         </p>
       </div>
@@ -63,28 +63,28 @@ const pillarsSummary = [
           return (
             <a
               href={item.link}
-              class="theatre-card group rounded-3xl p-8 sm:p-9 flex flex-col justify-between theatre-card-hover relative overflow-hidden"
+              class="azure-card group rounded-3xl p-8 flex flex-col justify-between azure-card-hover relative overflow-hidden"
             >
               <div class="relative space-y-5">
                 <div class="flex items-center justify-between">
-                  <span class="p-3.5 rounded-2xl bg-[#070709] border border-[#e2ba64]/30 text-[#f6d289] group-hover:scale-110 group-hover:border-[#e2ba64] transition-all">
+                  <span class="p-3.5 rounded-2xl bg-sky-50 border border-sky-100 text-sky-600 group-hover:scale-110 group-hover:bg-sky-600 group-hover:text-white transition-all">
                     <Icon class="w-6 h-6" />
                   </span>
-                  <span class="text-[10px] font-display uppercase tracking-wider text-[#e2ba64] px-3 py-1 rounded-full bg-[#070709] border border-[#e2ba64]/25">
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-sky-700 px-3 py-1 rounded-full bg-sky-50 border border-sky-200 font-display">
                     {item.badge}
                   </span>
                 </div>
 
-                <h3 class="text-2xl font-display font-bold text-zinc-100 group-hover:text-[#f6d289] transition-colors leading-tight">
+                <h3 class="text-2xl font-display font-bold text-slate-900 group-hover:text-sky-600 transition-colors leading-tight">
                   {item.title}
                 </h3>
 
-                <p class="text-sm text-zinc-300 font-serif leading-relaxed text-base font-light">
+                <p class="text-sm text-slate-600 font-sans leading-relaxed">
                   {item.description}
                 </p>
               </div>
 
-              <div class="relative pt-6 mt-6 border-t border-[#e2ba64]/15 flex items-center justify-between text-xs font-display tracking-wider uppercase font-semibold text-[#e2ba64] group-hover:text-[#f6d289]">
+              <div class="relative pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-sky-600 group-hover:text-sky-700">
                 <span>Przejdź do sekcji</span>
                 <ArrowRight class="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </div>
@@ -93,21 +93,6 @@ const pillarsSummary = [
         })}
       </div>
 
-    </div>
-  </section>
-
-  <!-- Conducting Ethos Banner -->
-  <section class="py-20 border-t border-[#e2ba64]/15 bg-gradient-to-b from-[#0e0e12] to-[#070709] relative overflow-hidden text-center">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
-      <Sparkles class="w-7 h-7 text-[#e2ba64] mx-auto animate-pulse" />
-      <blockquote class="text-2xl sm:text-3xl font-serif italic text-zinc-200 leading-snug font-light max-w-3xl mx-auto">
-        „Dyrygowanie to nie tylko wyznaczanie pulsu — to architektura emocji, intonacja każdego głosu i umiejętność zjednoczenia dziesiątek artystów w jednym niepowtarzalnym momencie brzmieniowym.”
-      </blockquote>
-      <div class="flex items-center justify-center gap-3 pt-2 opacity-70">
-        <div class="w-10 h-[1px] bg-[#e2ba64]"></div>
-        <span class="text-xs font-display text-[#e2ba64] tracking-widest uppercase font-semibold">Dewiza Artystyczna</span>
-        <div class="w-10 h-[1px] bg-[#e2ba64]"></div>
-      </div>
     </div>
   </section>
 </BaseLayout>
