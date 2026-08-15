@@ -6,59 +6,78 @@
   html {
     scroll-behavior: smooth;
     color-scheme: dark;
-    background-color: #09090b;
-    color: #f4f4f5;
+    background-color: #070709;
+    color: #f3f3f5;
   }
 
   body {
     min-height: 100vh;
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     overflow-x: hidden;
+    background-color: #070709;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #09090b;
+    background: #070709;
   }
   ::-webkit-scrollbar-thumb {
-    background: #27272a;
-    border-radius: 4px;
+    background: #25232c;
+    border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #3f3f46;
+    background: #997327;
   }
 }
 
 @layer utilities {
-  .text-glow-amber {
-    text-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+  .text-gold {
+    background: linear-gradient(135deg, #f6d289 0%, #e2ba64 50%, #c59b41 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  .text-glow-cyan {
-    text-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+
+  .text-gold-light {
+    background: linear-gradient(135deg, #ffffff 0%, #faecd0 60%, #e2ba64 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  .glass-card {
-    background: rgba(18, 18, 22, 0.7);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+
+  .gold-border {
+    border: 1px solid rgba(226, 186, 100, 0.2);
   }
-  .glass-card-hover {
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  .gold-border-glow {
+    border: 1px solid rgba(226, 186, 100, 0.35);
+    box-shadow: 0 0 25px -5px rgba(226, 186, 100, 0.2);
   }
-  .glass-card-hover:hover {
-    background: rgba(28, 28, 35, 0.85);
-    border-color: rgba(245, 158, 11, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(245, 158, 11, 0.15);
-  }
-  .glass-nav {
-    background: rgba(9, 9, 11, 0.8);
+
+  .theatre-card {
+    background: rgba(18, 17, 23, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(226, 186, 100, 0.15);
+  }
+
+  .theatre-card-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .theatre-card-hover:hover {
+    background: rgba(26, 24, 34, 0.95);
+    border-color: rgba(226, 186, 100, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px -15px rgba(0, 0, 0, 0.8), 0 0 30px -8px rgba(226, 186, 100, 0.2);
+  }
+
+  .theatre-nav {
+    background: rgba(7, 7, 9, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(226, 186, 100, 0.12);
   }
 }

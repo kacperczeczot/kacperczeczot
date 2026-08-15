@@ -14,7 +14,6 @@ import {
   Zap,
   Activity,
   Layers,
-  CheckCircle,
 } from 'lucide-astro';
 
 const allLabProjects = await getCollection('lab');
@@ -25,57 +24,53 @@ const regularProjects = projects.filter(p => !p.data.featured);
 ---
 
 <BaseLayout
-  title="Laboratorium Technologiczne & Software — Kacper"
-  description="Projekty programistyczne, inżynieria dźwięku i oprogramowanie sceniczne czasu rzeczywistego: StageSync, WebAudio API, WebMIDI, MusicXML parsers."
-  accent="cyan"
+  title="Laboratorium Technologiczne & Audio Engineering — Kacper Czeczot"
+  description="Inżynieria dźwięku i oprogramowanie sceniczne czasu rzeczywistego: StageSync, silniki WebAudio/WebMIDI, narzędzia analizy partytur."
 >
   <!-- Header -->
-  <section class="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden border-b border-zinc-800/80 bg-zinc-950">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-radial from-cyan-500/15 via-teal-600/5 to-transparent blur-3xl pointer-events-none -z-10"></div>
-
+  <section class="relative pt-36 pb-20 md:pt-44 md:pb-24 overflow-hidden border-b border-[#e2ba64]/15 bg-[#070709]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <SectionHeader
-        badge="Inżynieria Oprogramowania & Audio Tech"
+        badge="Inżynieria Dźwięku & Stage Software"
         title="Laboratorium Technologiczne"
         subtitle="Autorskie silniki synchronizacji scenicznej czasu rzeczywistego, narzędzia do analizy partytur i eksperymenty WebAudio / MIDI."
         align="center"
-        accent="cyan"
       />
     </div>
   </section>
 
   <!-- FEATURED PROJECT: STAGESYNC -->
   {featuredProject && (
-    <section class="py-20 bg-zinc-950/70 border-b border-zinc-800/80 relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section class="py-24 bg-[#0a0a0e] border-b border-[#e2ba64]/15 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
         
-        <div class="glass-card rounded-3xl p-8 sm:p-12 border border-cyan-500/30 relative overflow-hidden shadow-2xl">
-          <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+        <div class="theatre-card rounded-3xl p-8 sm:p-12 border border-[#e2ba64]/30 relative overflow-hidden shadow-2xl">
+          <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#e2ba64]/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
-          <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-8 pb-8 border-b border-zinc-800/80">
+          <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-8 pb-8 border-b border-[#e2ba64]/20">
             <div class="space-y-4 max-w-3xl">
               <div class="flex flex-wrap items-center gap-3">
-                <span class="px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-cyan-500/15 text-cyan-300 border border-cyan-500/40 flex items-center gap-1.5 shadow-glow-cyan">
-                  <Zap class="w-3.5 h-3.5" />
-                  Flagowy Projekt Badawczo-Wdrożeniowy
+                <span class="px-4 py-1.5 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-[#070709] text-[#f6d289] border border-[#e2ba64]/40 flex items-center gap-2">
+                  <Zap class="w-3.5 h-3.5 text-[#e2ba64]" />
+                  Flagowy Projekt Badawczo-Sceniczny
                 </span>
-                <span class="text-xs font-mono text-zinc-400 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800">
-                  Open Source / Stage Tech
+                <span class="text-xs font-display uppercase tracking-wider text-zinc-400 px-3.5 py-1.5 rounded-full bg-[#15141a] border border-[#e2ba64]/20">
+                  Live Stage Control
                 </span>
               </div>
 
-              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-zinc-100">
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white">
                 {featuredProject.data.title}
               </h2>
 
-              <p class="text-base sm:text-lg text-zinc-300 leading-relaxed font-sans">
+              <p class="text-base sm:text-lg text-zinc-300 font-serif leading-relaxed font-light">
                 {featuredProject.data.description}
               </p>
 
               <!-- Tags -->
               <div class="flex flex-wrap gap-2 pt-2">
                 {featuredProject.data.tags.map(tag => (
-                  <span class="px-3 py-1 rounded-xl bg-zinc-900 border border-zinc-700 text-xs font-mono text-cyan-300">
+                  <span class="px-3 py-1 rounded-xl bg-[#070709] border border-[#e2ba64]/20 text-xs font-display uppercase tracking-wider text-[#faecd0]">
                     {tag}
                   </span>
                 ))}
@@ -89,9 +84,9 @@ const regularProjects = projects.filter(p => !p.data.featured);
                   href={featuredProject.data.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-zinc-900 border border-zinc-700 hover:border-cyan-400 text-zinc-200 hover:text-white transition-all font-mono text-xs font-semibold shadow-md"
+                  class="flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-[#070709] border border-[#e2ba64]/30 hover:border-[#e2ba64] text-[#faecd0] hover:text-white transition-all font-display text-xs tracking-wider uppercase font-semibold shadow-md"
                 >
-                  <Github class="w-4 h-4" />
+                  <Github class="w-4 h-4 text-[#e2ba64]" />
                   <span>Repozytorium GitHub</span>
                 </a>
               )}
@@ -100,44 +95,44 @@ const regularProjects = projects.filter(p => !p.data.featured);
                   href={featuredProject.data.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-zinc-950 font-mono text-xs font-bold transition-all shadow-glow-cyan"
+                  class="flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#f6d289] via-[#e2ba64] to-[#c59b41] hover:from-[#faecd0] hover:to-[#e2ba64] text-[#070709] font-display text-xs tracking-wider uppercase font-bold transition-all shadow-gold-glow"
                 >
-                  <ExternalLink class="w-4 h-4" />
+                  <ExternalLink class="w-4 h-4 text-[#070709]" />
                   <span>Uruchom Live Demo</span>
                 </a>
               )}
             </div>
           </div>
 
-          <!-- Architecture & Technical Highlights -->
+          <!-- Architecture Highlights -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
-            <div class="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-3">
-              <div class="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold uppercase">
-                <Activity class="w-4 h-4" />
+            <div class="p-6 rounded-2xl bg-[#070709]/80 border border-[#e2ba64]/20 space-y-2.5">
+              <div class="flex items-center gap-2 text-[#f6d289] font-display text-xs font-bold uppercase tracking-wider">
+                <Activity class="w-4 h-4 text-[#e2ba64]" />
                 <span>Precyzja Czasu Rzeczywistego</span>
               </div>
-              <p class="text-xs text-zinc-400 leading-relaxed">
-                Wykorzystanie sprzętowego zegara <code>AudioContext.currentTime</code> do synchronizacji z dokładnością sub-milisekundową, eliminując mikroopóźnienia podczas występów orkiestrowych.
+              <p class="text-xs text-zinc-400 font-sans leading-relaxed">
+                Sprzętowy zegar WebAudio z dokładnością sub-milisekundową do eliminacji opóźnień podczas występów orkiestrowych.
               </p>
             </div>
 
-            <div class="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-3">
-              <div class="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold uppercase">
-                <Radio class="w-4 h-4" />
+            <div class="p-6 rounded-2xl bg-[#070709]/80 border border-[#e2ba64]/20 space-y-2.5">
+              <div class="flex items-center gap-2 text-[#f6d289] font-display text-xs font-bold uppercase tracking-wider">
+                <Radio class="w-4 h-4 text-[#e2ba64]" />
                 <span>Protokoły MIDI Clock & SPP</span>
               </div>
-              <p class="text-xs text-zinc-400 leading-relaxed">
-                Obsługa Song Position Pointer (SPP) pozwalająca na płynne przewijanie do dowolnego taktu w partyturze cyfrowej i natychmiastowe zsynchronizowanie zewnętrznych syntezatorów i DAW.
+              <p class="text-xs text-zinc-400 font-sans leading-relaxed">
+                Obsługa Song Position Pointer pozwalająca na natychmiastowe przewijanie i synchronizację zewnętrznych DAW i syntezatorów.
               </p>
             </div>
 
-            <div class="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-3">
-              <div class="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold uppercase">
-                <Layers class="w-4 h-4" />
+            <div class="p-6 rounded-2xl bg-[#070709]/80 border border-[#e2ba64]/20 space-y-2.5">
+              <div class="flex items-center gap-2 text-[#f6d289] font-display text-xs font-bold uppercase tracking-wider">
+                <Layers class="w-4 h-4 text-[#e2ba64]" />
                 <span>Bezstratna Redundancja</span>
               </div>
-              <p class="text-xs text-zinc-400 leading-relaxed">
-                Architektura High-Availability z heartbeatem sieciowym pozwalająca na równoległe uruchomienie dwóch stacji roboczych z automatycznym przełączaniem toru audio bez kliknięć.
+              <p class="text-xs text-zinc-400 font-sans leading-relaxed">
+                Równoległa praca dwóch stacji roboczych z automatycznym przełączaniem toru audio bez zakłóceń na żywo.
               </p>
             </div>
           </div>
@@ -149,27 +144,27 @@ const regularProjects = projects.filter(p => !p.data.featured);
   )}
 
   <!-- REGULAR LAB PROJECTS GRID -->
-  <section class="py-20 bg-zinc-950 relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+  <section class="py-24 bg-[#070709] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
       
       <div class="text-center max-w-3xl mx-auto space-y-3">
-        <span class="text-xs font-mono font-semibold uppercase tracking-widest text-cyan-400">
+        <span class="text-xs font-display font-semibold uppercase tracking-widest text-[#e2ba64]">
           Ekosystem Narzędziowy
         </span>
-        <h2 class="text-3xl sm:text-4xl font-display font-bold text-zinc-100">
-          Pozostałe Projekty & Eksperymenty
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
+          Pozostałe Projekty & <span class="text-gold">Narzędzia</span>
         </h2>
-        <p class="text-zinc-400 text-sm sm:text-base">
+        <p class="text-zinc-300 font-serif italic text-base sm:text-lg font-light">
           Narzędzia wspomagające analizę nut, adaptacyjne metronomy oraz biblioteki manipulacji plikami muzycznymi.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {regularProjects.map((proj) => (
-          <div class="glass-card p-8 rounded-3xl border border-zinc-800 hover:border-cyan-500/40 transition-all flex flex-col justify-between group">
+          <div class="theatre-card p-8 rounded-3xl border border-[#e2ba64]/20 hover:border-[#e2ba64]/50 transition-all flex flex-col justify-between group shadow-md">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
-                <span class="p-3 rounded-2xl bg-zinc-900 border border-zinc-800 text-cyan-400 group-hover:scale-110 transition-transform">
+                <span class="p-3.5 rounded-2xl bg-[#070709] border border-[#e2ba64]/30 text-[#f6d289] group-hover:scale-110 transition-transform">
                   <Terminal class="w-5 h-5" />
                 </span>
                 <div class="flex items-center gap-2">
@@ -178,10 +173,10 @@ const regularProjects = projects.filter(p => !p.data.featured);
                       href={proj.data.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="p-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition-all"
+                      class="p-2.5 rounded-xl bg-[#070709] border border-[#e2ba64]/20 text-zinc-400 hover:text-white hover:border-[#e2ba64] transition-all"
                       aria-label="GitHub"
                     >
-                      <Github class="w-4 h-4" />
+                      <Github class="w-4 h-4 text-[#e2ba64]" />
                     </a>
                   )}
                   {proj.data.liveUrl && (
@@ -189,34 +184,34 @@ const regularProjects = projects.filter(p => !p.data.featured);
                       href={proj.data.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="p-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
+                      class="p-2.5 rounded-xl bg-[#070709] border border-[#e2ba64]/20 text-zinc-400 hover:text-[#f6d289] hover:border-[#e2ba64] transition-all"
                       aria-label="Live Demo"
                     >
-                      <ExternalLink class="w-4 h-4" />
+                      <ExternalLink class="w-4 h-4 text-[#e2ba64]" />
                     </a>
                   )}
                 </div>
               </div>
 
-              <h3 class="text-2xl font-display font-bold text-zinc-100 group-hover:text-cyan-300 transition-colors">
+              <h3 class="text-2xl font-display font-bold text-white group-hover:text-[#f6d289] transition-colors">
                 {proj.data.title}
               </h3>
 
-              <p class="text-sm text-zinc-400 leading-relaxed font-sans">
+              <p class="text-sm text-zinc-300 font-serif leading-relaxed text-base font-light">
                 {proj.data.description}
               </p>
 
               <div class="flex flex-wrap gap-2 pt-2">
                 {proj.data.tags.map(tag => (
-                  <span class="px-2.5 py-1 rounded-lg bg-zinc-950 border border-zinc-800 text-[11px] font-mono text-zinc-300">
+                  <span class="px-3 py-1 rounded-lg bg-[#070709] border border-[#e2ba64]/20 text-[10px] font-display uppercase tracking-wider text-zinc-300">
                     {tag}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div class="pt-6 mt-6 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono text-cyan-400 group-hover:text-cyan-300">
-              <span>Status: Aktywny / Moduł badawczy</span>
+            <div class="pt-6 mt-6 border-t border-[#e2ba64]/15 flex items-center justify-between text-xs font-display uppercase tracking-wider font-semibold text-[#e2ba64] group-hover:text-[#f6d289]">
+              <span>Moduł inżynieryjny</span>
               <span class="group-hover:translate-x-1 transition-transform">→</span>
             </div>
           </div>

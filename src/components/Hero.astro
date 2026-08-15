@@ -1,84 +1,85 @@
 ---
-import { Music, Radio, ChevronDown, Sparkles, Award, Layers, Disc3 } from 'lucide-astro';
+import { Award, Music2, Users, Sparkles, ChevronRight, Disc3 } from 'lucide-astro';
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-
-const stats = [
-  { value: '300+', label: 'Występów Scenicznych', icon: Award, accent: 'text-amber-400 border-amber-500/30' },
-  { value: '9+', label: 'Zespołów & Instytucji', icon: Layers, accent: 'text-sky-400 border-sky-500/30' },
-  { value: '20+', label: 'Lat na Scenie i w Studiu', icon: Music, accent: 'text-fuchsia-400 border-fuchsia-500/30' },
-  { value: '100%', label: 'Pasji & Precyzji', icon: Sparkles, accent: 'text-emerald-400 border-emerald-500/30' },
+const artisticStats = [
+  { value: '300+', label: 'Występów Scenicznych', detail: 'Filharmonie, teatry i estrady' },
+  { value: '70+', label: 'Koncertów pod Batutą', detail: 'Orkiestry dęte i symfoniczne' },
+  { value: '9', label: 'Formacji & Zespołów', detail: 'Dyrygentura, wokal i instrumenty' },
+  { value: '20+', label: 'Lat na Scenie', detail: 'Dyscyplina i kunszt wykonawczy' },
 ];
 ---
 
-<section class="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
-  <!-- Glowing Background Orbs -->
-  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-radial from-amber-500/15 via-amber-600/5 to-transparent blur-3xl pointer-events-none -z-10"></div>
-  <div class="absolute top-1/3 left-1/4 w-[400px] h-[300px] bg-gradient-radial from-cyan-500/10 via-teal-600/5 to-transparent blur-3xl pointer-events-none -z-10"></div>
+<section class="relative pt-36 pb-20 md:pt-48 md:pb-28 overflow-hidden">
+  
+  <!-- Subtle Stage Spotlight Glow -->
+  <div class="absolute top-12 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-radial from-[#e2ba64]/12 via-[#e2ba64]/3 to-transparent blur-3xl pointer-events-none -z-10"></div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
     
-    <!-- Top Identity Pill -->
-    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-amber-500/30 bg-zinc-900/90 shadow-glow-amber mb-8 animate-float">
-      <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-      <span class="text-xs sm:text-sm font-mono font-medium text-zinc-300">
-        Dyrygentura • Wykonawstwo • Produkcja Muzyczna • Software
+    <!-- Prestigious Artistic Subtitle Badge -->
+    <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#e2ba64]/30 bg-[#15141a]/90 shadow-gold-glow mb-8">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#e2ba64] animate-pulse"></span>
+      <span class="text-xs sm:text-sm font-display tracking-widest text-[#faecd0] uppercase">
+        Dyrygentura • Wykonawstwo Sceniczne • Produkcja Muzyczna
       </span>
+      <span class="w-1.5 h-1.5 rounded-full bg-[#e2ba64] animate-pulse"></span>
     </div>
 
-    <!-- Main Hero Heading -->
-    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-zinc-100 max-w-5xl mx-auto leading-[1.1] mb-6">
-      Sztuka Sceniczna, <br class="hidden sm:block" />
-      <span class="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-600 bg-clip-text text-transparent text-glow-amber">
-        Dyscyplina Symfoniczna
-      </span>
-      <br />
-      & Precyzja Technologii
+    <!-- Artist Name (Prominent Classical Typography) -->
+    <h1 class="text-5xl sm:text-7xl lg:text-8xl font-display font-extrabold tracking-tight text-white mb-6 leading-none">
+      <span class="block text-gold">KACPER</span>
+      <span class="block tracking-wide text-zinc-100 mt-1">CZECZOT</span>
     </h1>
 
-    <!-- Subtitle Description -->
-    <p class="text-lg sm:text-xl text-zinc-400 max-w-3xl mx-auto font-sans leading-relaxed mb-10">
-      Przestrzeń artystycznego dorobku dyrygenckiego, orkiestrowego i teatralnego, uzupełniona o autorskie produkcje muzyczne oraz innowacyjne zaplecze technologiczno-laboratoryjne.
+    <!-- Decorative Philharmonic Divider -->
+    <div class="flex items-center justify-center gap-4 my-6 opacity-70 max-w-xs mx-auto">
+      <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#e2ba64] to-transparent"></div>
+      <span class="text-[#e2ba64] text-xs font-serif italic">§</span>
+      <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#e2ba64] to-transparent"></div>
+    </div>
+
+    <!-- Artistic Persona / Narrative Quote -->
+    <p class="text-xl sm:text-2xl lg:text-3xl font-serif italic text-zinc-300 max-w-3xl mx-auto leading-relaxed mb-6 font-light">
+      „Muzyka to przestrzeń między dźwiękami — architektura emocji, precyzja intonacji i charyzma scenicznego gestu.”
     </p>
 
-    <!-- CTA Actions -->
-    <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
+    <p class="text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto font-sans leading-relaxed mb-12">
+      Ponad dwie dekady działalności artystycznej: od prowadzenia wielkich orkiestr i chórów, przez kreacje solowe na deskach teatrów muzycznych, po autorską produkcję studyjną i reżyserię dźwięku.
+    </p>
+
+    <!-- Refined Artistic CTA Actions -->
+    <div class="flex flex-wrap items-center justify-center gap-5 mb-20">
       <a
         href="#drzewo-radialne"
-        class="flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-zinc-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-glow-amber hover:shadow-glow-amber-lg transition-all active:scale-95"
+        class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-display text-sm tracking-wider uppercase font-bold text-[#070709] bg-gradient-to-r from-[#f6d289] via-[#e2ba64] to-[#c59b41] hover:from-[#faecd0] hover:to-[#e2ba64] shadow-theatre-spot transition-all duration-300 hover:scale-105 active:scale-95"
       >
-        <Disc3 class="w-5 h-5 animate-spin-reverse-slow" />
-        <span>Eksploruj Drzewo Radialne</span>
+        <Music2 class="w-4 h-4 text-[#070709]" />
+        <span>Eksploruj Scenę & Zespoły</span>
       </a>
       <a
-        href={`${base}/projekty-autorskie`}
-        class="flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-medium text-zinc-200 bg-zinc-900/90 border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-850 hover:text-white transition-all shadow-md active:scale-95"
+        href="/projekty-autorskie"
+        class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-display text-sm tracking-wider uppercase font-semibold text-[#faecd0] bg-[#15141a] border border-[#e2ba64]/30 hover:border-[#e2ba64]/70 hover:bg-[#1e1c24] transition-all duration-300 shadow-md active:scale-95"
       >
-        <Radio class="w-5 h-5 text-amber-400" />
         <span>Dzieła Autorskie & Wideo</span>
+        <ChevronRight class="w-4 h-4 text-[#e2ba64]" />
       </a>
     </div>
 
-    <!-- Quick Stats Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto pt-4">
-      {stats.map((item) => {
-        const Icon = item.icon;
-        return (
-          <div class="glass-card p-5 rounded-2xl border border-zinc-800/80 hover:border-zinc-700 transition-all text-center group">
-            <div class="flex items-center justify-center mb-2">
-              <span class={`p-2 rounded-xl bg-zinc-900 border ${item.accent} group-hover:scale-110 transition-transform`}>
-                <Icon class="w-5 h-5" />
-              </span>
-            </div>
-            <div class="font-display font-bold text-2xl sm:text-3xl text-zinc-100 mb-0.5">
-              {item.value}
-            </div>
-            <div class="text-xs text-zinc-400 font-sans font-medium">
-              {item.label}
-            </div>
+    <!-- Prestigious Philharmonic Credentials Grid -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto pt-6 border-t border-[#e2ba64]/15">
+      {artisticStats.map((item) => (
+        <div class="theatre-card p-6 rounded-2xl text-center group hover:border-[#e2ba64]/50 transition-all duration-300">
+          <div class="font-display font-extrabold text-3xl sm:text-4xl text-gold mb-1 group-hover:scale-105 transition-transform">
+            {item.value}
           </div>
-        );
-      })}
+          <div class="font-display font-semibold text-xs sm:text-sm text-zinc-200 tracking-wide mb-1">
+            {item.label}
+          </div>
+          <div class="text-[11px] font-serif italic text-zinc-400">
+            {item.detail}
+          </div>
+        </div>
+      ))}
     </div>
 
   </div>

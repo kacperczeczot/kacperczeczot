@@ -4,7 +4,6 @@ interface Props {
   title: string;
   subtitle?: string;
   align?: 'left' | 'center';
-  accent?: 'amber' | 'cyan' | 'purple';
 }
 
 const {
@@ -12,45 +11,33 @@ const {
   title,
   subtitle,
   align = 'center',
-  accent = 'amber',
 } = Astro.props;
-
-const accentStyles = {
-  amber: {
-    badge: 'text-amber-400 bg-amber-500/10 border-amber-500/30',
-    glow: 'from-amber-400 to-amber-200',
-  },
-  cyan: {
-    badge: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/30',
-    glow: 'from-cyan-400 to-teal-200',
-  },
-  purple: {
-    badge: 'text-purple-400 bg-purple-500/10 border-purple-500/30',
-    glow: 'from-purple-400 to-pink-200',
-  },
-};
-
-const currentAccent = accentStyles[accent] || accentStyles.amber;
 ---
 
-<div class={`space-y-3 ${align === 'center' ? 'text-center max-w-3xl mx-auto' : 'text-left max-w-2xl'}`}>
-  <!-- Badge -->
-  <div class={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono tracking-wider uppercase font-semibold ${currentAccent.badge}`}>
-    <span class="w-1.5 h-1.5 rounded-full bg-current animate-pulse"></span>
+<div class={`space-y-4 ${align === 'center' ? 'text-center max-w-3xl mx-auto' : 'text-left max-w-2xl'}`}>
+  <!-- Gilded Badge -->
+  <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#e2ba64]/30 bg-[#15141a] text-[#f6d289] text-xs font-display tracking-widest uppercase font-semibold">
+    <span class="w-1.5 h-1.5 rounded-full bg-[#e2ba64] animate-pulse"></span>
     <span>{badge}</span>
   </div>
 
   <!-- Heading -->
-  <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-zinc-100">
-    <span class={`bg-gradient-to-r ${currentAccent.glow} bg-clip-text text-transparent`}>
+  <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-white">
+    <span class="text-gold">
       {title}
     </span>
   </h2>
 
   <!-- Subtitle -->
   {subtitle && (
-    <p class="text-base sm:text-lg text-zinc-400 leading-relaxed font-sans">
+    <p class="text-base sm:text-lg text-zinc-300 font-serif italic font-light leading-relaxed">
       {subtitle}
     </p>
   )}
+
+  <div class={`flex items-center gap-3 pt-1 opacity-60 ${align === 'center' ? 'justify-center' : 'justify-start'}`}>
+    <div class="w-10 h-[1px] bg-gradient-to-r from-transparent to-[#e2ba64]"></div>
+    <span class="text-[#e2ba64] text-xs font-serif">✦</span>
+    <div class="w-10 h-[1px] bg-gradient-to-l from-transparent to-[#e2ba64]"></div>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 ---
-import { Music, Radio, User, Terminal, Mail, Menu, X } from 'lucide-astro';
+import { Music, Radio, User, Terminal, Mail, Menu, X, Sparkles } from 'lucide-astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const pathname = new URL(Astro.request.url).pathname;
@@ -12,42 +12,42 @@ const navItems = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 glass-nav">
+<header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 theatre-nav">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       
-      <!-- Brand Logo / Identity -->
-      <a href={base || '/'} class="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg p-1">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/20 to-zinc-900 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:border-amber-400 group-hover:scale-105 transition-all shadow-glow-amber">
-          <span class="font-display font-bold text-lg tracking-wider">KC</span>
+      <!-- Brand Logo / Philharmonic Monogram -->
+      <a href={base || '/'} class="group flex items-center gap-3.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2ba64] rounded-lg p-1">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#f6d289]/20 via-[#15141a] to-[#070709] border border-[#e2ba64]/40 flex items-center justify-center text-[#f6d289] group-hover:border-[#e2ba64] group-hover:scale-105 transition-all shadow-gold-glow">
+          <span class="font-display font-extrabold text-base tracking-widest">KC</span>
         </div>
         <div class="flex flex-col">
-          <span class="font-display font-semibold text-zinc-100 text-base tracking-wide group-hover:text-amber-300 transition-colors">
-            KACPER CZECZOT <span class="text-amber-500 font-bold">.</span>
+          <span class="font-display font-bold text-zinc-100 text-sm sm:text-base tracking-wider group-hover:text-[#f6d289] transition-colors">
+            KACPER CZECZOT <span class="text-[#e2ba64]">✦</span>
           </span>
-          <span class="text-[10px] tracking-widest text-zinc-400 uppercase font-mono">
-            Conductor & Audio Eng.
+          <span class="text-[9px] tracking-widest text-zinc-400 uppercase font-display">
+            Dyrygent • Muzyk • Reżyser Dźwięku
           </span>
         </div>
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+      <nav class="hidden md:flex items-center gap-1.5 lg:gap-3">
         {navItems.map((item) => {
           const Icon = item.icon;
           return (
             <a
               href={item.href}
-              class={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-medium transition-all relative ${
+              class={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-display tracking-wider uppercase font-semibold transition-all relative ${
                 item.active
-                  ? 'text-amber-400 bg-amber-500/10 border border-amber-500/20 shadow-sm'
-                  : 'text-zinc-300 hover:text-zinc-100 hover:bg-zinc-800/50'
+                  ? 'text-[#faecd0] bg-[#e2ba64]/15 border border-[#e2ba64]/40 shadow-sm'
+                  : 'text-zinc-300 hover:text-white hover:bg-[#15141a]'
               }`}
             >
-              <Icon class={`w-4 h-4 ${item.active ? 'text-amber-400' : 'text-zinc-400'}`} />
+              <Icon class={`w-3.5 h-3.5 ${item.active ? 'text-[#e2ba64]' : 'text-zinc-400'}`} />
               <span>{item.label}</span>
               {item.active && (
-                <span class="absolute -bottom-[17px] left-1/2 -translate-x-1/2 w-8 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></span>
+                <span class="absolute -bottom-[17px] left-1/2 -translate-x-1/2 w-8 h-[2px] bg-gradient-to-r from-transparent via-[#e2ba64] to-transparent"></span>
               )}
             </a>
           );
@@ -58,9 +58,9 @@ const navItems = [
       <div class="hidden md:flex items-center gap-3">
         <a
           href="#kontakt"
-          class="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-zinc-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 transition-all shadow-glow-amber hover:shadow-glow-amber-lg active:scale-95"
+          class="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-display tracking-wider uppercase font-bold text-[#070709] bg-gradient-to-r from-[#f6d289] via-[#e2ba64] to-[#c59b41] hover:from-[#faecd0] hover:to-[#e2ba64] transition-all shadow-gold-glow hover:shadow-gold-glow-lg active:scale-95"
         >
-          <Mail class="w-4 h-4" />
+          <Mail class="w-3.5 h-3.5" />
           <span>Kontakt</span>
         </a>
       </div>
@@ -71,7 +71,7 @@ const navItems = [
           id="mobile-menu-button"
           type="button"
           aria-label="Otwórz menu"
-          class="p-2.5 rounded-xl text-zinc-300 hover:text-white bg-zinc-900 border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-amber-500"
+          class="p-2.5 rounded-xl text-zinc-300 hover:text-white bg-[#15141a] border border-[#e2ba64]/20 focus:outline-none focus:ring-2 focus:ring-[#e2ba64]"
         >
           <Menu id="menu-open-icon" class="w-6 h-6" />
           <X id="menu-close-icon" class="w-6 h-6 hidden" />
@@ -82,29 +82,29 @@ const navItems = [
   </div>
 
   <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-800 bg-zinc-950/95 backdrop-blur-2xl px-4 pt-2 pb-6 space-y-2">
+  <div id="mobile-menu" class="hidden md:hidden border-b border-[#e2ba64]/20 bg-[#0e0e12]/98 backdrop-blur-2xl px-5 pt-3 pb-7 space-y-2">
     {navItems.map((item) => {
       const Icon = item.icon;
       return (
         <a
           href={item.href}
-          class={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all ${
+          class={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-display tracking-wider uppercase font-semibold transition-all ${
             item.active
-              ? 'text-amber-400 bg-amber-500/10 border border-amber-500/20'
-              : 'text-zinc-300 hover:text-white hover:bg-zinc-900'
+              ? 'text-[#faecd0] bg-[#e2ba64]/15 border border-[#e2ba64]/30'
+              : 'text-zinc-300 hover:text-white hover:bg-[#15141a]'
           }`}
         >
-          <Icon class={`w-5 h-5 ${item.active ? 'text-amber-400' : 'text-zinc-400'}`} />
+          <Icon class={`w-4 h-4 ${item.active ? 'text-[#e2ba64]' : 'text-zinc-400'}`} />
           <span>{item.label}</span>
         </a>
       );
     })}
-    <div class="pt-4 mt-2 border-t border-zinc-800">
+    <div class="pt-4 mt-2 border-t border-[#e2ba64]/20">
       <a
         href="#kontakt"
-        class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-base font-semibold text-zinc-950 bg-gradient-to-r from-amber-400 to-amber-500 shadow-glow-amber"
+        class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-sm font-display tracking-wider uppercase font-bold text-[#070709] bg-gradient-to-r from-[#f6d289] via-[#e2ba64] to-[#c59b41] shadow-gold-glow"
       >
-        <Mail class="w-5 h-5" />
+        <Mail class="w-4 h-4" />
         <span>Nawiąż Kontakt</span>
       </a>
     </div>
