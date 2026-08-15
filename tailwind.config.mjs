@@ -5,6 +5,14 @@ export default {
   theme: {
     extend: {
       colors: {
+        ocean: {
+          950: '#070d1a',
+          900: '#0b1528',
+          850: '#0f1d38',
+          800: '#142548',
+          700: '#1c3464',
+          600: '#254784',
+        },
         azure: {
           50: '#f0f9ff',
           100: '#e0f2fe',
@@ -14,14 +22,6 @@ export default {
           500: '#0ea5e9',
           600: '#0284c7',
           700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-          950: '#082f49',
-        },
-        navy: {
-          800: '#1e293b',
-          900: '#0f172a',
-          950: '#090d16',
         },
       },
       fontFamily: {
@@ -29,17 +29,9 @@ export default {
         display: ['"Outfit"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'azure-sm': '0 2px 8px -2px rgba(14, 165, 233, 0.12), 0 1px 4px -1px rgba(0, 0, 0, 0.04)',
-        'azure-md': '0 8px 24px -4px rgba(14, 165, 233, 0.15), 0 2px 8px -2px rgba(0, 0, 0, 0.04)',
-        'azure-lg': '0 16px 36px -6px rgba(2, 132, 199, 0.18), 0 4px 12px -2px rgba(0, 0, 0, 0.05)',
-        'azure-glow': '0 0 35px -5px rgba(14, 165, 233, 0.25)',
-        'card': '0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04)',
-        'card-hover': '0 14px 30px -4px rgba(2, 132, 199, 0.15), 0 4px 10px -2px rgba(15, 23, 42, 0.06)',
-      },
-      backgroundImage: {
-        'azure-mesh': 'radial-gradient(at 10% 10%, rgba(186, 230, 253, 0.4) 0px, transparent 50%), radial-gradient(at 90% 10%, rgba(224, 231, 255, 0.4) 0px, transparent 50%), radial-gradient(at 50% 90%, rgba(240, 249, 255, 0.6) 0px, transparent 50%)',
-        'azure-gradient': 'linear-gradient(135deg, #0284c7 0%, #2563eb 100%)',
-        'azure-gradient-subtle': 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+        'ocean-card': '0 8px 30px -6px rgba(2, 6, 23, 0.6), 0 2px 8px -2px rgba(14, 165, 233, 0.1)',
+        'ocean-hover': '0 16px 36px -4px rgba(2, 132, 199, 0.25), 0 4px 12px -2px rgba(2, 6, 23, 0.7)',
+        'blue-glow': '0 0 35px -5px rgba(14, 165, 233, 0.35)',
       },
     },
   },

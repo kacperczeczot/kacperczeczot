@@ -11,35 +11,35 @@ const credentials = [
 
 <section class="relative pt-36 pb-20 md:pt-48 md:pb-28 overflow-hidden">
   
-  <!-- Soft Azure Ambient Spotlight -->
-  <div class="absolute top-12 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-radial from-sky-200/50 via-blue-100/20 to-transparent blur-3xl pointer-events-none -z-10"></div>
+  <!-- Atmospheric Blue Ambient Spotlight -->
+  <div class="absolute top-12 left-1/2 -translate-x-1/2 w-[850px] h-[480px] bg-gradient-radial from-sky-500/15 via-blue-600/5 to-transparent blur-3xl pointer-events-none -z-10"></div>
 
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
     
     <!-- Artistic Subtitle Badge -->
-    <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-sky-200 bg-white/90 shadow-azure-sm mb-8">
-      <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
-      <span class="text-xs sm:text-sm font-semibold tracking-wide text-sky-800 uppercase font-display">
+    <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-sky-400/30 bg-[#0f1d38]/80 shadow-blue-glow mb-8 backdrop-blur-md">
+      <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+      <span class="text-xs sm:text-sm font-semibold tracking-wide text-sky-200 uppercase font-display">
         Dyrygentura • Wykonawstwo Sceniczne • Produkcja Muzyczna
       </span>
-      <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
+      <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
     </div>
 
     <!-- Artist Name -->
-    <h1 class="text-5xl sm:text-7xl lg:text-8xl font-display font-extrabold tracking-tight text-slate-900 mb-6 leading-none">
-      <span class="block text-azure">Kacper</span>
-      <span class="block text-slate-900 mt-1">Czeczot</span>
+    <h1 class="text-5xl sm:text-7xl lg:text-8xl font-display font-extrabold tracking-tight text-white mb-6 leading-none">
+      <span class="block text-blue-gradient">Kacper</span>
+      <span class="block text-white mt-1">Czeczot</span>
     </h1>
 
     <!-- Decorative Philharmonic Divider -->
     <div class="flex items-center justify-center gap-4 my-6 opacity-60 max-w-xs mx-auto">
-      <div class="h-[1.5px] flex-1 bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
-      <span class="text-sky-600 text-xs font-serif">✦</span>
-      <div class="h-[1.5px] flex-1 bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
+      <div class="h-[1.5px] flex-1 bg-gradient-to-r from-transparent via-sky-400 to-transparent"></div>
+      <span class="text-sky-400 text-xs font-serif">✦</span>
+      <div class="h-[1.5px] flex-1 bg-gradient-to-r from-transparent via-sky-400 to-transparent"></div>
     </div>
 
     <!-- Description -->
-    <p class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto font-sans leading-relaxed mb-12 font-normal">
+    <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-sans leading-relaxed mb-12 font-normal">
       Działalność muzyczna, wykonawcza i dyrygencka: prowadzenie orkiestr i chórów, występy teatralno-musicalowe, dzieła autorskie oraz zaplecze studyjne i inżynieria dźwięku.
     </p>
 
@@ -47,31 +47,31 @@ const credentials = [
     <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
       <a
         href="#drzewo-radialne"
-        class="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-display text-sm tracking-wide font-bold text-white bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 shadow-azure-md hover:shadow-azure-lg transition-all duration-300 hover:scale-105 active:scale-95"
+        class="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-display text-sm tracking-wide font-bold text-white bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 shadow-blue-glow transition-all duration-300 hover:scale-105 active:scale-95"
       >
         <Music2 class="w-4 h-4 text-white" />
         <span>Eksploruj Scenę & Zespoły</span>
       </a>
       <a
         href="/projekty-autorskie"
-        class="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-display text-sm tracking-wide font-semibold text-slate-700 bg-white border border-slate-200 hover:border-sky-300 hover:bg-sky-50/50 hover:text-sky-700 transition-all duration-300 shadow-card active:scale-95"
+        class="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-display text-sm tracking-wide font-semibold text-sky-100 bg-[#0f1d38]/80 border border-sky-400/30 hover:border-sky-400 hover:bg-[#142548] transition-all duration-300 shadow-ocean-card active:scale-95"
       >
         <span>Dzieła Autorskie & Wideo</span>
-        <ChevronRight class="w-4 h-4 text-sky-600" />
+        <ChevronRight class="w-4 h-4 text-sky-400" />
       </a>
     </div>
 
-    <!-- Credentials Grid (High Contrast Azure Cards) -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto pt-6 border-t border-slate-200">
+    <!-- Credentials Grid (Ocean Cards) -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto pt-6 border-t border-sky-500/15">
       {credentials.map((item) => (
-        <div class="azure-card p-6 rounded-2xl text-center group hover:border-sky-300 transition-all duration-300">
-          <div class="font-display font-extrabold text-2xl sm:text-3xl text-azure mb-1 group-hover:scale-105 transition-transform">
+        <div class="ocean-card p-6 rounded-2xl text-center group hover:border-sky-400/50 transition-all duration-300">
+          <div class="font-display font-extrabold text-2xl sm:text-3xl text-blue-gradient mb-1 group-hover:scale-105 transition-transform">
             {item.value}
           </div>
-          <div class="font-display font-bold text-xs sm:text-sm text-slate-800 tracking-wide mb-1">
+          <div class="font-display font-bold text-xs sm:text-sm text-slate-100 tracking-wide mb-1">
             {item.label}
           </div>
-          <div class="text-[12px] text-slate-500 font-sans">
+          <div class="text-[12px] text-sky-200/70 font-sans">
             {item.detail}
           </div>
         </div>

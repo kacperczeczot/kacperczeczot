@@ -12,20 +12,20 @@ const navItems = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 azure-nav">
+<header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 ocean-nav">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       
       <!-- Brand Logo / Monogram -->
-      <a href={base || '/'} class="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-lg p-1">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center text-white font-display font-extrabold text-base group-hover:scale-105 transition-all shadow-azure-sm">
+      <a href={base || '/'} class="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded-lg p-1">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 via-sky-600 to-blue-700 flex items-center justify-center text-white font-display font-extrabold text-base group-hover:scale-105 transition-all shadow-blue-glow">
           KC
         </div>
         <div class="flex flex-col">
-          <span class="font-display font-bold text-slate-900 text-base tracking-tight group-hover:text-sky-600 transition-colors">
+          <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-sky-300 transition-colors">
             Kacper Czeczot
           </span>
-          <span class="text-[11px] font-medium text-slate-500 tracking-wide">
+          <span class="text-[11px] font-medium text-sky-200/70 tracking-wide">
             Dyrygent • Muzyk • Reżyser Dźwięku
           </span>
         </div>
@@ -38,16 +38,16 @@ const navItems = [
           return (
             <a
               href={item.href}
-              class={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all relative ${
+              class={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all relative ${
                 item.active
-                  ? 'text-sky-700 bg-sky-50 border border-sky-200/80 shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
+                  ? 'text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-xs'
+                  : 'text-slate-300 hover:text-white hover:bg-white/5'
               }`}
             >
-              <Icon class={`w-4 h-4 ${item.active ? 'text-sky-600' : 'text-slate-400'}`} />
+              <Icon class={`w-4 h-4 ${item.active ? 'text-sky-400' : 'text-slate-400'}`} />
               <span>{item.label}</span>
               {item.active && (
-                <span class="absolute -bottom-[17px] left-1/2 -translate-x-1/2 w-8 h-[2px] bg-gradient-to-r from-transparent via-sky-500 to-transparent"></span>
+                <span class="absolute -bottom-[17px] left-1/2 -translate-x-1/2 w-8 h-[2px] bg-gradient-to-r from-transparent via-sky-400 to-transparent"></span>
               )}
             </a>
           );
@@ -58,7 +58,7 @@ const navItems = [
       <div class="hidden md:flex items-center gap-3">
         <a
           href="#kontakt"
-          class="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 transition-all shadow-azure-sm hover:shadow-azure-md active:scale-95"
+          class="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 transition-all shadow-blue-glow active:scale-95"
         >
           <Mail class="w-4 h-4" />
           <span>Kontakt</span>
@@ -71,7 +71,7 @@ const navItems = [
           id="mobile-menu-button"
           type="button"
           aria-label="Otwórz menu"
-          class="p-2.5 rounded-xl text-slate-700 hover:text-slate-900 bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          class="p-2.5 rounded-xl text-slate-300 hover:text-white bg-slate-900 border border-sky-500/20 focus:outline-none focus:ring-2 focus:ring-sky-400"
         >
           <Menu id="menu-open-icon" class="w-6 h-6" />
           <X id="menu-close-icon" class="w-6 h-6 hidden" />
@@ -82,27 +82,27 @@ const navItems = [
   </div>
 
   <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 bg-white/95 backdrop-blur-2xl px-5 pt-3 pb-7 space-y-2 shadow-lg">
+  <div id="mobile-menu" class="hidden md:hidden border-b border-sky-500/20 bg-[#0b1528]/98 backdrop-blur-2xl px-5 pt-3 pb-7 space-y-2 shadow-2xl">
     {navItems.map((item) => {
       const Icon = item.icon;
       return (
         <a
           href={item.href}
-          class={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
+          class={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
             item.active
-              ? 'text-sky-700 bg-sky-50 border border-sky-200'
-              : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
+              ? 'text-sky-300 bg-sky-500/20 border border-sky-500/40'
+              : 'text-slate-300 hover:text-white hover:bg-white/5'
           }`}
         >
-          <Icon class={`w-4 h-4 ${item.active ? 'text-sky-600' : 'text-slate-400'}`} />
+          <Icon class={`w-4 h-4 ${item.active ? 'text-sky-400' : 'text-slate-400'}`} />
           <span>{item.label}</span>
         </a>
       );
     })}
-    <div class="pt-4 mt-2 border-t border-slate-100">
+    <div class="pt-4 mt-2 border-t border-sky-500/15">
       <a
         href="#kontakt"
-        class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-sky-500 to-blue-600 shadow-azure-sm"
+        class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-sky-500 to-blue-600 shadow-blue-glow"
       >
         <Mail class="w-4 h-4" />
         <span>Nawiąż Kontakt</span>

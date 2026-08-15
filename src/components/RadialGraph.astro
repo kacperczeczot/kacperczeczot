@@ -12,7 +12,7 @@ const pillars = [
     subtitle: 'Dęte & Symfoniczne',
     count: '3 formacje',
     icon: Music2,
-    color: '#0284c7',
+    color: '#38bdf8',
     cx: 260,
     cy: 180,
   },
@@ -22,7 +22,7 @@ const pillars = [
     subtitle: 'Akademia & Muzyka Dawna',
     count: '2 zespoły',
     icon: Users,
-    color: '#0284c7',
+    color: '#38bdf8',
     cx: 640,
     cy: 180,
   },
@@ -32,7 +32,7 @@ const pillars = [
     subtitle: 'Operetka & Musical',
     count: '2 produkcje',
     icon: Theater,
-    color: '#0284c7',
+    color: '#38bdf8',
     cx: 640,
     cy: 500,
   },
@@ -42,7 +42,7 @@ const pillars = [
     subtitle: 'Live Show & Jazz',
     count: '2 formacje',
     icon: Sparkles,
-    color: '#0284c7',
+    color: '#38bdf8',
     cx: 260,
     cy: 500,
   },
@@ -61,61 +61,61 @@ const ensemblesData = sortedEnsembles.map(e => ({
 }));
 ---
 
-<section id="drzewo-radialne" class="relative py-24 bg-white/70 overflow-hidden border-t border-slate-200">
+<section id="drzewo-radialne" class="relative py-24 bg-[#070d1a] overflow-hidden border-t border-sky-500/15">
   
-  <!-- Soft Azure Radial Atmosphere -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] bg-gradient-radial from-sky-100/60 via-transparent to-transparent blur-3xl pointer-events-none -z-10"></div>
+  <!-- Atmospheric Blue Glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] bg-gradient-radial from-sky-500/10 via-transparent to-transparent blur-3xl pointer-events-none -z-10"></div>
   
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Section Title in Clean Modern Style -->
+    <!-- Section Title -->
     <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-sky-200 bg-sky-50 text-sky-700 text-xs font-semibold uppercase tracking-wider font-display">
-        <Sparkles class="w-3.5 h-3.5 text-sky-600" />
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-sky-400/30 bg-[#0f1d38] text-sky-200 text-xs font-semibold uppercase tracking-wider font-display">
+        <Sparkles class="w-3.5 h-3.5 text-sky-400" />
         <span>Konstelacja Sceniczna</span>
       </div>
       
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900 tracking-tight">
-        Orbita Działalności <span class="text-azure">Zespołowej</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white tracking-tight">
+        Orbita Działalności <span class="text-blue-gradient">Zespołowej</span>
       </h2>
       
-      <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto font-normal leading-relaxed">
+      <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-normal leading-relaxed">
         Wybierz jeden z czterech filarów scenicznych, aby odkryć poszczególne orkiestry, chóry, produkcje teatralne oraz składy estradowe.
       </p>
 
       <div class="flex items-center justify-center gap-3 pt-1 opacity-50">
-        <div class="w-12 h-[1.5px] bg-gradient-to-r from-transparent to-sky-500"></div>
-        <span class="text-sky-600 text-xs">✦</span>
-        <div class="w-12 h-[1.5px] bg-gradient-to-l from-transparent to-sky-500"></div>
+        <div class="w-12 h-[1.5px] bg-gradient-to-r from-transparent to-sky-400"></div>
+        <span class="text-sky-400 text-xs">✦</span>
+        <div class="w-12 h-[1.5px] bg-gradient-to-l from-transparent to-sky-400"></div>
       </div>
     </div>
 
     <!-- ========================================== -->
     <!-- DESKTOP RADIAL CONSTELLATION (>= 1024px) -->
     <!-- ========================================== -->
-    <div class="hidden lg:block relative w-full max-w-5xl mx-auto aspect-[900/680] rounded-3xl border border-sky-100 bg-white/90 backdrop-blur-2xl p-4 shadow-card overflow-hidden" id="radial-container">
+    <div class="hidden lg:block relative w-full max-w-5xl mx-auto aspect-[900/680] rounded-3xl border border-sky-500/20 bg-[#0b1528]/90 backdrop-blur-2xl p-4 shadow-ocean-card overflow-hidden" id="radial-container">
       
       <!-- SVG Orbital Lines -->
       <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 900 680" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="azureGlow" cx="450" cy="340" r="320" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.15" />
-            <stop offset="60%" stop-color="#38bdf8" stop-opacity="0.02" />
-            <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+            <stop offset="60%" stop-color="#0284c7" stop-opacity="0.02" />
+            <stop offset="100%" stop-color="#070d1a" stop-opacity="0" />
           </radialGradient>
 
           <linearGradient id="azureSpoke" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0284c7" stop-opacity="0.6"/>
-            <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.2"/>
+            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#0284c7" stop-opacity="0.2"/>
           </linearGradient>
         </defs>
 
         <circle cx="450" cy="340" r="300" fill="url(#azureGlow)"/>
 
         <!-- Concentric Orbital Rings -->
-        <circle cx="450" cy="340" r="130" stroke="#bae6fd" stroke-width="1.5" stroke-dasharray="4 6" class="animate-orbit-slow origin-[450px_340px]" />
-        <circle cx="450" cy="340" r="255" stroke="#7dd3fc" stroke-width="1.5" stroke-dasharray="6 8" class="animate-spin-reverse-slow origin-[450px_340px]" opacity="0.7" />
-        <circle cx="450" cy="340" r="375" stroke="#e0f2fe" stroke-width="1" />
+        <circle cx="450" cy="340" r="130" stroke="rgba(56, 189, 248, 0.2)" stroke-width="1.5" stroke-dasharray="4 6" class="animate-orbit-slow origin-[450px_340px]" />
+        <circle cx="450" cy="340" r="255" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.5" stroke-dasharray="6 8" class="animate-spin-reverse-slow origin-[450px_340px]" />
+        <circle cx="450" cy="340" r="375" stroke="rgba(56, 189, 248, 0.1)" stroke-width="1" />
 
         <!-- Diagonal Acoustic Spokes -->
         <line x1="450" y1="340" x2="260" y2="180" stroke="url(#azureSpoke)" stroke-width="1.5" stroke-dasharray="4 4" />
@@ -135,21 +135,21 @@ const ensemblesData = sortedEnsembles.map(e => ({
         title="Kliknij, aby zresetować widok"
         class="absolute top-[340px] left-[450px] -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer group focus:outline-none"
       >
-        <div class="relative flex flex-col items-center justify-center w-44 h-44 rounded-full bg-white border-2 border-sky-500 shadow-azure-md group-hover:shadow-azure-lg group-hover:scale-105 transition-all duration-300 backdrop-blur-md">
+        <div class="relative flex flex-col items-center justify-center w-44 h-44 rounded-full bg-[#0f1d38] border-2 border-sky-400 shadow-blue-glow group-hover:scale-105 transition-all duration-300 backdrop-blur-md">
           
           <!-- Outer Pulsing Halo -->
-          <div class="absolute -inset-2.5 rounded-full border border-sky-300/60 animate-pulse"></div>
+          <div class="absolute -inset-2.5 rounded-full border border-sky-400/30 animate-pulse"></div>
           
-          <span class="text-sky-600 text-xs font-semibold uppercase tracking-wider font-display mb-0.5">Dorobek</span>
+          <span class="text-sky-300 text-xs font-semibold uppercase tracking-wider font-display mb-0.5">Dorobek</span>
 
-          <span class="font-display font-extrabold text-3xl text-azure tracking-tight">
+          <span class="font-display font-extrabold text-3xl text-blue-gradient tracking-tight">
             300+
           </span>
-          <span class="text-xs font-bold text-slate-800 uppercase tracking-wider text-center px-2 leading-tight font-display">
+          <span class="text-xs font-bold text-slate-100 uppercase tracking-wider text-center px-2 leading-tight font-display">
             Występów<br />Scenicznych
           </span>
 
-          <span class="text-[10px] text-slate-500 mt-1 font-medium">
+          <span class="text-[10px] text-sky-200/60 mt-1 font-medium">
             Reset widoku
           </span>
         </div>
@@ -167,21 +167,21 @@ const ensemblesData = sortedEnsembles.map(e => ({
             style={`top: ${pillar.cy}px; left: ${pillar.cx}px;`}
             class={`pillar-btn absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group focus:outline-none transition-all duration-300`}
           >
-            <div class="relative flex flex-col items-center justify-center w-36 h-36 rounded-3xl bg-white border border-slate-200 hover:border-sky-400 shadow-card backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-azure-md">
+            <div class="relative flex flex-col items-center justify-center w-36 h-36 rounded-3xl bg-[#0f1d38]/90 border border-sky-400/25 hover:border-sky-400 shadow-ocean-card backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-blue-glow">
               
-              <span class="p-2.5 rounded-xl bg-sky-50 border border-sky-100 text-sky-600 mb-1.5 transition-all">
+              <span class="p-2.5 rounded-xl bg-[#070d1a] border border-sky-400/20 text-sky-400 mb-1.5 transition-all">
                 <Icon class="w-5 h-5" />
               </span>
 
-              <span class="font-display font-bold text-sm text-slate-900 text-center px-2 leading-tight group-hover:text-sky-600 transition-colors">
+              <span class="font-display font-bold text-sm text-slate-100 text-center px-2 leading-tight group-hover:text-sky-300 transition-colors">
                 {pillar.name}
               </span>
               
-              <span class="text-[11px] text-slate-500 font-medium mt-0.5">
+              <span class="text-[11px] text-sky-200/60 font-medium mt-0.5">
                 {pillar.count}
               </span>
 
-              <span class="absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-slate-900 text-white text-[10px] font-display uppercase tracking-wider group-hover:bg-sky-600 transition-all font-semibold shadow-xs">
+              <span class="absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-[#070d1a] border border-sky-400/30 text-sky-200 text-[10px] font-display uppercase tracking-wider group-hover:bg-sky-500 group-hover:text-white transition-all font-semibold shadow-xs">
                 Odkryj +
               </span>
             </div>
@@ -193,8 +193,8 @@ const ensemblesData = sortedEnsembles.map(e => ({
       <div id="satellite-nodes-layer" class="absolute inset-0 z-20 pointer-events-none"></div>
 
       <!-- Quick Guidance -->
-      <div class="absolute bottom-4 right-6 text-xs text-slate-500 font-medium flex items-center gap-2">
-        <RotateCcw class="w-3.5 h-3.5 text-sky-600" />
+      <div class="absolute bottom-4 right-6 text-xs text-slate-400 font-medium flex items-center gap-2">
+        <RotateCcw class="w-3.5 h-3.5 text-sky-400" />
         <span>Wybierz filar, by rozwinąć formacje • Kliknij zespół, by otworzyć panel</span>
       </div>
 
@@ -205,7 +205,7 @@ const ensemblesData = sortedEnsembles.map(e => ({
     <!-- ========================================== -->
     <div class="block lg:hidden space-y-6">
       
-      <!-- Mobile Pillar Tabs (Refined Azure Carousel) -->
+      <!-- Mobile Pillar Tabs -->
       <div class="flex items-center gap-2.5 overflow-x-auto pb-3 scrollbar-none snap-x" id="mobile-pillar-tabs">
         {pillars.map((pillar, idx) => {
           const Icon = pillar.icon;
@@ -215,13 +215,13 @@ const ensemblesData = sortedEnsembles.map(e => ({
               data-mobile-pillar={pillar.id}
               class={`mobile-tab-btn flex items-center gap-2.5 px-5 py-3.5 rounded-2xl border text-xs font-display tracking-wider uppercase font-semibold whitespace-nowrap transition-all snap-start flex-shrink-0 ${
                 idx === 0
-                  ? 'bg-sky-600 border-sky-600 text-white shadow-azure-sm'
-                  : 'bg-white border-slate-200 text-slate-600 hover:text-slate-900'
+                  ? 'bg-sky-600 border-sky-400 text-white shadow-blue-glow'
+                  : 'bg-[#0f1d38] border-sky-500/20 text-slate-300 hover:text-white'
               }`}
             >
-              <Icon class={`w-4 h-4 ${idx === 0 ? 'text-white' : 'text-sky-600'}`} />
+              <Icon class={`w-4 h-4 ${idx === 0 ? 'text-white' : 'text-sky-400'}`} />
               <span>{pillar.name}</span>
-              <span class={`px-2 py-0.5 rounded-full text-[10px] ${idx === 0 ? 'bg-sky-700 text-white' : 'bg-slate-100 text-slate-600'}`}>
+              <span class={`px-2 py-0.5 rounded-full text-[10px] ${idx === 0 ? 'bg-sky-700 text-white' : 'bg-[#070d1a] text-sky-300'}`}>
                 {pillar.count.split(' ')[0]}
               </span>
             </button>
@@ -229,7 +229,7 @@ const ensemblesData = sortedEnsembles.map(e => ({
         })}
       </div>
 
-      <!-- Mobile Ensemble Cards Cascading Grid -->
+      <!-- Mobile Ensemble Cards Grid -->
       <div id="mobile-ensembles-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       </div>
 
@@ -288,11 +288,11 @@ const ensemblesData = sortedEnsembles.map(e => ({
       svgLines.innerHTML = '';
       
       pillarButtons.forEach((btn) => {
-        btn.classList.remove('ring-2', 'ring-sky-500', 'scale-105');
+        btn.classList.remove('ring-2', 'ring-sky-400', 'scale-105');
         const badge = btn.querySelector('span:last-child');
         if (badge) {
           badge.textContent = 'Odkryj +';
-          badge.className = 'absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-slate-900 text-white text-[10px] font-display uppercase tracking-wider group-hover:bg-sky-600 transition-all font-semibold shadow-xs';
+          badge.className = 'absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-[#070d1a] border border-sky-400/30 text-sky-200 text-[10px] font-display uppercase tracking-wider group-hover:bg-sky-500 group-hover:text-white transition-all font-semibold shadow-xs';
         }
       });
     }
@@ -312,11 +312,11 @@ const ensemblesData = sortedEnsembles.map(e => ({
 
       const activeBtn = document.getElementById(`pillar-node-${pillarId}`);
       if (activeBtn) {
-        activeBtn.classList.add('ring-2', 'ring-sky-500', 'scale-105');
+        activeBtn.classList.add('ring-2', 'ring-sky-400', 'scale-105');
         const badge = activeBtn.querySelector('span:last-child');
         if (badge) {
           badge.textContent = 'Aktywny ✓';
-          badge.className = 'absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-sky-600 text-white font-bold text-[10px] font-display uppercase tracking-wider shadow-azure-sm';
+          badge.className = 'absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-sky-500 text-white font-bold text-[10px] font-display uppercase tracking-wider shadow-blue-glow';
         }
       }
 
@@ -334,7 +334,7 @@ const ensemblesData = sortedEnsembles.map(e => ({
         line.setAttribute('y1', String(pCoord.cy));
         line.setAttribute('x2', String(satX));
         line.setAttribute('y2', String(satY));
-        line.setAttribute('stroke', '#0284c7');
+        line.setAttribute('stroke', '#38bdf8');
         line.setAttribute('stroke-width', '1.5');
         line.setAttribute('stroke-dasharray', '3 3');
         line.setAttribute('class', 'animate-pulse');
@@ -346,16 +346,16 @@ const ensemblesData = sortedEnsembles.map(e => ({
         satEl.style.top = `${satY}px`;
 
         satEl.innerHTML = `
-          <div class="relative flex items-center gap-3 px-4 py-3 rounded-2xl bg-white border border-sky-200 hover:border-sky-500 hover:bg-sky-50/50 shadow-card backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-azure-md max-w-[220px]">
-            <div class="w-2.5 h-2.5 rounded-full bg-sky-500 flex-shrink-0 animate-pulse"></div>
+          <div class="relative flex items-center gap-3 px-4 py-3 rounded-2xl bg-[#0f1d38]/95 border border-sky-400/40 hover:border-sky-400 hover:bg-[#142548] shadow-ocean-card backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-blue-glow max-w-[220px]">
+            <div class="w-2.5 h-2.5 rounded-full bg-sky-400 flex-shrink-0 animate-pulse"></div>
             <div class="min-w-0">
-              <h4 class="text-xs font-display font-bold text-slate-900 truncate group-hover:text-sky-600 transition-colors">
+              <h4 class="text-xs font-display font-bold text-white truncate group-hover:text-sky-300 transition-colors">
                 ${ens.name}
               </h4>
-              <p class="text-[11px] text-slate-500 truncate">
+              <p class="text-[11px] text-sky-200/70 truncate">
                 ${ens.role}
               </p>
-              <div class="flex items-center gap-1 text-[11px] font-semibold text-sky-700 mt-0.5">
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-sky-300 mt-0.5">
                 <span>✦</span>
                 <span>${ens.concertCount}</span>
               </div>
@@ -395,24 +395,24 @@ const ensemblesData = sortedEnsembles.map(e => ({
 
       pillarEnsembles.forEach((ens) => {
         const card = document.createElement('div');
-        card.className = 'azure-card p-6 rounded-2xl border border-slate-200 hover:border-sky-400 transition-all cursor-pointer group active:scale-[0.98]';
+        card.className = 'ocean-card p-6 rounded-2xl border border-sky-500/20 hover:border-sky-400/60 transition-all cursor-pointer group active:scale-[0.98]';
         card.innerHTML = `
           <div class="flex items-start justify-between gap-3 mb-3">
-            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-sky-50 text-sky-700 border border-sky-200">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#070d1a] text-sky-300 border border-sky-400/30">
               ${ens.role}
             </span>
-            <span class="text-xs font-semibold text-slate-500 flex items-center gap-1">
+            <span class="text-xs font-semibold text-slate-300 flex items-center gap-1">
               <span>✦</span>
               <span>${ens.concertCount}</span>
             </span>
           </div>
-          <h3 class="font-display font-bold text-base text-slate-900 group-hover:text-sky-600 transition-colors mb-2">
+          <h3 class="font-display font-bold text-base text-white group-hover:text-sky-300 transition-colors mb-2">
             ${ens.name}
           </h3>
-          <ul class="space-y-1.5 mb-4 text-xs text-slate-600 font-sans">
-            ${(ens.highlights || []).slice(0, 2).map(h => `<li class="flex items-start gap-2"><span class="text-sky-500 mt-0.5">•</span><span>${h}</span></li>`).join('')}
+          <ul class="space-y-1.5 mb-4 text-xs text-slate-300 font-sans">
+            ${(ens.highlights || []).slice(0, 2).map(h => `<li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">•</span><span>${h}</span></li>`).join('')}
           </ul>
-          <div class="flex items-center justify-between text-xs font-semibold text-sky-600 pt-3 border-t border-slate-100">
+          <div class="flex items-center justify-between text-xs font-semibold text-sky-400 pt-3 border-t border-sky-500/15">
             <span>Szczegóły formacji</span>
             <span class="group-hover:translate-x-1 transition-transform">→</span>
           </div>
@@ -432,12 +432,12 @@ const ensemblesData = sortedEnsembles.map(e => ({
         if (!pId) return;
 
         mobileTabs.forEach((t) => {
-          t.classList.remove('bg-sky-600', 'border-sky-600', 'text-white', 'shadow-azure-sm');
-          t.classList.add('bg-white', 'border-slate-200', 'text-slate-600');
+          t.classList.remove('bg-sky-600', 'border-sky-400', 'text-white', 'shadow-blue-glow');
+          t.classList.add('bg-[#0f1d38]', 'border-sky-500/20', 'text-slate-300');
         });
 
-        tab.classList.remove('bg-white', 'border-slate-200', 'text-slate-600');
-        tab.classList.add('bg-sky-600', 'border-sky-600', 'text-white', 'shadow-azure-sm');
+        tab.classList.remove('bg-[#0f1d38]', 'border-sky-500/20', 'text-slate-300');
+        tab.classList.add('bg-sky-600', 'border-sky-400', 'text-white', 'shadow-blue-glow');
 
         renderMobileGrid(pId);
       });

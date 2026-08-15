@@ -5,17 +5,17 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: light;
-    background-color: #f8fafc;
-    color: #0f172a;
+    color-scheme: dark;
+    background-color: #070d1a;
+    color: #f1f5f9;
   }
 
   body {
     min-height: 100vh;
     overflow-x: hidden;
-    background-color: #f8fafc;
+    background-color: #070d1a;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: #1e293b;
+    color: #f1f5f9;
   }
 
   /* Custom scrollbar */
@@ -24,10 +24,10 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: #0b1528;
   }
   ::-webkit-scrollbar-thumb {
-    background: #94a3b8;
+    background: #1c3464;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
@@ -36,41 +36,35 @@
 }
 
 @layer utilities {
-  .text-azure {
-    background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  .text-blue-gradient {
+    background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 50%, #60a5fa 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .text-azure-deep {
-    background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .azure-card {
-    background: rgba(255, 255, 255, 0.92);
+  .ocean-card {
+    background: rgba(15, 29, 56, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    box-shadow: 0 8px 30px -6px rgba(2, 6, 23, 0.6);
   }
 
-  .azure-card-hover {
+  .ocean-card-hover {
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .azure-card-hover:hover {
-    background: #ffffff;
-    border-color: #7dd3fc;
+  .ocean-card-hover:hover {
+    background: rgba(20, 37, 72, 0.95);
+    border-color: rgba(56, 189, 248, 0.4);
     transform: translateY(-3px);
-    box-shadow: 0 16px 32px -4px rgba(2, 132, 199, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+    box-shadow: 0 16px 36px -4px rgba(2, 132, 199, 0.25);
   }
 
-  .azure-nav {
-    background: rgba(255, 255, 255, 0.9);
+  .ocean-nav {
+    background: rgba(7, 13, 26, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.12);
   }
 }
