@@ -15,16 +15,85 @@ import {
   CheckCircle2,
 } from 'lucide-astro';
 
-const education = [
+const higherEducation = [
   {
-    institution: 'Uniwersytet Warmińsko-Mazurski w Olsztynie (UWM)',
-    degree: 'Dyplom z Wyróżnieniem',
-    detail: 'Dyrygentura',
+    period: '2025 – obecnie',
+    institution: 'Uniwersytet Warmińsko-Mazurski w Olsztynie — Wydział Sztuki',
+    degree: 'Studia II stopnia (Magisterskie)',
+    specialization: 'Edukacja artystyczna w zakresie sztuki muzycznej',
+    highlights: [
+      'Kontynuacja ścieżki dyrygenckiej i akademickiej',
+    ],
   },
   {
-    institution: 'Państwowa Szkoła Muzyczna I i II stopnia (PSM)',
-    degree: 'Edukacja Muzyczna',
-    detail: 'Klarnet / Fortepian',
+    period: '2023 – obecnie',
+    institution: 'Uniwersytet Warmińsko-Mazurski w Olsztynie — Wydział Sztuki',
+    degree: 'Studia I stopnia (Licencjackie, równoległe)',
+    specialization: 'Produkcja Muzyczna i Realizacja Dźwięku',
+    highlights: [
+      'Inżynieria dźwięku, realizacja sesyjna i produkcja muzyczna',
+    ],
+  },
+  {
+    period: '2021 – 2025',
+    institution: 'Uniwersytet Warmińsko-Mazurski w Olsztynie — Wydział Sztuki',
+    degree: 'Dyplom z Wyróżnieniem (Licencjat)',
+    specialization: 'Edukacja artystyczna w zakresie sztuki muzycznej',
+    highlights: [
+      'Tytuł Najlepszego Absolwenta Wydziału Sztuki UWM (za rok akademicki 2024/2025)',
+      'Nagroda Dziekana za wybitne artystyczne dzieło dyplomowe (Koncert „Finale” w Filharmonii Warmińsko-Mazurskiej)',
+      'Praca dyplomowa: „Analiza i rozwiązywanie problemów wykonawczych na podstawie utworów z repertuaru dyplomowego”',
+    ],
+  },
+];
+
+const musicSchoolEducation = [
+  {
+    period: '2018 – 2022',
+    institution: 'Państwowa Szkoła Muzyczna I i II st. im. Andrzeja Krzanowskiego w Mławie',
+    degree: 'Dyplom z Wyróżnieniem — Tytuł zawodowy: Muzyk',
+    specialization: 'Wydział Wokalny (klasa śpiewu Michała Gogolewskiego)',
+    highlights: [
+      'Ukończenie wydziału wokalnego z wyróżnieniem',
+      'Przewodniczący Samorządu Uczniowskiego PSM (2019–2022) i założyciel Orkiestry Samorządu',
+    ],
+  },
+  {
+    period: '2010 – 2016',
+    institution: 'Państwowa Szkoła Muzyczna I i II st. im. Andrzeja Krzanowskiego w Mławie',
+    degree: 'Świadectwo z Wyróżnieniem (I Stopień)',
+    specialization: 'Fortepian (klasa Ireneusza Weredy)',
+    highlights: [
+      'Fortepian główny (2012–2016) oraz skrzypce (2010–2012)',
+    ],
+  },
+];
+
+const individualAwards = [
+  {
+    year: '2025',
+    title: 'Najlepszy Absolwent Wydziału Sztuki UWM',
+    issuer: 'Uniwersytet Warmińsko-Mazurski w Olsztynie',
+  },
+  {
+    year: '2025',
+    title: 'Nagroda Dziekana za Wybitne Dzieło Dyplomowe',
+    issuer: 'Koncert Dyplomowy „Finale” w Filharmonii Warmińsko-Mazurskiej',
+  },
+  {
+    year: '2025',
+    title: 'Złoty i Srebrny Dyplom — Canco Mediterrania (Hiszpania)',
+    issuer: 'XIV Międzynarodowy Festiwal Chóralny (z Chórem UWM)',
+  },
+  {
+    year: '2024',
+    title: 'I Miejsce — Karnolsky Summer Camp (Bułgaria)',
+    issuer: 'Kategoria instrumentalna (z MMOD w Chorzelach, klarnet)',
+  },
+  {
+    year: '2023',
+    title: 'Złoty Dyplom — Festiwal „O, Warmio moja miła”',
+    issuer: 'Z Chórem Ars Vocale Instytutu Muzyki',
   },
 ];
 
@@ -32,25 +101,25 @@ const mainInstruments = [
   {
     name: 'Dyrygentura',
     category: 'Główna Dyscyplina',
-    desc: 'Kierownictwo muzyczne i dyrygentura orkiestr oraz chórów.',
+    desc: 'Dyrygentura orkiestrowa (dęta i symfoniczna) oraz chóralna. Przygotowanie aparatu wykonawczego i prowadzenie koncertów.',
     icon: Sparkles,
   },
   {
     name: 'Klarnet',
     category: 'Instrument Główny',
-    desc: 'Wykonawstwo solowe, kameralne oraz orkiestrowe.',
+    desc: 'Wykonawstwo w orkiestrach dętych i składach kameralnych.',
     icon: Music,
   },
   {
     name: 'Fortepian',
     category: 'Instrument Główny',
-    desc: 'Wykonawstwo instrumentalne i praca z partyturą.',
+    desc: 'Wykształcenie w klasie fortepianu, akompaniament oraz praca z wyciągami fortepianowymi.',
     icon: Piano,
   },
   {
-    name: 'Śpiew / Wokal',
-    category: 'Głos',
-    desc: 'Śpiew solowy, spektakle teatralno-muzyczne oraz chór.',
+    name: 'Śpiew / Wokal (Tenor)',
+    category: 'Głos Solowy & Chóralny',
+    desc: 'Dyplom z wokalistyki z wyróżnieniem. Role operetkowe, musicalowe oraz partie tenorowe w chórach.',
     icon: Mic2,
   },
 ];
@@ -58,81 +127,207 @@ const mainInstruments = [
 const additionalInstruments = [
   {
     name: 'Organy Liturgiczne',
-    desc: 'Akompaniament liturgiczny.',
+    desc: 'Oprawa muzyczna i akompaniament liturgiczny.',
   },
   {
     name: 'Perkusja / Kotły',
-    desc: 'Składy orkiestrowe.',
+    desc: 'Sekcja perkusyjna w składach orkiestrowych.',
+  },
+  {
+    name: 'Skrzypce / Akordeon',
+    desc: 'Edukacja wczesnoszkolna i instrumentarium dodatkowe.',
   },
 ];
 ---
 
 <BaseLayout
-  title="Bio & Edukacja — Kacper Czeczot"
-  description="Sylwetka artystyczna dyrygenta i muzyka Kacpra Czeczota."
+  title="Bio, Edukacja & Osiągnięcia — Kacper Czeczot"
+  description="Zweryfikowana sylwetka artystyczna: wykształcenie na UWM i w PSM w Mławie z wyróżnieniem, nagrody, instrumentarium oraz dorobek dyrygencki."
 >
   <!-- Page Header -->
   <section class="relative pt-36 pb-20 md:pt-44 md:pb-24 overflow-hidden border-b border-sky-500/15 bg-[#070d1a]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <SectionHeader
-        badge="Sylwetka Artystyczna"
-        title="Bio & Edukacja"
-        subtitle="Dyrygentura, wykonawstwo instrumentalne oraz działalność sceniczna."
+        badge="Sylwetka & Doświadczenie"
+        title="Bio, Edukacja & Osiągnięcia"
+        subtitle="Wykształcenie dyrygenckie, wokalne i instrumentalne poparte dyplomami z wyróżnieniem oraz nagrodami akademickimi i festiwalowymi."
         align="center"
       />
     </div>
   </section>
 
-  <!-- 1. BIOGRAM -->
+  <!-- 1. ARTISTIC BIOGRAPHY -->
   <section class="py-24 bg-[#091224] border-b border-sky-500/15 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto space-y-6">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#0f1d38] text-sky-200 border border-sky-400/30 font-display">
-          <BookOpen class="w-3.5 h-3.5 text-sky-400" />
-          <span>Biogram Artystyczny</span>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#0f1d38] text-sky-200 border border-sky-400/30 font-display">
+            <BookOpen class="w-3.5 h-3.5 text-sky-400" />
+            <span>Biogram Artystyczny</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white leading-tight">
+            Dyrygentura, wykonawstwo sceniczne i produkcja dźwięku
+          </h2>
+
+          <div class="space-y-4 text-slate-300 font-sans leading-relaxed text-base sm:text-lg">
+            <p>
+              Absolwent studiów licencjackich z wyróżnieniem oraz Najlepszy Absolwent Wydziału Sztuki Uniwersytetu Warmińsko-Mazurskiego w Olsztynie (2024/2025). Kontynuuje studia magisterskie na kierunku Edukacja artystyczna w zakresie sztuki muzycznej oraz równoległe studia licencjackie na kierunku Produkcja Muzyczna i Realizacja Dźwięku.
+            </p>
+            <p>
+              Absolwent Państwowej Szkoły Muzycznej I i II st. im. A. Krzanowskiego w Mławie (I stopień w klasie fortepianu z wyróżnieniem, II stopień na wydziale wokalnym z tytułem zawodowym muzyka z wyróżnieniem).
+            </p>
+            <p>
+              Działalność sceniczna obejmuje ponad <strong class="text-sky-300 font-semibold">300 udokumentowanych występów</strong>: prowadzenie orkiestr dętych (Główny Dyrygent w Opinogórze Górnej, Zastępca Dyrygenta w Rębowie i Chociszewie), śpiew w chórach akademickich i filharmonicznych (m.in. Chór im. prof. W. Wawrzyczka UWM, Cantores Varmienses, Ars Vocale), role solowe w spektaklach operetkowych i musicalu „Pora Jeziora” (Filharmonia Warmińsko-Mazurska, Opera Krakowska).
+            </p>
+          </div>
+
+          <div class="pt-3 flex flex-wrap gap-4 text-xs font-bold uppercase tracking-wider text-slate-300 font-display">
+            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Dyrygentura orkiestr i chórów</span>
+            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Wokalistyka, klarnet i fortepian</span>
+            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Produkcja muzyczna i aranżacje</span>
+          </div>
         </div>
 
-        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white leading-tight">
-          Dyrygentura i wykonawstwo sceniczne
-        </h2>
+        <div class="lg:col-span-5">
+          <div class="ocean-card p-8 rounded-3xl border border-sky-500/25 space-y-6 relative overflow-hidden shadow-ocean-card">
+            <div class="flex items-center justify-between border-b border-sky-500/15 pb-4">
+              <span class="font-display font-bold text-lg text-white">Aktywność Zawodowa</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-sky-400 font-display">Stan na 2026</span>
+            </div>
 
-        <div class="space-y-4 text-slate-300 font-sans leading-relaxed text-base sm:text-lg">
-          <p>
-            Działalność muzyczna obejmująca dyrygenturę orkiestrową i chóralną, wykonawstwo instrumentalne (klarnet, fortepian, organy liturgiczne) oraz śpiew sceniczny.
-          </p>
-          <p>
-            Ponad <strong class="text-sky-300 font-semibold">300 występów scenicznych</strong> w ramach orkiestr dętych, chórów, teatru, musicalu i formacji estradowych.
-          </p>
+            <div class="space-y-3.5 text-xs text-slate-300">
+              <div class="p-4 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1 shadow-xs">
+                <span class="text-sky-300 font-display font-bold uppercase tracking-wider block">ORKIESTRA GOK W OPINOGÓRZE GÓRNEJ</span>
+                <span class="text-slate-400 text-xs">Główny Dyrygent (od grudnia 2025)</span>
+              </div>
+              <div class="p-4 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1 shadow-xs">
+                <span class="text-slate-200 font-display font-bold uppercase tracking-wider block">ORKIESTRA DĘTA OSP RĘBOWO / CHOCISZEWO</span>
+                <span class="text-slate-400 text-xs">Zastępca Dyrygenta i Instruktor (od 2024)</span>
+              </div>
+              <div class="p-4 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1 shadow-xs">
+                <span class="text-sky-400 font-display font-bold uppercase tracking-wider block">CHÓR IM. PROF. W. WAWRZYCZKA UWM</span>
+                <span class="text-slate-400 text-xs">Tenor, Dyrygent, Bibliotekarz (70+ występów, od 2022)</span>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 2. EDUKACJA -->
+  <!-- 2. EDUKACJA WYŻSZA I MUZYCZNA -->
   <section class="py-24 bg-[#070d1a] border-b border-sky-500/15 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <!-- Higher Education -->
+      <div class="space-y-8 max-w-4xl mx-auto">
+        <div class="space-y-2 text-center sm:text-left">
+          <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 font-display">
+            Szkolnictwo Wyższe
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-display font-bold text-white">
+            Uniwersytet Warmińsko-Mazurski w Olsztynie (Wydział Sztuki)
+          </h3>
+        </div>
+
+        <div class="space-y-4">
+          {higherEducation.map((item) => (
+            <div class="ocean-card rounded-3xl p-7 border border-sky-500/20 shadow-ocean-card space-y-3">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-sky-500/15">
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-sky-400 font-display">
+                    {item.period}
+                  </span>
+                  <h4 class="text-lg font-display font-bold text-white">
+                    {item.degree}
+                  </h4>
+                </div>
+                <span class="text-xs text-slate-300 font-sans sm:text-right">
+                  {item.specialization}
+                </span>
+              </div>
+              <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300 font-sans">
+                {item.highlights.map(h => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-sky-400 mt-1">•</span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Music School Education -->
+      <div class="space-y-8 max-w-4xl mx-auto pt-6 border-t border-sky-500/15">
+        <div class="space-y-2 text-center sm:text-left">
+          <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 font-display">
+            Szkoła Muzyczna
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-display font-bold text-white">
+            Państwowa Szkoła Muzyczna im. A. Krzanowskiego w Mławie
+          </h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {musicSchoolEducation.map((item) => (
+            <div class="ocean-card rounded-3xl p-7 border border-sky-500/20 shadow-ocean-card space-y-3">
+              <span class="text-xs font-bold uppercase tracking-wider text-sky-400 font-display block">
+                {item.period}
+              </span>
+              <h4 class="text-base font-display font-bold text-white">
+                {item.degree}
+              </h4>
+              <p class="text-xs text-sky-200/80 font-medium">
+                {item.specialization}
+              </p>
+              <ul class="space-y-1 text-xs text-slate-300 font-sans pt-2 border-t border-sky-500/10">
+                {item.highlights.map(h => (
+                  <li class="flex items-start gap-1.5">
+                    <span class="text-sky-400 mt-0.5">•</span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. NAGRODY I WYRÓŻNIENIA -->
+  <section class="py-24 bg-[#091224] border-b border-sky-500/15 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
       <div class="text-center max-w-3xl mx-auto space-y-3">
         <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 font-display">
-          Edukacja
+          Osiągnięcia
         </span>
-        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white">
-          Edukacja <span class="text-blue-gradient">Muzyczna</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
+          Nagrody & <span class="text-blue-gradient">Wyróżnienia</span>
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        {education.map((item) => (
-          <div class="ocean-card rounded-3xl p-7 border border-sky-500/20 shadow-ocean-card space-y-3">
-            <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#070d1a] text-sky-300 border border-sky-400/30 font-display">
-              <Award class="w-3.5 h-3.5 text-sky-400" />
-              {item.degree}
-            </span>
-            <h3 class="text-lg font-display font-bold text-white">
-              {item.institution}
-            </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {individualAwards.map((award) => (
+          <div class="ocean-card p-6 rounded-3xl border border-sky-500/20 shadow-ocean-card space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#070d1a] text-sky-300 border border-sky-400/30 font-display">
+                {award.year}
+              </span>
+              <Award class="w-4 h-4 text-sky-400" />
+            </div>
+            <h4 class="text-base font-display font-bold text-white pt-1">
+              {award.title}
+            </h4>
             <p class="text-xs text-slate-400 font-sans">
-              {item.detail}
+              {award.issuer}
             </p>
           </div>
         ))}
@@ -141,16 +336,16 @@ const additionalInstruments = [
     </div>
   </section>
 
-  <!-- 3. INSTRUMENTARIUM -->
-  <section class="py-24 bg-[#091224] relative">
+  <!-- 4. INSTRUMENTARIUM -->
+  <section class="py-24 bg-[#070d1a] relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
       <div class="text-center max-w-3xl mx-auto space-y-3">
         <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 font-display">
-          Dyscypliny & Instrumentarium
+          Dyscypliny
         </span>
-        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white">
-          Praktyka <span class="text-blue-gradient">Wykonawcza</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
+          Instrumentarium & <span class="text-blue-gradient">Kompetencje</span>
         </h2>
       </div>
 
@@ -187,7 +382,7 @@ const additionalInstruments = [
           <Layers class="w-4 h-4 text-sky-400" />
           <span>Instrumentarium Dodatkowe</span>
         </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {additionalInstruments.map((item) => (
             <div class="p-4 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1 shadow-xs">
               <h4 class="text-sm font-bold text-white font-display">{item.name}</h4>

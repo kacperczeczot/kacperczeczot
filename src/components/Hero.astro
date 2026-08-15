@@ -3,9 +3,9 @@ import { Music2, ChevronRight, Award, Layers, Sparkles } from 'lucide-astro';
 
 const credentials = [
   { value: '300+', label: 'Występów Scenicznych', detail: 'Orkiestry, chóry, teatr i estrada' },
-  { value: '4', label: 'Filary Wykonawcze', detail: 'Orkiestry, Chóry, Teatr, Estrada' },
-  { value: 'UWM', label: 'Dyplom z Wyróżnieniem', detail: 'Dyrygentura i edukacja muzyczna' },
-  { value: 'PSM I & II', label: 'Szkoły Muzyczne', detail: 'Klarnet, fortepian i teoria' },
+  { value: '4', label: 'Filary Działalności', detail: 'Orkiestry, Chóry, Teatr, Estrada' },
+  { value: 'UWM', label: 'Najlepszy Absolwent', detail: 'Dyplom dyrygencki z wyróżnieniem' },
+  { value: 'PSM I & II', label: 'PSM w Mławie', detail: 'Fortepian i Wokalistyka z wyróżnieniem' },
 ];
 ---
 
@@ -40,7 +40,7 @@ const credentials = [
 
     <!-- Description -->
     <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-sans leading-relaxed mb-12 font-normal">
-      Działalność muzyczna, wykonawcza i dyrygencka: prowadzenie orkiestr i chórów, występy teatralno-musicalowe, dzieła autorskie oraz zaplecze studyjne i inżynieria dźwięku.
+      Dyrygentura symfoniczna i orkiestr dętych, wykonawstwo instrumentalne i wokalne, spektakle teatralno-musicalowe oraz produkcja muzyczna i inżynieria dźwięku.
     </p>
 
     <!-- CTA Actions -->
@@ -61,7 +61,7 @@ const credentials = [
       </a>
     </div>
 
-    <!-- Credentials Grid (Ocean Cards) -->
+    <!-- Credentials Grid (Verified facts from personalna-baza-danych) -->
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto pt-6 border-t border-sky-500/15">
       {credentials.map((item) => (
         <div class="ocean-card p-6 rounded-2xl text-center group hover:border-sky-400/50 transition-all duration-300">

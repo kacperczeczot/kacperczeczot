@@ -11,4 +11,4 @@ photos:
 order: 2
 ---
 
-Działalność w kameralnym zespole wokalnym: harmonia czterogłosowa, repertuar okolicznościowy i występy sceniczne.
+Działalność w kameralnym zespole wokalnym: harmonia wielogłosowa, repertuar okolicznościowy i występy estradowe.
