@@ -1,15 +1,11 @@
 ---
-title: "BatonSync — Adaptive Web Audio Conductor Engine"
-description: "Interaktywny symulator tempa i gestu dyrygenckiego oparty na precyzyjnym zegarze Web Audio API. Obsługuje adaptacyjne wyliczanie tempa (BPM tracking), tap-tempo z filtrem Kalmana oraz wysyłanie sygnałów MIDI Clock do urządzeń zewnętrznych."
+title: "BatonSync — Adaptive Tap-Tempo & Visual Metronome"
+description: "Precyzyjny metronom wizualny i narzędzie detekcji tempa z płynną interpolacją zmian agogicznych (ritardando / accelerando)."
 tags:
-  - "JavaScript"
-  - "Web Audio API"
-  - "WebMIDI"
+  - "WebAudio API"
   - "Canvas 2D"
-  - "PWA"
-githubUrl: "https://github.com/kacperczeczot/batonsync"
 featured: false
 order: 3
 ---
 
-Lekka aplikacja webowa do ćwiczeń dyrygenckich, kontroli tempa i stabilizacji pulsu podczas prób sekcyjnych orkiestr i chórów.
+Narzędzie wspierające próby dyrygenckie: płynne śledzenie zmian tempa i wizualizacja pulsu metrycznego.

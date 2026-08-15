@@ -1,16 +1,14 @@
 ---
-name: "Zakręcony Band — Live Show Ensemble"
+name: "Zakręcony Band"
 pillar: "estrada"
 role: "Instrumentalista / Realizacja"
-concertCount: "50+ koncertów"
+concertCount: "Występy estradowe"
 highlights:
-  - "Partie instrumentów klawiszowych, syntezatorów i klarnetu w aranżacjach funk, pop i jazz"
-  - "Inżynieria dźwięku na żywo (live sound mixing), konfiguracja torów IEM i automatyzacji MIDI"
-  - "Wielotysięczne imprezy plenerowe, festiwale i prestiżowe gale artystyczne"
+  - "Wykonawstwo muzyki rozrywkowej i estradowej na żywo"
+  - "Realizacja i obsługa techniczna toru audio"
 photos:
   - "/images/ensembles/zakrecony-1.svg"
-  - "/images/ensembles/zakrecony-2.svg"
-order: 8
+order: 1
 ---
 
-Dynamiczny zespół estradowy stawiający na najwyższą jakość wykonawczą na żywo, energetyczne aranżacje i nowoczesną technologię sceniczną (cyfrowe miksery, synchronizacja podkładów i klików).
+Wykonawstwo sceniczne w zespole muzyki rozrywkowej oraz techniczna realizacja dźwięku podczas wydarzeń live.

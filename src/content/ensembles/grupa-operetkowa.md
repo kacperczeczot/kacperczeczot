@@ -1,16 +1,14 @@
 ---
-name: "Olsztyńska Scena Teatralna / Grupa Operetkowa"
+name: "Grupa Operetkowa"
 pillar: "teatr"
 role: "Solista / Aktor"
-concertCount: "30+ spektakli"
+concertCount: "Działalność teatralna"
 highlights:
-  - "Kreacje ról wokalno-aktorskich w arcydziełach klasycznej operetki wiedeńskiej i węgierskiej"
-  - "Praca sceniczna z orkiestrą na żywo, dialogi mówione i choreografia estradowa"
-  - "Gale operetkowe i widowiska muzyczne w teatrach dramatycznych i centrach kongresowych"
+  - "Wykonawstwo ról i partii solowych w spektaklach operetkowych"
+  - "Praca sceniczna, dykcja i ruch teatralny"
 photos:
   - "/images/ensembles/operetka-1.svg"
-  - "/images/ensembles/operetka-2.svg"
-order: 6
+order: 1
 ---
 
-Doświadczenie sceniczne łączące klasyczną technikę śpiewu bel canto z ekspresją aktorską i scenicznym ruchem. Wykonawstwo arii i duetów z operetek J. Straussa, I. Kálmána oraz F. Lehára.
+Role wokalne i aktorskie w klasycznym repertuarze operetkowym na deskach teatrów i sal widowiskowych.

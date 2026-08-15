@@ -1,5 +1,5 @@
 ---
-import { Github, Youtube, Mail, Copy, Check, ArrowUpRight } from 'lucide-astro';
+import { Github, Mail, Copy, Check, ArrowUpRight } from 'lucide-astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentYear = new Date().getFullYear();
@@ -27,28 +27,20 @@ const contactEmail = 'kacperczeczot7@gmail.com';
         </div>
 
         <p class="text-slate-300 font-sans text-base leading-relaxed max-w-md font-normal">
-          Dyscyplina dyrygentury symfoniczno-chóralnej, wykonawstwo instrumentalne oraz współczesna realizacja dźwięku.
+          Dyscyplina dyrygentury symfoniczno-chóralnej, wykonawstwo instrumentalne oraz realizacja dźwięku.
         </p>
 
-        <!-- Social Media Links -->
+        <!-- Social Media Links (Only verified) -->
         <div class="flex items-center gap-3 pt-2">
           <a
             href="https://github.com/kacperczeczot"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Profil GitHub"
-            class="p-3 rounded-xl bg-[#0f1d38] border border-sky-500/20 text-slate-300 hover:text-sky-300 hover:border-sky-400 hover:bg-[#142548] transition-all shadow-xs"
+            class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0f1d38] border border-sky-500/20 text-slate-300 hover:text-sky-300 hover:border-sky-400 hover:bg-[#142548] transition-all shadow-xs text-xs font-semibold"
           >
-            <Github class="w-4 h-4" />
-          </a>
-          <a
-            href="https://youtube.com/@Czeczotmordo"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Kanał YouTube"
-            class="p-3 rounded-xl bg-[#0f1d38] border border-sky-500/20 text-slate-300 hover:text-red-400 hover:border-red-500/30 hover:bg-[#142548] transition-all shadow-xs"
-          >
-            <Youtube class="w-4 h-4" />
+            <Github class="w-4 h-4 text-sky-400" />
+            <span>GitHub</span>
           </a>
         </div>
       </div>

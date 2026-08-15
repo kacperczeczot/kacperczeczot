@@ -1,16 +1,14 @@
 ---
-name: "Warmia Musical „Pora Jeziora”"
+name: "Musical „Pora Jeziora”"
 pillar: "teatr"
 role: "Śpiew / Aktor"
-concertCount: "18 spektakli"
+concertCount: "Produkcja musicalowa"
 highlights:
-  - "Udział w monumentalnym musicalu z orkiestrą symfoniczną Filharmonii Warmińsko-Mazurskiej"
-  - "Wieloobsadowe sceny zbiorowe i dramatyczne partie wokalne inspirowane legendami Warmii i Mazur"
-  - "Występy na deskach Teatru im. Stefana Jaracza w Olsztynie i w halach widowiskowych"
+  - "Kreacja sceniczna w widowisku musicalowym"
+  - "Praca wokalna i choreograficzna w zespole sceny musicalowej"
 photos:
   - "/images/ensembles/porajeziora-1.svg"
-  - "/images/ensembles/porajeziora-2.svg"
-order: 7
+order: 2
 ---
 
-Unikalne doświadczenie wielkoformatowej produkcji musicalowej łączącej nowoczesną inscenizację, orkiestrę symfoniczną na żywo, chór i zaawansowaną realizację multimedialną.
+Udział w dużej produkcji musicalowej „Pora Jeziora”: śpiew sceniczny, gra aktorska i koordynacja choreograficzna.

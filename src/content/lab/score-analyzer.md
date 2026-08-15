@@ -1,15 +1,12 @@
 ---
-title: "Harmoniq — MusicXML & Score Analysis Engine"
-description: "Algorytmiczny silnik do analizy partytur w formatach MusicXML i MIDI. Umożliwia automatyczną detekcję zakazanych pochodów harmonicznych, analizę rejestrów instrumentów dętych i smyczkowych oraz generowanie wyciągów fortepianowych."
+title: "HarmoniQ — Score & MusicXML Structure Analyzer"
+description: "Eksperymentalne narzędzie webowe do analizy harmonicznej plików MusicXML, wyliczania statystyk głosowych i detekcji równoległości w partyturach chóralnych."
 tags:
   - "TypeScript"
-  - "MusicXML Parser"
-  - "WebAssembly"
+  - "MusicXML"
   - "VexFlow"
-  - "Astro"
-githubUrl: "https://github.com/kacperczeczot/harmoniq-analyzer"
 featured: false
 order: 2
 ---
 
-Narzędzie wspomagające proces aranżacji i transkrypcji partytur orkiestrowych. Skraca czas przygotowania materiałów nutowych dla zespołu i automatyzuje weryfikację zasad harmonii klasycznej.
+Narzędzie wspomagające pracę analityczną dyrygenta nad partyturami wielogłosowymi: parsing MusicXML oraz wizualizacja rozkładu ambitusu głosów.
