@@ -94,20 +94,17 @@ const additionalInstruments = [
 const studioWorkflows = [
   {
     category: 'Partytury & Notacja',
-    software: ['MuseScore', 'Sibelius', 'MusicXML'],
     desc: 'Aranżacje, transkrypcje i przygotowanie partytur oraz głosów wykonawczych dla zespołów.',
     icon: FileCode2,
   },
   {
     category: 'Produkcja Audio & Miks',
-    software: ['Logic Pro', 'Pro Tools'],
-    desc: 'Wielośladowy zapis sesyjny, edycja ścieżek, miks oraz mastering.',
+    desc: 'Zapis sesyjny, edycja ścieżek, miks oraz produkcja nagrań muzycznych.',
     icon: Sliders,
   },
   {
     category: 'Realizacja Sceniczna',
-    software: ['Miksery Cyfrowe', 'Odsłuchy IEM', 'MIDI Sync'],
-    desc: 'Konfiguracja torów audio i synchronizacja sygnałów scenicznych podczas koncertów na żywo.',
+    desc: 'Konfiguracja torów audio i synchronizacja sygnałów scenicznych podczas wydarzeń na żywo.',
     icon: AudioWaveform,
   },
 ];
@@ -115,7 +112,7 @@ const studioWorkflows = [
 
 <BaseLayout
   title="Bio, Edukacja & Warsztat Twórczy — Kacper Czeczot"
-  description="Sylwetka artystyczna dyrygenta i instrumentalisty Kacpra Czeczota: wykształcenie muzyczne na UWM z wyróżnieniem, PSM I i II st., instrumentarium oraz warsztat partytur i produkcji studyjnej."
+  description="Sylwetka artystyczna dyrygenta i instrumentalisty Kacpra Czeczota: wykształcenie muzyczne na UWM z wyróżnieniem, PSM I i II st., instrumentarium oraz warsztat partytur i produkcji muzycznej."
 >
   <!-- Page Header -->
   <section class="relative pt-36 pb-20 md:pt-44 md:pb-24 overflow-hidden border-b border-sky-500/15 bg-[#070d1a]">
@@ -141,7 +138,7 @@ const studioWorkflows = [
           </div>
 
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white leading-tight">
-            Dyrygentura, wykonawstwo sceniczne i praca studyjna
+            Dyrygentura, wykonawstwo sceniczne i produkcja muzyczna
           </h2>
 
           <div class="space-y-4 text-slate-300 font-sans leading-relaxed text-base sm:text-lg">
@@ -152,14 +149,14 @@ const studioWorkflows = [
               Działalność sceniczna obejmuje ponad <strong class="text-sky-300 font-semibold">300 występów</strong>: prowadzenie orkiestr dętych, chórów akademickich i kameralnych, udział w spektaklach teatralno-operetkowych i musicalach, a także występy z formacjami estradowymi.
             </p>
             <p class="text-slate-400 text-sm leading-relaxed">
-              Równolegle zajmuję się pracą aranżacyjną (edycja partytur w programie MuseScore), realizacją nagrań wielośladowych w środowiskach Logic Pro i Pro Tools oraz inżynierią dźwięku scenicznego.
+              Równolegle zajmuję się pracą aranżacyjną, edycją partytur nutowych, realizacją nagrań wielośladowych oraz inżynierią dźwięku scenicznego.
             </p>
           </div>
 
           <div class="pt-3 flex flex-wrap gap-4 text-xs font-bold uppercase tracking-wider text-slate-300 font-display">
             <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Dyrygentura orkiestr i chórów</span>
             <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Aranżacja i edycja partytur</span>
-            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Realizacja dźwięku DAW</span>
+            <span class="flex items-center gap-2"><CheckCircle2 class="w-4 h-4 text-sky-400" /> Realizacja i produkcja dźwięku</span>
           </div>
         </div>
 
@@ -181,7 +178,7 @@ const studioWorkflows = [
               </div>
               <div class="p-4 rounded-2xl bg-[#070d1a] border border-sky-500/20 space-y-1 shadow-xs">
                 <span class="text-sky-400 font-display font-bold uppercase tracking-wider block">STUDIO, PARTYTURY & SOFTWARE</span>
-                <span class="text-slate-400 text-xs">Logic Pro, Pro Tools, MuseScore oraz oprogramowanie sceniczne.</span>
+                <span class="text-slate-400 text-xs">Aranżacje, edycja partytur oraz oprogramowanie sceniczne.</span>
               </div>
             </div>
           </div>
@@ -316,10 +313,10 @@ const studioWorkflows = [
           Środowisko Pracy
         </span>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
-          Studio, Partytury & <span class="text-blue-gradient">Realizacja Dźwięku</span>
+          Partytury & <span class="text-blue-gradient">Produkcja Muzyczna</span>
         </h2>
         <p class="text-slate-300 text-base sm:text-lg font-normal">
-          Oprogramowanie do edycji partytur i produkcji muzycznej.
+          Edycja partytur, aranżacja i produkcja muzyczna.
         </p>
       </div>
 
@@ -335,13 +332,6 @@ const studioWorkflows = [
                 <h3 class="text-xl font-display font-bold text-white group-hover:text-sky-300 transition-colors">
                   {item.category}
                 </h3>
-                <div class="flex flex-wrap gap-2">
-                  {item.software.map(s => (
-                    <span class="px-3 py-1 rounded-lg bg-[#070d1a] border border-sky-500/20 text-xs font-semibold text-sky-200 font-display">
-                      {s}
-                    </span>
-                  ))}
-                </div>
                 <p class="text-xs text-slate-300 font-sans leading-relaxed">
                   {item.desc}
                 </p>
