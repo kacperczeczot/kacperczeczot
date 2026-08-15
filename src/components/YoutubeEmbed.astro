@@ -1,42 +1,64 @@
 ---
-import { Play, Film } from 'lucide-astro';
+import { Play, Film, Youtube, ExternalLink } from 'lucide-astro';
 
 interface Props {
-  youtubeId: string;
+  youtubeId?: string;
   title: string;
   partNumber?: number;
   featured?: boolean;
 }
 
-const { youtubeId, title, partNumber, featured = false } = Astro.props;
+const { youtubeId = '', title, partNumber, featured = false } = Astro.props;
+const hasValidVideo = youtubeId && youtubeId.trim().length > 0 && youtubeId !== 'dQw4w9WgXcQ';
 ---
 
-<div class={`group relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/60 shadow-xl transition-all duration-300 hover:border-amber-500/40 hover:shadow-glow-amber ${featured ? 'p-1' : ''}`}>
+<div class={`group relative rounded-2xl overflow-hidden border border-[#e2ba64]/25 bg-[#15141a] shadow-xl transition-all duration-300 hover:border-[#e2ba64]/60 hover:shadow-gold-glow ${featured ? 'p-1' : ''}`}>
   <!-- Video Header Bar -->
-  <div class="px-4 py-3 bg-zinc-950/80 border-b border-zinc-800/80 flex items-center justify-between gap-3">
-    <div class="flex items-center gap-2.5 min-w-0">
-      <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-semibold flex-shrink-0">
-        {partNumber ? `0${partNumber}` : <Film class="w-3.5 h-3.5" />}
+  <div class="px-5 py-3.5 bg-[#070709] border-b border-[#e2ba64]/15 flex items-center justify-between gap-3">
+    <div class="flex items-center gap-3 min-w-0">
+      <span class="flex items-center justify-center w-7 h-7 rounded-xl bg-[#15141a] border border-[#e2ba64]/30 text-[#f6d289] text-xs font-display font-bold flex-shrink-0">
+        {partNumber ? `0${partNumber}` : <Film class="w-3.5 h-3.5 text-[#e2ba64]" />}
       </span>
-      <h3 class="text-sm font-medium text-zinc-200 truncate group-hover:text-amber-300 transition-colors">
+      <h3 class="text-xs sm:text-sm font-display font-semibold text-zinc-100 truncate group-hover:text-[#f6d289] transition-colors">
         {title}
       </h3>
     </div>
-    <span class="text-[10px] font-mono text-zinc-400 uppercase tracking-wider flex items-center gap-1.5 flex-shrink-0">
-      <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+    <span class="text-[10px] font-display uppercase tracking-wider text-[#e2ba64] flex items-center gap-1.5 flex-shrink-0 font-semibold">
+      <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
       YouTube
     </span>
   </div>
 
-  <!-- Video Iframe Container (16:9 Aspect Ratio) -->
-  <div class="relative w-full aspect-video bg-black overflow-hidden">
-    <iframe
-      src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&modestbranding=1`}
-      title={title}
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-      loading="lazy"
-      class="absolute inset-0 w-full h-full border-0"
-    ></iframe>
+  <!-- Video Container (16:9) -->
+  <div class="relative w-full aspect-video bg-[#070709] overflow-hidden flex items-center justify-center">
+    {hasValidVideo ? (
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&modestbranding=1`}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"
+        class="absolute inset-0 w-full h-full border-0"
+      ></iframe>
+    ) : (
+      <div class="p-8 text-center space-y-4 max-w-md mx-auto">
+        <div class="w-14 h-14 rounded-2xl bg-[#15141a] border border-[#e2ba64]/30 flex items-center justify-center text-[#f6d289] mx-auto shadow-gold-glow group-hover:scale-105 transition-transform">
+          <Youtube class="w-7 h-7 text-red-500" />
+        </div>
+        <div class="space-y-1">
+          <p class="font-display font-bold text-sm text-zinc-200">{title}</p>
+          <p class="text-xs font-serif italic text-zinc-400">Filharmonia Warmińsko-Mazurska • Chór UWM & Orkiestra</p>
+        </div>
+        <a
+          href={`https://www.youtube.com/results?search_query=Kacper+Czeczot+${encodeURIComponent(title)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#070709] border border-[#e2ba64]/30 text-xs font-display uppercase tracking-wider text-[#f6d289] hover:bg-[#e2ba64] hover:text-[#070709] transition-all font-semibold"
+        >
+          <span>Odtwórz na YouTube</span>
+          <ExternalLink class="w-3.5 h-3.5" />
+        </a>
+      </div>
+    )}
   </div>
 </div>
