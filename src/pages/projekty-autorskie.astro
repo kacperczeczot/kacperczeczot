@@ -108,7 +108,7 @@ const echoWork = works.find(w => w.slug === 'echo-epok');
             </h3>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class={`grid grid-cols-1 ${finaleWork.data.youtubeVideos.length >= 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-6`}>
             {finaleWork.data.youtubeVideos.map((video, idx) => (
               <YoutubeEmbed
                 youtubeId={video.youtubeId}

@@ -9,8 +9,6 @@ youtubeVideos:
     youtubeId: "Pl-SkRvxxxs"
   - title: "Bohemian Rhapsody — aranż. i dyr. Kacper Czeczot (Chór UWM & Orkiestra)"
     youtubeId: "4bxcErGADeY"
-  - title: "Psalm dla Ciebie — opr. i dyr. Kacper Czeczot (Chór UWM & Orkiestra)"
-    youtubeId: "s1R5x50-C14"
 order: 1
 ---
 
@@ -21,4 +19,4 @@ Wydarzenie zrealizowane 13 maja 2025 roku w Filharmonii Warmińsko-Mazurskiej w 
 - **Kierownictwo muzyczne, dyrygentura & aranżacje:** Kacper Czeczot
 - **Wykonawcy:** Chór im. prof. Wiktora Wawrzyczka UWM oraz Orkiestra
 - **Wyróżnienie:** Nagroda Dziekana za „Wybitne artystyczne dzieło dyplomowe”
-- **Repertuar:** Opracowanie hymnu *Nearer My God to Thee*, aranżacja symfoniczno-chóralna utworu *Bohemian Rhapsody* oraz *Psalm dla Ciebie*.
+- **Repertuar:** M.in. opracowanie hymnu *Nearer My God to Thee* oraz aranżacja symfoniczno-chóralna utworu *Bohemian Rhapsody*.
