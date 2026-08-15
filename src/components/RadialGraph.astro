@@ -1,86 +1,88 @@
 ---
 import { getCollection } from 'astro:content';
-import { Music2, Users, Theater, Sparkles, Award, RotateCcw, ChevronRight } from 'lucide-astro';
+import {
+  Sparkles,
+  Users,
+  Compass,
+  RotateCcw,
+  Music,
+  Mic,
+  Drama,
+  Radio,
+  ChevronRight,
+  Maximize2,
+} from 'lucide-astro';
 
+// Fetch all 9 verified ensembles from Content Collections
 const allEnsembles = await getCollection('ensembles');
-const sortedEnsembles = allEnsembles.sort((a, b) => a.data.order - b.data.order);
 
+// Group ensembles by pillar
+const orkiestry = allEnsembles.filter(e => e.data.pillar === 'orkiestry').sort((a, b) => a.data.order - b.data.order);
+const chory = allEnsembles.filter(e => e.data.pillar === 'chory').sort((a, b) => a.data.order - b.data.order);
+const teatr = allEnsembles.filter(e => e.data.pillar === 'teatr').sort((a, b) => a.data.order - b.data.order);
+const estrada = allEnsembles.filter(e => e.data.pillar === 'estrada').sort((a, b) => a.data.order - b.data.order);
+
+// 4 Main Pillars with exact geometry
 const pillars = [
   {
     id: 'orkiestry',
     name: 'Orkiestry',
-    subtitle: 'Dęte & Symfoniczne',
-    count: '3 formacje',
-    icon: Music2,
-    color: '#38bdf8',
+    count: '3 zespoły',
+    icon: Music,
     cx: 260,
     cy: 180,
+    ensembles: orkiestry,
   },
   {
     id: 'chory',
-    name: 'Chóry & Wokal',
-    subtitle: 'Akademia & Muzyka Dawna',
+    name: 'Chóry',
     count: '2 zespoły',
-    icon: Users,
-    color: '#38bdf8',
+    icon: Mic,
     cx: 640,
     cy: 180,
+    ensembles: chory,
   },
   {
     id: 'teatr',
-    name: 'Scena & Teatr',
-    subtitle: 'Operetka & Musical',
+    name: 'Teatr & Scena',
     count: '2 produkcje',
-    icon: Theater,
-    color: '#38bdf8',
+    icon: Drama,
     cx: 640,
     cy: 500,
+    ensembles: teatr,
   },
   {
     id: 'estrada',
-    name: 'Kameralistyka & Estrada',
-    subtitle: 'Live Show & Jazz',
-    count: '2 formacje',
-    icon: Sparkles,
-    color: '#38bdf8',
+    name: 'Estrada',
+    count: '2 składy',
+    icon: Radio,
     cx: 260,
     cy: 500,
+    ensembles: estrada,
   },
 ];
-
-const ensemblesData = sortedEnsembles.map(e => ({
-  id: e.slug,
-  name: e.data.name,
-  pillar: e.data.pillar,
-  role: e.data.role,
-  concertCount: e.data.concertCount,
-  highlights: e.data.highlights,
-  photos: e.data.photos,
-  order: e.data.order,
-  bodyText: e.body,
-}));
 ---
 
-<section id="drzewo-radialne" class="relative py-24 bg-[#070d1a] overflow-hidden border-t border-sky-500/15">
+<section id="drzewo-radialne" class="relative py-28 md:py-36 overflow-hidden bg-[#070d1a]">
   
-  <!-- Atmospheric Blue Glow -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] bg-gradient-radial from-sky-500/10 via-transparent to-transparent blur-3xl pointer-events-none -z-10"></div>
-  
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Subtle Azure Glow Background -->
+  <div class="absolute inset-0 bg-gradient-radial from-sky-500/10 via-transparent to-transparent pointer-events-none -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Title -->
     <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
       <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-sky-400/30 bg-[#0f1d38] text-sky-200 text-xs font-semibold uppercase tracking-wider font-display">
         <Sparkles class="w-3.5 h-3.5 text-sky-400" />
-        <span>Konstelacja Sceniczna</span>
+        <span>Działalność Zespołowa</span>
       </div>
       
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white tracking-tight">
-        Orbita Działalności <span class="text-blue-gradient">Zespołowej</span>
+        Cztery Filary Działalności <span class="text-blue-gradient">Scenicznej</span>
       </h2>
       
       <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-normal leading-relaxed">
-        Wybierz jeden z czterech filarów scenicznych, aby odkryć poszczególne orkiestry, chóry, produkcje teatralne oraz składy estradowe.
+        Orkiestry dęte i symfoniczne, chóry akademickie i kameralne, teatr muzyczny i operetka oraz zespoły estradowe.
       </p>
 
       <div class="flex items-center justify-center gap-3 pt-1 opacity-50">
@@ -127,12 +129,12 @@ const ensemblesData = sortedEnsembles.map(e => ({
         <g id="svg-satellite-lines"></g>
       </svg>
 
-      <!-- 1. CENTRAL MEDALLION: 300+ WYSTĘPÓW (Seal / Home) -->
+      <!-- 1. CENTRAL MEDALLION: 300+ WYSTĘPÓW -->
       <div
         id="central-node"
         role="button"
         tabindex="0"
-        title="Kliknij, aby zresetować widok"
+        title="Widok ogólny"
         class="absolute top-[340px] left-[450px] -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer group focus:outline-none"
       >
         <div class="relative flex flex-col items-center justify-center w-44 h-44 rounded-full bg-[#0f1d38] border-2 border-sky-400 shadow-blue-glow group-hover:scale-105 transition-all duration-300 backdrop-blur-md">
@@ -147,10 +149,6 @@ const ensemblesData = sortedEnsembles.map(e => ({
           </span>
           <span class="text-xs font-bold text-slate-100 uppercase tracking-wider text-center px-2 leading-tight font-display">
             Występów<br />Scenicznych
-          </span>
-
-          <span class="text-[10px] text-sky-200/60 mt-1 font-medium">
-            Reset widoku
           </span>
         </div>
       </div>
@@ -182,7 +180,7 @@ const ensemblesData = sortedEnsembles.map(e => ({
               </span>
 
               <span class="absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-[#070d1a] border border-sky-400/30 text-sky-200 text-[10px] font-display uppercase tracking-wider group-hover:bg-sky-500 group-hover:text-white transition-all font-semibold shadow-xs">
-                Odkryj +
+                Formacje
               </span>
             </div>
           </div>
@@ -192,10 +190,9 @@ const ensemblesData = sortedEnsembles.map(e => ({
       <!-- 3. ORBIT 2: SATELLITES LAYER -->
       <div id="satellite-nodes-layer" class="absolute inset-0 z-20 pointer-events-none"></div>
 
-      <!-- Quick Guidance -->
+      <!-- Footer Info -->
       <div class="absolute bottom-4 right-6 text-xs text-slate-400 font-medium flex items-center gap-2">
-        <RotateCcw class="w-3.5 h-3.5 text-sky-400" />
-        <span>Wybierz filar, by rozwinąć formacje • Kliknij zespół, by otworzyć panel</span>
+        <span>Orkiestry • Chóry • Teatr • Estrada</span>
       </div>
 
     </div>
@@ -219,18 +216,54 @@ const ensemblesData = sortedEnsembles.map(e => ({
                   : 'bg-[#0f1d38] border-sky-500/20 text-slate-300 hover:text-white'
               }`}
             >
-              <Icon class={`w-4 h-4 ${idx === 0 ? 'text-white' : 'text-sky-400'}`} />
+              <Icon class="w-4 h-4" />
               <span>{pillar.name}</span>
-              <span class={`px-2 py-0.5 rounded-full text-[10px] ${idx === 0 ? 'bg-sky-700 text-white' : 'bg-[#070d1a] text-sky-300'}`}>
-                {pillar.count.split(' ')[0]}
-              </span>
+              <span class="text-[10px] opacity-80 font-normal">({pillar.ensembles.length})</span>
             </button>
           );
         })}
       </div>
 
-      <!-- Mobile Ensemble Cards Grid -->
-      <div id="mobile-ensembles-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <!-- Mobile Ensemble Cards -->
+      <div id="mobile-ensembles-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {pillars.map((pillar, pIdx) => (
+          pillar.ensembles.map((ens) => (
+            <div
+              data-pillar-parent={pillar.id}
+              class={`mobile-ensemble-card ocean-card p-6 rounded-2xl border border-sky-500/20 hover:border-sky-400 transition-all flex flex-col justify-between group shadow-ocean-card ${
+                pIdx === 0 ? 'block' : 'hidden'
+              }`}
+            >
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#070d1a] text-sky-300 border border-sky-400/30 font-display">
+                    {ens.data.role}
+                  </span>
+                  <span class="text-xs text-sky-200/60 font-medium">
+                    {ens.data.concertCount}
+                  </span>
+                </div>
+
+                <h3 class="font-display font-bold text-lg text-white group-hover:text-sky-300 transition-colors">
+                  {ens.data.name}
+                </h3>
+
+                <p class="text-xs text-slate-300 font-sans line-clamp-2">
+                  {ens.body}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                data-open-drawer={ens.slug}
+                class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#070d1a] border border-sky-500/30 hover:border-sky-400 text-sky-200 hover:text-white transition-all text-xs font-display uppercase tracking-wider font-semibold shadow-xs"
+              >
+                <span>Szczegóły</span>
+                <Maximize2 class="w-3.5 h-3.5 text-sky-400" />
+              </button>
+            </div>
+          ))
+        ))}
       </div>
 
     </div>
@@ -238,214 +271,209 @@ const ensemblesData = sortedEnsembles.map(e => ({
   </div>
 </section>
 
-<script define:vars={{ ensemblesData }}>
-  const ensembles = ensemblesData;
+<!-- Radial Graph Script -->
+<script define:vars={{ pillarsData: pillars }}>
+  let activePillarId = null;
+  const container = document.getElementById('radial-container');
+  const satellitesLayer = document.getElementById('satellite-nodes-layer');
+  const svgLinesLayer = document.getElementById('svg-satellite-lines');
+  const centralNode = document.getElementById('central-node');
+  const pillarBtns = document.querySelectorAll('.pillar-btn');
 
-  const pillarCoords = {
-    orkiestry: { cx: 260, cy: 180 },
-    chory: { cx: 640, cy: 180 },
-    teatr: { cx: 640, cy: 500 },
-    estrada: { cx: 260, cy: 500 },
-  };
-
+  // Satellite positions layout
   const satelliteOffsets = {
     orkiestry: [
-      { dx: -140, dy: -60 },
-      { dx: -145, dy: 65 },
-      { dx: 0, dy: -125 },
+      { dx: -130, dy: -65 },
+      { dx: -140, dy: 55 },
+      { dx: -15, dy: -125 },
     ],
     chory: [
-      { dx: 140, dy: -50 },
-      { dx: 140, dy: 60 },
+      { dx: 130, dy: -60 },
+      { dx: 15, dy: -125 },
     ],
     teatr: [
-      { dx: 140, dy: -40 },
-      { dx: 140, dy: 60 },
+      { dx: 130, dy: 60 },
+      { dx: 15, dy: 125 },
     ],
     estrada: [
-      { dx: -140, dy: -40 },
-      { dx: -140, dy: 60 },
+      { dx: -130, dy: 60 },
+      { dx: -15, dy: 125 },
     ],
   };
 
-  let activePillarId = null;
-
-  function initRadialGraph() {
-    const container = document.getElementById('radial-container');
-    const satelliteLayer = document.getElementById('satellite-nodes-layer');
-    const svgLines = document.getElementById('svg-satellite-lines');
-    const centralNode = document.getElementById('central-node');
-    const pillarButtons = document.querySelectorAll('.pillar-btn');
-
-    const mobileTabs = document.querySelectorAll('.mobile-tab-btn');
-    const mobileGrid = document.getElementById('mobile-ensembles-grid');
-
-    if (!container || !satelliteLayer || !svgLines) return;
-
-    function resetGraph() {
+  function selectPillar(pillarId) {
+    if (activePillarId === pillarId) {
+      clearSatellites();
       activePillarId = null;
-      satelliteLayer.innerHTML = '';
-      svgLines.innerHTML = '';
-      
-      pillarButtons.forEach((btn) => {
-        btn.classList.remove('ring-2', 'ring-sky-400', 'scale-105');
-        const badge = btn.querySelector('span:last-child');
-        if (badge) {
-          badge.textContent = 'Odkryj +';
-          badge.className = 'absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-[#070d1a] border border-sky-400/30 text-sky-200 text-[10px] font-display uppercase tracking-wider group-hover:bg-sky-500 group-hover:text-white transition-all font-semibold shadow-xs';
-        }
-      });
+      return;
     }
 
-    if (centralNode) {
-      centralNode.addEventListener('click', resetGraph);
+    activePillarId = pillarId;
+    renderSatellites(pillarId);
+  }
+
+  function clearSatellites() {
+    if (satellitesLayer) satellitesLayer.innerHTML = '';
+    if (svgLinesLayer) svgLinesLayer.innerHTML = '';
+
+    pillarBtns.forEach((btn) => {
+      const card = btn.querySelector('div');
+      if (card) {
+        card.classList.remove('border-sky-400', 'shadow-blue-glow', 'scale-105', 'bg-sky-950/80');
+      }
+      const badge = btn.querySelector('span.absolute');
+      if (badge) {
+        badge.textContent = 'Formacje';
+        badge.classList.remove('bg-sky-500', 'text-white');
+      }
+    });
+  }
+
+  function renderSatellites(pillarId) {
+    clearSatellites();
+
+    const pillar = pillarsData.find((p) => p.id === pillarId);
+    if (!pillar) return;
+
+    // Highlight selected pillar card
+    const activeBtn = document.getElementById(`pillar-node-${pillarId}`);
+    if (activeBtn) {
+      const card = activeBtn.querySelector('div');
+      if (card) {
+        card.classList.add('border-sky-400', 'shadow-blue-glow', 'scale-105', 'bg-[#142548]');
+      }
+      const badge = activeBtn.querySelector('span.absolute');
+      if (badge) {
+        badge.textContent = 'Aktywny';
+        badge.classList.add('bg-sky-500', 'text-white');
+      }
     }
 
-    function expandPillar(pillarId) {
-      if (activePillarId === pillarId) {
-        resetGraph();
-        return;
-      }
+    const offsets = satelliteOffsets[pillarId] || [];
 
-      resetGraph();
-      activePillarId = pillarId;
+    pillar.ensembles.forEach((ens, index) => {
+      const offset = offsets[index] || { dx: (index + 1) * 60, dy: (index + 1) * 40 };
+      const satX = pillar.cx + offset.dx;
+      const satY = pillar.cy + offset.dy;
 
-      const activeBtn = document.getElementById(`pillar-node-${pillarId}`);
-      if (activeBtn) {
-        activeBtn.classList.add('ring-2', 'ring-sky-400', 'scale-105');
-        const badge = activeBtn.querySelector('span:last-child');
-        if (badge) {
-          badge.textContent = 'Aktywny ✓';
-          badge.className = 'absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-sky-500 text-white font-bold text-[10px] font-display uppercase tracking-wider shadow-blue-glow';
-        }
-      }
-
-      const pCoord = pillarCoords[pillarId];
-      const offsets = satelliteOffsets[pillarId] || [];
-      const pillarEnsembles = ensembles.filter(e => e.pillar === pillarId);
-
-      pillarEnsembles.forEach((ens, idx) => {
-        const offset = offsets[idx] || { dx: (idx + 1) * 60, dy: (idx + 1) * 40 };
-        const satX = pCoord.cx + offset.dx;
-        const satY = pCoord.cy + offset.dy;
-
+      // 1. Draw SVG connection line
+      if (svgLinesLayer) {
         const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', String(pCoord.cx));
-        line.setAttribute('y1', String(pCoord.cy));
-        line.setAttribute('x2', String(satX));
-        line.setAttribute('y2', String(satY));
+        line.setAttribute('x1', pillar.cx.toString());
+        line.setAttribute('y1', pillar.cy.toString());
+        line.setAttribute('x2', satX.toString());
+        line.setAttribute('y2', satY.toString());
         line.setAttribute('stroke', '#38bdf8');
         line.setAttribute('stroke-width', '1.5');
         line.setAttribute('stroke-dasharray', '3 3');
-        line.setAttribute('class', 'animate-pulse');
-        svgLines.appendChild(line);
+        line.setAttribute('opacity', '0.7');
+        line.classList.add('transition-all', 'duration-500');
+        svgLinesLayer.appendChild(line);
+      }
 
-        const satEl = document.createElement('div');
-        satEl.className = 'absolute pointer-events-auto cursor-pointer group focus:outline-none -translate-x-1/2 -translate-y-1/2 transition-all duration-300 transform scale-0';
-        satEl.style.left = `${satX}px`;
-        satEl.style.top = `${satY}px`;
+      // 2. Create interactive Satellite Node
+      if (satellitesLayer) {
+        const satNode = document.createElement('div');
+        satNode.className = 'satellite-node absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto cursor-pointer group z-30 transition-all duration-300 hover:scale-105';
+        satNode.style.left = `${satX}px`;
+        satNode.style.top = `${satY}px`;
 
-        satEl.innerHTML = `
-          <div class="relative flex items-center gap-3 px-4 py-3 rounded-2xl bg-[#0f1d38]/95 border border-sky-400/40 hover:border-sky-400 hover:bg-[#142548] shadow-ocean-card backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-blue-glow max-w-[220px]">
-            <div class="w-2.5 h-2.5 rounded-full bg-sky-400 flex-shrink-0 animate-pulse"></div>
-            <div class="min-w-0">
-              <h4 class="text-xs font-display font-bold text-white truncate group-hover:text-sky-300 transition-colors">
-                ${ens.name}
-              </h4>
-              <p class="text-[11px] text-sky-200/70 truncate">
-                ${ens.role}
-              </p>
-              <div class="flex items-center gap-1 text-[11px] font-semibold text-sky-300 mt-0.5">
-                <span>✦</span>
-                <span>${ens.concertCount}</span>
-              </div>
+        satNode.innerHTML = `
+          <div class="relative p-3.5 rounded-2xl bg-[#0f1d38] border border-sky-400/40 hover:border-sky-400 shadow-ocean-card hover:shadow-blue-glow w-48 text-left transition-all duration-300">
+            <div class="flex items-center justify-between gap-1 mb-1">
+              <span class="text-[9px] font-bold uppercase tracking-wider text-sky-300 px-2 py-0.5 rounded-full bg-[#070d1a] border border-sky-400/20 truncate font-display">
+                ${ens.data.role}
+              </span>
+              <span class="text-[9px] text-sky-200/60 font-semibold font-sans flex-shrink-0">
+                ${ens.data.concertCount}
+              </span>
+            </div>
+            <h4 class="font-display font-bold text-xs text-white group-hover:text-sky-300 transition-colors leading-snug line-clamp-2">
+              ${ens.data.name}
+            </h4>
+            <div class="mt-2 pt-1.5 border-t border-sky-500/15 flex items-center justify-between text-[9px] text-sky-300 font-bold uppercase tracking-wider">
+              <span>Szczegóły</span>
+              <span class="text-sky-400 group-hover:translate-x-0.5 transition-transform">→</span>
             </div>
           </div>
         `;
 
-        satEl.addEventListener('click', () => {
-          window.dispatchEvent(new CustomEvent('open-ensemble-drawer', { detail: ens }));
+        satNode.addEventListener('click', () => {
+          window.dispatchEvent(
+            new CustomEvent('open-ensemble-drawer', {
+              detail: { ensembleSlug: ens.slug },
+            })
+          );
         });
 
-        satelliteLayer.appendChild(satEl);
-
-        requestAnimationFrame(() => {
-          satEl.classList.remove('scale-0');
-          satEl.classList.add('scale-100');
-        });
-      });
-    }
-
-    pillarButtons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const pId = btn.getAttribute('data-pillar-id');
-        if (pId) expandPillar(pId);
-      });
+        satellitesLayer.appendChild(satNode);
+      }
     });
-
-    setTimeout(() => {
-      if (!activePillarId) expandPillar('orkiestry');
-    }, 400);
-
-    function renderMobileGrid(pillarId) {
-      if (!mobileGrid) return;
-      mobileGrid.innerHTML = '';
-
-      const pillarEnsembles = ensembles.filter(e => e.pillar === pillarId);
-
-      pillarEnsembles.forEach((ens) => {
-        const card = document.createElement('div');
-        card.className = 'ocean-card p-6 rounded-2xl border border-sky-500/20 hover:border-sky-400/60 transition-all cursor-pointer group active:scale-[0.98]';
-        card.innerHTML = `
-          <div class="flex items-start justify-between gap-3 mb-3">
-            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#070d1a] text-sky-300 border border-sky-400/30">
-              ${ens.role}
-            </span>
-            <span class="text-xs font-semibold text-slate-300 flex items-center gap-1">
-              <span>✦</span>
-              <span>${ens.concertCount}</span>
-            </span>
-          </div>
-          <h3 class="font-display font-bold text-base text-white group-hover:text-sky-300 transition-colors mb-2">
-            ${ens.name}
-          </h3>
-          <ul class="space-y-1.5 mb-4 text-xs text-slate-300 font-sans">
-            ${(ens.highlights || []).slice(0, 2).map(h => `<li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">•</span><span>${h}</span></li>`).join('')}
-          </ul>
-          <div class="flex items-center justify-between text-xs font-semibold text-sky-400 pt-3 border-t border-sky-500/15">
-            <span>Szczegóły formacji</span>
-            <span class="group-hover:translate-x-1 transition-transform">→</span>
-          </div>
-        `;
-
-        card.addEventListener('click', () => {
-          window.dispatchEvent(new CustomEvent('open-ensemble-drawer', { detail: ens }));
-        });
-
-        mobileGrid.appendChild(card);
-      });
-    }
-
-    mobileTabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        const pId = tab.getAttribute('data-mobile-pillar');
-        if (!pId) return;
-
-        mobileTabs.forEach((t) => {
-          t.classList.remove('bg-sky-600', 'border-sky-400', 'text-white', 'shadow-blue-glow');
-          t.classList.add('bg-[#0f1d38]', 'border-sky-500/20', 'text-slate-300');
-        });
-
-        tab.classList.remove('bg-[#0f1d38]', 'border-sky-500/20', 'text-slate-300');
-        tab.classList.add('bg-sky-600', 'border-sky-400', 'text-white', 'shadow-blue-glow');
-
-        renderMobileGrid(pId);
-      });
-    });
-
-    renderMobileGrid('orkiestry');
   }
 
-  initRadialGraph();
-  document.addEventListener('astro:page-load', initRadialGraph);
+  // Initialize Desktop Event Listeners
+  pillarBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const pillarId = btn.getAttribute('data-pillar-id');
+      if (pillarId) selectPillar(pillarId);
+    });
+  });
+
+  if (centralNode) {
+    centralNode.addEventListener('click', () => {
+      clearSatellites();
+      activePillarId = null;
+    });
+  }
+
+  // Auto-open first pillar on desktop load
+  if (window.innerWidth >= 1024) {
+    setTimeout(() => {
+      selectPillar('orkiestry');
+    }, 400);
+  }
+
+  // Initialize Mobile Tabs
+  const mobileTabs = document.querySelectorAll('.mobile-tab-btn');
+  const mobileCards = document.querySelectorAll('.mobile-ensemble-card');
+
+  mobileTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const pillarId = tab.getAttribute('data-mobile-pillar');
+      if (!pillarId) return;
+
+      mobileTabs.forEach((t) => {
+        t.classList.remove('bg-sky-600', 'border-sky-400', 'text-white', 'shadow-blue-glow');
+        t.classList.add('bg-[#0f1d38]', 'border-sky-500/20', 'text-slate-300');
+      });
+
+      tab.classList.remove('bg-[#0f1d38]', 'border-sky-500/20', 'text-slate-300');
+      tab.classList.add('bg-sky-600', 'border-sky-400', 'text-white', 'shadow-blue-glow');
+
+      mobileCards.forEach((card) => {
+        const parentPillar = card.getAttribute('data-pillar-parent');
+        if (parentPillar === pillarId) {
+          card.classList.remove('hidden');
+          card.classList.add('block');
+        } else {
+          card.classList.remove('block');
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // Mobile Drawer Click Triggers
+  document.querySelectorAll('[data-open-drawer]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const slug = btn.getAttribute('data-open-drawer');
+      if (slug) {
+        window.dispatchEvent(
+          new CustomEvent('open-ensemble-drawer', {
+            detail: { ensembleSlug: slug },
+          })
+        );
+      }
+    });
+  });
 </script>
