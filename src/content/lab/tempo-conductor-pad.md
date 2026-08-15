@@ -7,7 +7,7 @@ tags:
   - "WebMIDI"
   - "Canvas 2D"
   - "PWA"
-githubUrl: "https://github.com/kacper/batonsync"
+githubUrl: "https://github.com/kacperczeczot/batonsync"
 liveUrl: "https://batonsync.dev"
 featured: false
 order: 3

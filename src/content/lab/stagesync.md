@@ -8,7 +8,7 @@ tags:
   - "Art-Net / DMX"
   - "RxJS"
   - "TailwindCSS"
-githubUrl: "https://github.com/kacper/stagesync"
+githubUrl: "https://github.com/kacperczeczot/stagesync"
 liveUrl: "https://stagesync-demo.dev"
 featured: true
 order: 1

@@ -2,6 +2,6 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://kacper.github.io',
+  site: 'https://kacperczeczot.github.io',
   integrations: [tailwind()],
 });

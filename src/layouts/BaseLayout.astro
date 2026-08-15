@@ -13,13 +13,13 @@ interface Props {
 }
 
 const {
-  title = 'Kacper — Dyrygent, Muzyk, Realizator Dźwięku & Software Engineer',
+  title = 'Kacper Czeczot — Dyrygent, Muzyk, Realizator Dźwięku & Software Engineer',
   description = 'Oficjalne portfolio artystyczno-technologiczne: dyrygentura orkiestrowa i chóralna, wykonawstwo sceniczne, autorskie produkcje muzyczne oraz technologie audio/MIDI.',
   image = '/images/og-cover.svg',
   accent = 'amber',
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kacper.github.io');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kacperczeczot.github.io');
 ---
 
 <!doctype html>
@@ -34,7 +34,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kacper.g
     <!-- SEO & Metadata -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="author" content="Kacper" />
+    <meta name="author" content="Kacper Czeczot" />
     <meta name="theme-color" content="#09090b" />
 
     <!-- Open Graph / Facebook -->
