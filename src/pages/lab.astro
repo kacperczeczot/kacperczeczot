@@ -4,8 +4,6 @@ import SectionHeader from '../components/SectionHeader.astro';
 import { getCollection } from 'astro:content';
 import {
   Terminal,
-  Github,
-  ExternalLink,
   Radio,
   Sliders,
   Code2,
@@ -13,26 +11,25 @@ import {
   Zap,
   Activity,
   Layers,
+  Smartphone,
+  Wifi,
 } from 'lucide-astro';
 
 const allLabProjects = await getCollection('lab');
-const projects = allLabProjects.sort((a, b) => a.data.order - b.data.order);
-
-const featuredProject = projects.find(p => p.data.featured);
-const regularProjects = projects.filter(p => !p.data.featured);
+const featuredProject = allLabProjects.find(p => p.data.featured) || allLabProjects[0];
 ---
 
 <BaseLayout
-  title="Laboratorium Technologiczne & Audio Engineering — Kacper Czeczot"
-  description="Inżynieria dźwięku i oprogramowanie sceniczne czasu rzeczywistego: StageSync, silniki WebAudio/WebMIDI, narzędzia analizy partytur."
+  title="StageSync — Inżynieria Dźwięku & Stage Software — Kacper Czeczot"
+  description="Autorski system synchronizacji scenicznej StageSync: transport MIDI Clock + SPP, role wykonawcze dla muzyków, wykrywanie mDNS w sieci LAN."
 >
   <!-- Header -->
   <section class="relative pt-36 pb-20 md:pt-44 md:pb-24 overflow-hidden border-b border-sky-500/15 bg-[#070d1a]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <SectionHeader
-        badge="Inżynieria Dźwięku & Stage Software"
+        badge="Inżynieria Sceniczna & Oprogramowanie Live"
         title="Laboratorium Technologiczne"
-        subtitle="Autorskie silniki synchronizacji scenicznej czasu rzeczywistego, narzędzia do analizy partytur i eksperymenty WebAudio / MIDI."
+        subtitle="Autorski system synchronizacji scenicznej StageSync dedykowany do obsługi występów live."
         align="center"
       />
     </div>
@@ -40,7 +37,7 @@ const regularProjects = projects.filter(p => !p.data.featured);
 
   <!-- FEATURED PROJECT: STAGESYNC -->
   {featuredProject && (
-    <section class="py-24 bg-[#091224] border-b border-sky-500/15 relative">
+    <section class="py-24 bg-[#091224] relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
         
         <div class="ocean-card rounded-3xl p-8 sm:p-12 border border-sky-500/25 relative overflow-hidden shadow-ocean-card">
@@ -51,7 +48,7 @@ const regularProjects = projects.filter(p => !p.data.featured);
               <div class="flex flex-wrap items-center gap-3">
                 <span class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#070d1a] text-sky-300 border border-sky-400/30 flex items-center gap-2 font-display">
                   <Zap class="w-3.5 h-3.5 text-sky-400" />
-                  Projekt Badawczo-Sceniczny
+                  Projekt Autorski
                 </span>
                 <span class="text-xs font-semibold uppercase tracking-wider text-slate-300 px-3.5 py-1.5 rounded-full bg-[#0f1d38] border border-sky-500/20 font-display">
                   Live Stage Control
@@ -69,58 +66,53 @@ const regularProjects = projects.filter(p => !p.data.featured);
               <!-- Tags -->
               <div class="flex flex-wrap gap-2 pt-2">
                 {featuredProject.data.tags.map(tag => (
-                  <span class="px-3 py-1 rounded-xl bg-[#070d1a] border border-sky-500/20 text-xs font-semibold text-sky-200 font-display shadow-xs">
+                  <span class="px-3.5 py-1.5 rounded-xl bg-[#070d1a] border border-sky-500/20 text-xs font-semibold text-sky-200 font-display shadow-xs">
                     {tag}
                   </span>
                 ))}
               </div>
             </div>
-
-            <!-- Links -->
-            <div class="flex flex-wrap sm:flex-col gap-3 flex-shrink-0">
-              {featuredProject.data.githubUrl && (
-                <a
-                  href={featuredProject.data.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl bg-[#070d1a] border border-sky-500/30 hover:border-sky-400 text-sky-200 hover:text-white transition-all font-display text-xs tracking-wider uppercase font-semibold shadow-xs"
-                >
-                  <Github class="w-4 h-4 text-sky-400" />
-                  <span>Repozytorium GitHub</span>
-                </a>
-              )}
-            </div>
           </div>
 
           <!-- Architecture Highlights -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-8">
             <div class="p-6 rounded-2xl bg-[#070d1a]/80 border border-sky-500/20 space-y-2.5 shadow-xs">
               <div class="flex items-center gap-2 text-sky-300 font-display text-xs font-bold uppercase tracking-wider">
-                <Activity class="w-4 h-4 text-sky-400" />
-                <span>Precyzja Czasu Rzeczywistego</span>
+                <Wifi class="w-4 h-4 text-sky-400" />
+                <span>Serwer + Mobile / mDNS</span>
               </div>
               <p class="text-xs text-slate-300 font-sans leading-relaxed">
-                Sprzętowy zegar WebAudio z dokładnością sub-milisekundową do eliminacji opóźnień podczas występów na żywo.
+                Centralny węzeł sterujący z automatycznym wykrywaniem paneli wykonawczych w lokalnej sieci Wi-Fi (mDNS).
               </p>
             </div>
 
             <div class="p-6 rounded-2xl bg-[#070d1a]/80 border border-sky-500/20 space-y-2.5 shadow-xs">
               <div class="flex items-center gap-2 text-sky-300 font-display text-xs font-bold uppercase tracking-wider">
                 <Radio class="w-4 h-4 text-sky-400" />
-                <span>Protokoły MIDI Clock & SPP</span>
+                <span>MIDI Clock & SPP</span>
               </div>
               <p class="text-xs text-slate-300 font-sans leading-relaxed">
-                Obsługa Song Position Pointer pozwalająca na natychmiastowe przewijanie i synchronizację zewnętrznych urządzeń.
+                Precyzyjny transport MIDI Clock z Song Position Pointer do natychmiastowej synchronizacji pozycji utworu.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-[#070d1a]/80 border border-sky-500/20 space-y-2.5 shadow-xs">
+              <div class="flex items-center gap-2 text-sky-300 font-display text-xs font-bold uppercase tracking-wider">
+                <Smartphone class="w-4 h-4 text-sky-400" />
+                <span>Role dla Muzyków</span>
+              </div>
+              <p class="text-xs text-slate-300 font-sans leading-relaxed">
+                Dedykowane widoki paneli dla poszczególnych muzyków: tekst z akordami, partytura oraz metronom perkusyjny.
               </p>
             </div>
 
             <div class="p-6 rounded-2xl bg-[#070d1a]/80 border border-sky-500/20 space-y-2.5 shadow-xs">
               <div class="flex items-center gap-2 text-sky-300 font-display text-xs font-bold uppercase tracking-wider">
                 <Layers class="w-4 h-4 text-sky-400" />
-                <span>Bezstratna Redundancja</span>
+                <span>Format Paczek .stagesync</span>
               </div>
               <p class="text-xs text-slate-300 font-sans leading-relaxed">
-                Równoległa praca dwóch stacji roboczych z automatycznym przełączaniem toru audio bez zakłóceń na żywo.
+                Wygodny import i eksport kompletnych setlist koncertowych oraz mechanizm automatycznych kopii zapasowych.
               </p>
             </div>
           </div>
@@ -130,71 +122,4 @@ const regularProjects = projects.filter(p => !p.data.featured);
       </div>
     </section>
   )}
-
-  <!-- REGULAR LAB PROJECTS GRID -->
-  <section class="py-24 bg-[#070d1a] relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
-      
-      <div class="text-center max-w-3xl mx-auto space-y-3">
-        <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 font-display">
-          Ekosystem Narzędziowy
-        </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white">
-          Pozostałe Projekty & <span class="text-blue-gradient">Narzędzia</span>
-        </h2>
-        <p class="text-slate-300 text-base sm:text-lg font-normal">
-          Narzędzia wspomagające analizę nut, adaptacyjne metronomy oraz biblioteki manipulacji plikami muzycznymi.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {regularProjects.map((proj) => (
-          <div class="ocean-card p-8 rounded-3xl border border-sky-500/20 hover:border-sky-400/50 transition-all flex flex-col justify-between group shadow-ocean-card">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="p-3.5 rounded-2xl bg-[#070d1a] border border-sky-400/30 text-sky-400 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all">
-                  <Terminal class="w-5 h-5" />
-                </span>
-                <div class="flex items-center gap-2">
-                  {proj.data.githubUrl && (
-                    <a
-                      href={proj.data.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="p-2.5 rounded-xl bg-[#070d1a] border border-sky-500/20 text-slate-300 hover:text-sky-300 hover:border-sky-400 transition-all"
-                      aria-label="GitHub"
-                    >
-                      <Github class="w-4 h-4" />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              <h3 class="text-2xl font-display font-bold text-white group-hover:text-sky-300 transition-colors">
-                {proj.data.title}
-              </h3>
-
-              <p class="text-sm text-slate-300 font-sans leading-relaxed">
-                {proj.data.description}
-              </p>
-
-              <div class="flex flex-wrap gap-2 pt-2">
-                {proj.data.tags.map(tag => (
-                  <span class="px-3 py-1 rounded-lg bg-[#070d1a] border border-sky-500/20 text-xs font-semibold text-sky-200 font-display">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div class="pt-6 mt-6 border-t border-sky-500/15 flex items-center justify-between text-xs uppercase tracking-wider font-bold text-sky-400 group-hover:text-sky-300">
-              <span>Moduł inżynieryjny</span>
-              <span class="group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-          </div>
-        ))}
-      </div>
-
-    </div>
-  </section>
 </BaseLayout>
