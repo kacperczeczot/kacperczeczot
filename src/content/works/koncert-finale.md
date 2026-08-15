@@ -10,7 +10,7 @@ youtubeVideos:
   - title: "Bohemian Rhapsody — aranż. i dyr. Kacper Czeczot (Chór UWM & Orkiestra)"
     youtubeId: "4bxcErGADeY"
   - title: "Psalm dla Ciebie — opr. i dyr. Kacper Czeczot (Chór UWM & Orkiestra)"
-    youtubeId: ""
+    youtubeId: "cCIYrbOIUHE"
 order: 1
 ---
 
