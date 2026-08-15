@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import RadialGraph from '../components/RadialGraph.astro';
+import { Radio, User, Terminal, ArrowRight, Sparkles, CheckCircle2, Disc3 } from 'lucide-astro';
+
+const pillarsSummary = [
+  {
+    title: 'Dzieła Autorskie & Dyplomowe',
+    description: 'Koncert dyplomowy „Finale” na orkiestrę symfoniczną i chór oraz jednoosobowa produkcja wielośladowa „Echo Epok”.',
+    link: '/projekty-autorskie',
+    icon: Radio,
+    accent: 'from-amber-500/20 via-amber-500/5 to-transparent',
+    border: 'hover:border-amber-500/50',
+    badge: 'Dyrygentura & Produkcja',
+  },
+  {
+    title: 'Bio, Edukacja & Warsztat',
+    description: 'Ścieżka akademicka UWM z wyróżnieniem, PSM I i II st., wszechstronne instrumentarium oraz zaawansowany warsztat studyjny (Logic Pro, Pro Tools, MuseScore).',
+    link: '/bio',
+    icon: User,
+    accent: 'from-sky-500/20 via-sky-500/5 to-transparent',
+    border: 'hover:border-sky-500/50',
+    badge: 'Sylwetka & Doświadczenie',
+  },
+  {
+    title: 'Laboratorium Technologiczne',
+    description: 'StageSync — silnik synchronizacji scenicznej na żywo (WebAudio, MIDI Clock/SPP, DMX/Art-Net) oraz narzędzia wspomagające analizę partytur.',
+    link: '/lab',
+    icon: Terminal,
+    accent: 'from-cyan-500/20 via-cyan-500/5 to-transparent',
+    border: 'hover:border-cyan-500/50',
+    badge: 'Inżynieria Oprogramowania',
+  },
+];
+---
+
+<BaseLayout
+  title="Kacper — Scena, Zespoły, Dyrygentura & Realizacja Dźwięku"
+  description="Prezentacja działalności wykonawczej, orkiestrowej i dyrygenckiej: ponad 300 występów scenicznych, interaktywne drzewo radialne formacji muzycznych."
+  accent="amber"
+>
+  <!-- Hero Section -->
+  <Hero />
+
+  <!-- Interactive Radial Graph Section -->
+  <RadialGraph />
+
+  <!-- Pathways Section -->
+  <section class="py-20 border-t border-zinc-800/80 bg-zinc-950/60 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <span class="text-xs font-mono font-semibold uppercase tracking-widest text-amber-400">
+          Wymiary Twórczości
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-zinc-100">
+          Eksploruj Dalsze Obszary Dorobku
+        </h2>
+        <p class="text-zinc-400 text-sm sm:text-base">
+          Od wielkich form symfonicznych po architekturę oprogramowania scenicznego czasu rzeczywistego.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {pillarsSummary.map((item) => {
+          const Icon = item.icon;
+          return (
+            <a
+              href={item.link}
+              class={`group relative rounded-3xl border border-zinc-800/80 bg-zinc-900/50 p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl ${item.border}`}
+            >
+              <div class={`absolute inset-0 rounded-3xl bg-gradient-to-br ${item.accent} opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none`}></div>
+
+              <div class="relative space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="p-3 rounded-2xl bg-zinc-950 border border-zinc-800 text-amber-400 group-hover:scale-110 transition-transform">
+                    <Icon class="w-6 h-6" />
+                  </span>
+                  <span class="text-[10px] font-mono uppercase tracking-wider text-zinc-400 px-2.5 py-1 rounded-full bg-zinc-950 border border-zinc-800">
+                    {item.badge}
+                  </span>
+                </div>
+
+                <h3 class="text-xl font-display font-bold text-zinc-100 group-hover:text-amber-300 transition-colors">
+                  {item.title}
+                </h3>
+
+                <p class="text-sm text-zinc-400 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+
+              <div class="relative pt-6 mt-6 border-t border-zinc-800/60 flex items-center justify-between text-xs font-semibold font-mono text-amber-400 group-hover:text-amber-300">
+                <span>Przejdź do sekcji</span>
+                <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </a>
+          );
+        })}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Quote & Conductorship Ethos Banner -->
+  <section class="py-16 border-t border-zinc-800/80 bg-gradient-to-b from-zinc-950 to-zinc-900/60 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
+      <Sparkles class="w-8 h-8 text-amber-400 mx-auto animate-pulse" />
+      <blockquote class="text-xl sm:text-2xl font-display italic text-zinc-200 leading-snug">
+        „Dyrygowanie to nie tylko wyznaczanie pulsu — to architektura emocji, precyzja intonacji każdego głosu i umiejętność zjednoczenia dziesiątek artystów w jednym niepowtarzalnym momencie brzmieniowym.”
+      </blockquote>
+      <div class="flex items-center justify-center gap-3 pt-2">
+        <div class="w-8 h-[1px] bg-amber-500/40"></div>
+        <span class="text-xs font-mono text-amber-400 tracking-wider uppercase font-semibold">Dewiza Artystyczna</span>
+        <div class="w-8 h-[1px] bg-amber-500/40"></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

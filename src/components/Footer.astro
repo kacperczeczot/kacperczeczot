@@ -1,0 +1,154 @@
+---
+import { Github, Youtube, Mail, Copy, Check, ArrowUpRight, Music, Heart } from 'lucide-astro';
+
+const currentYear = new Date().getFullYear();
+const contactEmail = 'kontakt@kacper.music';
+---
+
+<footer id="kontakt" class="relative border-t border-zinc-800/80 bg-zinc-950/80 backdrop-blur-xl pt-16 pb-12 overflow-hidden">
+  <!-- Subtle ambient glow in footer -->
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-gradient-to-t from-amber-500/10 to-transparent blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-zinc-800/60">
+      
+      <!-- Brand & Artistic Statement -->
+      <div class="md:col-span-5 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/20 to-zinc-900 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <span class="font-display font-bold text-lg">K</span>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-zinc-100 text-lg">Kacper</h3>
+            <p class="text-xs text-zinc-400 font-mono tracking-wider">DYRYGENT • REALIZATOR DŹWIĘKU • INŻYNIER</p>
+          </div>
+        </div>
+
+        <p class="text-zinc-400 text-sm leading-relaxed max-w-sm">
+          Łączenie klasycznej dyscypliny symfoniczno-chóralnej ze współczesną produkcją muzyczną, realizacją dźwięku live oraz inżynierią oprogramowania scenicznego.
+        </p>
+
+        <!-- Social Media Links -->
+        <div class="flex items-center gap-3 pt-2">
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Profil GitHub"
+            class="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 hover:bg-zinc-800 transition-all"
+          >
+            <Github class="w-4 h-4" />
+          </a>
+          <a
+            href="https://youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Kanał YouTube"
+            class="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-red-400 hover:border-red-500/30 hover:bg-zinc-800 transition-all"
+          >
+            <Youtube class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Navigation Links -->
+      <div class="md:col-span-3 space-y-3">
+        <h4 class="text-xs font-semibold text-zinc-300 uppercase tracking-wider font-mono">Nawigacja</h4>
+        <ul class="space-y-2 text-sm text-zinc-400">
+          <li>
+            <a href="/" class="hover:text-amber-400 transition-colors flex items-center gap-1 group">
+              <span>Scena & Zespoły</span>
+              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </li>
+          <li>
+            <a href="/projekty-autorskie" class="hover:text-amber-400 transition-colors flex items-center gap-1 group">
+              <span>Dzieła Autorskie</span>
+              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </li>
+          <li>
+            <a href="/bio" class="hover:text-amber-400 transition-colors flex items-center gap-1 group">
+              <span>Bio & Warsztat</span>
+              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </li>
+          <li>
+            <a href="/lab" class="hover:text-amber-400 transition-colors flex items-center gap-1 group">
+              <span>Laboratorium (Lab)</span>
+              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Direct Contact & Copy Email Box -->
+      <div class="md:col-span-4 space-y-3">
+        <h4 class="text-xs font-semibold text-zinc-300 uppercase tracking-wider font-mono">Bezpośredni Kontakt</h4>
+        <p class="text-sm text-zinc-400">
+          Otwarty na projekty dyrygenckie, aranżacje partytur, produkcję muzyczną oraz współpracę technologiczną.
+        </p>
+
+        <div class="pt-1">
+          <div class="flex items-center justify-between p-2 pl-3 rounded-xl bg-zinc-900/90 border border-zinc-800 group hover:border-amber-500/40 transition-all">
+            <div class="flex items-center gap-2 text-sm text-zinc-200">
+              <Mail class="w-4 h-4 text-amber-400" />
+              <span id="footer-email-text" class="font-mono text-xs sm:text-sm">{contactEmail}</span>
+            </div>
+            <button
+              id="copy-email-btn"
+              type="button"
+              class="p-2 rounded-lg bg-zinc-800 hover:bg-amber-500 hover:text-zinc-950 text-zinc-300 transition-all focus:outline-none"
+              title="Kopiuj adres e-mail"
+            >
+              <Copy id="copy-icon" class="w-4 h-4" />
+              <Check id="check-icon" class="w-4 h-4 hidden text-emerald-400" />
+            </button>
+          </div>
+          <p id="copy-feedback" class="text-[11px] text-amber-400 mt-1.5 hidden font-mono">
+            ✓ Skopiowano adres e-mail do schowka!
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Copyright and Bottom Credits -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-mono">
+      <p>© {currentYear} Kacper. Wszystkie prawa zastrzeżone.</p>
+      <p class="flex items-center gap-1.5">
+        <span>Zbudowano z precyzją w</span>
+        <span class="text-amber-400 font-semibold">Astro</span>
+        <span>&</span>
+        <span class="text-cyan-400 font-semibold">Tailwind CSS</span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const copyBtn = document.getElementById('copy-email-btn');
+  const copyIcon = document.getElementById('copy-icon');
+  const checkIcon = document.getElementById('check-icon');
+  const feedback = document.getElementById('copy-feedback');
+  const emailText = document.getElementById('footer-email-text')?.textContent || '';
+
+  if (copyBtn && copyIcon && checkIcon && feedback) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(emailText.trim());
+        copyIcon.classList.add('hidden');
+        checkIcon.classList.remove('hidden');
+        feedback.classList.remove('hidden');
+
+        setTimeout(() => {
+          copyIcon.classList.remove('hidden');
+          checkIcon.classList.add('hidden');
+          feedback.classList.add('hidden');
+        }, 3000);
+      } catch (err) {
+        console.error('Nie udało się skopiować e-maila:', err);
+      }
+    });
+  }
+</script>

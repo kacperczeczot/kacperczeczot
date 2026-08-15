@@ -1,0 +1,141 @@
+---
+import { Music, Radio, User, Terminal, Mail, Menu, X } from 'lucide-astro';
+
+const pathname = new URL(Astro.request.url).pathname;
+const normalizedPath = pathname.replace(/\/$/, '') || '/';
+
+const navItems = [
+  { label: 'Scena & Zespoły', href: '/', icon: Music, active: normalizedPath === '/' },
+  { label: 'Dzieła Autorskie', href: '/projekty-autorskie', icon: Radio, active: normalizedPath === '/projekty-autorskie' },
+  { label: 'Bio & Warsztat', href: '/bio', icon: User, active: normalizedPath === '/bio' },
+  { label: 'Lab', href: '/lab', icon: Terminal, active: normalizedPath === '/lab' },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 glass-nav">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Brand Logo / Identity -->
+      <a href="/" class="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg p-1">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/20 to-zinc-900 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:border-amber-400 group-hover:scale-105 transition-all shadow-glow-amber">
+          <span class="font-display font-bold text-lg tracking-wider">K</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-semibold text-zinc-100 text-base tracking-wide group-hover:text-amber-300 transition-colors">
+            KACPER <span class="text-amber-500 font-bold">.</span>
+          </span>
+          <span class="text-[10px] tracking-widest text-zinc-400 uppercase font-mono">
+            Conductor & Audio Eng.
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          return (
+            <a
+              href={item.href}
+              class={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-medium transition-all relative ${
+                item.active
+                  ? 'text-amber-400 bg-amber-500/10 border border-amber-500/20 shadow-sm'
+                  : 'text-zinc-300 hover:text-zinc-100 hover:bg-zinc-800/50'
+              }`}
+            >
+              <Icon class={`w-4 h-4 ${item.active ? 'text-amber-400' : 'text-zinc-400'}`} />
+              <span>{item.label}</span>
+              {item.active && (
+                <span class="absolute -bottom-[17px] left-1/2 -translate-x-1/2 w-8 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></span>
+              )}
+            </a>
+          );
+        })}
+      </nav>
+
+      <!-- Action Button / Contact -->
+      <div class="hidden md:flex items-center gap-3">
+        <a
+          href="#kontakt"
+          class="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-zinc-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 transition-all shadow-glow-amber hover:shadow-glow-amber-lg active:scale-95"
+        >
+          <Mail class="w-4 h-4" />
+          <span>Kontakt</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <div class="flex md:hidden">
+        <button
+          id="mobile-menu-button"
+          type="button"
+          aria-label="Otwórz menu"
+          class="p-2.5 rounded-xl text-zinc-300 hover:text-white bg-zinc-900 border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-amber-500"
+        >
+          <Menu id="menu-open-icon" class="w-6 h-6" />
+          <X id="menu-close-icon" class="w-6 h-6 hidden" />
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-800 bg-zinc-950/95 backdrop-blur-2xl px-4 pt-2 pb-6 space-y-2">
+    {navItems.map((item) => {
+      const Icon = item.icon;
+      return (
+        <a
+          href={item.href}
+          class={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all ${
+            item.active
+              ? 'text-amber-400 bg-amber-500/10 border border-amber-500/20'
+              : 'text-zinc-300 hover:text-white hover:bg-zinc-900'
+          }`}
+        >
+          <Icon class={`w-5 h-5 ${item.active ? 'text-amber-400' : 'text-zinc-400'}`} />
+          <span>{item.label}</span>
+        </a>
+      );
+    })}
+    <div class="pt-4 mt-2 border-t border-zinc-800">
+      <a
+        href="#kontakt"
+        class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-base font-semibold text-zinc-950 bg-gradient-to-r from-amber-400 to-amber-500 shadow-glow-amber"
+      >
+        <Mail class="w-5 h-5" />
+        <span>Nawiąż Kontakt</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const openIcon = document.getElementById('menu-open-icon');
+  const closeIcon = document.getElementById('menu-close-icon');
+
+  if (menuButton && mobileMenu && openIcon && closeIcon) {
+    menuButton.addEventListener('click', () => {
+      const isExpanded = mobileMenu.classList.toggle('hidden');
+      if (isExpanded) {
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        openIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+  }
+</script>

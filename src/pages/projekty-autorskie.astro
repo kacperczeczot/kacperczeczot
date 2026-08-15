@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import YoutubeEmbed from '../components/YoutubeEmbed.astro';
+import { getCollection } from 'astro:content';
+import { Radio, Music, Mic2, Users, Layers, Award, Sparkles, Sliders, Disc, FileText, Film } from 'lucide-astro';
+
+const allWorks = await getCollection('works');
+const works = allWorks.sort((a, b) => a.data.order - b.data.order);
+
+const finaleWork = works.find(w => w.slug === 'koncert-finale');
+const echoWork = works.find(w => w.slug === 'echo-epok');
+---
+
+<BaseLayout
+  title="Dzieła Autorskie & Projekty Dyplomowe — Kacper"
+  description="Nagrania wideo i opisy dzieł dyplomowych: Koncert Dyplomowy „Finale” (dyrygentura symfoniczno-chóralna) oraz „Echo Epok” (produkcja muzyczna wielośladowa)."
+  accent="amber"
+>
+  <!-- Hero Banner for Works -->
+  <section class="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden border-b border-zinc-800/80 bg-zinc-950">
+    <!-- Ambient glowing backdrop -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-radial from-amber-500/15 to-transparent blur-3xl pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <SectionHeader
+        badge="Dzieła Autorskie & Dyplomowe"
+        title="Kinowa Prezentacja Dzieł"
+        subtitle="Reprezentacyjne nagrania koncertowe i studyjne dokumentujące pełnię warsztatu dyrygenckiego, orkiestrowego oraz inżynierii dźwięku."
+        align="center"
+        accent="amber"
+      />
+    </div>
+  </section>
+
+  <!-- WORK 1: KONCERT DYPLOMOWY „FINALE” -->
+  {finaleWork && (
+    <section class="py-20 relative bg-zinc-950/70 border-b border-zinc-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <!-- Header Info Card -->
+        <div class="glass-card rounded-3xl p-8 sm:p-10 border border-amber-500/30 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+          
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-zinc-800/80">
+            <div class="space-y-2">
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-amber-500/15 text-amber-300 border border-amber-500/40 flex items-center gap-1.5">
+                  <Music class="w-3.5 h-3.5" />
+                  Dyrygentura Symfoniczno-Chóralna
+                </span>
+                <span class="text-xs font-mono text-zinc-400 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800">
+                  Rok: {finaleWork.data.year}
+                </span>
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-zinc-100">
+                {finaleWork.data.title}
+              </h2>
+              <p class="text-base font-sans text-amber-400/90 font-medium">
+                {finaleWork.data.subtitle}
+              </p>
+            </div>
+
+            <!-- Stats badges -->
+            <div class="flex flex-wrap sm:flex-nowrap gap-3">
+              <div class="px-4 py-3 rounded-2xl bg-zinc-900/90 border border-zinc-800 text-center flex-1 sm:flex-none min-w-[120px]">
+                <div class="font-display font-bold text-xl text-zinc-100">70+</div>
+                <div class="text-[11px] font-mono text-zinc-400">Wykonawców</div>
+              </div>
+              <div class="px-4 py-3 rounded-2xl bg-zinc-900/90 border border-zinc-800 text-center flex-1 sm:flex-none min-w-[120px]">
+                <div class="font-display font-bold text-xl text-amber-400">3</div>
+                <div class="text-[11px] font-mono text-zinc-400">Części Dzieła</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description & Apparatus Details -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-6">
+            <div class="lg:col-span-7 space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
+              <p>{finaleWork.data.description}</p>
+              <p class="text-zinc-400 text-sm">
+                Przygotowanie partytury wymagało wielomiesięcznej pracy analitycznej, prób sekcyjnych z kwintetem smyczkowym, sekcją dętą drewnianą i blaszaną oraz zintegrowania brzmienia 36-osobowego chóru mieszanego z orkiestrą symfoniczną.
+              </p>
+            </div>
+
+            <div class="lg:col-span-5 space-y-3 bg-zinc-950/80 p-5 rounded-2xl border border-zinc-800/80">
+              <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2">
+                <Users class="w-4 h-4" />
+                <span>Aparat Wykonawczy & Obsada</span>
+              </h3>
+              <ul class="space-y-2 text-xs font-mono text-zinc-300">
+                <li class="flex items-center justify-between py-1 border-b border-zinc-900">
+                  <span class="text-zinc-400">Orkiestra Symfoniczna:</span>
+                  <span class="text-zinc-200 font-semibold">42 instrumentalistów</span>
+                </li>
+                <li class="flex items-center justify-between py-1 border-b border-zinc-900">
+                  <span class="text-zinc-400">Chór Mieszany (SATB):</span>
+                  <span class="text-zinc-200 font-semibold">36 głosów</span>
+                </li>
+                <li class="flex items-center justify-between py-1 border-b border-zinc-900">
+                  <span class="text-zinc-400">Soliści Wokalni:</span>
+                  <span class="text-zinc-200 font-semibold">2 solistów</span>
+                </li>
+                <li class="flex items-center justify-between py-1">
+                  <span class="text-zinc-400">Kierownictwo i Dyrygentura:</span>
+                  <span class="text-amber-400 font-bold">Kacper</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 3-Video Grid (Parts I, II, III) -->
+        <div class="space-y-6">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-zinc-100 flex items-center gap-2.5">
+              <Film class="w-5 h-5 text-amber-400" />
+              <span>Zapis Wideo — Trzy Części Koncertu</span>
+            </h3>
+            <span class="text-xs font-mono text-zinc-500">Audio 24-bit / 48kHz • Multi-cam</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {finaleWork.data.youtubeVideos.map((video, idx) => (
+              <YoutubeEmbed
+                youtubeId={video.youtubeId}
+                title={video.title}
+                partNumber={idx + 1}
+              />
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  )}
+
+  <!-- WORK 2: PROJEKT DYPLOMOWY „ECHO EPOK” -->
+  {echoWork && (
+    <section class="py-20 relative bg-zinc-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <!-- Header Info Card -->
+        <div class="glass-card rounded-3xl p-8 sm:p-10 border border-sky-500/30 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+          
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-zinc-800/80">
+            <div class="space-y-2">
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-sky-500/15 text-sky-300 border border-sky-500/40 flex items-center gap-1.5">
+                  <Sliders class="w-3.5 h-3.5" />
+                  Produkcja Muzyczna & Sound Engineering
+                </span>
+                <span class="text-xs font-mono text-zinc-400 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800">
+                  Rok: {echoWork.data.year}
+                </span>
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-zinc-100">
+                {echoWork.data.title}
+              </h2>
+              <p class="text-base font-sans text-sky-400/90 font-medium">
+                {echoWork.data.subtitle}
+              </p>
+            </div>
+
+            <div class="flex flex-wrap sm:flex-nowrap gap-3">
+              <div class="px-4 py-3 rounded-2xl bg-zinc-900/90 border border-zinc-800 text-center flex-1 sm:flex-none min-w-[120px]">
+                <div class="font-display font-bold text-xl text-sky-400">100%</div>
+                <div class="text-[11px] font-mono text-zinc-400">Jednoosobowy Zapis</div>
+              </div>
+              <div class="px-4 py-3 rounded-2xl bg-zinc-900/90 border border-zinc-800 text-center flex-1 sm:flex-none min-w-[120px]">
+                <div class="font-display font-bold text-xl text-zinc-100">48+</div>
+                <div class="text-[11px] font-mono text-zinc-400">Ścieżek Audio</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description & Engineering Breakdown -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-6">
+            <div class="lg:col-span-7 space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
+              <p>{echoWork.data.description}</p>
+              <p class="text-zinc-400 text-sm">
+                Każdy instrument akustyczny — od sekcji klarnetów, przez fortepian koncertowy i perkusjonalia, aż po 12 nakładających się partii wokalnych — został zarejestrowany samodzielnie w dedykowanym torze studyjnym z lampową saturacją i konwolucyjnymi pogłosami sal filharmonicznych.
+              </p>
+            </div>
+
+            <div class="lg:col-span-5 space-y-3 bg-zinc-950/80 p-5 rounded-2xl border border-zinc-800/80">
+              <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-sky-400 flex items-center gap-2">
+                <Mic2 class="w-4 h-4" />
+                <span>Środowisko Studyjne & Sprzęt</span>
+              </h3>
+              <ul class="space-y-2 text-xs font-mono text-zinc-300">
+                <li class="flex items-center justify-between py-1 border-b border-zinc-900">
+                  <span class="text-zinc-400">DAW & Miks:</span>
+                  <span class="text-zinc-200 font-semibold">Logic Pro / Pro Tools</span>
+                </li>
+                <li class="flex items-center justify-between py-1 border-b border-zinc-900">
+                  <span class="text-zinc-400">Mikrofony:</span>
+                  <span class="text-zinc-200 font-semibold">Neumann, AKG, Røde Stereo Pair</span>
+                </li>
+                <li class="flex items-center justify-between py-1 border-b border-zinc-900">
+                  <span class="text-zinc-400">Przetworniki & Preampy:</span>
+                  <span class="text-zinc-200 font-semibold">Universal Audio Apollo / Heritage</span>
+                </li>
+                <li class="flex items-center justify-between py-1">
+                  <span class="text-zinc-400">Mastering Standard:</span>
+                  <span class="text-sky-400 font-bold">EBU R128 / -14 LUFS</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Full-width Cinema Video Embed -->
+        <div class="space-y-6">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-zinc-100 flex items-center gap-2.5">
+              <Disc class="w-5 h-5 text-sky-400" />
+              <span>Pełny Zapis Sesji Nagraniowej & Produkcji</span>
+            </h3>
+            <span class="text-xs font-mono text-zinc-500">Master 4K • Studio Documentary</span>
+          </div>
+
+          <div class="max-w-4xl mx-auto">
+            {echoWork.data.youtubeVideos.map((video) => (
+              <YoutubeEmbed
+                youtubeId={video.youtubeId}
+                title={video.title}
+                featured={true}
+              />
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  )}
+</BaseLayout>

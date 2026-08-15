@@ -1,0 +1,273 @@
+---
+import { X, Award, Calendar, CheckCircle2, Image as ImageIcon, Sparkles, ExternalLink } from 'lucide-astro';
+---
+
+<!-- Accessible Slide-over Drawer / Bottom Sheet for Ensemble Details -->
+<aside
+  id="ensemble-drawer"
+  class="fixed inset-0 z-50 pointer-events-none transition-all duration-300"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="drawer-ensemble-name"
+  aria-hidden="true"
+>
+  <!-- Backdrop Overlay -->
+  <div
+    id="drawer-backdrop"
+    class="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"
+  ></div>
+
+  <!-- Drawer Container (Slide-over on Desktop, Bottom Sheet on Mobile) -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none flex justify-end">
+    <div
+      id="drawer-panel"
+      class="pointer-events-auto w-full md:max-w-xl h-full bg-zinc-950/95 border-l border-zinc-800 shadow-2xl flex flex-col transform translate-x-full md:translate-x-full transition-transform duration-300 ease-out z-10"
+    >
+      
+      <!-- Top Sticky Header -->
+      <div class="px-6 py-5 border-b border-zinc-800 flex items-center justify-between gap-4 bg-zinc-900/60 backdrop-blur-md">
+        <div class="flex items-center gap-2.5">
+          <span id="drawer-pillar-badge" class="px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/30">
+            Filar
+          </span>
+        </div>
+        <button
+          id="drawer-close-btn"
+          type="button"
+          aria-label="Zamknij panel szczegółów"
+          class="p-2 rounded-xl text-zinc-400 hover:text-white bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-all focus:outline-none focus:ring-2 focus:ring-amber-500"
+        >
+          <X class="w-5 h-5" />
+        </button>
+      </div>
+
+      <!-- Scrollable Body Content -->
+      <div class="flex-1 overflow-y-auto px-6 py-6 space-y-6">
+        
+        <!-- Ensemble Title & Role Header -->
+        <div class="space-y-3">
+          <h3 id="drawer-ensemble-name" class="text-2xl sm:text-3xl font-display font-bold text-zinc-100 leading-tight">
+            Nazwa Formacji
+          </h3>
+          
+          <div class="flex flex-wrap items-center gap-2.5 pt-1">
+            <!-- Role Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zinc-900 border border-zinc-700 text-sm font-medium text-zinc-200">
+              <Sparkles class="w-4 h-4 text-amber-400" />
+              <span id="drawer-role-text">Rola w zespole</span>
+            </div>
+
+            <!-- Concert Count Pill -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-sm font-semibold text-amber-400 font-mono">
+              <Calendar class="w-4 h-4" />
+              <span id="drawer-concert-count">Ponad 70 występów</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlights Section -->
+        <div class="space-y-3 pt-2">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono flex items-center gap-2">
+            <Award class="w-4 h-4 text-amber-400" />
+            <span>Kluczowe Osiągnięcia & Rola</span>
+          </h4>
+          <ul id="drawer-highlights-list" class="space-y-2.5">
+            <!-- Dynamically populated -->
+          </ul>
+        </div>
+
+        <!-- Description / Markdown Content -->
+        <div class="space-y-2 pt-2 border-t border-zinc-800/80">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono">
+            Charakterystyka & Warsztat
+          </h4>
+          <div id="drawer-description" class="text-sm text-zinc-300 leading-relaxed space-y-3">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Photo Gallery (Lightbox-enabled) -->
+        <div class="space-y-3 pt-2 border-t border-zinc-800/80">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono flex items-center justify-between">
+            <span class="flex items-center gap-2">
+              <ImageIcon class="w-4 h-4 text-amber-400" />
+              <span>Galeria Fotograficzna</span>
+            </span>
+            <span class="text-[11px] text-zinc-500 lowercase font-normal">kliknij, aby powiększyć</span>
+          </h4>
+
+          <div id="drawer-photos-grid" class="grid grid-cols-2 gap-3">
+            <!-- Dynamically populated photo thumbnails -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Drawer Footer -->
+      <div class="p-5 border-t border-zinc-800 bg-zinc-950/80 flex items-center justify-between gap-3">
+        <a
+          href="/projekty-autorskie"
+          class="flex items-center gap-2 text-xs font-medium text-zinc-400 hover:text-amber-400 transition-colors"
+        >
+          <span>Zobacz powiązane dzieła</span>
+          <ExternalLink class="w-3.5 h-3.5" />
+        </a>
+        <button
+          id="drawer-bottom-close-btn"
+          type="button"
+          class="px-4 py-2 rounded-xl text-xs font-semibold text-zinc-300 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 hover:text-white transition-all"
+        >
+          Zamknij
+        </button>
+      </div>
+
+    </div>
+  </div>
+</aside>
+
+<script>
+  interface EnsembleData {
+    name: string;
+    pillar: string;
+    role: string;
+    concertCount: string;
+    highlights: string[];
+    photos: string[];
+    bodyText?: string;
+  }
+
+  function setupDrawer() {
+    const drawer = document.getElementById('ensemble-drawer');
+    const backdrop = document.getElementById('drawer-backdrop');
+    const panel = document.getElementById('drawer-panel');
+    const closeBtn = document.getElementById('drawer-close-btn');
+    const bottomCloseBtn = document.getElementById('drawer-bottom-close-btn');
+
+    const pillarBadge = document.getElementById('drawer-pillar-badge');
+    const nameEl = document.getElementById('drawer-ensemble-name');
+    const roleEl = document.getElementById('drawer-role-text');
+    const countEl = document.getElementById('drawer-concert-count');
+    const highlightsEl = document.getElementById('drawer-highlights-list');
+    const descEl = document.getElementById('drawer-description');
+    const photosGrid = document.getElementById('drawer-photos-grid');
+
+    if (!drawer || !backdrop || !panel || !closeBtn) return;
+
+    const pillarLabels: Record<string, { label: string; color: string; border: string }> = {
+      orkiestry: { label: 'Orkiestry', color: 'text-amber-400 bg-amber-500/10', border: 'border-amber-500/30' },
+      chory: { label: 'Chóry & Wokal', color: 'text-sky-400 bg-sky-500/10', border: 'border-sky-500/30' },
+      teatr: { label: 'Scena & Teatr', color: 'text-fuchsia-400 bg-fuchsia-500/10', border: 'border-fuchsia-500/30' },
+      estrada: { label: 'Kameralistyka & Estrada', color: 'text-purple-400 bg-purple-500/10', border: 'border-purple-500/30' },
+    };
+
+    function openDrawer(data: EnsembleData) {
+      if (!drawer || !backdrop || !panel) return;
+
+      // Populate content
+      const pillarInfo = pillarLabels[data.pillar] || { label: data.pillar, color: 'text-amber-400 bg-amber-500/10', border: 'border-amber-500/30' };
+      if (pillarBadge) {
+        pillarBadge.textContent = pillarInfo.label;
+        pillarBadge.className = `px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider border ${pillarInfo.color} ${pillarInfo.border}`;
+      }
+
+      if (nameEl) nameEl.textContent = data.name;
+      if (roleEl) roleEl.textContent = data.role;
+      if (countEl) countEl.textContent = data.concertCount;
+
+      // Highlights
+      if (highlightsEl) {
+        highlightsEl.innerHTML = '';
+        (data.highlights || []).forEach((item) => {
+          const li = document.createElement('li');
+          li.className = 'flex items-start gap-2.5 text-sm text-zinc-300';
+          li.innerHTML = `
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0"></span>
+            <span>${item}</span>
+          `;
+          highlightsEl.appendChild(li);
+        });
+      }
+
+      // Description
+      if (descEl) {
+        descEl.innerHTML = data.bodyText
+          ? `<p>${data.bodyText}</p>`
+          : `<p>Aktywna działalność wykonawcza i dyrygencka w ramach stałego repertuaru formacji oraz projektów festiwalowych.</p>`;
+      }
+
+      // Photos
+      if (photosGrid) {
+        photosGrid.innerHTML = '';
+        const photos = data.photos || [];
+        if (photos.length === 0) {
+          photosGrid.innerHTML = `<p class="text-xs text-zinc-500 col-span-2">Brak materiałów archiwalnych.</p>`;
+        } else {
+          photos.forEach((photoUrl, idx) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.setAttribute('data-lightbox-src', photoUrl);
+            btn.setAttribute('data-lightbox-alt', `${data.name} — Fotografia ${idx + 1}`);
+            btn.className = 'group relative rounded-xl overflow-hidden border border-zinc-800 hover:border-amber-500/40 aspect-[16/10] bg-zinc-900 transition-all focus:outline-none focus:ring-2 focus:ring-amber-500';
+            btn.innerHTML = `
+              <img src="${photoUrl}" alt="${data.name} — Zdjęcie ${idx + 1}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="p-1.5 rounded-lg bg-zinc-900/90 text-amber-400 text-xs font-mono font-medium">Powiększ</span>
+              </div>
+            `;
+            photosGrid.appendChild(btn);
+          });
+        }
+      }
+
+      // Open drawer UI
+      drawer.classList.remove('pointer-events-none');
+      drawer.setAttribute('aria-hidden', 'false');
+      
+      backdrop.classList.remove('pointer-events-none');
+      backdrop.classList.add('opacity-100', 'pointer-events-auto');
+
+      panel.classList.remove('translate-x-full');
+      panel.classList.add('translate-x-0');
+
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      if (!drawer || !backdrop || !panel) return;
+
+      backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+
+      panel.classList.remove('translate-x-0');
+      panel.classList.add('translate-x-full');
+
+      drawer.setAttribute('aria-hidden', 'true');
+
+      setTimeout(() => {
+        drawer.classList.add('pointer-events-none');
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
+    closeBtn.addEventListener('click', closeDrawer);
+    if (bottomCloseBtn) bottomCloseBtn.addEventListener('click', closeDrawer);
+    backdrop.addEventListener('click', closeDrawer);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') {
+        closeDrawer();
+      }
+    });
+
+    // Listen for custom open-ensemble-drawer event
+    window.addEventListener('open-ensemble-drawer', (e: Event) => {
+      const customEvent = e as CustomEvent<EnsembleData>;
+      if (customEvent.detail) {
+        openDrawer(customEvent.detail);
+      }
+    });
+  }
+
+  setupDrawer();
+  document.addEventListener('astro:page-load', setupDrawer);
+</script>

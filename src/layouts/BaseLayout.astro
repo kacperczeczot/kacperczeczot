@@ -1,0 +1,90 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Lightbox from '../components/Lightbox.astro';
+import EnsembleDrawer from '../components/EnsembleDrawer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  accent?: 'amber' | 'cyan';
+}
+
+const {
+  title = 'Kacper — Dyrygent, Muzyk, Realizator Dźwięku & Software Engineer',
+  description = 'Oficjalne portfolio artystyczno-technologiczne: dyrygentura orkiestrowa i chóralna, wykonawstwo sceniczne, autorskie produkcje muzyczne oraz technologie audio/MIDI.',
+  image = '/images/og-cover.svg',
+  accent = 'amber',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kacper.github.io');
+---
+
+<!doctype html>
+<html lang="pl" class="scroll-smooth bg-zinc-950 text-zinc-100 antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- SEO & Metadata -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Kacper" />
+    <meta name="theme-color" content="#09090b" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    <!-- Google Fonts: Plus Jakarta Sans (UI) & Cinzel (Headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen flex flex-col bg-zinc-950 text-zinc-100 selection:bg-amber-500/30 selection:text-amber-200 relative overflow-x-hidden">
+    
+    <!-- Ambient Noise & Subtle Grid Background Overlay -->
+    <div class="fixed inset-0 bg-subtle-grid opacity-30 pointer-events-none -z-20"></div>
+
+    <!-- Dynamic Accent Background Glow -->
+    {accent === 'amber' ? (
+      <div class="fixed -top-40 -left-40 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+    ) : (
+      <div class="fixed -top-40 -left-40 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+    )}
+    <div class="fixed -bottom-40 -right-40 w-[600px] h-[600px] bg-zinc-800/20 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+
+    <!-- Navigation -->
+    <Navbar />
+
+    <!-- Main Content Container -->
+    <main class="flex-1 w-full relative">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+
+    <!-- Global Components -->
+    <EnsembleDrawer />
+    <Lightbox />
+  </body>
+</html>

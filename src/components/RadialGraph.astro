@@ -1,0 +1,461 @@
+---
+import { getCollection } from 'astro:content';
+import { Disc3, Music2, Users, Theater, Sparkles, Award, RotateCcw } from 'lucide-astro';
+
+const allEnsembles = await getCollection('ensembles');
+const sortedEnsembles = allEnsembles.sort((a, b) => a.data.order - b.data.order);
+
+const pillars = [
+  {
+    id: 'orkiestry',
+    name: 'Orkiestry',
+    subtitle: 'Dęte & Symfoniczne',
+    count: '3 formacje',
+    icon: Music2,
+    color: '#f59e0b',
+    colorClass: 'amber',
+    borderColor: 'border-amber-500/30 hover:border-amber-400',
+    cx: 260,
+    cy: 170,
+  },
+  {
+    id: 'chory',
+    name: 'Chóry & Wokal',
+    subtitle: 'Akademia & Muzyka Dawna',
+    count: '2 zespoły',
+    icon: Users,
+    color: '#38bdf8',
+    colorClass: 'sky',
+    borderColor: 'border-sky-500/30 hover:border-sky-400',
+    cx: 640,
+    cy: 170,
+  },
+  {
+    id: 'teatr',
+    name: 'Scena & Teatr',
+    subtitle: 'Operetka & Musical',
+    count: '2 produkcje',
+    icon: Theater,
+    color: '#f43f5e',
+    colorClass: 'rose',
+    borderColor: 'border-rose-500/30 hover:border-rose-400',
+    cx: 640,
+    cy: 510,
+  },
+  {
+    id: 'estrada',
+    name: 'Kameralistyka & Estrada',
+    subtitle: 'Live Show & Jazz',
+    count: '2 formacje',
+    icon: Sparkles,
+    color: '#a855f7',
+    colorClass: 'purple',
+    borderColor: 'border-purple-500/30 hover:border-purple-400',
+    cx: 260,
+    cy: 510,
+  },
+];
+
+const ensemblesData = sortedEnsembles.map(e => ({
+  id: e.slug,
+  name: e.data.name,
+  pillar: e.data.pillar,
+  role: e.data.role,
+  concertCount: e.data.concertCount,
+  highlights: e.data.highlights,
+  photos: e.data.photos,
+  order: e.data.order,
+  bodyText: e.body,
+}));
+---
+
+<section id="drzewo-radialne" class="relative py-20 bg-zinc-950 overflow-hidden">
+  <!-- Ambient Glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] bg-gradient-radial from-amber-500/10 via-zinc-900/0 to-transparent blur-3xl pointer-events-none -z-10"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Title -->
+    <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-mono font-semibold uppercase tracking-wider">
+        <Disc3 class="w-3.5 h-3.5 animate-spin-reverse-slow" />
+        <span>Interaktywna Mapa Działalności</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-zinc-100">
+        Drzewo Radialne <span class="bg-gradient-to-r from-amber-400 to-amber-200 bg-clip-text text-transparent">Sceny & Zespołów</span>
+      </h2>
+      <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+        Wybierz główny filar wykonawczy na orbicie, aby rozwinąć satelity poszczególnych formacji i poznać szczegóły warsztatu scenicznego.
+      </p>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- DESKTOP RADIAL GRAPH (>= 1024px) -->
+    <!-- ========================================== -->
+    <div class="hidden lg:block relative w-full max-w-5xl mx-auto aspect-[900/680] rounded-3xl border border-zinc-800/80 bg-zinc-950/70 backdrop-blur-xl p-4 shadow-2xl overflow-hidden" id="radial-container">
+      
+      <!-- SVG Connection Lines & Orbit Rings -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 900 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="centerGlow" cx="450" cy="340" r="300" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.15" />
+            <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.02" />
+            <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+          </radialGradient>
+
+          <linearGradient id="line-orkiestry" x1="450" y1="340" x2="260" y2="170" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.3"/>
+          </linearGradient>
+          <linearGradient id="line-chory" x1="450" y1="340" x2="640" y2="170" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.3"/>
+          </linearGradient>
+          <linearGradient id="line-teatr" x1="450" y1="340" x2="640" y2="510" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.3"/>
+          </linearGradient>
+          <linearGradient id="line-estrada" x1="450" y1="340" x2="260" y2="510" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#a855f7" stop-opacity="0.3"/>
+          </linearGradient>
+        </defs>
+
+        <circle cx="450" cy="340" r="280" fill="url(#centerGlow)"/>
+
+        <!-- Orbital Rings -->
+        <circle cx="450" cy="340" r="140" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 4" class="animate-orbit-slow origin-[450px_340px]" />
+        <circle cx="450" cy="340" r="260" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" stroke-dasharray="6 6" class="animate-spin-reverse-slow origin-[450px_340px]" />
+        <circle cx="450" cy="340" r="370" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="8 8" />
+
+        <!-- Static Lines to Pillars -->
+        <line id="svg-line-orkiestry" x1="450" y1="340" x2="260" y2="170" stroke="url(#line-orkiestry)" stroke-width="2" stroke-dasharray="3 3" opacity="0.4" />
+        <line id="svg-line-chory" x1="450" y1="340" x2="640" y2="170" stroke="url(#line-chory)" stroke-width="2" stroke-dasharray="3 3" opacity="0.4" />
+        <line id="svg-line-teatr" x1="450" y1="340" x2="640" y2="510" stroke="url(#line-teatr)" stroke-width="2" stroke-dasharray="3 3" opacity="0.4" />
+        <line id="svg-line-estrada" x1="450" y1="340" x2="260" y2="510" stroke="url(#line-estrada)" stroke-width="2" stroke-dasharray="3 3" opacity="0.4" />
+
+        <!-- Dynamic Satellite Connection Lines Container -->
+        <g id="svg-satellite-lines"></g>
+      </svg>
+
+      <!-- 1. CENTRAL NODE: 300+ Występów Scenicznych (Reset / Home Node) -->
+      <div
+        id="central-node"
+        role="button"
+        tabindex="0"
+        title="Kliknij, aby zresetować widok drzewa"
+        class="absolute top-[340px] left-[450px] -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer group focus:outline-none"
+      >
+        <div class="relative flex flex-col items-center justify-center w-40 h-40 rounded-full bg-zinc-950/90 border-2 border-amber-500/50 shadow-glow-amber group-hover:border-amber-400 group-hover:scale-105 group-hover:shadow-glow-amber-lg transition-all duration-300 backdrop-blur-md">
+          <div class="absolute -inset-2 rounded-full border border-amber-500/30 animate-pulse-subtle"></div>
+          
+          <span class="p-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 mb-1 group-hover:scale-110 transition-transform">
+            <Award class="w-5 h-5" />
+          </span>
+
+          <span class="font-display font-extrabold text-2xl text-amber-400 tracking-tight">
+            300+
+          </span>
+          <span class="text-[11px] font-mono text-zinc-300 font-semibold uppercase text-center px-2 leading-tight">
+            Występów<br />Scenicznych
+          </span>
+
+          <span class="absolute -bottom-3 px-2.5 py-0.5 rounded-full bg-zinc-900 border border-zinc-700 text-[9px] font-mono text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity">
+            Reset widoku
+          </span>
+        </div>
+      </div>
+
+      <!-- 2. ORBIT 1: 4 PILLAR NODES -->
+      {pillars.map((pillar) => {
+        const Icon = pillar.icon;
+        return (
+          <div
+            id={`pillar-node-${pillar.id}`}
+            data-pillar-id={pillar.id}
+            role="button"
+            tabindex="0"
+            style={`top: ${pillar.cy}px; left: ${pillar.cx}px;`}
+            class={`pillar-btn absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group focus:outline-none transition-all duration-300`}
+          >
+            <div class={`relative flex flex-col items-center justify-center w-32 h-32 rounded-3xl bg-zinc-900/90 border ${pillar.borderColor} shadow-lg backdrop-blur-md transition-all duration-300 group-hover:scale-110`}>
+              <span class={`p-2 rounded-xl bg-zinc-950 border border-zinc-800 text-amber-400 mb-1.5 transition-all`}>
+                <Icon class="w-5 h-5" />
+              </span>
+
+              <span class="font-display font-bold text-sm text-zinc-100 text-center px-2 leading-tight group-hover:text-amber-300 transition-colors">
+                {pillar.name}
+              </span>
+              
+              <span class="text-[10px] font-mono text-zinc-400 mt-0.5">
+                {pillar.count}
+              </span>
+
+              <span class="absolute -bottom-2 px-2 py-0.5 rounded-full bg-zinc-950 border border-zinc-800 text-[9px] font-mono text-amber-400 group-hover:bg-amber-500 group-hover:text-zinc-950 transition-all">
+                Rozwiń +
+              </span>
+            </div>
+          </div>
+        );
+      })}
+
+      <!-- 3. ORBIT 2: SATELLITES LAYER -->
+      <div id="satellite-nodes-layer" class="absolute inset-0 z-20 pointer-events-none"></div>
+
+      <!-- Quick Helper Tip -->
+      <div class="absolute bottom-4 right-6 text-xs text-zinc-500 font-mono flex items-center gap-2">
+        <RotateCcw class="w-3.5 h-3.5" />
+        <span>Kliknij filar, by rozwinąć • Kliknij zespół, by otworzyć panel</span>
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MOBILE VIEW (< 1024px) -->
+    <!-- ========================================== -->
+    <div class="block lg:hidden space-y-6">
+      
+      <!-- Mobile Pillar Tabs -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none snap-x" id="mobile-pillar-tabs">
+        {pillars.map((pillar, idx) => {
+          const Icon = pillar.icon;
+          return (
+            <button
+              type="button"
+              data-mobile-pillar={pillar.id}
+              class={`mobile-tab-btn flex items-center gap-2 px-4 py-3 rounded-2xl border text-sm font-semibold whitespace-nowrap transition-all snap-start flex-shrink-0 ${
+                idx === 0
+                  ? 'bg-amber-500/15 border-amber-500/40 text-amber-300 shadow-glow-amber'
+                  : 'bg-zinc-900/80 border-zinc-800 text-zinc-400 hover:text-zinc-200'
+              }`}
+            >
+              <Icon class="w-4 h-4 text-amber-400" />
+              <span>{pillar.name}</span>
+              <span class="text-xs px-1.5 py-0.5 rounded-full bg-zinc-950 font-mono text-zinc-400 border border-zinc-800">
+                {pillar.count.split(' ')[0]}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      <!-- Mobile Ensemble Cards -->
+      <div id="mobile-ensembles-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script define:vars={{ ensemblesData }}>
+  const ensembles = ensemblesData;
+
+  const pillarCoords = {
+    orkiestry: { cx: 260, cy: 170 },
+    chory: { cx: 640, cy: 170 },
+    teatr: { cx: 640, cy: 510 },
+    estrada: { cx: 260, cy: 510 },
+  };
+
+  const satelliteOffsets = {
+    orkiestry: [
+      { dx: -130, dy: -60 },
+      { dx: -140, dy: 60 },
+      { dx: 0, dy: -120 },
+    ],
+    chory: [
+      { dx: 130, dy: -50 },
+      { dx: 130, dy: 60 },
+    ],
+    teatr: [
+      { dx: 130, dy: -40 },
+      { dx: 130, dy: 60 },
+    ],
+    estrada: [
+      { dx: -130, dy: -40 },
+      { dx: -130, dy: 60 },
+    ],
+  };
+
+  let activePillarId = null;
+
+  function initRadialGraph() {
+    const container = document.getElementById('radial-container');
+    const satelliteLayer = document.getElementById('satellite-nodes-layer');
+    const svgLines = document.getElementById('svg-satellite-lines');
+    const centralNode = document.getElementById('central-node');
+    const pillarButtons = document.querySelectorAll('.pillar-btn');
+
+    const mobileTabs = document.querySelectorAll('.mobile-tab-btn');
+    const mobileGrid = document.getElementById('mobile-ensembles-grid');
+
+    if (!container || !satelliteLayer || !svgLines) return;
+
+    function resetGraph() {
+      activePillarId = null;
+      satelliteLayer.innerHTML = '';
+      svgLines.innerHTML = '';
+      
+      pillarButtons.forEach((btn) => {
+        btn.classList.remove('ring-2', 'ring-amber-400', 'scale-110');
+        const badge = btn.querySelector('span:last-child');
+        if (badge) {
+          badge.textContent = 'Rozwiń +';
+          badge.className = 'absolute -bottom-2 px-2 py-0.5 rounded-full bg-zinc-950 border border-zinc-800 text-[9px] font-mono text-amber-400 group-hover:bg-amber-500 group-hover:text-zinc-950 transition-all';
+        }
+      });
+    }
+
+    if (centralNode) {
+      centralNode.addEventListener('click', resetGraph);
+    }
+
+    function expandPillar(pillarId) {
+      if (activePillarId === pillarId) {
+        resetGraph();
+        return;
+      }
+
+      resetGraph();
+      activePillarId = pillarId;
+
+      const activeBtn = document.getElementById(`pillar-node-${pillarId}`);
+      if (activeBtn) {
+        activeBtn.classList.add('ring-2', 'ring-amber-400', 'scale-110');
+        const badge = activeBtn.querySelector('span:last-child');
+        if (badge) {
+          badge.textContent = 'Aktywny ✓';
+          badge.className = 'absolute -bottom-2 px-2 py-0.5 rounded-full bg-amber-500 text-zinc-950 font-bold text-[9px] font-mono transition-all shadow-glow-amber';
+        }
+      }
+
+      const pCoord = pillarCoords[pillarId];
+      const offsets = satelliteOffsets[pillarId] || [];
+      const pillarEnsembles = ensembles.filter(e => e.pillar === pillarId);
+
+      pillarEnsembles.forEach((ens, idx) => {
+        const offset = offsets[idx] || { dx: (idx + 1) * 60, dy: (idx + 1) * 40 };
+        const satX = pCoord.cx + offset.dx;
+        const satY = pCoord.cy + offset.dy;
+
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', String(pCoord.cx));
+        line.setAttribute('y1', String(pCoord.cy));
+        line.setAttribute('x2', String(satX));
+        line.setAttribute('y2', String(satY));
+        line.setAttribute('stroke', '#f59e0b');
+        line.setAttribute('stroke-width', '2');
+        line.setAttribute('stroke-dasharray', '4 4');
+        line.setAttribute('class', 'animate-pulse');
+        svgLines.appendChild(line);
+
+        const satEl = document.createElement('div');
+        satEl.className = 'absolute pointer-events-auto cursor-pointer group focus:outline-none -translate-x-1/2 -translate-y-1/2 transition-all duration-300 transform scale-0';
+        satEl.style.left = `${satX}px`;
+        satEl.style.top = `${satY}px`;
+
+        satEl.innerHTML = `
+          <div class="relative flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-zinc-900/95 border border-amber-500/40 hover:border-amber-400 hover:bg-zinc-850 shadow-xl backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-glow-amber max-w-[210px]">
+            <div class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse flex-shrink-0"></div>
+            <div class="min-w-0">
+              <h4 class="text-xs font-display font-bold text-zinc-100 truncate group-hover:text-amber-300 transition-colors">
+                ${ens.name}
+              </h4>
+              <p class="text-[10px] font-mono text-zinc-400 truncate">
+                ${ens.role}
+              </p>
+              <div class="flex items-center gap-1 text-[9px] font-mono text-amber-400/90 mt-0.5">
+                <span>★</span>
+                <span>${ens.concertCount}</span>
+              </div>
+            </div>
+          </div>
+        `;
+
+        satEl.addEventListener('click', () => {
+          window.dispatchEvent(new CustomEvent('open-ensemble-drawer', { detail: ens }));
+        });
+
+        satelliteLayer.appendChild(satEl);
+
+        requestAnimationFrame(() => {
+          satEl.classList.remove('scale-0');
+          satEl.classList.add('scale-100');
+        });
+      });
+    }
+
+    pillarButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const pId = btn.getAttribute('data-pillar-id');
+        if (pId) expandPillar(pId);
+      });
+    });
+
+    setTimeout(() => {
+      if (!activePillarId) expandPillar('orkiestry');
+    }, 500);
+
+    function renderMobileGrid(pillarId) {
+      if (!mobileGrid) return;
+      mobileGrid.innerHTML = '';
+
+      const pillarEnsembles = ensembles.filter(e => e.pillar === pillarId);
+
+      pillarEnsembles.forEach((ens) => {
+        const card = document.createElement('div');
+        card.className = 'glass-card p-5 rounded-2xl border border-zinc-800/80 hover:border-amber-500/40 transition-all cursor-pointer group active:scale-[0.98]';
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="px-2.5 py-1 rounded-lg text-[10px] font-mono uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/30">
+              ${ens.role}
+            </span>
+            <span class="text-xs font-mono text-zinc-400 flex items-center gap-1">
+              <span>★</span>
+              <span>${ens.concertCount}</span>
+            </span>
+          </div>
+          <h3 class="font-display font-bold text-base text-zinc-100 group-hover:text-amber-300 transition-colors mb-2">
+            ${ens.name}
+          </h3>
+          <ul class="space-y-1.5 mb-4 text-xs text-zinc-400">
+            ${(ens.highlights || []).slice(0, 2).map(h => `<li class="flex items-start gap-1.5"><span class="text-amber-400 mt-0.5">•</span><span>${h}</span></li>`).join('')}
+          </ul>
+          <div class="flex items-center justify-between text-xs font-medium text-amber-400 pt-2 border-t border-zinc-800/60">
+            <span>Szczegóły formacji</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          window.dispatchEvent(new CustomEvent('open-ensemble-drawer', { detail: ens }));
+        });
+
+        mobileGrid.appendChild(card);
+      });
+    }
+
+    mobileTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const pId = tab.getAttribute('data-mobile-pillar');
+        if (!pId) return;
+
+        mobileTabs.forEach((t) => {
+          t.classList.remove('bg-amber-500/15', 'border-amber-500/40', 'text-amber-300', 'shadow-glow-amber');
+          t.classList.add('bg-zinc-900/80', 'border-zinc-800', 'text-zinc-400');
+        });
+
+        tab.classList.remove('bg-zinc-900/80', 'border-zinc-800', 'text-zinc-400');
+        tab.classList.add('bg-amber-500/15', 'border-amber-500/40', 'text-amber-300', 'shadow-glow-amber');
+
+        renderMobileGrid(pId);
+      });
+    });
+
+    renderMobileGrid('orkiestry');
+  }
+
+  initRadialGraph();
+  document.addEventListener('astro:page-load', initRadialGraph);
+</script>

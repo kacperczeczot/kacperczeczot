@@ -1,0 +1,114 @@
+---
+import { X, ZoomIn } from 'lucide-astro';
+---
+
+<!-- Global Accessible Lightbox Component -->
+<div
+  id="global-lightbox"
+  class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 transition-opacity duration-300 opacity-0"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Podgląd powiększonego zdjęcia"
+>
+  <!-- Close Button -->
+  <button
+    id="lightbox-close-btn"
+    type="button"
+    aria-label="Zamknij podgląd zdjęcia"
+    class="absolute top-6 right-6 z-10 p-3 rounded-full bg-zinc-900/80 border border-zinc-700 text-zinc-300 hover:text-white hover:bg-zinc-800 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400"
+  >
+    <X class="w-6 h-6" />
+  </button>
+
+  <!-- Image Container -->
+  <div class="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center justify-center">
+    <div class="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl">
+      <img
+        id="lightbox-image"
+        src=""
+        alt="Powiększone zdjęcie"
+        class="max-w-full max-h-[75vh] w-auto h-auto object-contain transition-transform duration-300"
+      />
+    </div>
+
+    <!-- Caption -->
+    <div id="lightbox-caption" class="mt-4 text-center text-sm font-medium text-zinc-300 font-mono tracking-wide px-4 py-2 rounded-lg bg-zinc-900/80 border border-zinc-800/80">
+      Podgląd fotografii
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupLightbox() {
+    const lightbox = document.getElementById('global-lightbox');
+    const lightboxImg = document.getElementById('lightbox-image') as HTMLImageElement | null;
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.getElementById('lightbox-close-btn');
+
+    if (!lightbox || !lightboxImg || !lightboxCaption || !closeBtn) return;
+
+    function openLightbox(src: string, alt: string) {
+      if (!lightbox || !lightboxImg || !lightboxCaption) return;
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || 'Zdjęcie archiwalne';
+      lightboxCaption.textContent = alt || 'Podgląd fotografii';
+      
+      lightbox.classList.remove('hidden');
+      // Trigger animation
+      requestAnimationFrame(() => {
+        lightbox.classList.remove('opacity-0');
+        lightbox.classList.add('opacity-100');
+      });
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      if (!lightbox || !lightboxImg) return;
+      lightbox.classList.remove('opacity-100');
+      lightbox.classList.add('opacity-0');
+      
+      setTimeout(() => {
+        lightbox.classList.add('hidden');
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+      }, 250);
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || (e.target as HTMLElement).closest('#global-lightbox > div') === null) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+        closeLightbox();
+      }
+    });
+
+    // Delegate clicks for elements with data-lightbox-src
+    document.addEventListener('click', (e) => {
+      const target = (e.target as HTMLElement).closest('[data-lightbox-src]') as HTMLElement | null;
+      if (target) {
+        e.preventDefault();
+        const src = target.getAttribute('data-lightbox-src') || '';
+        const alt = target.getAttribute('data-lightbox-alt') || '';
+        if (src) openLightbox(src, alt);
+      }
+    });
+
+    // Listen to custom event
+    window.addEventListener('open-lightbox-event', (e: Event) => {
+      const customEvent = e as CustomEvent<{ src: string; alt: string }>;
+      if (customEvent.detail?.src) {
+        openLightbox(customEvent.detail.src, customEvent.detail.alt);
+      }
+    });
+  }
+
+  // Setup on initial load and view transitions
+  setupLightbox();
+  document.addEventListener('astro:page-load', setupLightbox);
+</script>

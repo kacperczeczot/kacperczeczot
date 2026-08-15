@@ -1,0 +1,228 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import { getCollection } from 'astro:content';
+import {
+  Terminal,
+  Github,
+  ExternalLink,
+  Cpu,
+  Radio,
+  Sliders,
+  Code2,
+  Sparkles,
+  Zap,
+  Activity,
+  Layers,
+  CheckCircle,
+} from 'lucide-astro';
+
+const allLabProjects = await getCollection('lab');
+const projects = allLabProjects.sort((a, b) => a.data.order - b.data.order);
+
+const featuredProject = projects.find(p => p.data.featured);
+const regularProjects = projects.filter(p => !p.data.featured);
+---
+
+<BaseLayout
+  title="Laboratorium Technologiczne & Software — Kacper"
+  description="Projekty programistyczne, inżynieria dźwięku i oprogramowanie sceniczne czasu rzeczywistego: StageSync, WebAudio API, WebMIDI, MusicXML parsers."
+  accent="cyan"
+>
+  <!-- Header -->
+  <section class="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden border-b border-zinc-800/80 bg-zinc-950">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-radial from-cyan-500/15 via-teal-600/5 to-transparent blur-3xl pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <SectionHeader
+        badge="Inżynieria Oprogramowania & Audio Tech"
+        title="Laboratorium Technologiczne"
+        subtitle="Autorskie silniki synchronizacji scenicznej czasu rzeczywistego, narzędzia do analizy partytur i eksperymenty WebAudio / MIDI."
+        align="center"
+        accent="cyan"
+      />
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECT: STAGESYNC -->
+  {featuredProject && (
+    <section class="py-20 bg-zinc-950/70 border-b border-zinc-800/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="glass-card rounded-3xl p-8 sm:p-12 border border-cyan-500/30 relative overflow-hidden shadow-2xl">
+          <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+          <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-8 pb-8 border-b border-zinc-800/80">
+            <div class="space-y-4 max-w-3xl">
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-cyan-500/15 text-cyan-300 border border-cyan-500/40 flex items-center gap-1.5 shadow-glow-cyan">
+                  <Zap class="w-3.5 h-3.5" />
+                  Flagowy Projekt Badawczo-Wdrożeniowy
+                </span>
+                <span class="text-xs font-mono text-zinc-400 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800">
+                  Open Source / Stage Tech
+                </span>
+              </div>
+
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-zinc-100">
+                {featuredProject.data.title}
+              </h2>
+
+              <p class="text-base sm:text-lg text-zinc-300 leading-relaxed font-sans">
+                {featuredProject.data.description}
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 pt-2">
+                {featuredProject.data.tags.map(tag => (
+                  <span class="px-3 py-1 rounded-xl bg-zinc-900 border border-zinc-700 text-xs font-mono text-cyan-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Links -->
+            <div class="flex flex-wrap sm:flex-col gap-3 flex-shrink-0">
+              {featuredProject.data.githubUrl && (
+                <a
+                  href={featuredProject.data.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-zinc-900 border border-zinc-700 hover:border-cyan-400 text-zinc-200 hover:text-white transition-all font-mono text-xs font-semibold shadow-md"
+                >
+                  <Github class="w-4 h-4" />
+                  <span>Repozytorium GitHub</span>
+                </a>
+              )}
+              {featuredProject.data.liveUrl && (
+                <a
+                  href={featuredProject.data.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-zinc-950 font-mono text-xs font-bold transition-all shadow-glow-cyan"
+                >
+                  <ExternalLink class="w-4 h-4" />
+                  <span>Uruchom Live Demo</span>
+                </a>
+              )}
+            </div>
+          </div>
+
+          <!-- Architecture & Technical Highlights -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+            <div class="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-3">
+              <div class="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold uppercase">
+                <Activity class="w-4 h-4" />
+                <span>Precyzja Czasu Rzeczywistego</span>
+              </div>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Wykorzystanie sprzętowego zegara <code>AudioContext.currentTime</code> do synchronizacji z dokładnością sub-milisekundową, eliminując mikroopóźnienia podczas występów orkiestrowych.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-3">
+              <div class="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold uppercase">
+                <Radio class="w-4 h-4" />
+                <span>Protokoły MIDI Clock & SPP</span>
+              </div>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Obsługa Song Position Pointer (SPP) pozwalająca na płynne przewijanie do dowolnego taktu w partyturze cyfrowej i natychmiastowe zsynchronizowanie zewnętrznych syntezatorów i DAW.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-3">
+              <div class="flex items-center gap-2 text-cyan-400 font-mono text-xs font-bold uppercase">
+                <Layers class="w-4 h-4" />
+                <span>Bezstratna Redundancja</span>
+              </div>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Architektura High-Availability z heartbeatem sieciowym pozwalająca na równoległe uruchomienie dwóch stacji roboczych z automatycznym przełączaniem toru audio bez kliknięć.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  )}
+
+  <!-- REGULAR LAB PROJECTS GRID -->
+  <section class="py-20 bg-zinc-950 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="text-xs font-mono font-semibold uppercase tracking-widest text-cyan-400">
+          Ekosystem Narzędziowy
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-zinc-100">
+          Pozostałe Projekty & Eksperymenty
+        </h2>
+        <p class="text-zinc-400 text-sm sm:text-base">
+          Narzędzia wspomagające analizę nut, adaptacyjne metronomy oraz biblioteki manipulacji plikami muzycznymi.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {regularProjects.map((proj) => (
+          <div class="glass-card p-8 rounded-3xl border border-zinc-800 hover:border-cyan-500/40 transition-all flex flex-col justify-between group">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="p-3 rounded-2xl bg-zinc-900 border border-zinc-800 text-cyan-400 group-hover:scale-110 transition-transform">
+                  <Terminal class="w-5 h-5" />
+                </span>
+                <div class="flex items-center gap-2">
+                  {proj.data.githubUrl && (
+                    <a
+                      href={proj.data.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="p-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition-all"
+                      aria-label="GitHub"
+                    >
+                      <Github class="w-4 h-4" />
+                    </a>
+                  )}
+                  {proj.data.liveUrl && (
+                    <a
+                      href={proj.data.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="p-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
+                      aria-label="Live Demo"
+                    >
+                      <ExternalLink class="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <h3 class="text-2xl font-display font-bold text-zinc-100 group-hover:text-cyan-300 transition-colors">
+                {proj.data.title}
+              </h3>
+
+              <p class="text-sm text-zinc-400 leading-relaxed font-sans">
+                {proj.data.description}
+              </p>
+
+              <div class="flex flex-wrap gap-2 pt-2">
+                {proj.data.tags.map(tag => (
+                  <span class="px-2.5 py-1 rounded-lg bg-zinc-950 border border-zinc-800 text-[11px] font-mono text-zinc-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono text-cyan-400 group-hover:text-cyan-300">
+              <span>Status: Aktywny / Moduł badawczy</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
