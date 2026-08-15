@@ -31,21 +31,7 @@ const worksCollection = defineCollection({
   }),
 });
 
-const labCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    tags: z.array(z.string()),
-    githubUrl: z.string().optional(),
-    liveUrl: z.string().optional(),
-    featured: z.boolean(),
-    order: z.number(),
-  }),
-});
-
 export const collections = {
   ensembles: ensemblesCollection,
   works: worksCollection,
-  lab: labCollection,
 };

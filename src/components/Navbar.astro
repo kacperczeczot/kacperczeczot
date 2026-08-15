@@ -1,5 +1,5 @@
 ---
-import { Music, Radio, User, Terminal, Mail, Menu, X } from 'lucide-astro';
+import { Music, Radio, User, Mail, Menu, X } from 'lucide-astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const pathname = new URL(Astro.request.url).pathname;
@@ -7,8 +7,7 @@ const pathname = new URL(Astro.request.url).pathname;
 const navItems = [
   { label: 'Scena & Zespoły', href: `${base}/`, icon: Music, active: pathname === `${base}/` || pathname === `${base}` },
   { label: 'Dzieła Autorskie', href: `${base}/projekty-autorskie`, icon: Radio, active: pathname.startsWith(`${base}/projekty-autorskie`) },
-  { label: 'Bio & Warsztat', href: `${base}/bio`, icon: User, active: pathname.startsWith(`${base}/bio`) },
-  { label: 'Lab', href: `${base}/lab`, icon: Terminal, active: pathname.startsWith(`${base}/lab`) },
+  { label: 'Bio & Edukacja', href: `${base}/bio`, icon: User, active: pathname.startsWith(`${base}/bio`) },
 ];
 ---
 
