@@ -63,16 +63,16 @@ const directory = [
             class="group grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 py-10 border-b border-white/10 editorial-hover px-0 lg:px-2"
           >
             <div class="lg:col-span-7 flex gap-5 sm:gap-8">
-              <span class="text-xs font-sans text-slate-500 pt-2 tabular-nums">{item.index}</span>
+              <span class="text-sm font-sans text-slate-500 pt-2 tabular-nums">{item.index}</span>
               <div class="space-y-3 min-w-0">
-                <p class="text-xs tracking-widest text-sky-400 font-sans uppercase">{item.category}</p>
-                <h3 class="text-2xl sm:text-3xl lg:text-4xl font-display text-white group-hover:text-sky-300 transition-colors leading-tight">
+                <p class="text-xs sm:text-sm tracking-widest text-sky-400 font-sans uppercase font-semibold">{item.category}</p>
+                <h3 class="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-white group-hover:text-sky-300 transition-colors leading-tight">
                   {item.title}
                 </h3>
-                <p class="text-sm sm:text-base text-slate-400 font-sans font-light leading-relaxed max-w-xl">
+                <p class="text-base sm:text-lg text-slate-300 font-sans font-light leading-relaxed max-w-xl">
                   {item.description}
                 </p>
-                <p class="pt-2 text-[11px] font-sans uppercase tracking-[0.2em] text-sky-400/80 flex items-center gap-2">
+                <p class="pt-2 text-xs sm:text-sm font-sans uppercase tracking-[0.2em] text-sky-400 font-semibold flex items-center gap-2">
                   <span>Zobacz więcej</span>
                   <span aria-hidden="true" class="transition-transform duration-500 group-hover:translate-x-1">→</span>
                 </p>

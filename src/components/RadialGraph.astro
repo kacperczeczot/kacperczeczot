@@ -138,14 +138,14 @@ const categoriesPayload = categories.map(cat => ({
           style="left: 50%; top: 50%;"
           class="interactive-bubble absolute -translate-x-1/2 -translate-y-1/2 z-20"
         >
-          <div class="relative flex flex-col items-center justify-center w-52 h-52 rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/45 shadow-[0_0_35px_rgba(14,165,233,0.25)]">
-            <span class="text-[10px] font-sans font-bold uppercase tracking-[0.22em] text-sky-300 mb-1">
+          <div class="relative flex flex-col items-center justify-center w-56 h-56 rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/45 shadow-[0_0_35px_rgba(14,165,233,0.25)]">
+            <span class="text-xs sm:text-[13px] font-sans font-bold uppercase tracking-[0.2em] text-sky-300 mb-1.5">
               Dorobek Sceniczny
             </span>
             <span class="font-display font-extrabold text-4xl sm:text-5xl text-blue-gradient tracking-tight">
               300+
             </span>
-            <span class="text-xs font-display font-semibold text-slate-100 uppercase tracking-wider text-center px-4 leading-tight mt-1">
+            <span class="text-sm sm:text-base font-display font-bold text-slate-100 uppercase tracking-wider text-center px-4 leading-tight mt-1.5">
               Występów<br />Scenicznych
             </span>
           </div>
@@ -170,17 +170,17 @@ const categoriesPayload = categories.map(cat => ({
               style={`left: ${cat.pos.x}%; top: ${cat.pos.y}%;`}
               class="interactive-bubble category-orb-btn absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group focus:outline-none"
             >
-              <div class="relative flex flex-col items-center justify-center w-44 h-44 rounded-full backdrop-blur-md bg-gradient-to-br from-sky-900/50 via-sky-950/75 to-[#070d1a]/90 border border-sky-400/35 hover:border-sky-300 hover:scale-105 shadow-lg shadow-sky-950/60 hover:shadow-[0_0_35px_rgba(14,165,233,0.4)] transition-all duration-300 p-4 text-center">
+              <div class="relative flex flex-col items-center justify-center w-48 h-48 rounded-full backdrop-blur-md bg-gradient-to-br from-sky-900/50 via-sky-950/75 to-[#070d1a]/90 border border-sky-400/35 hover:border-sky-300 hover:scale-105 shadow-lg shadow-sky-950/60 hover:shadow-[0_0_35px_rgba(14,165,233,0.4)] transition-all duration-300 p-4 text-center">
                 
-                <span class="p-2.5 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-300 mb-1.5 shadow-inner group-hover:text-white group-hover:border-sky-300 transition-all">
-                  <IconComponent class="w-5 h-5" />
+                <span class="p-3 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-300 mb-2 shadow-inner group-hover:text-white group-hover:border-sky-300 transition-all">
+                  <IconComponent class="w-6 h-6" />
                 </span>
 
-                <span class="font-display font-bold text-sm text-slate-100 leading-tight group-hover:text-sky-200 transition-colors px-2">
+                <span class="font-display font-bold text-base sm:text-lg text-slate-100 leading-tight group-hover:text-sky-200 transition-colors px-2">
                   {cat.name}
                 </span>
                 
-                <span class="text-[11px] font-sans text-sky-300/80 font-medium mt-0.5">
+                <span class="text-xs sm:text-sm font-sans text-sky-200/80 font-medium mt-1">
                   {cat.count}
                 </span>
               </div>
@@ -202,17 +202,17 @@ const categoriesPayload = categories.map(cat => ({
           <button
             id="btn-back-to-level-1"
             type="button"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-200 hover:text-white hover:border-sky-300 text-xs font-sans uppercase tracking-wider font-semibold transition-all focus:outline-none flex-shrink-0"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-200 hover:text-white hover:border-sky-300 text-sm font-sans uppercase tracking-wider font-semibold transition-all focus:outline-none flex-shrink-0"
           >
             <ArrowLeft class="w-4 h-4" />
             <span>Wszystkie kategorie</span>
           </button>
 
           <div class="flex items-center gap-3 min-w-0">
-            <span id="level-2-cat-badge" class="px-3 py-1 rounded-full text-xs font-sans uppercase tracking-wider bg-sky-950/80 border border-sky-400/30 text-sky-300 font-semibold flex-shrink-0">
+            <span id="level-2-cat-badge" class="px-3.5 py-1 rounded-full text-xs sm:text-sm font-sans uppercase tracking-wider bg-sky-950/80 border border-sky-400/30 text-sky-300 font-semibold flex-shrink-0">
               Kategoria
             </span>
-            <h3 id="level-2-cat-title" class="font-display font-bold text-xl text-white tracking-tight truncate">
+            <h3 id="level-2-cat-title" class="font-display font-bold text-2xl text-white tracking-tight truncate">
               Nazwa kategorii
             </h3>
           </div>
@@ -236,7 +236,7 @@ const categoriesPayload = categories.map(cat => ({
           <button
             id="btn-back-to-level-2"
             type="button"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-200 hover:text-white hover:border-sky-300 text-xs font-sans uppercase tracking-wider font-semibold transition-all focus:outline-none"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-200 hover:text-white hover:border-sky-300 text-sm font-sans uppercase tracking-wider font-semibold transition-all focus:outline-none"
           >
             <ArrowLeft class="w-4 h-4" />
             <span id="btn-back-to-level-2-text">Wróć do listy zespołów</span>
@@ -245,7 +245,7 @@ const categoriesPayload = categories.map(cat => ({
           <button
             id="btn-level-3-to-root"
             type="button"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-200 hover:text-white hover:border-sky-300 text-xs font-sans uppercase tracking-wider font-semibold transition-all focus:outline-none"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-200 hover:text-white hover:border-sky-300 text-sm font-sans uppercase tracking-wider font-semibold transition-all focus:outline-none"
           >
             <span>Wszystkie kategorie</span>
           </button>
@@ -258,33 +258,33 @@ const categoriesPayload = categories.map(cat => ({
             <!-- Left Column: Details & Highlights -->
             <div class="lg:col-span-7 space-y-6">
               <div>
-                <span id="level-3-role-badge" class="px-3 py-1 rounded-full text-xs font-sans font-bold uppercase tracking-wider bg-sky-950/80 text-sky-300 border border-sky-400/30">
+                <span id="level-3-role-badge" class="px-3.5 py-1 rounded-full text-xs sm:text-sm font-sans font-bold uppercase tracking-wider bg-sky-950/80 text-sky-300 border border-sky-400/30">
                   Rola
                 </span>
-                <h3 id="level-3-ensemble-name" class="text-3xl font-display font-bold text-white tracking-tight mt-3 leading-tight">
+                <h3 id="level-3-ensemble-name" class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight mt-3 leading-tight">
                   Nazwa Zespołu
                 </h3>
-                <p id="level-3-concert-count" class="text-sm font-sans text-sky-200/80 font-medium mt-1">
+                <p id="level-3-concert-count" class="text-base font-sans text-sky-200/90 font-medium mt-1.5">
                   Liczba występów
                 </p>
               </div>
 
               <!-- Highlights -->
-              <div class="space-y-2">
-                <h4 class="text-xs font-sans font-bold uppercase tracking-[0.2em] text-sky-400">
+              <div class="space-y-2.5">
+                <h4 class="text-sm font-sans font-bold uppercase tracking-[0.2em] text-sky-400">
                   Kluczowe osiągnięcia
                 </h4>
-                <ul id="level-3-highlights-list" class="space-y-2 text-sm text-slate-300 font-sans font-light leading-relaxed">
+                <ul id="level-3-highlights-list" class="space-y-2.5 text-base text-slate-300 font-sans font-light leading-relaxed">
                   <!-- Highlights items -->
                 </ul>
               </div>
 
               <!-- Description -->
-              <div class="space-y-2">
-                <h4 class="text-xs font-sans font-bold uppercase tracking-[0.2em] text-slate-400">
+              <div class="space-y-2.5">
+                <h4 class="text-sm font-sans font-bold uppercase tracking-[0.2em] text-slate-400">
                   Opis działalności
                 </h4>
-                <p id="level-3-description-text" class="text-sm text-slate-300 font-sans font-light leading-relaxed">
+                <p id="level-3-description-text" class="text-base text-slate-300 font-sans font-light leading-relaxed">
                   Opis formacji...
                 </p>
               </div>
@@ -292,10 +292,18 @@ const categoriesPayload = categories.map(cat => ({
 
             <!-- Right Column: Photos Grid -->
             <div class="lg:col-span-5 space-y-3">
-              <h4 class="text-xs font-sans font-bold uppercase tracking-[0.2em] text-sky-400">
+              <h4 class="text-sm font-sans font-bold uppercase tracking-[0.2em] text-sky-400">
                 Kadry i materiały archiwalne
               </h4>
               <div id="level-3-photos-grid" class="grid grid-cols-2 gap-3">
+                <!-- Dynamic photos with lightbox support -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
                 <!-- Dynamic photos with lightbox support -->
               </div>
             </div>
@@ -315,13 +323,13 @@ const categoriesPayload = categories.map(cat => ({
       <!-- Mobile Overview Header -->
       <div class="flex items-center justify-between p-5 rounded-2xl backdrop-blur-md bg-gradient-to-r from-sky-950/60 to-[#070d1a] border border-sky-400/30 shadow-lg">
         <div class="space-y-1">
-          <span class="text-[10px] font-sans uppercase tracking-widest text-sky-300 font-semibold">
+          <span class="text-xs font-sans uppercase tracking-widest text-sky-300 font-semibold">
             Dorobek Artystyczny
           </span>
-          <h3 class="text-2xl font-display font-bold text-white tracking-tight">
+          <h3 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
             300+ Występów Scenicznych
           </h3>
-          <p class="text-xs text-slate-300 font-sans">
+          <p class="text-sm text-slate-300 font-sans">
             W 4 kategoriach wykonawczych i dyrygenckich
           </p>
         </div>
@@ -342,7 +350,7 @@ const categoriesPayload = categories.map(cat => ({
             <button
               type="button"
               data-mobile-cat-btn={cat.id}
-              class={`mobile-cat-tab-btn flex items-center gap-2 px-4 py-3 rounded-full border text-xs font-sans tracking-wide uppercase font-semibold whitespace-nowrap transition-all snap-start flex-shrink-0 backdrop-blur-md ${
+              class={`mobile-cat-tab-btn flex items-center gap-2.5 px-5 py-3.5 rounded-full border text-sm font-sans tracking-wide uppercase font-semibold whitespace-nowrap transition-all snap-start flex-shrink-0 backdrop-blur-md ${
                 idx === 0
                   ? 'bg-sky-600 border-sky-400 text-white shadow-md shadow-sky-600/30'
                   : 'bg-sky-950/40 border-sky-400/20 text-slate-300 hover:text-white'
@@ -350,7 +358,7 @@ const categoriesPayload = categories.map(cat => ({
             >
               <IconComponent class="w-4 h-4" />
               <span>{cat.name}</span>
-              <span class="text-[10px] opacity-80 font-normal">({cat.ensembles.length})</span>
+              <span class="text-xs opacity-80 font-normal">({cat.ensembles.length})</span>
             </button>
           );
         })}
@@ -368,25 +376,25 @@ const categoriesPayload = categories.map(cat => ({
             >
               <div class="space-y-4">
                 <div class="flex items-center justify-between gap-2">
-                  <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-sky-950/80 text-sky-300 border border-sky-400/30 font-sans">
+                  <span class="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-950/80 text-sky-300 border border-sky-400/30 font-sans">
                     {ens.data.role}
                   </span>
-                  <span class="text-xs text-sky-200/70 font-medium font-sans">
+                  <span class="text-xs sm:text-sm text-sky-200/80 font-medium font-sans">
                     {ens.data.concertCount}
                   </span>
                 </div>
 
-                <h3 class="font-display font-bold text-xl text-white group-hover:text-sky-300 transition-colors leading-snug">
+                <h3 class="font-display font-bold text-xl sm:text-2xl text-white group-hover:text-sky-300 transition-colors leading-snug">
                   {ens.data.name}
                 </h3>
 
-                <p class="text-xs text-slate-300 font-sans font-light leading-relaxed">
+                <p class="text-sm text-slate-300 font-sans font-light leading-relaxed">
                   {ens.body}
                 </p>
 
                 <!-- Highlights on Mobile -->
                 {ens.data.highlights && ens.data.highlights.length > 0 && (
-                  <ul class="pt-2 border-t border-white/10 space-y-1.5 text-xs text-slate-300">
+                  <ul class="pt-2 border-t border-white/10 space-y-1.5 text-sm text-slate-300">
                     {ens.data.highlights.slice(0, 2).map((h) => (
                       <li class="flex items-start gap-2">
                         <span class="text-sky-400 font-bold">✦</span>
@@ -633,15 +641,15 @@ const categoriesPayload = categories.map(cat => ({
       bubble.innerHTML = `
         <div class="relative flex flex-col items-center justify-center ${pos.size} rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/40 hover:border-sky-300 hover:scale-105 shadow-[0_0_30px_rgba(14,165,233,0.3)] hover:shadow-[0_0_45px_rgba(56,189,248,0.55)] transition-all duration-300 p-4 text-center">
           
-          <span class="text-[9px] font-sans font-bold uppercase tracking-wider text-sky-300 px-2.5 py-0.5 rounded-full bg-[#070d1a]/90 border border-sky-400/30 mb-1.5 max-w-[90%] truncate">
+          <span class="text-xs font-sans font-bold uppercase tracking-wider text-sky-300 px-3 py-1 rounded-full bg-[#070d1a]/90 border border-sky-400/30 mb-1.5 max-w-[90%] truncate">
             ${ens.role}
           </span>
 
-          <h4 class="font-display font-bold text-sm sm:text-base text-white group-hover:text-sky-200 transition-colors leading-tight px-2 line-clamp-2">
+          <h4 class="font-display font-bold text-base sm:text-lg text-white group-hover:text-sky-200 transition-colors leading-snug px-2 line-clamp-2">
             ${ens.name}
           </h4>
 
-          <span class="text-[11px] font-sans text-sky-200/70 font-medium mt-1">
+          <span class="text-xs sm:text-sm font-sans text-sky-200/80 font-medium mt-1">
             ${ens.concertCount}
           </span>
         </div>
