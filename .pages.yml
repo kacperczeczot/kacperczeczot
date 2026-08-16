@@ -1,21 +1,15 @@
-# Pages CMS — nie edytujesz tego pliku na co dzień.
-# Panel: https://app.pagescms.org  (logowanie GitHubem)
+# Pages CMS — panel: https://app.pagescms.org
 
 media:
-  - name: images
-    label: Zdjęcia
-    input: public/images
-    output: /images
-    categories: [image]
-    rename: safe
+  input: public/images
+  output: /images
+  categories: [image]
+  rename: safe
 
 components:
   education:
     type: object
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{institution} ({period})"
+    list: true
     fields:
       - { name: period, label: Okres, type: string }
       - { name: institution, label: Uczelnia / szkoła, type: string }
@@ -27,15 +21,13 @@ components:
         list: true
 
 settings:
-  content:
-    merge: true
   commit:
     identity: user
     templates:
       create: "treść: dodaj {path}"
       update: "treść: aktualizuj {path}"
       delete: "treść: usuń {path}"
-      rename: "treść: zmień {oldPath} → {newPath}"
+      rename: "treść: zmień {oldPath} -> {newPath}"
 
 content:
   - name: home
@@ -51,25 +43,17 @@ content:
       - name: heroImage
         label: Zdjęcie główne
         type: image
-        options:
-          media: images
       - name: credentials
         label: Cztery liczby na stronie głównej
         type: object
-        list:
-          collapsible:
-            collapsed: false
-            summary: "{value} — {label}"
+        list: true
         fields:
           - { name: value, label: Liczba (np. 300+), type: string }
           - { name: label, label: Podpis, type: string }
       - name: directory
-        label: Trzy kafelki „Domeny”
+        label: Kafelki Domeny
         type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{index} {title}"
+        list: true
         fields:
           - { name: index, label: Numer (01), type: string }
           - { name: category, label: Mała etykieta, type: string }
@@ -100,10 +84,7 @@ content:
       - name: currentRoles
         label: Aktualne stanowiska
         type: object
-        list:
-          collapsible:
-            collapsed: false
-            summary: "{title}"
+        list: true
         fields:
           - { name: title, label: Zespół / instytucja, type: string }
           - { name: detail, label: Rola i lata, type: string }
@@ -124,10 +105,7 @@ content:
       - name: individualAwards
         label: Nagrody
         type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{year} — {title}"
+        list: true
         fields:
           - { name: year, label: Rok, type: string }
           - { name: title, label: Nazwa, type: string }
@@ -135,10 +113,7 @@ content:
       - name: mainInstruments
         label: Główne dyscypliny
         type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{name}"
+        list: true
         fields:
           - { name: name, label: Nazwa, type: string }
           - { name: category, label: Kategoria, type: string }
@@ -146,10 +121,7 @@ content:
       - name: additionalInstruments
         label: Instrumenty dodatkowe
         type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{name}"
+        list: true
         fields:
           - { name: name, label: Nazwa, type: string }
           - { name: desc, label: Opis, type: text }
@@ -164,12 +136,9 @@ content:
     subfolders: false
     view:
       primary: name
-      fields: [name, pillar, years, order]
-      sort: [order, name]
+      fields: [name, years]
+      sort: [name]
       search: [name, role]
-      default:
-        sort: order
-        order: asc
     fields:
       - { name: name, label: Nazwa, type: string }
       - name: pillar
@@ -177,10 +146,10 @@ content:
         type: select
         options:
           values:
-            - { name: orkiestry, label: Orkiestry }
-            - { name: chory, label: Chóry }
-            - { name: teatr, label: Teatr }
-            - { name: estrada, label: Estrada }
+            - { value: orkiestry, label: Orkiestry }
+            - { value: chory, label: Chóry }
+            - { value: teatr, label: Teatr }
+            - { value: estrada, label: Estrada }
       - { name: role, label: Twoja rola, type: string }
       - { name: years, label: Lata, type: string }
       - { name: concertCount, label: Liczba koncertów (tekst), type: string }
@@ -193,14 +162,12 @@ content:
         label: Zdjęcia
         type: image
         options:
-          media: images
-          path: ensembles
+          path: public/images/ensembles
           multiple:
             max: 24
       - name: body
         label: Dłuższy opis
         type: rich-text
-        options: { format: markdown, media: false }
 
   - name: works
     label: Projekty
@@ -212,12 +179,9 @@ content:
     subfolders: false
     view:
       primary: title
-      fields: [title, year, order]
-      sort: [order, year, title]
+      fields: [title, year]
+      sort: [title]
       search: [title, subtitle]
-      default:
-        sort: order
-        order: asc
     fields:
       - { name: title, label: Tytuł, type: string }
       - { name: subtitle, label: Podtytuł, type: string }
@@ -226,23 +190,21 @@ content:
         type: select
         options:
           values:
-            - { name: conducting, label: Dyrygentura }
-            - { name: production, label: Produkcja }
+            - { value: conducting, label: Dyrygentura }
+            - { value: production, label: Produkcja }
       - { name: year, label: Rok, type: string }
       - { name: description, label: Krótki opis, type: text }
       - name: cover
         label: Okładka
         type: image
-        options: { media: images, path: works }
+        options:
+          path: public/images/works
       - { name: videoUrl, label: Link do wideo (może być pusty), type: string }
       - { name: order, label: Kolejność (1 = wyżej), type: number }
       - name: metrics
         label: Metryka (tabelka z boku)
         type: object
-        list:
-          collapsible:
-            collapsed: false
-            summary: "{label}: {value}"
+        list: true
         fields:
           - { name: label, label: Etykieta, type: string }
           - { name: value, label: Wartość, type: string }
@@ -250,10 +212,7 @@ content:
       - name: youtubeVideos
         label: Filmy YouTube
         type: object
-        list:
-          collapsible:
-            collapsed: false
-            summary: "{title}"
+        list: true
         fields:
           - { name: title, label: Tytuł, type: string }
           - { name: youtubeId, label: ID z YouTube (to po v=), type: string }
@@ -261,4 +220,3 @@ content:
       - name: body
         label: Dłuższy opis
         type: rich-text
-        options: { format: markdown, media: false }
