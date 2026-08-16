@@ -1,9 +1,9 @@
 ---
 title: "Dzieło Dyplomowe „Echo Epok”"
-subtitle: "Produkcja muzyczna — projekt audiowizualny (ukończony dyplom artystyczny)"
+subtitle: "Produkcja muzyczna — projekt audiowizualny"
 type: "production"
 year: "2026"
-description: "Ukończone autorskie dzieło dyplomowe: wielowarstwowa podróż przez ewolucję stylów muzycznych, instrumentacji oraz akustyki architektonicznej. Kompozycja, wykonawstwo multiinstrumentalne i realizacja dźwięku — historia sztuki połączona z fizyką dźwięku i technologią DAW."
+description: "Autorskie dzieło dyplomowe: wielowarstwowa podróż przez ewolucję stylów muzycznych, instrumentacji oraz akustyki architektonicznej. Kompozycja, wykonawstwo multiinstrumentalne i realizacja dźwięku — historia sztuki połączona z fizyką dźwięku i technologią DAW."
 youtubeVideos:
   - title: "ECHO EPOK — projekt dyplomowy"
     youtubeId: "SsdzQjqi0x0"
