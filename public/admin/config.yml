@@ -1,0 +1,133 @@
+backend:
+  name: github
+  repo: kacperczeczot/kacperczeczot.github.io
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+display_url: "https://kacperczeczot.github.io"
+locale: "pl"
+
+collections:
+  # ==========================================
+  # Formacje, Orkiestry, Chóry i Zespoły
+  # ==========================================
+  - name: "ensembles"
+    label: "Formacje i Zespoły"
+    label_singular: "Formacja"
+    folder: "src/content/ensembles"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "md"
+    fields:
+      - label: "Nazwa formacji"
+        name: "name"
+        widget: "string"
+        hint: "np. Orkiestra GOK w Opinogórze Górnej"
+
+      - label: "Kategoria (Filary działalności)"
+        name: "pillar"
+        widget: "select"
+        options:
+          - { label: "Orkiestry", value: "orkiestry" }
+          - { label: "Chóry & Zespoły wokalne", value: "chory" }
+          - { label: "Scena & Teatr muzyczny", value: "teatr" }
+          - { label: "Kameralistyka & Estrada", value: "estrada" }
+
+      - label: "Pełniona rola"
+        name: "role"
+        widget: "string"
+        hint: "np. Główny Dyrygent, Zastępca Kapelmistrza, Kierownik Muzyczny"
+
+      - label: "Okres działalności / Daty występów"
+        name: "concertCount"
+        widget: "string"
+        hint: "np. Grudzień 2025 – obecnie · Inauguracja sezonu 2025/2026"
+
+      - label: "Kolejność wyświetlania"
+        name: "order"
+        widget: "number"
+        value_type: "int"
+        default: 1
+
+      - label: "Kluczowe osiągnięcia (Punkty)"
+        name: "highlights"
+        widget: "list"
+        summary: "{{fields.highlight}}"
+        field:
+          label: "Osiągnięcie / Konkretne wydarzenie"
+          name: "highlight"
+          widget: "string"
+
+      - label: "Kadry i fotografie archiwalne"
+        name: "photos"
+        widget: "list"
+        summary: "{{fields.photo}}"
+        field:
+          label: "Wybierz lub przeciągnij zdjęcie"
+          name: "photo"
+          widget: "image"
+          media_folder: "public/images/ensembles"
+          public_folder: "/images/ensembles"
+
+      - label: "Opis działalności i charakterystyka aparatu"
+        name: "body"
+        widget: "markdown"
+        required: false
+
+  # ==========================================
+  # Dzieła Autorskie, Dyplomowe i Nagrania
+  # ==========================================
+  - name: "works"
+    label: "Dzieła Autorskie & Projekty"
+    label_singular: "Projekt"
+    folder: "src/content/works"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "md"
+    fields:
+      - label: "Tytuł projektu"
+        name: "title"
+        widget: "string"
+        hint: "np. Koncert Dyplomowy „Finale”"
+
+      - label: "Podtytuł / Miejsce realizacji"
+        name: "subtitle"
+        widget: "string"
+
+      - label: "Typ projektu"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Dyrygentura koncertowa", value: "conducting" }
+          - { label: "Produkcja studyjna & Realizacja", value: "production" }
+
+      - label: "Rok realizacji"
+        name: "year"
+        widget: "string"
+        hint: "np. 2025"
+
+      - label: "Krótki opis"
+        name: "description"
+        widget: "text"
+
+      - label: "Kolejność wyświetlania"
+        name: "order"
+        widget: "number"
+        value_type: "int"
+        default: 1
+
+      - label: "Filmy YouTube"
+        name: "youtubeVideos"
+        widget: "list"
+        fields:
+          - { label: "Tytuł utworu / nagrania", name: "title", widget: "string" }
+          - { label: "ID filmu YouTube (np. Pl-SkRvxxxs z adresu youtube.com/watch?v=...)", name: "youtubeId", widget: "string" }
+
+      - label: "Szczegółowy opis projektu"
+        name: "body"
+        widget: "markdown"
+        required: false
