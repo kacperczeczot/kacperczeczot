@@ -3,6 +3,8 @@ backend:
   repo: kacperczeczot/kacperczeczot.github.io
   branch: main
 
+local_backend: true
+
 media_folder: "public/images"
 public_folder: "/images"
 
