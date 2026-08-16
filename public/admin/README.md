@@ -14,22 +14,33 @@ W Twojej witrynie zainstalowany jest nowoczesny, bezpieczny panel administracyjn
 
 ### Krok 2: Logowanie kontem GitHub
 1. Kliknij przycisk **„Sign in with GitHub”** lub wprowadź swój *Personal Access Token* (PAT z uprawnieniem `repo`).
-2. Ponieważ tylko Ty posiadasz uprawnienia do tego repozytorium, panel autoryzuje Cię i załaduje interfejs edycji.
+2. Ponieważ tylko Ty posiadasz uprawnienia do tego repozytorium, panel autoryzuje Cię i załaduje pełny interfejs edycji.
 
 ---
 
-## 📸 Jak dodawać i zmieniać zdjęcia oraz treści?
+## 🎨 Co możesz edytować w panelu CMS?
 
-1. **Formacje i Zespoły:**
-   * Po lewej stronie kliknij **„Formacje i Zespoły”**.
-   * Wybierz formację (np. *Orkiestra GOK w Opinogórze Górnej*).
-   * W sekcji **„Kadry i fotografie archiwalne”** kliknij **„+ Dodaj”** i przeciągnij plik ze zdjęciem prosto z pulpitu.
-   * Możesz edytować nazwę, rolę, punkty osiągnięć i opis.
-   * Kliknij **„Zapisz”** (Save) w prawym górnym rogu.
+### 1. 🏠 Strona Główna (`Strony i Teksty Witryny` $\rightarrow$ `Strona Główna`)
+* **Hero:** Zmiana imienia, roli (`Dyrygent · Multiinstrumentalista · Aranżer`), akapitu wprowadzającego.
+* **Główne zdjęcie portretowe:** Wgrywanie nowego portretu z dysku metodą przeciągnij-i-upuść oraz zmiana podpisu.
+* **Pasek 4 wskaźników dorobku:** Edycja liczb (np. `300+`, `20+`, `6`, `3`) oraz ich etykiet.
+* **Kontakt i Stopka:** Edycja adresu e-mail, tekstu zaproszenia do współpracy oraz linków do GitHuba i YouTube.
 
-2. **Dzieła Autorskie:**
-   * Po lewej stronie kliknij **„Dzieła Autorskie & Projekty”**.
-   * Zmieniaj opisy, daty oraz linki do filmów na YouTube.
+### 2. 🎓 Podstrona Bio & Doświadczenie (`Strony i Teksty Witryny` $\rightarrow$ `Podstrona Bio`)
+* **Biogram:** Nagłówek i treść akapitów biograficznych.
+* **Edukacja wyższa i Szkoły muzyczne:** Dodawanie, edycja i usuwanie etapów edukacji, dyplomów i uczelni.
+* **Nagrody i Wyróżnienia:** Zarządzanie listą nagród (rok, tytuł, organizator).
+* **Instrumentarium:** Edycja instrumentów głównych i dyscyplin.
 
-3. **Publikacja:**
-   * Po kliknięciu „Zapisz”, CMS automatycznie wysyła zmianę do GitHuba, a GitHub Actions w ok. 30–60 sekund publikuje zaktualizowaną stronę w internecie!
+### 3. 🎼 Formacje i Zespoły (`Formacje i Zespoły`)
+* Wybór dowolnego zespołu (Orkiestry, Chóry, Scena & Teatr, Estrada).
+* **Zdjęcia:** Wgrywanie nowych kadrów i usuwanie starych.
+* **Teksty:** Edycja roli, okresu działalności, punktów osiągnięć i pełnego opisu.
+
+### 4. 🎬 Dzieła Autorskie & Projekty (`Dzieła Autorskie & Projekty`)
+* Edycja koncertów dyplomowych, produkcji studyjnych i identyfikatorów wideo YouTube.
+
+---
+
+## 💾 Zapis i Publikacja
+Po wprowadzeniu zmian kliknij niebieski przycisk **„Save” (Zapisz)** w prawym górnym rogu. Panel automatycznie zapisze zmiany w repozytorium GitHub, a nowa wersja strony opublikuje się w sieci w ciągu ok. 30–60 sekund.

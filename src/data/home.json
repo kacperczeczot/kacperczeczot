@@ -1,0 +1,17 @@
+{
+  "heroName": "Kacper Czeczot",
+  "heroRole": "Dyrygent · Multiinstrumentalista · Aranżer",
+  "heroIntro": "Dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne oraz autorskie opracowania partytur. Warsztat łączący salę koncertową, teatr muzyczny i studio nagraniowe.",
+  "heroImage": "/images/hero-portrait.svg",
+  "heroImageCaption": "Dyrygentura · Multiinstrumentalizm · Aranżacja i Dźwięk",
+  "credentials": [
+    { "value": "300+", "label": "Występów scenicznych" },
+    { "value": "20+", "label": "Zespołów i formacji" },
+    { "value": "6", "label": "Krajów tras koncertowych" },
+    { "value": "3", "label": "Dyplomy z wyróżnieniem" }
+  ],
+  "contactEmail": "kacperczeczot7@gmail.com",
+  "contactInvitation": "Projekty orkiestrowe, opracowania partytur oraz współpraca koncertowa.",
+  "githubUrl": "https://github.com/kacperczeczot",
+  "youtubeUrl": "https://youtube.com"
+}

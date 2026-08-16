@@ -11,7 +11,140 @@ locale: "pl"
 
 collections:
   # ==========================================
-  # Formacje, Orkiestry, Chóry i Zespoły
+  # 1. Konfiguracja Stron Głównych (Teksty i Ustawienia)
+  # ==========================================
+  - name: "pages_config"
+    label: "Strony i Teksty Witryny"
+    delete: false
+    files:
+      # --- STRONA GŁÓWNA ---
+      - name: "home"
+        label: "Strona Główna (Hero, Wskaźniki, Kontakt)"
+        file: "src/data/home.json"
+        format: "json"
+        fields:
+          - label: "Imię i Nazwisko"
+            name: "heroName"
+            widget: "string"
+            default: "Kacper Czeczot"
+
+          - label: "Tytuł / Pozycjonowanie (H2)"
+            name: "heroRole"
+            widget: "string"
+            default: "Dyrygent · Multiinstrumentalista · Aranżer"
+
+          - label: "Wprowadzenie (Akapit pod nagłówkiem)"
+            name: "heroIntro"
+            widget: "text"
+
+          - label: "Główne zdjęcie portretowe w Hero"
+            name: "heroImage"
+            widget: "image"
+            media_folder: "public/images"
+            public_folder: "/images"
+
+          - label: "Podpis pod portretem"
+            name: "heroImageCaption"
+            widget: "string"
+            default: "Dyrygentura · Multiinstrumentalizm · Aranżacja i Dźwięk"
+
+          - label: "Pasek 4 wskaźników dorobku"
+            name: "credentials"
+            widget: "list"
+            fields:
+              - { label: "Liczba / Wartość (np. 300+, 6)", name: "value", widget: "string" }
+              - { label: "Podpis (np. Występów scenicznych)", name: "label", widget: "string" }
+
+          - label: "E-mail do kontaktu"
+            name: "contactEmail"
+            widget: "string"
+            default: "kacperczeczot7@gmail.com"
+
+          - label: "Zaproszenie do współpracy (Stopka)"
+            name: "contactInvitation"
+            widget: "string"
+            default: "Projekty orkiestrowe, opracowania partytur oraz współpraca koncertowa."
+
+          - label: "Link do profilu GitHub"
+            name: "githubUrl"
+            widget: "string"
+            default: "https://github.com/kacperczeczot"
+
+          - label: "Link do kanału YouTube"
+            name: "youtubeUrl"
+            widget: "string"
+            default: "https://youtube.com"
+
+      # --- PODSTRONA BIO & EDUKACJA ---
+      - name: "bio"
+        label: "Podstrona Bio (Edukacja, Warsztat, Nagrody)"
+        file: "src/data/bio.json"
+        format: "json"
+        fields:
+          - label: "Tytuł strony"
+            name: "bioTitle"
+            widget: "string"
+
+          - label: "Podtytuł nagłówka"
+            name: "bioSubtitle"
+            widget: "text"
+
+          - label: "Nagłówek Biogramu"
+            name: "bioHeadline"
+            widget: "string"
+
+          - label: "Główny tekst biografii"
+            name: "bioLeadText"
+            widget: "text"
+
+          - label: "Drugi akapit biografii"
+            name: "bioSecondaryText"
+            widget: "text"
+
+          - label: "Edukacja Wyższa (UWM itp.)"
+            name: "higherEducation"
+            widget: "list"
+            fields:
+              - { label: "Okres (np. 2021 – 2025)", name: "period", widget: "string" }
+              - { label: "Uczelnia", name: "institution", widget: "string" }
+              - { label: "Stopień (np. Licencjat)", name: "degree", widget: "string" }
+              - { label: "Kierunek / Specjalizacja", name: "specialization", widget: "string" }
+              - label: "Wyróżnienia / Osiągnięcia"
+                name: "highlights"
+                widget: "list"
+                field: { label: "Punkt", name: "item", widget: "string" }
+
+          - label: "Edukacja Muzyczna (Szkoły muzyczne PSM)"
+            name: "musicSchoolEducation"
+            widget: "list"
+            fields:
+              - { label: "Okres", name: "period", widget: "string" }
+              - { label: "Szkoła", name: "institution", widget: "string" }
+              - { label: "Dyplom", name: "degree", widget: "string" }
+              - { label: "Wydział / Klasa", name: "specialization", widget: "string" }
+              - label: "Wyróżnienia"
+                name: "highlights"
+                widget: "list"
+                field: { label: "Punkt", name: "item", widget: "string" }
+
+          - label: "Nagrody i Wyróżnienia"
+            name: "individualAwards"
+            widget: "list"
+            fields:
+              - { label: "Rok", name: "year", widget: "string" }
+              - { label: "Nazwa nagrody", name: "title", widget: "string" }
+              - { label: "Organizator / Instytucja", name: "issuer", widget: "string" }
+
+          - label: "Instrumentarium i Dyscypliny Główne"
+            name: "mainInstruments"
+            widget: "list"
+            fields:
+              - { label: "Instrument / Dyscyplina", name: "name", widget: "string" }
+              - { label: "Kategoria", name: "category", widget: "string" }
+              - { label: "Opis", name: "desc", widget: "text" }
+
+  # ==========================================
+  # 2. Formacje, Orkiestry, Chóry i Zespoły
   # ==========================================
   - name: "ensembles"
     label: "Formacje i Zespoły"
@@ -78,7 +211,7 @@ collections:
         required: false
 
   # ==========================================
-  # Dzieła Autorskie, Dyplomowe i Nagrania
+  # 3. Dzieła Autorskie, Dyplomowe i Nagrania
   # ==========================================
   - name: "works"
     label: "Dzieła Autorskie & Projekty"

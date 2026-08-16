@@ -1,5 +1,7 @@
 ---
-const credentials = [
+import homeData from '../data/home.json';
+
+const credentials = homeData.credentials || [
   { value: '300+', label: 'Występów scenicznych' },
   { value: '20+', label: 'Zespołów i formacji' },
   { value: '6', label: 'Krajów tras koncertowych' },
@@ -7,6 +9,7 @@ const credentials = [
 ];
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const heroImage = homeData.heroImage ? (homeData.heroImage.startsWith('/') ? `${base}${homeData.heroImage}` : homeData.heroImage) : `${base}/images/hero-portrait.svg`;
 ---
 
 <section class="relative pt-28 pb-16 md:pt-36 md:pb-24 border-b border-white/10">
@@ -16,16 +19,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="lg:col-span-7 space-y-6">
         <div>
           <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-sans text-white tracking-tight">
-            Kacper Czeczot
+            {homeData.heroName || 'Kacper Czeczot'}
           </h1>
           <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-sky-400 font-sans tracking-tight mt-3">
-            Dyrygent · Multiinstrumentalista · Aranżer
+            {homeData.heroRole || 'Dyrygent · Multiinstrumentalista · Aranżer'}
           </h2>
         </div>
 
         <p class="max-w-xl text-base sm:text-lg text-slate-300 font-sans font-light leading-relaxed">
-          Dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne oraz autorskie opracowania partytur.
-          Warsztat łączący salę koncertową, teatr muzyczny i studio nagraniowe.
+          {homeData.heroIntro || 'Dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne oraz autorskie opracowania partytur. Warsztat łączący salę koncertową, teatr muzyczny i studio nagraniowe.'}
         </p>
 
         <div class="pt-2">
@@ -43,14 +45,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <figure class="space-y-3">
           <div class="border border-white/10 overflow-hidden bg-[#0b1528]">
             <img
-              src={`${base}/images/hero-portrait.svg`}
+              src={heroImage}
               alt="Portret sceniczny — sylwetka dyrygenta w świetle rampy"
               class="w-full aspect-[4/5] object-cover"
             />
           </div>
           <figcaption class="flex items-baseline justify-between gap-4 text-xs font-sans tracking-wider uppercase text-slate-400">
             <span class="font-sans text-xs sm:text-sm tracking-wide text-sky-200/90 font-medium normal-case">
-              Dyrygentura · Multiinstrumentalizm · Aranżacja i Dźwięk
+              {homeData.heroImageCaption || 'Dyrygentura · Multiinstrumentalizm · Aranżacja i Dźwięk'}
             </span>
             <span class="hidden sm:inline font-mono text-slate-500 text-xs">01</span>
           </figcaption>

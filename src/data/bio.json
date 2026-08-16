@@ -1,0 +1,107 @@
+{
+  "bioTitle": "Bio, Edukacja & Osiągnięcia",
+  "bioSubtitle": "Wykształcenie dyrygenckie, wokalne i instrumentalne poparte dyplomami z wyróżnieniem oraz nagrodami akademickimi i festiwalowymi.",
+  "bioHeadline": "Dyrygentura, wykonawstwo sceniczne i produkcja dźwięku",
+  "bioLeadText": "Absolwent studiów licencjackich z wyróżnieniem oraz Najlepszy Absolwent Wydziału Sztuki Uniwersytetu Warmińsko-Mazurskiego w Olsztynie (2024/2025). Kontynuuje studia magisterskie na kierunku Edukacja artystyczna w zakresie sztuki muzycznej oraz równoległe studia licencjackie na kierunku Produkcja Muzyczna i Realizacja Dźwięku.",
+  "bioSecondaryText": "Absolwent Państwowej Szkoły Muzycznej I i II st. im. A. Krzanowskiego w Mławie (I stopień w klasie fortepianu z wyróżnieniem, II stopień na wydziale wokalnym z tytułem zawodowym muzyka z wyróżnieniem).",
+  "higherEducation": [
+    {
+      "period": "2025 – obecnie",
+      "institution": "Uniwersytet Warmińsko-Mazurski w Olsztynie — Wydział Sztuki",
+      "degree": "Studia II stopnia (Magisterskie)",
+      "specialization": "Edukacja artystyczna w zakresie sztuki muzycznej",
+      "highlights": ["Kontynuacja ścieżki dyrygenckiej i akademickiej"]
+    },
+    {
+      "period": "2023 – obecnie",
+      "institution": "Uniwersytet Warmińsko-Mazurski w Olsztynie — Wydział Sztuki",
+      "degree": "Studia I stopnia (Licencjackie, równoległe)",
+      "specialization": "Produkcja Muzyczna i Realizacja Dźwięku",
+      "highlights": ["Inżynieria dźwięku, realizacja sesyjna i produkcja muzyczna"]
+    },
+    {
+      "period": "2021 – 2025",
+      "institution": "Uniwersytet Warmińsko-Mazurski w Olsztynie — Wydział Sztuki",
+      "degree": "Dyplom z Wyróżnieniem (Licencjat)",
+      "specialization": "Edukacja artystyczna w zakresie sztuki muzycznej",
+      "highlights": [
+        "Tytuł Najlepszego Absolwenta Wydziału Sztuki UWM (za rok akademicki 2024/2025)",
+        "Nagroda Dziekana za wybitne artystyczne dzieło dyplomowe (Koncert „Finale” w Filharmonii Warmińsko-Mazurskiej)",
+        "Praca dyplomowa: „Analiza i rozwiązywanie problemów wykonawczych na podstawie utworów z repertuaru dyplomowego”"
+      ]
+    }
+  ],
+  "musicSchoolEducation": [
+    {
+      "period": "2018 – 2022",
+      "institution": "Państwowa Szkoła Muzyczna I i II st. im. Andrzeja Krzanowskiego w Mławie",
+      "degree": "Dyplom z Wyróżnieniem — Tytuł zawodowy: Muzyk",
+      "specialization": "Wydział Wokalny (klasa śpiewu Michała Gogolewskiego)",
+      "highlights": [
+        "Ukończenie wydziału wokalnego z wyróżnieniem",
+        "Przewodniczący Samorządu Uczniowskiego PSM (2019–2022) i założyciel Orkiestry Samorządu"
+      ]
+    },
+    {
+      "period": "2010 – 2016",
+      "institution": "Państwowa Szkoła Muzyczna I i II st. im. Andrzeja Krzanowskiego w Mławie",
+      "degree": "Świadectwo z Wyróżnieniem (I Stopień)",
+      "specialization": "Fortepian (klasa Ireneusza Weredy)",
+      "highlights": ["Fortepian główny (2012–2016) oraz skrzypce (2010–2012)"]
+    }
+  ],
+  "individualAwards": [
+    {
+      "year": "2025",
+      "title": "Najlepszy Absolwent Wydziału Sztuki UWM",
+      "issuer": "Uniwersytet Warmińsko-Mazurski w Olsztynie"
+    },
+    {
+      "year": "2025",
+      "title": "Nagroda Dziekana za Wybitne Dzieło Dyplomowe",
+      "issuer": "Koncert Dyplomowy „Finale” w Filharmonii Warmińsko-Mazurskiej"
+    },
+    {
+      "year": "2025",
+      "title": "Złoty i Srebrny Dyplom — Canco Mediterrania (Hiszpania)",
+      "issuer": "XIV Międzynarodowy Festiwal Chóralny (z Chórem UWM)"
+    },
+    {
+      "year": "2024",
+      "title": "I Miejsce — Karnolsky Summer Camp (Bułgaria)",
+      "issuer": "Kategoria instrumentalna (z MMOD w Chorzelach, klarnet)"
+    },
+    {
+      "year": "2023",
+      "title": "Złoty Dyplom — Festiwal „O, Warmio moja miła”",
+      "issuer": "Z Chórem Ars Vocale Instytutu Muzyki"
+    }
+  ],
+  "mainInstruments": [
+    {
+      "name": "Dyrygentura",
+      "category": "Główna dyscyplina",
+      "desc": "Dyrygentura orkiestrowa (dęta i symfoniczna) oraz chóralna. Przygotowanie aparatu wykonawczego i prowadzenie koncertów."
+    },
+    {
+      "name": "Klarnet",
+      "category": "Instrument główny",
+      "desc": "Wykonawstwo w orkiestrach dętych i składach kameralnych."
+    },
+    {
+      "name": "Fortepian",
+      "category": "Instrument główny",
+      "desc": "Wykształcenie w klasie fortepianu, akompaniament oraz praca z wyciągami fortepianowymi."
+    },
+    {
+      "name": "Śpiew / Wokal (Tenor)",
+      "category": "Głos solowy & chóralny",
+      "desc": "Dyplom z wokalistyki z wyróżnieniem. Role operetkowe, musicalowe oraz partie tenorowe w chórach."
+    }
+  ],
+  "additionalInstruments": [
+    { "name": "Organy liturgiczne", "desc": "Oprawa muzyczna i akompaniament liturgiczny." },
+    { "name": "Perkusja / Kotły", "desc": "Sekcja perkusyjna w składach orkiestrowych." },
+    { "name": "Skrzypce / Akordeon", "desc": "Edukacja wczesnoszkolna i instrumentarium dodatkowe." }
+  ]
+}

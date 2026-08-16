@@ -1,8 +1,12 @@
 ---
 import { Github, Mail, Copy, Check, Youtube } from 'lucide-astro';
+import homeData from '../data/home.json';
 
 const currentYear = new Date().getFullYear();
-const contactEmail = 'kacperczeczot7@gmail.com';
+const contactEmail = homeData.contactEmail || 'kacperczeczot7@gmail.com';
+const contactInvitation = homeData.contactInvitation || 'Projekty orkiestrowe, opracowania partytur oraz współpraca koncertowa.';
+const githubUrl = homeData.githubUrl || 'https://github.com/kacperczeczot';
+const youtubeUrl = homeData.youtubeUrl || 'https://youtube.com';
 ---
 
 <footer id="kontakt" class="relative border-t border-white/10 bg-[#070d1a] py-16 sm:py-20">
@@ -14,7 +18,7 @@ const contactEmail = 'kacperczeczot7@gmail.com';
         KONTAKT
       </p>
       <p class="text-base sm:text-lg text-slate-300 font-sans font-light max-w-xl mx-auto leading-relaxed">
-        Projekty orkiestrowe, opracowania partytur oraz współpraca koncertowa.
+        {contactInvitation}
       </p>
     </div>
 
@@ -49,7 +53,7 @@ const contactEmail = 'kacperczeczot7@gmail.com';
     <!-- Rząd minimalistycznych linków społecznościowych -->
     <div class="flex items-center justify-center gap-4 pt-2">
       <a
-        href="https://github.com/kacperczeczot"
+        href={githubUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Profil GitHub Kacpra Czeczota"
@@ -60,7 +64,7 @@ const contactEmail = 'kacperczeczot7@gmail.com';
       </a>
 
       <a
-        href="https://youtube.com"
+        href={youtubeUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Kanał YouTube"
