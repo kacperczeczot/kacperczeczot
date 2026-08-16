@@ -8,6 +8,7 @@ highlights:
   - "Złoty i srebrny dyplom, XIV Międzynarodowy Festiwal „Canco Mediterrania”, Lloret de Mar (2025)"
   - "Brązowy dyplom, XIII Międzynarodowy Festiwal Kaunas Cantat, Litwa (2025)"
   - "XIV Międzynarodowy Festiwal Chórów i Orkiestr, Montecatini Terme, Włochy (2024)"
+  - "Wyjazd festiwalowy do Czarnogóry (2026)"
   - "Bibliotekarz archiwum nutowego; dyrygentura w projektach dyplomowych i jubileuszowych"
 photos:
   - "/images/ensembles/wawrzyczek-1.svg"
