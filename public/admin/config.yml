@@ -1,0 +1,168 @@
+backend:
+  name: github
+  repo: kacperczeczot/kacperczeczot.github.io
+  branch: main
+
+local_backend: true
+
+media_folder: "public/images"
+public_folder: "/images"
+
+display_url: "https://kacperczeczot.github.io"
+locale: "pl"
+
+collections:
+  - name: "pages_config"
+    label: "Strony i Teksty Witryny"
+    delete: false
+    files:
+      - name: "home"
+        label: "Strona Główna (Hero, Wskaźniki, Kontakt)"
+        file: "src/data/home.json"
+        format: "json"
+        fields:
+          - { label: "Imię i Nazwisko", name: "heroName", widget: "string", default: "Kacper Czeczot" }
+          - { label: "Tytuł / Pozycjonowanie (H2)", name: "heroRole", widget: "string", default: "Dyrygent · Multiinstrumentalista · Aranżer" }
+          - { label: "Wprowadzenie (Akapit pod nagłówkiem)", name: "heroIntro", widget: "text" }
+          - label: "Główne zdjęcie portretowe w Hero"
+            name: "heroImage"
+            widget: "image"
+            media_folder: "public/images"
+            public_folder: "/images"
+          - label: "Pasek 4 wskaźników dorobku"
+            name: "credentials"
+            widget: "list"
+            fields:
+              - { label: "Liczba / Wartość (np. 300+, 6)", name: "value", widget: "string" }
+              - { label: "Podpis (np. Występów scenicznych)", name: "label", widget: "string" }
+          - { label: "E-mail do kontaktu", name: "contactEmail", widget: "string", default: "kacperczeczot7@gmail.com" }
+          - { label: "Zaproszenie do współpracy (Stopka)", name: "contactInvitation", widget: "string" }
+          - { label: "Link do profilu GitHub", name: "githubUrl", widget: "string", default: "https://github.com/kacperczeczot" }
+          - { label: "Link do kanału YouTube", name: "youtubeUrl", widget: "string", default: "https://youtube.com/@kacperczeczot3530" }
+
+      - name: "bio"
+        label: "Podstrona Bio (Edukacja, Warsztat, Nagrody)"
+        file: "src/data/bio.json"
+        format: "json"
+        fields:
+          - { label: "Tytuł strony", name: "bioTitle", widget: "string" }
+          - { label: "Podtytuł nagłówka", name: "bioSubtitle", widget: "text" }
+          - { label: "Nagłówek Biogramu", name: "bioHeadline", widget: "string" }
+          - { label: "Główny tekst biografii", name: "bioLeadText", widget: "text" }
+          - { label: "Drugi akapit biografii", name: "bioSecondaryText", widget: "text" }
+          - label: "Edukacja Wyższa"
+            name: "higherEducation"
+            widget: "list"
+            fields:
+              - { label: "Okres", name: "period", widget: "string" }
+              - { label: "Uczelnia", name: "institution", widget: "string" }
+              - { label: "Stopień", name: "degree", widget: "string" }
+              - { label: "Kierunek / Specjalizacja", name: "specialization", widget: "string" }
+              - label: "Wyróżnienia / Osiągnięcia"
+                name: "highlights"
+                widget: "list"
+                field: { label: "Punkt", name: "item", widget: "string" }
+          - label: "Edukacja Muzyczna"
+            name: "musicSchoolEducation"
+            widget: "list"
+            fields:
+              - { label: "Okres", name: "period", widget: "string" }
+              - { label: "Szkoła", name: "institution", widget: "string" }
+              - { label: "Dyplom", name: "degree", widget: "string" }
+              - { label: "Wydział / Klasa", name: "specialization", widget: "string" }
+              - label: "Wyróżnienia"
+                name: "highlights"
+                widget: "list"
+                field: { label: "Punkt", name: "item", widget: "string" }
+          - label: "Nagrody i Wyróżnienia"
+            name: "individualAwards"
+            widget: "list"
+            fields:
+              - { label: "Rok", name: "year", widget: "string" }
+              - { label: "Nazwa nagrody", name: "title", widget: "string" }
+              - { label: "Organizator / Instytucja", name: "issuer", widget: "string" }
+          - label: "Instrumentarium i Dyscypliny Główne"
+            name: "mainInstruments"
+            widget: "list"
+            fields:
+              - { label: "Instrument / Dyscyplina", name: "name", widget: "string" }
+              - { label: "Kategoria", name: "category", widget: "string" }
+              - { label: "Opis", name: "desc", widget: "text" }
+          - label: "Instrumentarium dodatkowe"
+            name: "additionalInstruments"
+            widget: "list"
+            fields:
+              - { label: "Nazwa", name: "name", widget: "string" }
+              - { label: "Opis", name: "desc", widget: "text" }
+
+  - name: "ensembles"
+    label: "Formacje i Zespoły"
+    label_singular: "Formacja"
+    folder: "src/content/ensembles"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "md"
+    fields:
+      - { label: "Nazwa formacji", name: "name", widget: "string" }
+      - label: "Kategoria"
+        name: "pillar"
+        widget: "select"
+        options:
+          - { label: "Orkiestry", value: "orkiestry" }
+          - { label: "Chóry & Zespoły wokalne", value: "chory" }
+          - { label: "Scena & Teatr muzyczny", value: "teatr" }
+          - { label: "Kameralistyka & Estrada", value: "estrada" }
+      - { label: "Rola artystyczna", name: "role", widget: "string" }
+      - { label: "Liczba koncertów", name: "concertCount", widget: "string" }
+      - { label: "Lata działalności", name: "years", widget: "string" }
+      - { label: "Kolejność wyświetlania", name: "order", widget: "number", value_type: "int", default: 1 }
+      - label: "Kluczowe osiągnięcia"
+        name: "highlights"
+        widget: "list"
+        field: { label: "Osiągnięcie", name: "highlight", widget: "string" }
+      - label: "Kadry i fotografie"
+        name: "photos"
+        widget: "list"
+        field:
+          label: "Zdjęcie (przeciągnij i upuść)"
+          name: "photo"
+          widget: "image"
+          media_folder: "public/images/ensembles"
+          public_folder: "/images/ensembles"
+      - { label: "Opis działalności", name: "body", widget: "markdown", required: false }
+
+  - name: "works"
+    label: "Dzieła Autorskie & Projekty"
+    label_singular: "Projekt"
+    folder: "src/content/works"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "md"
+    fields:
+      - { label: "Tytuł dzieła", name: "title", widget: "string" }
+      - { label: "Podtytuł / miejsce realizacji", name: "subtitle", widget: "string" }
+      - label: "Kategoria"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Dyrygentura koncertowa", value: "conducting" }
+          - { label: "Produkcja studyjna & Realizacja", value: "production" }
+      - { label: "Rok", name: "year", widget: "string" }
+      - { label: "Krótki opis", name: "description", widget: "text" }
+      - label: "Okładka / kadr graficzny"
+        name: "cover"
+        widget: "image"
+        required: false
+        media_folder: "public/images/works"
+        public_folder: "/images/works"
+      - { label: "Link wideo (opcjonalny)", name: "videoUrl", widget: "string", required: false }
+      - { label: "Kolejność wyświetlania", name: "order", widget: "number", value_type: "int", default: 1 }
+      - label: "Filmy YouTube"
+        name: "youtubeVideos"
+        widget: "list"
+        fields:
+          - { label: "Tytuł nagrania", name: "title", widget: "string" }
+          - { label: "ID filmu YouTube", name: "youtubeId", widget: "string" }
+      - { label: "Opis partytury i instrumentacji", name: "body", widget: "markdown", required: false }

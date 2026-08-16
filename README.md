@@ -23,7 +23,7 @@
 * **Typografia:** `Plus Jakarta Sans` (Google Fonts)
 * **Ikony:** [lucide-astro](https://lucide.dev/)
 * **Fizyka ruchu:** Natywny silnik interpolacji sprężystości (*Spring Lerp*) i przyciągania magnetycznego (*Magnetic Parallax*)
-* **Zarządzanie treścią:** [TinaCMS](https://tina.io/) — wizualny panel z podglądem żywej strony (`/admin`) + Astro Content Collections z walidacją typów [Zod](https://zod.dev/)
+* **Zarządzanie treścią:** [Sveltia CMS](https://github.com/sveltia/sveltia-cms) na GitHub Pages (`/admin`, logowanie kontem GitHub) + Astro Content Collections z walidacją typów [Zod](https://zod.dev/)
 
 ---
 
@@ -39,11 +39,8 @@
 # Instalacja zależności
 npm install
 
-# Uruchomienie serwera i wizualnego panelu CMS
-# Strona:  http://localhost:4321
-# Panel:   http://localhost:4321/admin
-# Panel CMS działa tylko lokalnie (`npm run dev`) i nie jest publikowany na GitHub Pages.
-# Nie commituj tokenów TinaCloud — repozytorium jest publiczne.
+# Uruchomienie serwera deweloperskiego (http://localhost:4321)
+# Panel CMS (także online): https://kacperczeczot.github.io/admin
 npm run dev
 
 # Kompilacja produkcyjna (katalog dist/)
