@@ -30,6 +30,13 @@ const worksCollection = defineCollection({
         youtubeId: z.string(),
       })
     ).default([]),
+    metrics: z.array(
+      z.object({
+        label: z.string(),
+        value: z.string(),
+      })
+    ).default([]),
+    videoHeading: z.string().optional().default('Zapis wideo'),
     order: z.number(),
   }),
 });

@@ -24,5 +24,31 @@
   "contactEmail": "kacperczeczot7@gmail.com",
   "contactInvitation": "Projekty orkiestrowe, opracowania partytur oraz współpraca koncertowa.",
   "githubUrl": "https://github.com/kacperczeczot",
-  "youtubeUrl": "https://youtube.com/@kacperczeczot3530"
+  "youtubeUrl": "https://youtube.com/@kacperczeczot3530",
+  "directory": [
+    {
+      "index": "01",
+      "category": "Dyrygentura & Kompozycja",
+      "title": "Dzieła Autorskie & Dyplomowe",
+      "link": "/projekty-autorskie",
+      "image": "/images/work-finale.svg",
+      "imageAlt": "Koncert Finale"
+    },
+    {
+      "index": "02",
+      "category": "Edukacja & Instrumentarium",
+      "title": "Bio & Doświadczenie",
+      "link": "/bio",
+      "image": "/images/bio-stage.svg",
+      "imageAlt": "Scena teatralna"
+    },
+    {
+      "index": "03",
+      "category": "Technologie & Software",
+      "title": "Laboratorium Twórcze",
+      "link": "/lab",
+      "image": "/images/work-echo-epok.svg",
+      "imageAlt": "Studio nagraniowe"
+    }
+  ]
 }

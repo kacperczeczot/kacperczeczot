@@ -7,6 +7,12 @@ description: "Projekt dyplomowy z zakresu produkcji muzycznej realizowany jako w
 youtubeVideos:
   - title: "Projekt Dyplomowy „Echo Epok”"
     youtubeId: "SsdzQjqi0x0"
+metrics:
+  - label: "Forma"
+    value: "Zapis wielośladowy"
+  - label: "Realizacja"
+    value: "Kacper Czeczot"
+videoHeading: "Zapis wideo — sesja nagraniowa"
 order: 2
 ---
 

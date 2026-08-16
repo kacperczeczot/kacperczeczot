@@ -11,6 +11,14 @@ youtubeVideos:
     youtubeId: "4bxcErGADeY"
   - title: "Psalm dla Ciebie — opr. i dyr. Kacper Czeczot (Chór UWM & Orkiestra)"
     youtubeId: "cCIYrbOIUHE"
+metrics:
+  - label: "Orkiestra"
+    value: "Orkiestra symfoniczna"
+  - label: "Chór"
+    value: "Chór im. prof. Wawrzyczka UWM"
+  - label: "Dyrygentura"
+    value: "Kacper Czeczot"
+videoHeading: "Zapis wideo"
 order: 1
 ---
 

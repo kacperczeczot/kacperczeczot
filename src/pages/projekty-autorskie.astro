@@ -5,11 +5,12 @@ import YoutubeEmbed from '../components/YoutubeEmbed.astro';
 import { getCollection } from 'astro:content';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const allWorks = await getCollection('works');
-const works = allWorks.sort((a, b) => a.data.order - b.data.order);
+const works = (await getCollection('works')).sort((a, b) => a.data.order - b.data.order);
 
-const finaleWork = works.find(w => w.slug === 'koncert-finale');
-const echoWork = works.find(w => w.slug === 'echo-epok');
+const typeLabel = {
+  conducting: 'Dyrygentura symfoniczno-chóralna',
+  production: 'Produkcja muzyczna',
+};
 
 function cmsImage(path?: string | null) {
   if (!path) return '';
@@ -34,25 +35,25 @@ function cmsImage(path?: string | null) {
     </div>
   </section>
 
-  {finaleWork && (
-    <section class="py-20 border-b border-white/10">
+  {works.map((work, workIndex) => (
+    <section class={`py-20 ${workIndex < works.length - 1 ? 'border-b border-white/10' : ''}`}>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           <div class="lg:col-span-8 space-y-5">
             <p class="text-xs font-sans uppercase tracking-[0.28em] text-sky-400">
-              Dyrygentura symfoniczno-chóralna · {finaleWork.data.year}
+              {typeLabel[work.data.type] || work.data.type} · {work.data.year}
             </p>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-semibold text-white">
-              {finaleWork.data.title}
+              {work.data.title}
             </h2>
-            <p class="text-lg font-sans text-sky-200/90 font-medium">{finaleWork.data.subtitle}</p>
+            <p class="text-lg font-sans text-sky-200/90 font-medium">{work.data.subtitle}</p>
             <p class="text-slate-300 font-sans font-light leading-relaxed text-base sm:text-lg">
-              {finaleWork.data.description}
+              {work.data.description}
             </p>
-            {finaleWork.data.videoUrl && (
+            {work.data.videoUrl && (
               <p>
                 <a
-                  href={finaleWork.data.videoUrl}
+                  href={work.data.videoUrl}
                   class="text-sky-300 hover:text-sky-200 font-sans text-sm uppercase tracking-widest"
                   target="_blank"
                   rel="noreferrer"
@@ -64,113 +65,54 @@ function cmsImage(path?: string | null) {
           </div>
 
           <div class="lg:col-span-4 space-y-5">
-            {cmsImage(finaleWork.data.cover) && (
+            {cmsImage(work.data.cover) && (
               <img
-                src={cmsImage(finaleWork.data.cover)}
-                alt={`Okładka: ${finaleWork.data.title}`}
+                src={cmsImage(work.data.cover)}
+                alt={`Okładka: ${work.data.title}`}
                 class="w-full aspect-[16/10] object-cover rounded-2xl border border-white/10"
               />
             )}
-            <div class="bg-[#0b1528]/80 border border-white/10 rounded-2xl p-6 shadow-xl space-y-4">
-              <h4 class="text-xs font-sans uppercase tracking-[0.2em] font-semibold text-sky-400">Metryka Dzieła</h4>
-              <dl class="divide-y divide-white/10 text-sm">
-                <div class="flex justify-between gap-4 py-3 first:pt-0">
-                  <dt class="text-slate-400 uppercase tracking-wider text-[11px] font-sans">Orkiestra</dt>
-                  <dd class="text-white font-display text-right">Orkiestra symfoniczna</dd>
-                </div>
-                <div class="flex justify-between gap-4 py-3">
-                  <dt class="text-slate-400 uppercase tracking-wider text-[11px] font-sans">Chór</dt>
-                  <dd class="text-white font-display text-right">Chór im. prof. Wawrzyczka UWM</dd>
-                </div>
-                <div class="flex justify-between gap-4 py-3 last:pb-0">
-                  <dt class="text-slate-400 uppercase tracking-wider text-[11px] font-sans">Dyrygentura</dt>
-                  <dd class="text-sky-300 font-display text-right">Kacper Czeczot</dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        </div>
-
-        <div class="space-y-6">
-          <h3 class="font-display text-2xl text-white">Zapis wideo</h3>
-          <div class={`grid grid-cols-1 ${finaleWork.data.youtubeVideos.length >= 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-4`}>
-            {finaleWork.data.youtubeVideos.map((video, idx) => (
-              <YoutubeEmbed
-                youtubeId={video.youtubeId}
-                title={video.title}
-                partNumber={idx + 1}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )}
-
-  {echoWork && (
-    <section class="py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          <div class="lg:col-span-8 space-y-5">
-            <p class="text-xs font-sans uppercase tracking-[0.28em] text-sky-400">
-              Produkcja muzyczna · {echoWork.data.year}
-            </p>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-semibold text-white">
-              {echoWork.data.title}
-            </h2>
-            <p class="text-lg font-sans text-sky-200/90 font-medium">{echoWork.data.subtitle}</p>
-            <p class="text-slate-300 font-sans font-light leading-relaxed text-base sm:text-lg">
-              {echoWork.data.description}
-            </p>
-            {echoWork.data.videoUrl && (
-              <p>
-                <a
-                  href={echoWork.data.videoUrl}
-                  class="text-sky-300 hover:text-sky-200 font-sans text-sm uppercase tracking-widest"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Zapis wideo →
-                </a>
-              </p>
+            {work.data.metrics.length > 0 && (
+              <div class="bg-[#0b1528]/80 border border-white/10 rounded-2xl p-6 shadow-xl space-y-4">
+                <h4 class="text-xs font-sans uppercase tracking-[0.2em] font-semibold text-sky-400">Metryka Dzieła</h4>
+                <dl class="divide-y divide-white/10 text-sm">
+                  {work.data.metrics.map((row, idx) => (
+                    <div class={`flex justify-between gap-4 py-3 ${idx === 0 ? 'first:pt-0' : ''} ${idx === work.data.metrics.length - 1 ? 'last:pb-0' : ''}`}>
+                      <dt class="text-slate-400 uppercase tracking-wider text-[11px] font-sans">{row.label}</dt>
+                      <dd class={`font-display text-right ${idx === work.data.metrics.length - 1 ? 'text-sky-300' : 'text-white'}`}>{row.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
             )}
           </div>
+        </div>
 
-          <div class="lg:col-span-4 space-y-5">
-            {cmsImage(echoWork.data.cover) && (
-              <img
-                src={cmsImage(echoWork.data.cover)}
-                alt={`Okładka: ${echoWork.data.title}`}
-                class="w-full aspect-[16/10] object-cover rounded-2xl border border-white/10"
-              />
+        {work.data.youtubeVideos.length > 0 && (
+          <div class={`space-y-6 ${work.data.youtubeVideos.length === 1 ? 'max-w-4xl' : ''}`}>
+            <h3 class="font-display text-2xl text-white">{work.data.videoHeading || 'Zapis wideo'}</h3>
+            {work.data.youtubeVideos.length === 1 ? (
+              work.data.youtubeVideos.map((video) => (
+                <YoutubeEmbed
+                  youtubeId={video.youtubeId}
+                  title={video.title}
+                  featured={true}
+                />
+              ))
+            ) : (
+              <div class={`grid grid-cols-1 ${work.data.youtubeVideos.length >= 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-4`}>
+                {work.data.youtubeVideos.map((video, idx) => (
+                  <YoutubeEmbed
+                    youtubeId={video.youtubeId}
+                    title={video.title}
+                    partNumber={idx + 1}
+                  />
+                ))}
+              </div>
             )}
-            <div class="bg-[#0b1528]/80 border border-white/10 rounded-2xl p-6 shadow-xl space-y-4">
-              <h4 class="text-xs font-sans uppercase tracking-[0.2em] font-semibold text-sky-400">Metryka Dzieła</h4>
-              <dl class="divide-y divide-white/10 text-sm">
-                <div class="flex justify-between gap-4 py-3 first:pt-0">
-                  <dt class="text-slate-400 uppercase tracking-wider text-[11px] font-sans">Forma</dt>
-                  <dd class="text-white font-display text-right">Zapis wielośladowy</dd>
-                </div>
-                <div class="flex justify-between gap-4 py-3 last:pb-0">
-                  <dt class="text-slate-400 uppercase tracking-wider text-[11px] font-sans">Realizacja</dt>
-                  <dd class="text-sky-300 font-display text-right">Kacper Czeczot</dd>
-                </div>
-              </dl>
-            </div>
           </div>
-        </div>
-
-        <div class="space-y-6 max-w-4xl">
-          <h3 class="font-display text-2xl text-white">Zapis wideo — sesja nagraniowa</h3>
-          {echoWork.data.youtubeVideos.map((video) => (
-            <YoutubeEmbed
-              youtubeId={video.youtubeId}
-              title={video.title}
-              featured={true}
-            />
-          ))}
-        </div>
+        )}
       </div>
     </section>
-  )}
+  ))}
 </BaseLayout>

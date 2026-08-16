@@ -1,23 +1,11 @@
-# Pages CMS — https://app.pagescms.org
-# Logowanie: konto GitHub z prawem zapisu do tego repozytorium.
+# Pages CMS — nie edytujesz tego pliku na co dzień.
+# Panel: https://app.pagescms.org  (logowanie GitHubem)
 
 media:
   - name: images
     label: Zdjęcia
     input: public/images
     output: /images
-    categories: [image]
-    rename: safe
-  - name: ensembles
-    label: Kadry formacji
-    input: public/images/ensembles
-    output: /images/ensembles
-    categories: [image]
-    rename: safe
-  - name: works
-    label: Okładki projektów
-    input: public/images/works
-    output: /images/works
     categories: [image]
     rename: safe
 
@@ -37,16 +25,6 @@ components:
         label: Wyróżnienia
         type: string
         list: true
-  instrument:
-    type: object
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{name}"
-    fields:
-      - { name: name, label: Nazwa, type: string }
-      - { name: category, label: Kategoria, type: string }
-      - { name: desc, label: Opis, type: text }
 
 settings:
   content:
@@ -60,185 +38,204 @@ settings:
       rename: "treść: zmień {oldPath} → {newPath}"
 
 content:
-  - name: pages
-    label: Strony
-    type: group
-    items:
-      - name: home
-        label: Strona główna
-        type: file
-        path: src/data/home.json
-        format: json
-        operations:
-          create: false
-          rename: false
-          delete: false
+  - name: home
+    label: Strona główna
+    type: file
+    path: src/data/home.json
+    format: json
+    operations: { create: false, rename: false, delete: false }
+    fields:
+      - { name: heroName, label: Imię i nazwisko, type: string }
+      - { name: heroRole, label: Tytuł pod imieniem, type: string }
+      - { name: heroIntro, label: Krótki opis pod tytułem, type: text }
+      - name: heroImage
+        label: Zdjęcie główne
+        type: image
+        options: { media: images, path: "" }
+      - name: credentials
+        label: Cztery liczby na stronie głównej
+        type: object
+        list:
+          collapsible:
+            collapsed: false
+            summary: "{value} — {label}"
         fields:
-          - { name: heroName, label: Imię i nazwisko, type: string }
-          - { name: heroRole, label: Tytuł / pozycjonowanie, type: string }
-          - { name: heroIntro, label: Wprowadzenie, type: text }
-          - name: heroImage
-            label: Zdjęcie w Hero
+          - { name: value, label: Liczba (np. 300+), type: string }
+          - { name: label, label: Podpis, type: string }
+      - name: directory
+        label: Trzy kafelki „Domeny”
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{index} {title}"
+        fields:
+          - { name: index, label: Numer (01), type: string }
+          - { name: category, label: Mała etykieta, type: string }
+          - { name: title, label: Tytuł kafelka, type: string }
+          - { name: link, label: Adres (np. /bio), type: string }
+          - name: image
+            label: Zdjęcie kafelka
             type: image
-            options:
-              media: images
-          - name: credentials
-            label: Wskaźniki dorobku
-            type: object
-            list:
-              collapsible:
-                collapsed: false
-                summary: "{value} — {label}"
-            fields:
-              - { name: value, label: Wartość (np. 300+), type: string }
-              - { name: label, label: Podpis, type: string }
-          - { name: contactEmail, label: E-mail, type: string }
-          - { name: contactInvitation, label: Zaproszenie w stopce, type: text }
-          - { name: githubUrl, label: GitHub, type: string }
-          - { name: youtubeUrl, label: YouTube, type: string }
+          - { name: imageAlt, label: Opis zdjęcia, type: string }
+      - { name: contactEmail, label: E-mail, type: string }
+      - { name: contactInvitation, label: Tekst zaproszenia w stopce, type: text }
+      - { name: githubUrl, label: Link GitHub, type: string }
+      - { name: youtubeUrl, label: Link YouTube, type: string }
 
-      - name: bio
-        label: Bio
-        type: file
-        path: src/data/bio.json
-        format: json
-        operations:
-          create: false
-          rename: false
-          delete: false
+  - name: bio
+    label: Bio
+    type: file
+    path: src/data/bio.json
+    format: json
+    operations: { create: false, rename: false, delete: false }
+    fields:
+      - { name: bioTitle, label: Tytuł strony, type: string }
+      - { name: bioSubtitle, label: Podtytuł, type: text }
+      - { name: bioHeadline, label: Nagłówek biogramu, type: string }
+      - { name: bioLeadText, label: Pierwszy akapit, type: text }
+      - { name: bioSecondaryText, label: Drugi akapit, type: text }
+      - { name: stageText, label: Akapit o działalności scenicznej, type: text }
+      - name: currentRoles
+        label: Aktualne stanowiska
+        type: object
+        list:
+          collapsible:
+            collapsed: false
+            summary: "{title}"
         fields:
-          - { name: bioTitle, label: Tytuł strony, type: string }
-          - { name: bioSubtitle, label: Podtytuł, type: text }
-          - { name: bioHeadline, label: Nagłówek biogramu, type: string }
-          - { name: bioLeadText, label: Główny tekst, type: text }
-          - { name: bioSecondaryText, label: Drugi akapit, type: text }
-          - name: higherEducation
-            label: Edukacja wyższa
-            component: education
-          - name: musicSchoolEducation
-            label: Edukacja muzyczna
-            component: education
-          - name: individualAwards
-            label: Nagrody i wyróżnienia
-            type: object
-            list:
-              collapsible:
-                collapsed: true
-                summary: "{year} — {title}"
-            fields:
-              - { name: year, label: Rok, type: string }
-              - { name: title, label: Nazwa nagrody, type: string }
-              - { name: issuer, label: Organizator, type: string }
-          - name: mainInstruments
-            label: Instrumentarium i dyscypliny główne
-            component: instrument
-          - name: additionalInstruments
-            label: Instrumentarium dodatkowe
-            type: object
-            list:
-              collapsible:
-                collapsed: true
-                summary: "{name}"
-            fields:
-              - { name: name, label: Nazwa, type: string }
-              - { name: desc, label: Opis, type: text }
+          - { name: title, label: Zespół / instytucja, type: string }
+          - { name: detail, label: Rola i lata, type: string }
+      - name: bioStageImage
+        label: Zdjęcie przy biogramie
+        type: image
+      - { name: bioStageCaption, label: Podpis pod zdjęciem scenicznym, type: string }
+      - name: bioScoreImage
+        label: Zdjęcie partytury
+        type: image
+      - { name: bioScoreCaption, label: Podpis pod partyturą, type: string }
+      - name: higherEducation
+        label: Studia (UWM)
+        component: education
+      - name: musicSchoolEducation
+        label: Szkoła muzyczna (PSM)
+        component: education
+      - name: individualAwards
+        label: Nagrody
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year} — {title}"
+        fields:
+          - { name: year, label: Rok, type: string }
+          - { name: title, label: Nazwa, type: string }
+          - { name: issuer, label: Kto przyznał, type: string }
+      - name: mainInstruments
+        label: Główne dyscypliny
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - { name: name, label: Nazwa, type: string }
+          - { name: category, label: Kategoria, type: string }
+          - { name: desc, label: Opis, type: text }
+      - name: additionalInstruments
+        label: Instrumenty dodatkowe
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - { name: name, label: Nazwa, type: string }
+          - { name: desc, label: Opis, type: text }
 
   - name: ensembles
-    label: Formacje i zespoły
+    label: Formacje
     type: collection
     path: src/content/ensembles
     format: yaml-frontmatter
-    filename:
-      template: "{primary}.md"
-      field: create
+    filename: "{primary}.md"
     exclude: ["README.md"]
     subfolders: false
     view:
       primary: name
-      fields: [name, pillar, years, order]
-      sort: [order, name]
-      search: [name, role, pillar]
-      default:
-        sort: order
-        order: asc
+      fields: [name, pillar, years]
+      default: { sort: order, order: asc }
     fields:
-      - { name: name, label: Nazwa formacji, type: string }
+      - { name: name, label: Nazwa, type: string }
       - name: pillar
-        label: Kategoria
+        label: Grupa na diagramie
         type: select
         options:
           values:
             - { name: orkiestry, label: Orkiestry }
-            - { name: chory, label: Chóry i zespoły wokalne }
-            - { name: teatr, label: Scena i teatr muzyczny }
-            - { name: estrada, label: Kameralistyka i estrada }
-      - { name: role, label: Rola artystyczna, type: string }
-      - { name: concertCount, label: Liczba koncertów, type: string }
-      - { name: years, label: Lata działalności, type: string }
-      - name: order
-        label: Kolejność wyświetlania
-        type: number
-        options:
-          min: 1
+            - { name: chory, label: Chóry }
+            - { name: teatr, label: Teatr }
+            - { name: estrada, label: Estrada }
+      - { name: role, label: Twoja rola, type: string }
+      - { name: years, label: Lata, type: string }
+      - { name: concertCount, label: Liczba koncertów (tekst), type: string }
+      - { name: order, label: Kolejność (1 = wyżej), type: number }
       - name: highlights
-        label: Kluczowe osiągnięcia
+        label: Osiągnięcia (kolejne punkty)
         type: string
         list: true
       - name: photos
-        label: Kadry
+        label: Zdjęcia
         type: image
         options:
-          media: ensembles
+          media: images
+          path: ensembles
           multiple: true
       - name: body
-        label: Opis działalności
+        label: Dłuższy opis
         type: rich-text
-        options:
-          format: markdown
-          media: false
-          switcher: true
+        options: { format: markdown, media: false }
 
   - name: works
-    label: Dzieła i projekty
+    label: Projekty
     type: collection
     path: src/content/works
     format: yaml-frontmatter
-    filename:
-      template: "{primary}.md"
-      field: create
+    filename: "{primary}.md"
     exclude: ["README.md"]
     subfolders: false
     view:
       primary: title
-      fields: [title, type, year, order]
-      sort: [order, year, title]
-      search: [title, subtitle, description]
-      default:
-        sort: order
-        order: asc
+      fields: [title, year]
+      default: { sort: order, order: asc }
     fields:
       - { name: title, label: Tytuł, type: string }
-      - { name: subtitle, label: Podtytuł / miejsce, type: string }
+      - { name: subtitle, label: Podtytuł, type: string }
       - name: type
-        label: Kategoria
+        label: Rodzaj
         type: select
         options:
           values:
-            - { name: conducting, label: Dyrygentura koncertowa }
-            - { name: production, label: Produkcja studyjna i realizacja }
+            - { name: conducting, label: Dyrygentura }
+            - { name: production, label: Produkcja }
       - { name: year, label: Rok, type: string }
       - { name: description, label: Krótki opis, type: text }
       - name: cover
         label: Okładka
         type: image
-        options:
-          media: works
-      - { name: videoUrl, label: Link wideo (opcjonalny), type: string }
-      - name: order
-        label: Kolejność wyświetlania
-        type: number
-        options:
-          min: 1
+        options: { media: images, path: works }
+      - { name: videoUrl, label: Link do wideo (może być pusty), type: string }
+      - { name: order, label: Kolejność (1 = wyżej), type: number }
+      - name: metrics
+        label: Metryka (tabelka z boku)
+        type: object
+        list:
+          collapsible:
+            collapsed: false
+            summary: "{label}: {value}"
+        fields:
+          - { name: label, label: Etykieta, type: string }
+          - { name: value, label: Wartość, type: string }
       - name: youtubeVideos
         label: Filmy YouTube
         type: object
@@ -247,12 +244,10 @@ content:
             collapsed: false
             summary: "{title}"
         fields:
-          - { name: title, label: Tytuł nagrania, type: string }
-          - { name: youtubeId, label: ID filmu YouTube, type: string }
+          - { name: title, label: Tytuł, type: string }
+          - { name: youtubeId, label: ID z YouTube (to po v=), type: string }
+      - { name: videoHeading, label: Nagłówek nad filmami, type: string }
       - name: body
-        label: Opis partytury i instrumentacji
+        label: Dłuższy opis
         type: rich-text
-        options:
-          format: markdown
-          media: false
-          switcher: true
+        options: { format: markdown, media: false }
