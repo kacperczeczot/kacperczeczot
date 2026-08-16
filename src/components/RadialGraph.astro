@@ -427,24 +427,6 @@ const categoriesPayload = categories.map(cat => ({
                   })}
                 </div>
               )}
-
-              <!-- Drawer Trigger on Mobile -->
-              <button
-                type="button"
-                data-open-drawer-ens={JSON.stringify({
-                  name: ens.data.name,
-                  role: ens.data.role,
-                  categoryName: cat.name,
-                  concertCount: ens.data.concertCount,
-                  highlights: ens.data.highlights,
-                  body: ens.body,
-                  photos: ens.data.photos.map(p => (p.startsWith('/') ? `${base}${p}` : p)),
-                })}
-                class="mobile-drawer-trigger-btn mt-4 w-full py-2.5 px-4 rounded-xl bg-sky-950/70 hover:bg-sky-900/90 border border-sky-400/30 text-sky-200 hover:text-white text-xs font-sans font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-all focus:outline-none focus:ring-2 focus:ring-sky-400"
-              >
-                <span>Szczegóły formacji</span>
-                <ArrowUpRight class="w-3.5 h-3.5 text-sky-400" />
-              </button>
             </div>
           ))
         ))}
@@ -667,17 +649,6 @@ const categoriesPayload = categories.map(cat => ({
       `;
 
       bubble.addEventListener('click', () => {
-        window.dispatchEvent(new CustomEvent('open-ensemble-drawer', {
-          detail: {
-            name: ens.name,
-            role: ens.role,
-            categoryName: activeCategory ? activeCategory.name : '',
-            concertCount: ens.concertCount,
-            highlights: ens.highlights,
-            body: ens.body,
-            photos: ens.photos,
-          }
-        }));
         goToLevel3(ens);
       });
 
@@ -836,21 +807,6 @@ const categoriesPayload = categories.map(cat => ({
           card.classList.add('hidden');
         }
       });
-    });
-  });
-
-  // Mobile Drawer Triggers
-  document.querySelectorAll('[data-open-drawer-ens]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const dataStr = btn.getAttribute('data-open-drawer-ens');
-      if (dataStr) {
-        try {
-          const detail = JSON.parse(dataStr);
-          window.dispatchEvent(new CustomEvent('open-ensemble-drawer', { detail }));
-        } catch (e) {
-          console.error(e);
-        }
-      }
     });
   });
 </script>

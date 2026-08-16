@@ -23,7 +23,6 @@ Katalog `src/` stanowi rdzeń projektu portfolio Kacpra Czeczota opartego na fra
 ```mermaid
 graph TD
     A[src/content/ensembles/*.md] -->|Astro Content Layer| B[src/components/RadialGraph.astro]
-    A -->|Zdarzenie CustomEvent| C[src/components/EnsembleDrawer.astro]
     D[src/content/works/*.md] -->|getCollection| E[src/pages/projekty-autorskie.astro]
     F[src/layouts/BaseLayout.astro] --> G[src/pages/index.astro]
     F --> H[src/pages/bio.astro]

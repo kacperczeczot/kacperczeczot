@@ -2,7 +2,6 @@
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Lightbox from '../components/Lightbox.astro';
-import EnsembleDrawer from '../components/EnsembleDrawer.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -72,7 +71,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kacpercz
     <Footer />
 
     <!-- Global Components -->
-    <EnsembleDrawer />
     <Lightbox />
   </body>
 </html>

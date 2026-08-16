@@ -19,5 +19,4 @@ W tym katalogu znajduje się główny layout strony odpowiedzialny za strukturę
    * Pasek nawigacyjny `<Navbar />`
    * Kontener głównej treści `<main><slot /></main>`
    * Stopka kontaktowa `<Footer />`
-   * Globalny panel boczny `<EnsembleDrawer />`
    * Globalny podgląd zdjęć `<Lightbox />`

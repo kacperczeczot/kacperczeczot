@@ -1,13 +1,13 @@
 # Kacper Czeczot — Oficjalne Portfolio Artystyczne
 
 > **Dyrygent · Multiinstrumentalista · Aranżer**  
-> Nowoczesne, responsywne portfolio artystyczne zrealizowane w technologii **Astro 5** i **Tailwind CSS**, wyposażone w interaktywny diagram radialny z fizyką przyciągania magnetycznego (*Magnetic Parallax*), system Content Collections oraz zintegrowany panel boczny (*EnsembleDrawer*).
+> Nowoczesne, responsywne portfolio artystyczne zrealizowane w technologii **Astro 5** i **Tailwind CSS**, wyposażone w interaktywny diagram radialny z fizyką przyciągania magnetycznego (*Magnetic Parallax*) oraz system Content Collections.
 
 ---
 
 ## 🗺️ Mapa Repozytorium
 
-* 📁 [**`src/components/`**](src/components/README.md) — Komponenty interfejsu (Hero, diagram radialny, panel boczny, nawigacja)
+* 📁 [**`src/components/`**](src/components/README.md) — Komponenty interfejsu (Hero, diagram radialny, nawigacja, stopka)
 * 📁 [**`src/content/`**](src/content/README.md) — Baza danych Markdown i Content Collections (formacje, dzieła)
 * 📁 [**`src/layouts/`**](src/layouts/README.md) — Szablony bazowe, struktura HTML i tagi SEO
 * 📁 [**`src/pages/`**](src/pages/_README.md) — Trasy i podstrony serwisu (`/`, `/projekty-autorskie`, `/bio`)
@@ -56,10 +56,8 @@ npm run preview
 1. **[Hero Section](src/components/README.md#1-heroastro):**
    * Prezentacja sylwetki artystycznej, tytułów oraz 4-kolumnowego paska wskaźników dorobku (`300+ Występów scenicznych`, `20+ Zespołów i formacji`, `6 Krajów tras koncertowych`, `3 Dyplomy z wyróżnieniem`).
 2. **[Radial Graph](src/components/README.md#2-radialgraphastro):**
-   * Trójpoziomowy interaktywny diagram konstelacji formacji muzycznych z płynnym zoomem i fizyką przyciągania magnetycznego.
-3. **[Ensemble Drawer](src/components/README.md#3-ensembledrawerastro):**
-   * Wysuwany panel boczny ze szczegółową metryczką formacji, osiągnięciami i galerią kadrów.
-4. **[Content Collections](src/content/README.md):**
+   * Trójpoziomowy interaktywny diagram konstelacji formacji muzycznych z płynnym zoomem, fizyką magnetyczną i wbudowaną kartą szczegółów (Poziom 3).
+3. **[Content Collections](src/content/README.md):**
    * Formalna baza markdown dla orkiestr, chórów, teatru muzycznego, zespołów estradowych oraz dzieł autorskich.
 
 ---

@@ -32,24 +32,17 @@ W tym katalogu znajdują się wszystkie modularne komponenty interfejsu użytkow
   * Ciągła paralaksa tła (`normX * depth`, `normY * depth`).
   * Płynne przyciąganie magnetyczne w stronę kursora (`Math.pow(1 - dist / 380, 1.8)`).
   * Aksamitny powrót z tłumieniem sprężystym (*Spring Lerp* `0.065–0.08`).
-* **Wersja mobilna:** Responsywna wstęga zakładek (*Ribbon Tabs*) z kartami zespołów i przyciskiem otwarcia szczegółów.
+* **Wersja mobilna:** Responsywna wstęga zakładek (*Ribbon Tabs*) z pełnymi kartami zespołów i galeriami kadrów.
 
 ---
 
-### 3. `EnsembleDrawer.astro`
-* **Przeznaczenie:** Wysuwany panel boczny (*Slide-over Drawer*) prezentujący pełne dossier zespołu.
-* **Integracja:** Nasłuchuje na globalne zdarzenie `open-ensemble-drawer` emitowane przy kliknięciu bąbli lub kart mobilnych.
-* **Zawartość:** Rola, okres działalności, liczba koncertów, kluczowe osiągnięcia, opis profilowy oraz kadry z powiększeniem.
-
----
-
-### 4. `Navbar.astro`
+### 3. `Navbar.astro`
 * **Przeznaczenie:** Stały pasek nawigacji zintegrowany z wersją desktopową i mobilnym menu rozwijanym.
 * **Branding:** Monogram `KC` + `Kacper Czeczot`.
 
 ---
 
-### 5. `Footer.astro`
+### 4. `Footer.astro`
 * **Przeznaczenie:** Minimalistyczny moduł kontaktu i praw autorskich.
 * **Elementy:**
   * Nagłówek `KONTAKT` i zaproszenie do współpracy.
@@ -59,6 +52,6 @@ W tym katalogu znajdują się wszystkie modularne komponenty interfejsu użytkow
 
 ---
 
-### 6. `Lightbox.astro`
+### 5. `Lightbox.astro`
 * **Przeznaczenie:** Globalny modal pełnoekranowego podglądu zdjęć i kadrów archiwalnych.
 * **Obsługa:** Otwiera się automatycznie po kliknięciu dowolnego elementu z atrybutem `data-lightbox-src`.
