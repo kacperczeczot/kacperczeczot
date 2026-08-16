@@ -195,11 +195,6 @@ const categoriesPayload = categories.map(cat => ({
           );
         })}
 
-        <!-- Bottom right info -->
-        <div class="absolute bottom-4 right-6 text-xs text-slate-400 font-sans font-medium flex items-center gap-2 bg-[#070d1a]/80 px-4 py-1.5 rounded-full border border-white/10 backdrop-blur-sm">
-          <span>Orkiestry • Chóry • Teatr • Estrada</span>
-        </div>
-
       </div>
 
       <!-- ========================================== -->
@@ -474,7 +469,7 @@ const categoriesPayload = categories.map(cat => ({
   let activeCategory = null;
   let activeEnsemble = null;
 
-  // Local Proximity Physics State
+  // Magnetic Parallax Physics State
   let mouseClientX = -9999;
   let mouseClientY = -9999;
   let isMouseInside = false;
@@ -498,9 +493,10 @@ const categoriesPayload = categories.map(cat => ({
         currentY: 0,
         targetX: 0,
         targetY: 0,
-        // Individual spring speed / inertia per bubble
-        springFactor: 0.08 + (index % 3) * 0.02,
-        maxPush: 30 + (index % 2) * 5,
+        // Individual spring speed and magnetic depth per bubble
+        lerpFactor: 0.065 + (index % 3) * 0.015,
+        parallaxDepth: el.id === 'bubble-center' ? 6 : (8 + (index % 3) * 2),
+        maxMagneticPull: el.id === 'bubble-center' ? 12 : (18 + (index % 3) * 3),
       });
     });
   }
@@ -520,35 +516,52 @@ const categoriesPayload = categories.map(cat => ({
     }
   }
 
-  // True Local Proximity Repulsion Loop
-  const REACTION_RADIUS = 200; // Only bubbles within 200px of mouse react
+  // Continuous Magnetic Attraction & Parallax Loop
+  const MAGNETIC_RADIUS = 380; // Smooth magnetic attraction range
 
   function updatePhysicsLoop() {
-    if (physicsNodes.length > 0) {
+    if (physicsNodes.length > 0 && container) {
+      const containerRect = container.getBoundingClientRect();
+      const containerCenterX = containerRect.left + containerRect.width / 2;
+      const containerCenterY = containerRect.top + containerRect.height / 2;
+
+      // Normalized mouse offset from canvas center (-1 to 1)
+      const normX = Math.max(-1, Math.min(1, (mouseClientX - containerCenterX) / (containerRect.width / 2)));
+      const normY = Math.max(-1, Math.min(1, (mouseClientY - containerCenterY) / (containerRect.height / 2)));
+
       physicsNodes.forEach((node) => {
         if (isMouseInside) {
-          const dx = node.baseCenterX - mouseClientX;
-          const dy = node.baseCenterY - mouseClientY;
-          const distance = Math.hypot(dx, dy);
+          // 1. Continuous Parallax Float across entire canvas
+          const globalX = normX * node.parallaxDepth;
+          const globalY = normY * node.parallaxDepth;
 
-          if (distance < REACTION_RADIUS && distance > 1) {
-            // Repel away from mouse
-            const force = (1 - distance / REACTION_RADIUS) * node.maxPush;
+          // 2. Local Magnetic Pull towards cursor as it gets closer
+          const dx = mouseClientX - node.baseCenterX;
+          const dy = mouseClientY - node.baseCenterY;
+          const dist = Math.hypot(dx, dy);
+
+          let magneticX = 0;
+          let magneticY = 0;
+
+          if (dist < MAGNETIC_RADIUS && dist > 1) {
+            // Smooth quadratic falloff towards cursor
+            const falloff = Math.pow(1 - dist / MAGNETIC_RADIUS, 1.8);
+            const pull = falloff * node.maxMagneticPull;
             const angle = Math.atan2(dy, dx);
-            node.targetX = Math.cos(angle) * force;
-            node.targetY = Math.sin(angle) * force;
-          } else {
-            node.targetX = 0;
-            node.targetY = 0;
+            magneticX = Math.cos(angle) * pull;
+            magneticY = Math.sin(angle) * pull;
           }
+
+          node.targetX = globalX + magneticX;
+          node.targetY = globalY + magneticY;
         } else {
           node.targetX = 0;
           node.targetY = 0;
         }
 
-        // Smooth individual spring return
-        node.currentX += (node.targetX - node.currentX) * node.springFactor;
-        node.currentY += (node.targetY - node.currentY) * node.springFactor;
+        // Smooth standard spring damping (lerp)
+        node.currentX += (node.targetX - node.currentX) * node.lerpFactor;
+        node.currentY += (node.targetY - node.currentY) * node.lerpFactor;
 
         node.element.style.transform = `translate(calc(-50% + ${node.currentX.toFixed(2)}px), calc(-50% + ${node.currentY.toFixed(2)}px))`;
       });
