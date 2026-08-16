@@ -51,7 +51,8 @@ content:
       - name: heroImage
         label: Zdjęcie główne
         type: image
-        options: { media: images, path: "" }
+        options:
+          media: images
       - name: credentials
         label: Cztery liczby na stronie głównej
         type: object
@@ -163,8 +164,12 @@ content:
     subfolders: false
     view:
       primary: name
-      fields: [name, pillar, years]
-      default: { sort: order, order: asc }
+      fields: [name, pillar, years, order]
+      sort: [order, name]
+      search: [name, role]
+      default:
+        sort: order
+        order: asc
     fields:
       - { name: name, label: Nazwa, type: string }
       - name: pillar
@@ -190,7 +195,8 @@ content:
         options:
           media: images
           path: ensembles
-          multiple: true
+          multiple:
+            max: 24
       - name: body
         label: Dłuższy opis
         type: rich-text
@@ -206,8 +212,12 @@ content:
     subfolders: false
     view:
       primary: title
-      fields: [title, year]
-      default: { sort: order, order: asc }
+      fields: [title, year, order]
+      sort: [order, year, title]
+      search: [title, subtitle]
+      default:
+        sort: order
+        order: asc
     fields:
       - { name: title, label: Tytuł, type: string }
       - { name: subtitle, label: Podtytuł, type: string }
