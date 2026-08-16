@@ -1,110 +1,81 @@
 ---
-import { Github, Mail, Copy, Check, ArrowUpRight } from 'lucide-astro';
+import { Github, Mail, Copy, Check, Youtube } from 'lucide-astro';
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentYear = new Date().getFullYear();
 const contactEmail = 'kacperczeczot7@gmail.com';
 ---
 
-<footer id="kontakt" class="relative border-t border-white/10 bg-[#070d1a] pt-20 pb-12">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-14 border-b border-white/10">
-      
-      <div class="md:col-span-5 space-y-5">
-        <div class="flex items-center gap-3.5">
-          <div class="w-11 h-11 border border-white/15 flex items-center justify-center text-white font-display font-semibold text-lg">
-            KC
-          </div>
-          <div>
-            <h3 class="font-display font-bold text-white text-lg tracking-tight">Kacper Czeczot</h3>
-            <p class="text-xs text-sky-400 font-semibold uppercase tracking-wider font-display">DYRYGENT • MULTIINSTRUMENTALISTA • ARANŻER</p>
-          </div>
-        </div>
-
-        <p class="text-slate-300 font-sans text-base leading-relaxed max-w-md font-normal">
-          Dyscyplina dyrygentury symfoniczno-chóralnej, wykonawstwo instrumentalne oraz realizacja dźwięku.
-        </p>
-
-        <!-- Social Media Links (Verified) -->
-        <div class="flex items-center gap-3 pt-2">
-          <a
-            href="https://github.com/kacperczeczot"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Profil GitHub"
-            class="flex items-center gap-2 px-4 py-2.5 border border-white/15 text-slate-300 hover:text-sky-300 hover:border-sky-400/40 transition-all text-xs font-semibold"
-          >
-            <Github class="w-4 h-4 text-sky-400" />
-            <span>GitHub</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Quick Navigation Links -->
-      <div class="md:col-span-3 space-y-4">
-        <h4 class="text-xs font-bold text-sky-300 uppercase tracking-wider font-display">Nawigacja</h4>
-        <ul class="space-y-2.5 text-sm text-slate-300 font-medium">
-          <li>
-            <a href={`${base}/`} class="hover:text-sky-300 transition-colors flex items-center gap-1 group">
-              <span>Scena & Zespoły</span>
-              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-sky-400" />
-            </a>
-          </li>
-          <li>
-            <a href={`${base}/projekty-autorskie`} class="hover:text-sky-300 transition-colors flex items-center gap-1 group">
-              <span>Dzieła Autorskie</span>
-              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-sky-400" />
-            </a>
-          </li>
-          <li>
-            <a href={`${base}/bio`} class="hover:text-sky-300 transition-colors flex items-center gap-1 group">
-              <span>Bio & Edukacja</span>
-              <ArrowUpRight class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-sky-400" />
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Direct Contact & Copy Email Box -->
-      <div class="md:col-span-4 space-y-4">
-        <h4 class="text-xs font-bold text-sky-300 uppercase tracking-wider font-display">Kontakt Bezpośredni</h4>
-        <p class="text-sm text-slate-300 font-normal leading-relaxed">
-          Projekty dyrygenckie, aranżacje partytur, produkcja muzyczna oraz współpraca sceniczna.
-        </p>
-
-        <div class="pt-1">
-          <div class="flex items-center justify-between p-2 pl-4 border border-white/15 hover:border-sky-400/40 transition-all">
-            <div class="flex items-center gap-2.5 text-sm text-slate-200">
-              <Mail class="w-4 h-4 text-sky-400" />
-              <span id="footer-email-text" class="font-semibold text-xs sm:text-sm text-sky-100">{contactEmail}</span>
-            </div>
-            <button
-              id="copy-email-btn"
-              type="button"
-              class="p-2.5 bg-[#070d1a] hover:bg-sky-500 hover:text-white text-sky-300 transition-all focus:outline-none border border-white/15"
-              title="Kopiuj adres e-mail"
-            >
-              <Copy id="copy-icon" class="w-4 h-4" />
-              <Check id="check-icon" class="w-4 h-4 hidden text-emerald-400" />
-            </button>
-          </div>
-          <p id="copy-feedback" class="text-xs text-sky-300 mt-2 hidden font-semibold">
-            ✓ Skopiowano adres e-mail do schowka
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Copyright and Credits -->
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-medium">
-      <p>© {currentYear} Kacper Czeczot. Wszelkie prawa zastrzeżone.</p>
-      <p class="flex items-center gap-2 text-slate-400">
-        <span>Portfolio Artystyczne</span>
-        <span class="text-sky-400">✦</span>
-        <span>Dyrygentura & Muzyka</span>
+<footer id="kontakt" class="relative border-t border-white/10 bg-[#070d1a] py-16 sm:py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+    
+    <!-- Nagłówek i zaproszenie do współpracy -->
+    <div class="space-y-3">
+      <p class="text-xs font-semibold tracking-widest text-sky-400 font-sans uppercase">
+        KONTAKT BEZPOŚREDNI
+      </p>
+      <p class="text-base sm:text-lg text-slate-300 font-sans font-light max-w-xl mx-auto leading-relaxed">
+        Projekty orkiestrowe, opracowania partytur oraz współpraca koncertowa.
       </p>
     </div>
+
+    <!-- Boks adresu e-mail z kopiowaniem i kliknięciem -->
+    <div class="max-w-md mx-auto">
+      <div class="flex items-center justify-between p-2.5 pl-5 border border-white/15 bg-[#0b1528] hover:border-sky-400/50 transition-all shadow-lg">
+        <a
+          href={`mailto:${contactEmail}`}
+          class="flex items-center gap-3 text-sm font-sans font-medium text-slate-200 hover:text-sky-300 transition-colors truncate"
+        >
+          <Mail class="w-4 h-4 text-sky-400 flex-shrink-0" />
+          <span id="footer-email-text" class="truncate">{contactEmail}</span>
+        </a>
+        
+        <button
+          id="copy-email-btn"
+          type="button"
+          aria-label="Kopiuj adres e-mail"
+          class="p-2.5 bg-[#070d1a] hover:bg-sky-500 hover:text-white text-sky-300 transition-all focus:outline-none border border-white/15 ml-3 flex-shrink-0"
+          title="Kopiuj adres e-mail"
+        >
+          <Copy id="copy-icon" class="w-4 h-4" />
+          <Check id="check-icon" class="w-4 h-4 hidden text-emerald-400" />
+        </button>
+      </div>
+
+      <p id="copy-feedback" class="text-xs text-sky-300 mt-2 hidden font-semibold text-center">
+        ✓ Skopiowano adres e-mail do schowka
+      </p>
+    </div>
+
+    <!-- Rząd minimalistycznych linków społecznościowych -->
+    <div class="flex items-center justify-center gap-4 pt-2">
+      <a
+        href="https://github.com/kacperczeczot"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Profil GitHub Kacpra Czeczota"
+        class="inline-flex items-center gap-2 px-4 py-2 border border-white/15 text-slate-300 hover:text-sky-300 hover:border-sky-400/40 transition-all text-xs font-semibold font-sans bg-[#0b1528]"
+      >
+        <Github class="w-4 h-4 text-sky-400" />
+        <span>GitHub</span>
+      </a>
+
+      <a
+        href="https://youtube.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Kanał YouTube"
+        class="inline-flex items-center gap-2 px-4 py-2 border border-white/15 text-slate-300 hover:text-sky-300 hover:border-sky-400/40 transition-all text-xs font-semibold font-sans bg-[#0b1528]"
+      >
+        <Youtube class="w-4 h-4 text-sky-400" />
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <!-- Dolny pasek praw autorskich -->
+    <div class="border-t border-white/10 pt-8 mt-12 text-center text-xs text-slate-400 font-sans">
+      <p>© {currentYear} Kacper Czeczot. Wszelkie prawa zastrzeżone.</p>
+    </div>
+
   </div>
 </footer>
 
