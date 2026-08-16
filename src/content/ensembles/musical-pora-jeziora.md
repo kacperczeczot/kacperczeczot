@@ -2,7 +2,8 @@
 name: "Musical „Pora Jeziora”"
 pillar: "teatr"
 role: "Śpiew / Aktor (Drwal)"
-concertCount: "3 spektakle (2022)"
+concertCount: "3 spektakle"
+years: "2022"
 highlights:
   - "Rola solowo-aktorska: Drwal"
   - "Wystawienie w Filharmonii Warmińsko-Mazurskiej w Olsztynie (14.12.2022)"

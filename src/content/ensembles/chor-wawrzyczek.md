@@ -2,7 +2,8 @@
 name: "Chór im. prof. Wiktora Wawrzyczka UWM"
 pillar: "chory"
 role: "Tenor / Dyrygent / Bibliotekarz"
-concertCount: "72 występy (od 2022)"
+concertCount: "72 występy"
+years: "od 2022"
 highlights:
   - "Złoty i Srebrny Dyplom na XIV Międzynarodowym Festiwalu „Canco Mediterrania” w Hiszpanii (2025)"
   - "Brązowy Dyplom na XIII Międzynarodowym Festiwalu Kaunas Cantat na Litwie (2025)"

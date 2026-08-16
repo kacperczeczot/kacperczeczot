@@ -2,7 +2,8 @@
 name: "Orkiestra Dęta OSP w Rębowie"
 pillar: "orkiestry"
 role: "Zastępca Dyrygenta / Instruktor"
-concertCount: "Kwiecień 2024 – obecnie · 21 udokumentowanych występów"
+concertCount: "21 występów"
+years: "Kwiecień 2024 – obecnie"
 highlights:
   - "Przygotowanie i poprowadzenie 21 występów galowych, państwowych i festiwalowych"
   - "Autorski program warsztatów sekcyjnych dla młodych adeptów instrumentów dętych"

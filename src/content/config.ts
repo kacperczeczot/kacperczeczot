@@ -7,8 +7,9 @@ const ensemblesCollection = defineCollection({
     pillar: z.enum(['orkiestry', 'chory', 'teatr', 'estrada']),
     role: z.string(),
     concertCount: z.string(),
-    highlights: z.array(z.string()),
-    photos: z.array(z.string()),
+    years: z.string().optional().default(''),
+    highlights: z.array(z.string()).default([]),
+    photos: z.array(z.string()).default([]),
     order: z.number(),
   }),
 });
@@ -21,12 +22,14 @@ const worksCollection = defineCollection({
     type: z.enum(['conducting', 'production']),
     year: z.string(),
     description: z.string(),
+    cover: z.string().nullable().optional(),
+    videoUrl: z.string().nullable().optional(),
     youtubeVideos: z.array(
       z.object({
         title: z.string(),
         youtubeId: z.string(),
       })
-    ),
+    ).default([]),
     order: z.number(),
   }),
 });

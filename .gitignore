@@ -1,6 +1,8 @@
 # Build output
 dist/
 .astro/
+tina/__generated__/
+public/admin/
 
 # Dependencies
 node_modules/

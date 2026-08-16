@@ -17,7 +17,8 @@ Zawiera pliki Markdown opisujące poszczególne formacje artystyczne, z którymi
   name: z.string(),                                         // Pełna nazwa formacji
   pillar: z.enum(['orkiestry', 'chory', 'teatr', 'estrada']), // Kategoria
   role: z.string(),                                         // Pełniona rola (np. Główny Dyrygent)
-  concertCount: z.string(),                                 // Okres działalności i liczba występów
+  concertCount: z.string(),                                 // Liczba koncertów / występów
+  years: z.string(),                                        // Lata działalności
   highlights: z.array(z.string()),                          // Kluczowe osiągnięcia
   photos: z.array(z.string()),                              // Ścieżki do kadrów i materiałów
   order: z.number(),                                        // Kolejność wyświetlania

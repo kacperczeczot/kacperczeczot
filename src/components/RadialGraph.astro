@@ -71,10 +71,10 @@ const categoriesPayload = categories.map(cat => ({
     slug: ens.slug,
     name: ens.data.name,
     role: ens.data.role,
-    concertCount: ens.data.concertCount,
+    concertCount: [ens.data.years, ens.data.concertCount].filter(Boolean).join(' · '),
     highlights: ens.data.highlights,
     body: ens.body,
-    photos: ens.data.photos.map(p => (p.startsWith('/') ? `${base}${p}` : p)),
+    photos: (ens.data.photos || []).filter(Boolean).map(p => (p.startsWith('/') ? `${base}${p}` : p)),
   })),
 }));
 ---
@@ -384,7 +384,7 @@ const categoriesPayload = categories.map(cat => ({
                     {ens.data.role}
                   </span>
                   <span class="text-xs sm:text-sm text-sky-200/80 font-medium font-sans">
-                    {ens.data.concertCount}
+                    {[ens.data.years, ens.data.concertCount].filter(Boolean).join(' · ')}
                   </span>
                 </div>
 

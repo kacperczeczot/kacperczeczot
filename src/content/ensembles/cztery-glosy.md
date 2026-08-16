@@ -2,7 +2,8 @@
 name: "Zespół Wokalny „Cztery Głosy”"
 pillar: "estrada"
 role: "Zespół Wokalny"
-concertCount: "Kameralistyka wokalna"
+concertCount: "kameralistyka wokalna"
+years: "działalność bieżąca"
 highlights:
   - "Kameralny śpiew wielogłosowy"
   - "Repertuar okolicznościowy i estradowy"

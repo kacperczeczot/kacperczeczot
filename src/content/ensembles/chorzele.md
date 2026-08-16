@@ -2,7 +2,8 @@
 name: "Miejska Młodzieżowa Orkiestra Dęta w Chorzelach"
 pillar: "orkiestry"
 role: "Klarnecista / Organista / Śpiewak"
-concertCount: "15 występów (od 2022)"
+concertCount: "15 występów"
+years: "od 2022"
 highlights:
   - "I Miejsce na Międzynarodowym Festiwalu „Karnolsky Summer Camp” w Bułgarii (2024)"
   - "Wykonawstwo w sekcji klarnetów, partie wokalne oraz oprawa organowa"

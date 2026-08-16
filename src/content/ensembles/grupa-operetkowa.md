@@ -2,7 +2,8 @@
 name: "Grupa Operetkowa przy PSM w Mławie"
 pillar: "teatr"
 role: "Solista / Aktor / Kier. Muzyczne"
-concertCount: "ok. 70 spektakli (2016–2024)"
+concertCount: "ok. 70 spektakli"
+years: "2016–2024"
 highlights:
   - "Główne role solowe i aktorskie w klasyce operetkowej i teatrze muzycznym"
   - "„Cud mniemany, czyli Krakowiacy i Górale” (2022) — role: Bryndas / Bartłomiej, kierownictwo muzyczne"

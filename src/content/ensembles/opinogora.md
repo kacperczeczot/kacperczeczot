@@ -2,7 +2,8 @@
 name: "Orkiestra GOK w Opinogórze Górnej"
 pillar: "orkiestry"
 role: "Główny Dyrygent"
-concertCount: "Grudzień 2025 – obecnie · Inauguracja sezonu 2025/2026"
+concertCount: "Inauguracja sezonu 2025/2026"
+years: "Grudzień 2025 – obecnie"
 highlights:
   - "Przygotowanie i poprowadzenie Koncertu Noworocznego oraz cyklu galowego 2025/2026"
   - "Wdrożenie nowego profilu repertuarowego: standardy muzyki filmowej i estradowej"

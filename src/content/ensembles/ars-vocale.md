@@ -2,7 +2,8 @@
 name: "Chór „Ars Vocale” Instytutu Muzyki"
 pillar: "chory"
 role: "Tenor / Klarnecista"
-concertCount: "9 występów (2022–2025)"
+concertCount: "9 występów"
+years: "2022–2025"
 highlights:
   - "Złoty Dyplom na XIX Festiwalu „O, Warmio moja miła” w Olsztynie (2023)"
   - "Koncerty muzyki dawnej, pasyjnej i sakralnej w Bazylice archikatedralnej św. Jakuba"

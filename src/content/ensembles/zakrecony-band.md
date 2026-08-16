@@ -2,7 +2,8 @@
 name: "Zakręcony Band"
 pillar: "estrada"
 role: "Instrumentalista / Realizacja"
-concertCount: "Występy estradowe"
+concertCount: "występy estradowe"
+years: "działalność bieżąca"
 highlights:
   - "Wykonawstwo muzyki rozrywkowej i estradowej"
   - "Obsługa techniczna i realizacja dźwięku na żywo"
