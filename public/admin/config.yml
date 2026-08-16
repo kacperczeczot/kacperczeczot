@@ -45,11 +45,6 @@ collections:
             media_folder: "public/images"
             public_folder: "/images"
 
-          - label: "Podpis pod portretem"
-            name: "heroImageCaption"
-            widget: "string"
-            default: "Dyrygentura · Multiinstrumentalizm · Aranżacja i Dźwięk"
-
           - label: "Pasek 4 wskaźników dorobku"
             name: "credentials"
             widget: "list"
