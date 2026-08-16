@@ -23,7 +23,7 @@
 * **Typografia:** `Plus Jakarta Sans` (Google Fonts)
 * **Ikony:** [lucide-astro](https://lucide.dev/)
 * **Fizyka ruchu:** Natywny silnik interpolacji sprężystości (*Spring Lerp*) i przyciągania magnetycznego (*Magnetic Parallax*)
-* **Zarządzanie treścią:** [Sveltia CMS](https://github.com/sveltia/sveltia-cms) na GitHub Pages (`/admin`, logowanie kontem GitHub) + Astro Content Collections z walidacją typów [Zod](https://zod.dev/)
+* **Zarządzanie treścią:** Astro Content Collections z walidacją typów [Zod](https://zod.dev/)
 
 ---
 
@@ -40,7 +40,6 @@
 npm install
 
 # Uruchomienie serwera deweloperskiego (http://localhost:4321)
-# Panel CMS (także online): https://kacperczeczot.github.io/admin
 npm run dev
 
 # Kompilacja produkcyjna (katalog dist/)

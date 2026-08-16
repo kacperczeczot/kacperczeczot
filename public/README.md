@@ -8,7 +8,6 @@ Katalog `public/` zawiera statyczne pliki serwowane bezpośrednio do przeglądar
 
 ## 📂 Zawartość katalogu
 
-* ⚙️ [**`admin/`**](admin/README.md) — Panel Sveltia CMS (logowanie GitHub, zapis do repozytorium).
 * **`favicon.svg`:** Wektorowa ikona witryny (monogram KC).
 * **`images/`:**
   * `hero-portrait.svg` — Sylwetka artysty w świetle rampy na stronie głównej.
