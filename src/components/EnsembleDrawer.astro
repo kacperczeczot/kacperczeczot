@@ -104,7 +104,7 @@ const ensemblesPayload = (await getCollection('ensembles')).map((e) => {
         <dl class="border-y border-white/10 divide-y divide-white/10">
           <div class="flex items-baseline justify-between gap-4 py-3.5">
             <dt class="text-[11px] font-sans uppercase tracking-widest text-slate-500">Rola</dt>
-            <dd id="drawer-role-text" class="text-sm font-display italic text-slate-200 text-right">Rola w zespole</dd>
+            <dd id="drawer-role-text" class="text-sm font-sans font-medium text-slate-200 text-right">Rola w zespole</dd>
           </div>
           <div class="flex items-baseline justify-between gap-4 py-3.5">
             <dt class="text-[11px] font-sans uppercase tracking-widest text-slate-500">Występy</dt>
@@ -180,8 +180,11 @@ const ensemblesPayload = (await getCollection('ensembles')).map((e) => {
 
     function resolveEnsemble(detail) {
       if (!detail) return null;
-      if (detail.slug || detail.ensembleSlug) {
-        const slug = detail.slug || detail.ensembleSlug;
+      if (typeof detail === 'string') {
+        return ensemblesPayload.find((e) => e.slug === detail) || null;
+      }
+      const slug = detail.id || detail.slug || detail.ensembleSlug;
+      if (slug) {
         return ensemblesPayload.find((e) => e.slug === slug) || null;
       }
       return detail;

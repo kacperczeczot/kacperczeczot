@@ -2,18 +2,16 @@
 import { getCollection } from 'astro:content';
 import {
   Sparkles,
-  Users,
-  Compass,
-  RotateCcw,
   Music,
   Mic,
   Drama,
   Radio,
+  ArrowUpRight,
   ChevronRight,
-  Maximize2,
+  Layers,
 } from 'lucide-astro';
 
-// Fetch all 9 verified ensembles from Content Collections
+// Fetch all ensembles from Content Collections
 const allEnsembles = await getCollection('ensembles');
 
 // Group ensembles by pillar
@@ -22,198 +20,231 @@ const chory = allEnsembles.filter(e => e.data.pillar === 'chory').sort((a, b) =>
 const teatr = allEnsembles.filter(e => e.data.pillar === 'teatr').sort((a, b) => a.data.order - b.data.order);
 const estrada = allEnsembles.filter(e => e.data.pillar === 'estrada').sort((a, b) => a.data.order - b.data.order);
 
-// 4 Main Pillars with mathematically symmetric geometry (viewBox 900 x 680, Center 450, 340)
+// 4 Pillars definition
 const pillars = [
   {
     id: 'orkiestry',
     name: 'Orkiestry',
-    count: '3 zespoły',
+    subtitle: 'Składy dęte i symfoniczne',
+    count: '3 formacje',
     icon: Music,
-    cx: 250,
-    cy: 180,
+    pos: { x: 24, y: 28 }, // percent coords
+    floatClass: 'animate-float-1',
     ensembles: orkiestry,
   },
   {
     id: 'chory',
-    name: 'Chóry',
-    count: '2 zespoły',
+    name: 'Chóry & Zespoły',
+    subtitle: 'Składy wokalne & polifonia',
+    count: '2 składy',
     icon: Mic,
-    cx: 650,
-    cy: 180,
+    pos: { x: 76, y: 28 },
+    floatClass: 'animate-float-2',
     ensembles: chory,
   },
   {
     id: 'teatr',
-    name: 'Teatr & Scena',
+    name: 'Scena & Teatr',
+    subtitle: 'Operetka & musical',
     count: '2 produkcje',
     icon: Drama,
-    cx: 650,
-    cy: 500,
+    pos: { x: 76, y: 72 },
+    floatClass: 'animate-float-3',
     ensembles: teatr,
   },
   {
     id: 'estrada',
-    name: 'Estrada',
-    count: '2 składy',
+    name: 'Kameralistyka & Estrada',
+    subtitle: 'Live sound & formacje estradowe',
+    count: '2 zespoły',
     icon: Radio,
-    cx: 250,
-    cy: 500,
+    pos: { x: 24, y: 72 },
+    floatClass: 'animate-float-4',
     ensembles: estrada,
   },
 ];
 ---
 
-<section id="drzewo-radialne" class="relative py-28 md:py-36 overflow-hidden bg-[#070d1a] border-t border-white/10">
+<section id="drzewo-radialne" class="relative py-28 md:py-36 overflow-hidden bg-[#070d1a] border-t border-white/10 select-none">
+  
+  <!-- Ambient background glow spots -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-sky-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+  <div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
-    <!-- Section Title -->
-    <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-      <div class="inline-flex items-center gap-2.5 text-sky-200 text-xs font-sans uppercase tracking-[0.28em]">
-        <Sparkles class="w-3.5 h-3.5 text-sky-400" />
-        <span>Działalność Zespołowa</span>
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/60 border border-sky-400/25 text-sky-300 text-xs font-sans uppercase tracking-[0.22em] shadow-sm backdrop-blur-md">
+        <Sparkles class="w-3.5 h-3.5 text-sky-400 animate-pulse" />
+        <span>Interaktywny Układ Dorobku</span>
       </div>
       
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white tracking-tight">
+      <h2 class="text-4xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
         Cztery Filary Działalności <span class="text-blue-gradient">Scenicznej</span>
       </h2>
       
-      <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-normal leading-relaxed">
-        Orkiestry dęte i symfoniczne, chóry akademickie i kameralne, teatr muzyczny i operetka oraz zespoły estradowe.
+      <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-sans font-light leading-relaxed">
+        Odkrywaj formacje muzyczne w interaktywnej konstelacji. Kliknij dowolny filar, aby rozwinąć pływające zespoły i zapoznać się ze szczegółami.
       </p>
 
-      <div class="flex items-center justify-center gap-3 pt-1 opacity-50">
-        <div class="w-12 h-[1.5px] bg-gradient-to-r from-transparent to-sky-400"></div>
-        <span class="text-sky-400 text-xs">✦</span>
-        <div class="w-12 h-[1.5px] bg-gradient-to-l from-transparent to-sky-400"></div>
+      <div class="flex items-center justify-center gap-2 pt-2 text-xs font-sans text-sky-400/80 tracking-widest uppercase">
+        <span>Kliknij filar lub zespół</span>
+        <span class="text-sky-300 font-bold">✦</span>
+        <span>Otwórz kartę panelu</span>
       </div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- DESKTOP RADIAL CONSTELLATION (>= 1024px) -->
-    <!-- ========================================== -->
-    <div class="hidden lg:block relative w-full max-w-5xl mx-auto aspect-[900/680] rounded-none border border-white/10 bg-[#0b1528]/90 p-4 overflow-hidden" id="radial-container">
-      
-      <!-- SVG Orbital Lines (Exact 900x680 geometry) -->
-      <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 900 680" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="azureGlow" cx="450" cy="340" r="320" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.15" />
-            <stop offset="60%" stop-color="#0284c7" stop-opacity="0.02" />
-            <stop offset="100%" stop-color="#070d1a" stop-opacity="0" />
-          </radialGradient>
+    <!-- ======================================================= -->
+    <!-- DESKTOP FLOATING BUBBLES CONSTELLATION (>= 1024px)     -->
+    <!-- ======================================================= -->
+    <div
+      id="floating-constellation-container"
+      class="hidden lg:block relative w-full max-w-5xl mx-auto h-[660px] rounded-3xl border border-white/10 bg-gradient-to-b from-[#0b1528]/80 via-[#070d1a]/90 to-[#0b1528]/80 backdrop-blur-xl p-6 overflow-hidden shadow-2xl shadow-sky-950/40"
+    >
+      <!-- Soft ambient backdrop rings -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div class="w-[520px] h-[520px] rounded-full border border-sky-400/10 animate-spin-reverse-slow"></div>
+        <div class="absolute w-[320px] h-[320px] rounded-full border border-sky-400/15 animate-pulse"></div>
+        <div class="absolute w-[180px] h-[180px] rounded-full bg-sky-500/10 blur-2xl"></div>
+      </div>
 
-          <linearGradient id="azureSpoke" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.7"/>
-            <stop offset="100%" stop-color="#0284c7" stop-opacity="0.2"/>
+      <!-- Connecting SVG Lines Canvas for smooth dynamic links -->
+      <svg
+        id="bubble-connections-svg"
+        class="absolute inset-0 w-full h-full pointer-events-none z-10"
+        viewBox="0 0 1000 660"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="bubbleBeamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
+            <stop offset="100%" stop-color="#0284c7" stop-opacity="0.2" />
           </linearGradient>
         </defs>
-
-        <circle cx="450" cy="340" r="300" fill="url(#azureGlow)"/>
-
-        <!-- Concentric Orbital Rings centered at 450, 340 -->
-        <circle cx="450" cy="340" r="130" stroke="rgba(56, 189, 248, 0.2)" stroke-width="1.5" stroke-dasharray="4 6" class="animate-orbit-slow origin-[450px_340px]" />
-        <circle cx="450" cy="340" r="255" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.5" stroke-dasharray="6 8" class="animate-spin-reverse-slow origin-[450px_340px]" />
-        <circle cx="450" cy="340" r="365" stroke="rgba(56, 189, 248, 0.1)" stroke-width="1" />
-
-        <!-- Symmetrical Spokes from center (450, 340) to pillars -->
-        <line x1="450" y1="340" x2="250" y2="180" stroke="url(#azureSpoke)" stroke-width="1.5" stroke-dasharray="4 4" />
-        <line x1="450" y1="340" x2="650" y2="180" stroke="url(#azureSpoke)" stroke-width="1.5" stroke-dasharray="4 4" />
-        <line x1="450" y1="340" x2="650" y2="500" stroke="url(#azureSpoke)" stroke-width="1.5" stroke-dasharray="4 4" />
-        <line x1="450" y1="340" x2="250" y2="500" stroke="url(#azureSpoke)" stroke-width="1.5" stroke-dasharray="4 4" />
-
-        <!-- Dynamic Satellite Connector Lines -->
-        <g id="svg-satellite-lines"></g>
+        <g id="satellite-svg-lines"></g>
       </svg>
 
-      <!-- 1. CENTRAL MEDALLION (Exactly at left: 50%, top: 50%) -->
+      <!-- 1. CENTRAL HERO BUBBLE (50%, 50%) -->
       <div
-        id="central-node"
+        id="center-main-bubble"
         role="button"
         tabindex="0"
-        title="Widok ogólny"
+        title="Kliknij, aby zresetować widok"
         style="left: 50%; top: 50%;"
-        class="absolute -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer group focus:outline-none"
+        class="absolute -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer group focus:outline-none animate-float-center"
       >
-        <div class="relative flex flex-col items-center justify-center w-44 h-44 rounded-full bg-[#0f1d38] border border-sky-400/50 group-hover:scale-105 transition-all duration-300">
+        <div class="relative flex flex-col items-center justify-center w-52 h-52 rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/80 to-[#070d1a]/95 border-2 border-sky-400/50 shadow-[0_0_40px_rgba(14,165,233,0.3)] group-hover:shadow-[0_0_55px_rgba(56,189,248,0.5)] group-hover:border-sky-300 group-hover:scale-105 transition-all duration-500">
           
           <!-- Outer Pulsing Halo -->
-          <div class="absolute -inset-2.5 rounded-full border border-sky-400/30 animate-pulse"></div>
+          <div class="absolute -inset-2.5 rounded-full border border-sky-400/30 animate-pulse pointer-events-none"></div>
+          <div class="absolute -inset-5 rounded-full border border-sky-400/15 animate-ping opacity-25 pointer-events-none"></div>
           
-          <span class="text-sky-300 text-xs font-semibold uppercase tracking-wider font-display mb-0.5">Dorobek</span>
+          <span class="text-[10px] font-sans font-bold uppercase tracking-[0.22em] text-sky-300 mb-1">
+            Dorobek Sceniczny
+          </span>
 
-          <span class="font-display font-bold text-3xl text-blue-gradient tracking-tight">
+          <span class="font-display font-extrabold text-4xl sm:text-5xl text-blue-gradient tracking-tight drop-shadow-sm">
             300+
           </span>
-          <span class="text-xs font-bold text-slate-100 uppercase tracking-wider text-center px-2 leading-tight font-display">
+
+          <span class="text-xs font-display font-semibold text-slate-100 uppercase tracking-wider text-center px-4 leading-tight mt-1">
             Występów<br />Scenicznych
+          </span>
+
+          <span class="mt-2 text-[9px] font-sans font-medium uppercase tracking-widest text-sky-300/80 px-2.5 py-0.5 rounded-full bg-sky-950/80 border border-sky-400/20 group-hover:border-sky-400/50 transition-colors">
+            4 Filary
           </span>
         </div>
       </div>
 
-      <!-- 2. ORBIT 1: 4 PILLAR MEDALLIONS (Percentages aligned perfectly with SVG) -->
+      <!-- 2. FOUR PILLAR FLOATING BUBBLES -->
       {pillars.map((pillar) => {
         const Icon = pillar.icon;
-        const leftPercent = (pillar.cx / 900) * 100;
-        const topPercent = (pillar.cy / 680) * 100;
         return (
           <div
-            id={`pillar-node-${pillar.id}`}
+            id={`pillar-bubble-${pillar.id}`}
             data-pillar-id={pillar.id}
+            data-pos-x={pillar.pos.x}
+            data-pos-y={pillar.pos.y}
             role="button"
             tabindex="0"
-            style={`left: ${leftPercent}%; top: ${topPercent}%;`}
-            class={`pillar-btn absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group focus:outline-none transition-all duration-300`}
+            style={`left: ${pillar.pos.x}%; top: ${pillar.pos.y}%;`}
+            class={`pillar-bubble-btn absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group focus:outline-none ${pillar.floatClass}`}
           >
-            <div class="relative flex flex-col items-center justify-center w-36 h-36 rounded-sm bg-[#0f1d38]/90 border border-white/10 hover:border-sky-400 transition-all duration-300 group-hover:scale-105">
+            <div class="relative flex flex-col items-center justify-center w-40 h-40 rounded-full backdrop-blur-md bg-gradient-to-br from-sky-900/50 via-sky-950/70 to-[#070d1a]/90 border border-sky-400/30 hover:border-sky-300 hover:scale-110 shadow-lg shadow-sky-950/60 hover:shadow-[0_0_35px_rgba(14,165,233,0.4)] transition-all duration-300 p-4 text-center">
               
-              <span class="p-2.5 rounded-sm bg-[#070d1a] border border-white/10 text-sky-400 mb-1.5 transition-all">
+              <!-- Icon with glow -->
+              <span class="p-2.5 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-300 mb-1.5 shadow-inner group-hover:text-white group-hover:border-sky-300 transition-all">
                 <Icon class="w-5 h-5" />
               </span>
 
-              <span class="font-display font-bold text-sm text-slate-100 text-center px-2 leading-tight group-hover:text-sky-300 transition-colors">
+              <!-- Title -->
+              <span class="font-display font-bold text-sm text-slate-100 leading-tight group-hover:text-sky-200 transition-colors px-2">
                 {pillar.name}
               </span>
               
-              <span class="text-[11px] text-sky-200/60 font-medium mt-0.5">
+              <!-- Count -->
+              <span class="text-[11px] font-sans text-sky-300/80 font-medium mt-0.5">
                 {pillar.count}
               </span>
 
-              <span class="absolute -bottom-2.5 px-3 py-0.5 rounded-sm bg-[#070d1a] border border-white/10 text-sky-200 text-[10px] font-sans uppercase tracking-wider group-hover:border-sky-400 transition-all">
-                Formacje
+              <!-- Status Tag -->
+              <span class="pillar-status-badge absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-[#070d1a] border border-sky-400/30 text-sky-200 text-[10px] font-sans uppercase tracking-wider group-hover:border-sky-400 transition-all shadow-md">
+                Eksploruj
               </span>
             </div>
           </div>
         );
       })}
 
-      <!-- 3. ORBIT 2: SATELLITES LAYER -->
-      <div id="satellite-nodes-layer" class="absolute inset-0 z-20 pointer-events-none"></div>
+      <!-- 3. DYNAMIC SATELLITE BUBBLES LAYER -->
+      <div id="satellite-bubbles-container" class="absolute inset-0 z-25 pointer-events-none"></div>
 
-      <!-- Footer Info -->
-      <div class="absolute bottom-4 right-6 text-xs text-slate-400 font-medium flex items-center gap-2">
-        <span>Orkiestry • Chóry • Teatr • Estrada</span>
+      <!-- Hint Badge bottom right -->
+      <div class="absolute bottom-4 right-6 text-xs text-slate-400 font-sans font-medium flex items-center gap-2 bg-[#070d1a]/80 px-4 py-1.5 rounded-full border border-white/10 backdrop-blur-sm">
+        <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+        <span>Wybierz formację, by otworzyć panel</span>
       </div>
 
     </div>
 
-    <!-- ========================================== -->
-    <!-- MOBILE VIEW (< 1024px) -->
-    <!-- ========================================== -->
+    <!-- ======================================================= -->
+    <!-- MOBILE / TABLET TOUCH RIBBON & CAROUSEL (< 1024px)      -->
+    <!-- ======================================================= -->
     <div class="block lg:hidden space-y-6">
       
-      <!-- Mobile Pillar Tabs -->
-      <div class="flex items-center gap-2.5 overflow-x-auto pb-3 scrollbar-none snap-x" id="mobile-pillar-tabs">
+      <!-- Mobile Center Highlight Card -->
+      <div class="flex items-center justify-between p-5 rounded-2xl backdrop-blur-md bg-gradient-to-r from-sky-950/60 to-[#070d1a] border border-sky-400/30 shadow-lg">
+        <div class="space-y-1">
+          <span class="text-[10px] font-sans uppercase tracking-widest text-sky-300 font-semibold">
+            Dorobek Artystyczny
+          </span>
+          <h3 class="text-2xl font-display font-bold text-white tracking-tight">
+            300+ Występów Scenicznych
+          </h3>
+          <p class="text-xs text-slate-300 font-sans">
+            W 4 filarach wykonawczych i dyrygenckich
+          </p>
+        </div>
+        <div class="w-12 h-12 rounded-full bg-sky-500/20 border border-sky-400/40 flex items-center justify-center flex-shrink-0">
+          <Sparkles class="w-6 h-6 text-sky-300" />
+        </div>
+      </div>
+
+      <!-- Mobile Pillar Switcher Pills (Horizontal Scroll) -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none snap-x" id="mobile-pillar-ribbon">
         {pillars.map((pillar, idx) => {
           const Icon = pillar.icon;
           return (
             <button
               type="button"
-              data-mobile-pillar={pillar.id}
-              class={`mobile-tab-btn flex items-center gap-2.5 px-5 py-3.5 rounded-sm border text-xs font-sans tracking-wider uppercase font-semibold whitespace-nowrap transition-all snap-start flex-shrink-0 ${
+              data-mobile-pillar-btn={pillar.id}
+              class={`mobile-pillar-btn flex items-center gap-2 px-4 py-3 rounded-full border text-xs font-sans tracking-wide uppercase font-semibold whitespace-nowrap transition-all snap-start flex-shrink-0 backdrop-blur-md ${
                 idx === 0
-                  ? 'bg-sky-600 border-sky-400 text-white'
-                  : 'bg-[#0f1d38] border-white/10 text-slate-300 hover:text-white'
+                  ? 'bg-sky-600 border-sky-400 text-white shadow-md shadow-sky-600/30'
+                  : 'bg-sky-950/40 border-sky-400/20 text-slate-300 hover:text-white'
               }`}
             >
               <Icon class="w-4 h-4" />
@@ -224,31 +255,31 @@ const pillars = [
         })}
       </div>
 
-      <!-- Mobile Ensemble Cards -->
-      <div id="mobile-ensembles-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <!-- Mobile Ensembles Carousel / Grid -->
+      <div id="mobile-ensembles-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {pillars.map((pillar, pIdx) => (
           pillar.ensembles.map((ens) => (
             <div
-              data-pillar-parent={pillar.id}
-              class={`mobile-ensemble-card ocean-card p-6 rounded-sm border border-white/10 hover:border-sky-400/40 transition-all flex flex-col justify-between group ${
+              data-mobile-pillar-parent={pillar.id}
+              class={`mobile-ensemble-card p-6 rounded-2xl backdrop-blur-md bg-gradient-to-b from-sky-950/40 to-[#070d1a] border border-sky-400/25 hover:border-sky-300 transition-all flex flex-col justify-between group shadow-lg ${
                 pIdx === 0 ? 'block' : 'hidden'
               }`}
             >
               <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                  <span class="px-3 py-1 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-[#070d1a] text-sky-300 border border-white/10 font-sans">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-sky-950/80 text-sky-300 border border-sky-400/30 font-sans">
                     {ens.data.role}
                   </span>
-                  <span class="text-xs text-sky-200/60 font-medium">
+                  <span class="text-xs text-sky-200/70 font-medium font-sans">
                     {ens.data.concertCount}
                   </span>
                 </div>
 
-                <h3 class="font-display font-bold text-lg text-white group-hover:text-sky-300 transition-colors">
+                <h3 class="font-display font-bold text-xl text-white group-hover:text-sky-300 transition-colors leading-snug">
                   {ens.data.name}
                 </h3>
 
-                <p class="text-xs text-slate-300 font-sans line-clamp-2">
+                <p class="text-xs text-slate-300 font-sans font-light line-clamp-3 leading-relaxed">
                   {ens.body}
                 </p>
               </div>
@@ -256,10 +287,10 @@ const pillars = [
               <button
                 type="button"
                 data-open-drawer={ens.slug}
-                class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-sm bg-[#070d1a] border border-white/15 hover:border-sky-400 text-sky-200 hover:text-white transition-all text-xs font-sans uppercase tracking-wider font-semibold"
+                class="mt-5 w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-sky-900/40 hover:bg-sky-600/80 border border-sky-400/30 hover:border-sky-300 text-sky-200 hover:text-white transition-all text-xs font-sans uppercase tracking-wider font-semibold group/btn"
               >
-                <span>Szczegóły</span>
-                <Maximize2 class="w-3.5 h-3.5 text-sky-400" />
+                <span>Otwórz pełny panel</span>
+                <ArrowUpRight class="w-4 h-4 text-sky-400 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
               </button>
             </div>
           ))
@@ -271,33 +302,135 @@ const pillars = [
   </div>
 </section>
 
-<!-- Radial Graph Script -->
+<!-- Scoped CSS for organic floating bubbles & animations -->
+<style>
+  @keyframes float-center {
+    0%, 100% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    33% {
+      transform: translate(-50%, calc(-50% - 6px)) rotate(0.5deg);
+    }
+    66% {
+      transform: translate(-50%, calc(-50% + 5px)) rotate(-0.5deg);
+    }
+  }
+
+  @keyframes float-1 {
+    0%, 100% {
+      transform: translate(-50%, -50%) translate(0px, 0px);
+    }
+    33% {
+      transform: translate(-50%, -50%) translate(8px, -10px);
+    }
+    66% {
+      transform: translate(-50%, -50%) translate(-6px, 8px);
+    }
+  }
+
+  @keyframes float-2 {
+    0%, 100% {
+      transform: translate(-50%, -50%) translate(0px, 0px);
+    }
+    33% {
+      transform: translate(-50%, -50%) translate(-8px, 10px);
+    }
+    66% {
+      transform: translate(-50%, -50%) translate(7px, -7px);
+    }
+  }
+
+  @keyframes float-3 {
+    0%, 100% {
+      transform: translate(-50%, -50%) translate(0px, 0px);
+    }
+    33% {
+      transform: translate(-50%, -50%) translate(9px, 8px);
+    }
+    66% {
+      transform: translate(-50%, -50%) translate(-8px, -9px);
+    }
+  }
+
+  @keyframes float-4 {
+    0%, 100% {
+      transform: translate(-50%, -50%) translate(0px, 0px);
+    }
+    33% {
+      transform: translate(-50%, -50%) translate(-7px, -9px);
+    }
+    66% {
+      transform: translate(-50%, -50%) translate(8px, 6px);
+    }
+  }
+
+  @keyframes satellite-pop {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.3);
+    }
+    70% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  .animate-float-center {
+    animation: float-center 8s ease-in-out infinite;
+  }
+
+  .animate-float-1 {
+    animation: float-1 7s ease-in-out infinite;
+  }
+
+  .animate-float-2 {
+    animation: float-2 8.5s ease-in-out infinite 0.5s;
+  }
+
+  .animate-float-3 {
+    animation: float-3 7.8s ease-in-out infinite 1s;
+  }
+
+  .animate-float-4 {
+    animation: float-4 8.2s ease-in-out infinite 1.5s;
+  }
+
+  .animate-satellite-in {
+    animation: satellite-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+</style>
+
+<!-- Client Script for Interactive Orbit & Bubbles -->
 <script define:vars={{ pillarsData: pillars }}>
   let activePillarId = null;
-  const container = document.getElementById('radial-container');
-  const satellitesLayer = document.getElementById('satellite-nodes-layer');
-  const svgLinesLayer = document.getElementById('svg-satellite-lines');
-  const centralNode = document.getElementById('central-node');
-  const pillarBtns = document.querySelectorAll('.pillar-btn');
+  const container = document.getElementById('floating-constellation-container');
+  const satellitesLayer = document.getElementById('satellite-bubbles-container');
+  const svgLinesLayer = document.getElementById('satellite-svg-lines');
+  const centerBubble = document.getElementById('center-main-bubble');
+  const pillarBtns = document.querySelectorAll('.pillar-bubble-btn');
 
-  // Mathematically balanced satellite offsets
+  // Relative percentage offsets for satellite bubbles surrounding each pillar
   const satelliteOffsets = {
     orkiestry: [
-      { dx: -135, dy: -55 },
-      { dx: -135, dy: 55 },
-      { dx: 0, dy: -125 },
+      { dx: -13.5, dy: -5.5 }, // top left
+      { dx: -13.0, dy: 6.5 },  // bottom left
+      { dx: 1.0, dy: -13.0 },  // top right
     ],
     chory: [
-      { dx: 135, dy: -50 },
-      { dx: 0, dy: -125 },
+      { dx: 13.5, dy: -5.5 },  // top right
+      { dx: -1.0, dy: -13.0 }, // top left
     ],
     teatr: [
-      { dx: 135, dy: 50 },
-      { dx: 0, dy: 125 },
+      { dx: 13.5, dy: 5.5 },   // bottom right
+      { dx: -1.0, dy: 13.0 },  // bottom left
     ],
     estrada: [
-      { dx: -135, dy: 50 },
-      { dx: 0, dy: 125 },
+      { dx: -13.5, dy: 5.5 },  // bottom left
+      { dx: 1.0, dy: 13.0 },   // bottom right
     ],
   };
 
@@ -319,12 +452,12 @@ const pillars = [
     pillarBtns.forEach((btn) => {
       const card = btn.querySelector('div');
       if (card) {
-        card.classList.remove('border-sky-400', 'scale-105', 'bg-[#142548]');
+        card.classList.remove('border-sky-300', 'scale-110', 'shadow-[0_0_35px_rgba(14,165,233,0.6)]', 'bg-sky-900/70');
       }
-      const badge = btn.querySelector('span.absolute');
+      const badge = btn.querySelector('.pillar-status-badge');
       if (badge) {
-        badge.textContent = 'Formacje';
-        badge.classList.remove('bg-sky-500', 'text-white');
+        badge.textContent = 'Eksploruj';
+        badge.classList.remove('bg-sky-500', 'text-white', 'border-sky-300');
       }
     });
   }
@@ -335,86 +468,86 @@ const pillars = [
     const pillar = pillarsData.find((p) => p.id === pillarId);
     if (!pillar) return;
 
-    // Highlight selected pillar card
-    const activeBtn = document.getElementById(`pillar-node-${pillarId}`);
+    // Highlight selected pillar bubble
+    const activeBtn = document.getElementById(`pillar-bubble-${pillarId}`);
     if (activeBtn) {
       const card = activeBtn.querySelector('div');
       if (card) {
-        card.classList.add('border-sky-400', 'scale-105', 'bg-[#142548]');
+        card.classList.add('border-sky-300', 'scale-110', 'shadow-[0_0_35px_rgba(14,165,233,0.6)]', 'bg-sky-900/70');
       }
-      const badge = activeBtn.querySelector('span.absolute');
+      const badge = activeBtn.querySelector('.pillar-status-badge');
       if (badge) {
         badge.textContent = 'Aktywny';
-        badge.classList.add('bg-sky-500', 'text-white');
+        badge.classList.add('bg-sky-500', 'text-white', 'border-sky-300');
       }
     }
 
     const offsets = satelliteOffsets[pillarId] || [];
 
     pillar.ensembles.forEach((ens, index) => {
-      const offset = offsets[index] || { dx: (index + 1) * 60, dy: (index + 1) * 40 };
-      const satX = pillar.cx + offset.dx;
-      const satY = pillar.cy + offset.dy;
+      const offset = offsets[index] || { dx: (index + 1) * 8, dy: (index + 1) * 6 };
+      const satXPercent = pillar.pos.x + offset.dx;
+      const satYPercent = pillar.pos.y + offset.dy;
 
-      // 1. Draw SVG connection line in 900x680 coordinate space
+      // 1. Draw SVG Connecting Beam
       if (svgLinesLayer) {
         const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', pillar.cx.toString());
-        line.setAttribute('y1', pillar.cy.toString());
-        line.setAttribute('x2', satX.toString());
-        line.setAttribute('y2', satY.toString());
-        line.setAttribute('stroke', '#38bdf8');
-        line.setAttribute('stroke-width', '1.5');
-        line.setAttribute('stroke-dasharray', '3 3');
-        line.setAttribute('opacity', '0.8');
-        line.classList.add('transition-all', 'duration-500');
+        line.setAttribute('x1', (pillar.pos.x * 10).toString());
+        line.setAttribute('y1', (pillar.pos.y * 6.6).toString());
+        line.setAttribute('x2', (satXPercent * 10).toString());
+        line.setAttribute('y2', (satYPercent * 6.6).toString());
+        line.setAttribute('stroke', 'url(#bubbleBeamGrad)');
+        line.setAttribute('stroke-width', '2');
+        line.setAttribute('stroke-dasharray', '4 4');
+        line.setAttribute('opacity', '0.85');
         svgLinesLayer.appendChild(line);
       }
 
-      // 2. Create interactive Satellite Node with exact percentage positioning
+      // 2. Create Floating Satellite Bubble
       if (satellitesLayer) {
-        const satNode = document.createElement('div');
-        satNode.className = 'satellite-node absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto cursor-pointer group z-30 transition-all duration-300 hover:scale-105';
-        
-        const satLeftPercent = (satX / 900) * 100;
-        const satTopPercent = (satY / 680) * 100;
-        satNode.style.left = `${satLeftPercent}%`;
-        satNode.style.top = `${satTopPercent}%`;
+        const satBubble = document.createElement('div');
+        satBubble.className = 'satellite-bubble absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto cursor-pointer group z-30 animate-satellite-in';
+        satBubble.style.left = `${satXPercent}%`;
+        satBubble.style.top = `${satYPercent}%`;
+        satBubble.style.animationDelay = `${index * 80}ms`;
 
-        satNode.innerHTML = `
-          <div class="relative p-3.5 rounded-sm bg-[#0f1d38] border border-white/15 hover:border-sky-400 w-48 text-left transition-all duration-300">
-            <div class="flex items-center justify-between gap-1 mb-1">
-              <span class="text-[9px] font-bold uppercase tracking-wider text-sky-300 px-2 py-0.5 rounded-sm bg-[#070d1a] border border-white/10 truncate font-sans">
-                ${ens.data.role}
-              </span>
-              <span class="text-[9px] text-sky-200/60 font-semibold font-sans flex-shrink-0">
-                ${ens.data.concertCount}
-              </span>
-            </div>
-            <h4 class="font-display font-bold text-xs text-white group-hover:text-sky-300 transition-colors leading-snug line-clamp-2">
+        satBubble.innerHTML = `
+          <div class="relative flex flex-col items-center justify-center w-36 h-36 sm:w-40 sm:h-40 rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/80 via-sky-950/90 to-[#070d1a]/95 border-2 border-sky-400/40 hover:border-sky-300 hover:scale-110 shadow-[0_0_25px_rgba(14,165,233,0.3)] hover:shadow-[0_0_40px_rgba(56,189,248,0.6)] transition-all duration-300 p-3 text-center">
+            
+            <span class="text-[9px] font-sans font-bold uppercase tracking-wider text-sky-300 px-2.5 py-0.5 rounded-full bg-[#070d1a]/90 border border-sky-400/30 mb-1 max-w-[90%] truncate">
+              ${ens.data.role}
+            </span>
+
+            <h4 class="font-display font-bold text-xs sm:text-[13px] text-white group-hover:text-sky-200 transition-colors leading-tight line-clamp-2 px-1">
               ${ens.data.name}
             </h4>
-            <div class="mt-2 pt-1.5 border-t border-sky-500/15 flex items-center justify-between text-[9px] text-sky-300 font-bold uppercase tracking-wider">
+
+            <span class="text-[10px] font-sans text-sky-200/70 font-medium mt-1">
+              ${ens.data.concertCount}
+            </span>
+
+            <div class="mt-1 flex items-center gap-1 text-[9px] font-sans font-bold uppercase tracking-wider text-sky-300 group-hover:text-white">
               <span>Szczegóły</span>
               <span class="text-sky-400 group-hover:translate-x-0.5 transition-transform">→</span>
             </div>
           </div>
         `;
 
-        satNode.addEventListener('click', () => {
+        // Directly open the full ensemble drawer on click
+        satBubble.addEventListener('click', () => {
           window.dispatchEvent(
             new CustomEvent('open-ensemble-drawer', {
-              detail: { ensembleSlug: ens.slug },
+              detail: { id: ens.slug, slug: ens.slug, ensembleSlug: ens.slug },
             })
           );
         });
 
-        satellitesLayer.appendChild(satNode);
+        satellitesLayer.appendChild(satBubble);
       }
     });
   }
 
-  // Initialize Desktop Event Listeners
+  // Desktop Event Listeners
   pillarBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const pillarId = btn.getAttribute('data-pillar-id');
@@ -422,39 +555,44 @@ const pillars = [
     });
   });
 
-  if (centralNode) {
-    centralNode.addEventListener('click', () => {
-      clearSatellites();
-      activePillarId = null;
+  if (centerBubble) {
+    centerBubble.addEventListener('click', () => {
+      // Toggle or reset
+      if (activePillarId) {
+        clearSatellites();
+        activePillarId = null;
+      } else {
+        selectPillar('orkiestry');
+      }
     });
   }
 
-  // Auto-open first pillar on desktop load
+  // Auto-activate first pillar on load for desktop
   if (window.innerWidth >= 1024) {
     setTimeout(() => {
       selectPillar('orkiestry');
-    }, 400);
+    }, 450);
   }
 
-  // Initialize Mobile Tabs
-  const mobileTabs = document.querySelectorAll('.mobile-tab-btn');
-  const mobileCards = document.querySelectorAll('.mobile-ensemble-card');
+  // Mobile Ribbon Tabs Logic
+  const mobilePillarBtns = document.querySelectorAll('[data-mobile-pillar-btn]');
+  const mobileCards = document.querySelectorAll('[data-mobile-pillar-parent]');
 
-  mobileTabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const pillarId = tab.getAttribute('data-mobile-pillar');
+  mobilePillarBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const pillarId = btn.getAttribute('data-mobile-pillar-btn');
       if (!pillarId) return;
 
-      mobileTabs.forEach((t) => {
-        t.classList.remove('bg-sky-600', 'border-sky-400', 'text-white');
-        t.classList.add('bg-[#0f1d38]', 'border-sky-500/20', 'text-slate-300');
+      mobilePillarBtns.forEach((b) => {
+        b.classList.remove('bg-sky-600', 'border-sky-400', 'text-white', 'shadow-md', 'shadow-sky-600/30');
+        b.classList.add('bg-sky-950/40', 'border-sky-400/20', 'text-slate-300');
       });
 
-      tab.classList.remove('bg-[#0f1d38]', 'border-sky-500/20', 'text-slate-300');
-      tab.classList.add('bg-sky-600', 'border-sky-400', 'text-white');
+      btn.classList.remove('bg-sky-950/40', 'border-sky-400/20', 'text-slate-300');
+      btn.classList.add('bg-sky-600', 'border-sky-400', 'text-white', 'shadow-md', 'shadow-sky-600/30');
 
       mobileCards.forEach((card) => {
-        const parentPillar = card.getAttribute('data-pillar-parent');
+        const parentPillar = card.getAttribute('data-mobile-pillar-parent');
         if (parentPillar === pillarId) {
           card.classList.remove('hidden');
           card.classList.add('block');
@@ -466,14 +604,14 @@ const pillars = [
     });
   });
 
-  // Mobile Drawer Click Triggers
+  // Mobile Open Drawer Buttons
   document.querySelectorAll('[data-open-drawer]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const slug = btn.getAttribute('data-open-drawer');
       if (slug) {
         window.dispatchEvent(
           new CustomEvent('open-ensemble-drawer', {
-            detail: { ensembleSlug: slug },
+            detail: { id: slug, slug: slug, ensembleSlug: slug },
           })
         );
       }
