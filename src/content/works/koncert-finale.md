@@ -18,6 +18,8 @@ metrics:
     value: "Chór im. prof. Wawrzyczka UWM"
   - label: "Dyrygentura"
     value: "Kacper Czeczot"
+  - label: "Promotor dzieła"
+    value: "dr hab. Katarzyna Bojaruniec, prof. UWM"
 videoHeading: "Zapis wideo"
 order: 1
 ---
@@ -27,6 +29,7 @@ order: 1
 Wydarzenie zrealizowane 13 maja 2025 roku w Filharmonii Warmińsko-Mazurskiej w Olsztynie jako zwieńczenie dyplomu dyrygenckiego na Wydziale Sztuki UWM:
 
 - **Kierownictwo muzyczne, dyrygentura & aranżacje:** Kacper Czeczot
+- **Promotor dzieła:** dr hab. Katarzyna Bojaruniec, prof. UWM
 - **Wykonawcy:** Chór im. prof. Wiktora Wawrzyczka UWM oraz Orkiestra
 - **Wyróżnienie:** Nagroda Dziekana za „Wybitne artystyczne dzieło dyplomowe”
 - **Repertuar:** Opracowanie hymnu *Nearer My God to Thee*, aranżacja symfoniczno-chóralna utworu *Bohemian Rhapsody* oraz *Psalm dla Ciebie*.
