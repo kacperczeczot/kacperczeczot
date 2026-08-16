@@ -52,7 +52,7 @@ W tym katalogu znajdują się wszystkie modularne komponenty interfejsu użytkow
 ### 5. `Footer.astro`
 * **Przeznaczenie:** Minimalistyczny moduł kontaktu i praw autorskich.
 * **Elementy:**
-  * Nagłówek `KONTAKT BEZPOŚREDNI` i zaproszenie do współpracy.
+  * Nagłówek `KONTAKT` i zaproszenie do współpracy.
   * Aktywny boks e-maila `kacperczeczot7@gmail.com` z przyciskiem szybkiego kopiowania do schowka.
   * Rząd linków do serwisów zewnętrznych (GitHub, YouTube).
   * Pasek praw autorskich.
