@@ -1,48 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#09090b" />
-      <stop offset="50%" stop-color="#18181b" />
-      <stop offset="100%" stop-color="#09090b" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b1528" />
+      <stop offset="100%" stop-color="#070d1a" />
     </linearGradient>
-    <radialGradient id="glow" cx="50%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.35" />
-      <stop offset="70%" stop-color="#3730a3" stop-opacity="0.08" />
-      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    <radialGradient id="glow" cx="50%" cy="18%" r="70%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.22" />
+      <stop offset="70%" stop-color="#3730a3" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#070d1a" stop-opacity="0" />
     </radialGradient>
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-    </pattern>
   </defs>
-  
   <rect width="100%" height="100%" fill="url(#bg)"/>
-  <rect width="100%" height="100%" fill="url(#grid)"/>
-  <circle cx="400" cy="200" r="280" fill="url(#glow)"/>
-  
-  <!-- Stage light cones -->
-  <polygon points="400,0 250,500 550,500" fill="#6366f1" opacity="0.04"/>
-  <polygon points="200,0 50,500 350,500" fill="#3730a3" opacity="0.03"/>
-  <polygon points="600,0 450,500 750,500" fill="#6366f1" opacity="0.03"/>
-
-  <!-- Soundwave/Score lines -->
-  <g stroke="#6366f1" stroke-opacity="0.25" stroke-width="1.5" fill="none">
+  <rect width="100%" height="100%" fill="url(#glow)"/>
+  <polygon points="400,0 220,500 580,500" fill="#6366f1" opacity="0.05"/>
+  <g stroke="#6366f1" stroke-opacity="0.22" stroke-width="1.2" fill="none">
     <path d="M 50 320 Q 200 280 400 320 T 750 320"/>
-    <path d="M 50 340 Q 200 300 400 340 T 750 340"/>
-    <path d="M 50 360 Q 200 320 400 360 T 750 360"/>
-    <path d="M 50 380 Q 200 340 400 380 T 750 380"/>
-    <path d="M 50 400 Q 200 360 400 400 T 750 400"/>
+    <path d="M 50 348 Q 200 308 400 348 T 750 348"/>
+    <path d="M 50 376 Q 200 336 400 376 T 750 376"/>
   </g>
-
-  <!-- Central Icon Badge -->
-  <circle cx="400" cy="180" r="64" fill="#18181b" stroke="#6366f1" stroke-width="2" stroke-opacity="0.6"/>
-  <circle cx="400" cy="180" r="54" fill="#27272a" opacity="0.8"/>
-  <text x="400" y="196" font-size="44" text-anchor="middle" dominant-baseline="central">🎙️</text>
-
-  <!-- Typography -->
-  <text x="400" y="295" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="24" font-weight="700" fill="#f4f4f5" text-anchor="middle" letter-spacing="0.5">Kameralistyka Wokalna</text>
-  <text x="400" y="330" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="500" fill="#a1a1aa" text-anchor="middle" letter-spacing="1.2">INTEGRACJA KLARNETU Z GŁOSAMI</text>
-
-  <!-- Border Frame -->
-  <rect x="16" y="16" width="768" height="468" rx="16" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-  <rect x="24" y="24" width="752" height="452" rx="12" fill="none" stroke="#6366f1" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="400" y="210" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#f8fafc" text-anchor="middle">Kameralistyka Wokalna</text>
+  <text x="400" y="242" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#7dd3fc" text-anchor="middle" letter-spacing="2.4">INTEGRACJA KLARNETU Z GŁOSAMI</text>
+  <rect x="16" y="16" width="768" height="468" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
 </svg>

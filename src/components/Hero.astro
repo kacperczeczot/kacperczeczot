@@ -1,82 +1,68 @@
 ---
-import { Music2, ChevronRight, Award, Layers, Sparkles } from 'lucide-astro';
-
 const credentials = [
-  { value: '300+', label: 'Występów Scenicznych', detail: 'Orkiestry, chóry, teatr i estrada' },
-  { value: '4', label: 'Filary Działalności', detail: 'Orkiestry, Chóry, Teatr, Estrada' },
-  { value: 'UWM', label: 'Najlepszy Absolwent', detail: 'Dyplom dyrygencki z wyróżnieniem' },
-  { value: 'PSM I & II', label: 'PSM w Mławie', detail: 'Fortepian i Wokalistyka z wyróżnieniem' },
+  { value: '300+', label: 'Występów scenicznych' },
+  { value: '4', label: 'Filary działalności' },
+  { value: 'UWM', label: 'Najlepszy Absolwent' },
+  { value: 'PSM', label: 'Fortepian i wokalistyka' },
 ];
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<section class="relative pt-36 pb-20 md:pt-48 md:pb-28 overflow-hidden">
-  
-  <!-- Atmospheric Blue Ambient Spotlight -->
-  <div class="absolute top-12 left-1/2 -translate-x-1/2 w-[850px] h-[480px] bg-gradient-radial from-sky-500/15 via-blue-600/5 to-transparent blur-3xl pointer-events-none -z-10"></div>
+<section class="relative pt-28 pb-16 md:pt-36 md:pb-24 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end">
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-    
-    <!-- Artistic Subtitle Badge -->
-    <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-sky-400/30 bg-[#0f1d38]/80 shadow-blue-glow mb-8 backdrop-blur-md">
-      <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
-      <span class="text-xs sm:text-sm font-semibold tracking-wide text-sky-200 uppercase font-display">
-        Dyrygentura • Wykonawstwo Sceniczne • Produkcja Muzyczna
-      </span>
-      <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+      <div class="lg:col-span-7 space-y-8">
+        <p class="text-xs font-sans tracking-[0.28em] uppercase text-sky-400">
+          KC · Portfolio artystyczne
+        </p>
+
+        <h1 class="font-display font-semibold text-white leading-[0.92] tracking-tight text-6xl sm:text-7xl lg:text-8xl">
+          <span class="italic text-sky-200/90">Kacper</span>
+          <span class="block mt-1">Czeczot</span>
+        </h1>
+
+        <p class="max-w-xl text-base sm:text-lg text-slate-300 font-sans font-light leading-relaxed">
+          Dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne oraz realizacja dźwięku.
+          Warsztat łączący filharmonię, teatr muzyczny i studio nagraniowe.
+        </p>
+
+        <a
+          href="#drzewo-radialne"
+          class="inline-flex items-center gap-3 border border-white/15 px-7 py-3.5 text-xs font-sans uppercase tracking-[0.22em] text-white hover:border-sky-400/50 hover:text-sky-200 editorial-hover"
+        >
+          <span>Eksploruj dorobek</span>
+          <span aria-hidden="true" class="text-sky-400">→</span>
+        </a>
+      </div>
+
+      <div class="lg:col-span-5">
+        <figure class="space-y-3">
+          <div class="border border-white/10 overflow-hidden bg-[#0b1528]">
+            <img
+              src={`${base}/images/hero-portrait.svg`}
+              alt="Portret sceniczny — sylwetka dyrygenta w świetle rampy"
+              class="w-full aspect-[4/5] object-cover"
+            />
+          </div>
+          <figcaption class="flex items-baseline justify-between gap-4 text-[11px] font-sans tracking-widest uppercase text-slate-400">
+            <span class="italic font-display text-sm tracking-normal normal-case text-sky-200/70">
+              Dyrygentura · Wykonawstwo Sceniczne · Realizacja Dźwięku
+            </span>
+            <span class="hidden sm:inline">01</span>
+          </figcaption>
+        </figure>
+      </div>
     </div>
 
-    <!-- Artist Name -->
-    <h1 class="text-5xl sm:text-7xl lg:text-8xl font-display font-extrabold tracking-tight text-white mb-6 leading-none">
-      <span class="block text-blue-gradient">Kacper</span>
-      <span class="block text-white mt-1">Czeczot</span>
-    </h1>
-
-    <!-- Decorative Philharmonic Divider -->
-    <div class="flex items-center justify-center gap-4 my-6 opacity-60 max-w-xs mx-auto">
-      <div class="h-[1.5px] flex-1 bg-gradient-to-r from-transparent via-sky-400 to-transparent"></div>
-      <span class="text-sky-400 text-xs font-serif">✦</span>
-      <div class="h-[1.5px] flex-1 bg-gradient-to-r from-transparent via-sky-400 to-transparent"></div>
-    </div>
-
-    <!-- Description -->
-    <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-sans leading-relaxed mb-12 font-normal">
-      Dyrygentura symfoniczna i orkiestr dętych, wykonawstwo instrumentalne i wokalne, spektakle teatralno-musicalowe oraz produkcja muzyczna i inżynieria dźwięku.
-    </p>
-
-    <!-- CTA Actions -->
-    <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
-      <a
-        href="#drzewo-radialne"
-        class="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-display text-sm tracking-wide font-bold text-white bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 shadow-blue-glow transition-all duration-300 hover:scale-105 active:scale-95"
-      >
-        <Music2 class="w-4 h-4 text-white" />
-        <span>Scena & Zespoły</span>
-      </a>
-      <a
-        href="/projekty-autorskie"
-        class="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-display text-sm tracking-wide font-semibold text-sky-100 bg-[#0f1d38]/80 border border-sky-400/30 hover:border-sky-400 hover:bg-[#142548] transition-all duration-300 shadow-ocean-card active:scale-95"
-      >
-        <span>Dzieła Autorskie</span>
-        <ChevronRight class="w-4 h-4 text-sky-400" />
-      </a>
-    </div>
-
-    <!-- Credentials Grid (Verified facts from personalna-baza-danych) -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto pt-6 border-t border-sky-500/15">
+    <ul class="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
       {credentials.map((item) => (
-        <div class="ocean-card p-6 rounded-2xl text-center group hover:border-sky-400/50 transition-all duration-300">
-          <div class="font-display font-extrabold text-2xl sm:text-3xl text-blue-gradient mb-1 group-hover:scale-105 transition-transform">
-            {item.value}
-          </div>
-          <div class="font-display font-bold text-xs sm:text-sm text-slate-100 tracking-wide mb-1">
-            {item.label}
-          </div>
-          <div class="text-[12px] text-sky-200/70 font-sans">
-            {item.detail}
-          </div>
-        </div>
+        <li class="bg-[#070d1a] px-5 py-6">
+          <p class="font-display text-3xl sm:text-4xl text-white">{item.value}</p>
+          <p class="mt-2 text-[11px] font-sans uppercase tracking-widest text-slate-400">{item.label}</p>
+        </li>
       ))}
-    </div>
-
+    </ul>
   </div>
 </section>

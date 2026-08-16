@@ -16,8 +16,8 @@ const navItems = [
     <div class="flex items-center justify-between h-20">
       
       <!-- Brand Logo / Monogram -->
-      <a href={base || '/'} class="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded-lg p-1">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 via-sky-600 to-blue-700 flex items-center justify-center text-white font-display font-extrabold text-base group-hover:scale-105 transition-all shadow-blue-glow">
+      <a href={base || '/'} class="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 p-1">
+        <div class="w-10 h-10 border border-white/15 flex items-center justify-center text-white font-display font-semibold text-lg group-hover:border-sky-400/50 transition-all">
           KC
         </div>
         <div class="flex flex-col">
@@ -37,17 +37,14 @@ const navItems = [
           return (
             <a
               href={item.href}
-              class={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all relative ${
+              class={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-all relative ${
                 item.active
-                  ? 'text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-xs'
-                  : 'text-slate-300 hover:text-white hover:bg-white/5'
+                  ? 'text-sky-300 border-b border-sky-400'
+                  : 'text-slate-300 hover:text-white'
               }`}
             >
               <Icon class={`w-4 h-4 ${item.active ? 'text-sky-400' : 'text-slate-400'}`} />
               <span>{item.label}</span>
-              {item.active && (
-                <span class="absolute -bottom-[17px] left-1/2 -translate-x-1/2 w-8 h-[2px] bg-gradient-to-r from-transparent via-sky-400 to-transparent"></span>
-              )}
             </a>
           );
         })}
@@ -57,7 +54,7 @@ const navItems = [
       <div class="hidden md:flex items-center gap-3">
         <a
           href="#kontakt"
-          class="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 transition-all shadow-blue-glow active:scale-95"
+          class="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white border border-white/15 hover:border-sky-400/50 hover:text-sky-200 transition-all"
         >
           <Mail class="w-4 h-4" />
           <span>Kontakt</span>
@@ -70,7 +67,7 @@ const navItems = [
           id="mobile-menu-button"
           type="button"
           aria-label="Otwórz menu"
-          class="p-2.5 rounded-xl text-slate-300 hover:text-white bg-slate-900 border border-sky-500/20 focus:outline-none focus:ring-2 focus:ring-sky-400"
+          class="p-2.5 text-slate-300 hover:text-white border border-white/15 focus:outline-none focus:ring-2 focus:ring-sky-400"
         >
           <Menu id="menu-open-icon" class="w-6 h-6" />
           <X id="menu-close-icon" class="w-6 h-6 hidden" />
@@ -87,10 +84,10 @@ const navItems = [
       return (
         <a
           href={item.href}
-          class={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+          class={`flex items-center gap-3 px-4 py-3 text-sm font-medium transition-all border-b border-white/10 ${
             item.active
-              ? 'text-sky-300 bg-sky-500/20 border border-sky-500/40'
-              : 'text-slate-300 hover:text-white hover:bg-white/5'
+              ? 'text-sky-300'
+              : 'text-slate-300 hover:text-white'
           }`}
         >
           <Icon class={`w-4 h-4 ${item.active ? 'text-sky-400' : 'text-slate-400'}`} />
@@ -101,7 +98,7 @@ const navItems = [
     <div class="pt-4 mt-2 border-t border-sky-500/15">
       <a
         href="#kontakt"
-        class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-sky-500 to-blue-600 shadow-blue-glow"
+        class="flex items-center justify-center gap-2 w-full px-4 py-3 text-sm font-semibold text-white border border-white/15"
       >
         <Mail class="w-4 h-4" />
         <span>Nawiąż Kontakt</span>

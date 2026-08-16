@@ -63,16 +63,13 @@ const pillars = [
 ];
 ---
 
-<section id="drzewo-radialne" class="relative py-28 md:py-36 overflow-hidden bg-[#070d1a]">
-  
-  <!-- Subtle Azure Glow Background -->
-  <div class="absolute inset-0 bg-gradient-radial from-sky-500/10 via-transparent to-transparent pointer-events-none -z-10"></div>
+<section id="drzewo-radialne" class="relative py-28 md:py-36 overflow-hidden bg-[#070d1a] border-t border-white/10">
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Title -->
     <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-sky-400/30 bg-[#0f1d38] text-sky-200 text-xs font-semibold uppercase tracking-wider font-display">
+      <div class="inline-flex items-center gap-2.5 text-sky-200 text-xs font-sans uppercase tracking-[0.28em]">
         <Sparkles class="w-3.5 h-3.5 text-sky-400" />
         <span>Działalność Zespołowa</span>
       </div>
@@ -95,7 +92,7 @@ const pillars = [
     <!-- ========================================== -->
     <!-- DESKTOP RADIAL CONSTELLATION (>= 1024px) -->
     <!-- ========================================== -->
-    <div class="hidden lg:block relative w-full max-w-5xl mx-auto aspect-[900/680] rounded-3xl border border-sky-500/20 bg-[#0b1528]/90 backdrop-blur-2xl p-4 shadow-ocean-card overflow-hidden" id="radial-container">
+    <div class="hidden lg:block relative w-full max-w-5xl mx-auto aspect-[900/680] rounded-none border border-white/10 bg-[#0b1528]/90 p-4 overflow-hidden" id="radial-container">
       
       <!-- SVG Orbital Lines (Exact 900x680 geometry) -->
       <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 900 680" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,14 +135,14 @@ const pillars = [
         style="left: 50%; top: 50%;"
         class="absolute -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer group focus:outline-none"
       >
-        <div class="relative flex flex-col items-center justify-center w-44 h-44 rounded-full bg-[#0f1d38] border-2 border-sky-400 shadow-blue-glow group-hover:scale-105 transition-all duration-300 backdrop-blur-md">
+        <div class="relative flex flex-col items-center justify-center w-44 h-44 rounded-full bg-[#0f1d38] border border-sky-400/50 group-hover:scale-105 transition-all duration-300">
           
           <!-- Outer Pulsing Halo -->
           <div class="absolute -inset-2.5 rounded-full border border-sky-400/30 animate-pulse"></div>
           
           <span class="text-sky-300 text-xs font-semibold uppercase tracking-wider font-display mb-0.5">Dorobek</span>
 
-          <span class="font-display font-extrabold text-3xl text-blue-gradient tracking-tight">
+          <span class="font-display font-bold text-3xl text-blue-gradient tracking-tight">
             300+
           </span>
           <span class="text-xs font-bold text-slate-100 uppercase tracking-wider text-center px-2 leading-tight font-display">
@@ -168,9 +165,9 @@ const pillars = [
             style={`left: ${leftPercent}%; top: ${topPercent}%;`}
             class={`pillar-btn absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group focus:outline-none transition-all duration-300`}
           >
-            <div class="relative flex flex-col items-center justify-center w-36 h-36 rounded-3xl bg-[#0f1d38]/90 border border-sky-400/25 hover:border-sky-400 shadow-ocean-card backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-blue-glow">
+            <div class="relative flex flex-col items-center justify-center w-36 h-36 rounded-sm bg-[#0f1d38]/90 border border-white/10 hover:border-sky-400 transition-all duration-300 group-hover:scale-105">
               
-              <span class="p-2.5 rounded-xl bg-[#070d1a] border border-sky-400/20 text-sky-400 mb-1.5 transition-all">
+              <span class="p-2.5 rounded-sm bg-[#070d1a] border border-white/10 text-sky-400 mb-1.5 transition-all">
                 <Icon class="w-5 h-5" />
               </span>
 
@@ -182,7 +179,7 @@ const pillars = [
                 {pillar.count}
               </span>
 
-              <span class="absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-[#070d1a] border border-sky-400/30 text-sky-200 text-[10px] font-display uppercase tracking-wider group-hover:bg-sky-500 group-hover:text-white transition-all font-semibold shadow-xs">
+              <span class="absolute -bottom-2.5 px-3 py-0.5 rounded-sm bg-[#070d1a] border border-white/10 text-sky-200 text-[10px] font-sans uppercase tracking-wider group-hover:border-sky-400 transition-all">
                 Formacje
               </span>
             </div>
@@ -213,10 +210,10 @@ const pillars = [
             <button
               type="button"
               data-mobile-pillar={pillar.id}
-              class={`mobile-tab-btn flex items-center gap-2.5 px-5 py-3.5 rounded-2xl border text-xs font-display tracking-wider uppercase font-semibold whitespace-nowrap transition-all snap-start flex-shrink-0 ${
+              class={`mobile-tab-btn flex items-center gap-2.5 px-5 py-3.5 rounded-sm border text-xs font-sans tracking-wider uppercase font-semibold whitespace-nowrap transition-all snap-start flex-shrink-0 ${
                 idx === 0
-                  ? 'bg-sky-600 border-sky-400 text-white shadow-blue-glow'
-                  : 'bg-[#0f1d38] border-sky-500/20 text-slate-300 hover:text-white'
+                  ? 'bg-sky-600 border-sky-400 text-white'
+                  : 'bg-[#0f1d38] border-white/10 text-slate-300 hover:text-white'
               }`}
             >
               <Icon class="w-4 h-4" />
@@ -233,13 +230,13 @@ const pillars = [
           pillar.ensembles.map((ens) => (
             <div
               data-pillar-parent={pillar.id}
-              class={`mobile-ensemble-card ocean-card p-6 rounded-2xl border border-sky-500/20 hover:border-sky-400 transition-all flex flex-col justify-between group shadow-ocean-card ${
+              class={`mobile-ensemble-card ocean-card p-6 rounded-sm border border-white/10 hover:border-sky-400/40 transition-all flex flex-col justify-between group ${
                 pIdx === 0 ? 'block' : 'hidden'
               }`}
             >
               <div class="space-y-3">
                 <div class="flex items-center justify-between">
-                  <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#070d1a] text-sky-300 border border-sky-400/30 font-display">
+                  <span class="px-3 py-1 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-[#070d1a] text-sky-300 border border-white/10 font-sans">
                     {ens.data.role}
                   </span>
                   <span class="text-xs text-sky-200/60 font-medium">
@@ -259,7 +256,7 @@ const pillars = [
               <button
                 type="button"
                 data-open-drawer={ens.slug}
-                class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#070d1a] border border-sky-500/30 hover:border-sky-400 text-sky-200 hover:text-white transition-all text-xs font-display uppercase tracking-wider font-semibold shadow-xs"
+                class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-sm bg-[#070d1a] border border-white/15 hover:border-sky-400 text-sky-200 hover:text-white transition-all text-xs font-sans uppercase tracking-wider font-semibold"
               >
                 <span>Szczegóły</span>
                 <Maximize2 class="w-3.5 h-3.5 text-sky-400" />
@@ -322,7 +319,7 @@ const pillars = [
     pillarBtns.forEach((btn) => {
       const card = btn.querySelector('div');
       if (card) {
-        card.classList.remove('border-sky-400', 'shadow-blue-glow', 'scale-105', 'bg-[#142548]');
+        card.classList.remove('border-sky-400', 'scale-105', 'bg-[#142548]');
       }
       const badge = btn.querySelector('span.absolute');
       if (badge) {
@@ -343,7 +340,7 @@ const pillars = [
     if (activeBtn) {
       const card = activeBtn.querySelector('div');
       if (card) {
-        card.classList.add('border-sky-400', 'shadow-blue-glow', 'scale-105', 'bg-[#142548]');
+        card.classList.add('border-sky-400', 'scale-105', 'bg-[#142548]');
       }
       const badge = activeBtn.querySelector('span.absolute');
       if (badge) {
@@ -385,9 +382,9 @@ const pillars = [
         satNode.style.top = `${satTopPercent}%`;
 
         satNode.innerHTML = `
-          <div class="relative p-3.5 rounded-2xl bg-[#0f1d38] border border-sky-400/40 hover:border-sky-400 shadow-ocean-card hover:shadow-blue-glow w-48 text-left transition-all duration-300">
+          <div class="relative p-3.5 rounded-sm bg-[#0f1d38] border border-white/15 hover:border-sky-400 w-48 text-left transition-all duration-300">
             <div class="flex items-center justify-between gap-1 mb-1">
-              <span class="text-[9px] font-bold uppercase tracking-wider text-sky-300 px-2 py-0.5 rounded-full bg-[#070d1a] border border-sky-400/20 truncate font-display">
+              <span class="text-[9px] font-bold uppercase tracking-wider text-sky-300 px-2 py-0.5 rounded-sm bg-[#070d1a] border border-white/10 truncate font-sans">
                 ${ens.data.role}
               </span>
               <span class="text-[9px] text-sky-200/60 font-semibold font-sans flex-shrink-0">
@@ -449,12 +446,12 @@ const pillars = [
       if (!pillarId) return;
 
       mobileTabs.forEach((t) => {
-        t.classList.remove('bg-sky-600', 'border-sky-400', 'text-white', 'shadow-blue-glow');
+        t.classList.remove('bg-sky-600', 'border-sky-400', 'text-white');
         t.classList.add('bg-[#0f1d38]', 'border-sky-500/20', 'text-slate-300');
       });
 
       tab.classList.remove('bg-[#0f1d38]', 'border-sky-500/20', 'text-slate-300');
-      tab.classList.add('bg-sky-600', 'border-sky-400', 'text-white', 'shadow-blue-glow');
+      tab.classList.add('bg-sky-600', 'border-sky-400', 'text-white');
 
       mobileCards.forEach((card) => {
         const parentPillar = card.getAttribute('data-pillar-parent');

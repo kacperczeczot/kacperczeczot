@@ -26,7 +26,7 @@ export default {
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-        display: ['"Outfit"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
       },
       boxShadow: {
         'ocean-card': '0 8px 30px -6px rgba(2, 6, 23, 0.6), 0 2px 8px -2px rgba(14, 165, 233, 0.1)',

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Studio nagraniowe i reżyserka">
+  
+  <defs>
+    <linearGradient id="ec-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1528"/>
+      <stop offset="55%" stop-color="#070d1a"/>
+      <stop offset="100%" stop-color="#050810"/>
+    </linearGradient>
+    <radialGradient id="ec-spot" cx="50%" cy="8%" r="70%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.22"/>
+      <stop offset="45%" stop-color="#1c3464" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#070d1a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ec-haze" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#070d1a" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#070d1a" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="ec-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#ec-bg)"/>
+  <rect width="1600" height="900" fill="url(#ec-spot)"/>
+  <!-- control room window -->
+  <rect x="90" y="90" width="900" height="520" fill="#091224" stroke="rgba(125,211,252,0.25)" stroke-width="2"/>
+  <rect x="110" y="110" width="860" height="480" fill="#050810" stroke="rgba(56,189,248,0.12)"/>
+  <!-- live room suggestion -->
+  <g opacity="0.55">
+    <rect x="220" y="220" width="180" height="240" fill="none" stroke="#38bdf8" stroke-opacity="0.25"/>
+    <ellipse cx="540" cy="360" rx="70" ry="90" fill="#0f1d38" stroke="#7dd3fc" stroke-opacity="0.3"/>
+    <rect x="680" y="250" width="140" height="220" fill="#0f1d38" stroke="#38bdf8" stroke-opacity="0.2"/>
+  </g>
+  <!-- mixing desk -->
+  <rect x="80" y="640" width="1440" height="180" fill="#0b1528" stroke="rgba(56,189,248,0.2)"/>
+  <rect x="120" y="740" width="10" height="40" fill="#38bdf8" opacity="0.75"/><rect x="162" y="723" width="10" height="57" fill="#1c3464" opacity="0.75"/><rect x="204" y="706" width="10" height="74" fill="#1c3464" opacity="0.75"/><rect x="246" y="689" width="10" height="91" fill="#1c3464" opacity="0.75"/><rect x="288" y="672" width="10" height="108" fill="#1c3464" opacity="0.75"/><rect x="330" y="725" width="10" height="55" fill="#38bdf8" opacity="0.75"/><rect x="372" y="708" width="10" height="72" fill="#1c3464" opacity="0.75"/><rect x="414" y="691" width="10" height="89" fill="#1c3464" opacity="0.75"/><rect x="456" y="674" width="10" height="106" fill="#1c3464" opacity="0.75"/><rect x="498" y="727" width="10" height="53" fill="#1c3464" opacity="0.75"/><rect x="540" y="710" width="10" height="70" fill="#38bdf8" opacity="0.75"/><rect x="582" y="693" width="10" height="87" fill="#1c3464" opacity="0.75"/><rect x="624" y="676" width="10" height="104" fill="#1c3464" opacity="0.75"/><rect x="666" y="729" width="10" height="51" fill="#1c3464" opacity="0.75"/><rect x="708" y="712" width="10" height="68" fill="#1c3464" opacity="0.75"/><rect x="750" y="695" width="10" height="85" fill="#38bdf8" opacity="0.75"/><rect x="792" y="678" width="10" height="102" fill="#1c3464" opacity="0.75"/><rect x="834" y="731" width="10" height="49" fill="#1c3464" opacity="0.75"/><rect x="876" y="714" width="10" height="66" fill="#1c3464" opacity="0.75"/><rect x="918" y="697" width="10" height="83" fill="#1c3464" opacity="0.75"/><rect x="960" y="680" width="10" height="100" fill="#38bdf8" opacity="0.75"/><rect x="1002" y="733" width="10" height="47" fill="#1c3464" opacity="0.75"/><rect x="1044" y="716" width="10" height="64" fill="#1c3464" opacity="0.75"/><rect x="1086" y="699" width="10" height="81" fill="#1c3464" opacity="0.75"/><rect x="1128" y="682" width="10" height="98" fill="#1c3464" opacity="0.75"/><rect x="1170" y="735" width="10" height="45" fill="#38bdf8" opacity="0.75"/><rect x="1212" y="718" width="10" height="62" fill="#1c3464" opacity="0.75"/><rect x="1254" y="701" width="10" height="79" fill="#1c3464" opacity="0.75"/><rect x="1296" y="684" width="10" height="96" fill="#1c3464" opacity="0.75"/><rect x="1338" y="737" width="10" height="43" fill="#1c3464" opacity="0.75"/><rect x="1380" y="720" width="10" height="60" fill="#38bdf8" opacity="0.75"/><rect x="1422" y="703" width="10" height="77" fill="#1c3464" opacity="0.75"/>
+  <!-- meters -->
+  <g>
+    <rect x="1080" y="140" width="70" height="200" fill="#070d1a" stroke="#38bdf8" stroke-opacity="0.35"/>
+      <rect x="1090" y="160" width="50" height="160" fill="#0ea5e9" opacity="0.25"/><rect x="1190" y="140" width="70" height="200" fill="#070d1a" stroke="#38bdf8" stroke-opacity="0.35"/>
+      <rect x="1200" y="178" width="50" height="142" fill="#0ea5e9" opacity="0.25"/><rect x="1300" y="140" width="70" height="200" fill="#070d1a" stroke="#38bdf8" stroke-opacity="0.35"/>
+      <rect x="1310" y="196" width="50" height="124" fill="#0ea5e9" opacity="0.25"/><rect x="1410" y="140" width="70" height="200" fill="#070d1a" stroke="#38bdf8" stroke-opacity="0.35"/>
+      <rect x="1420" y="214" width="50" height="106" fill="#0ea5e9" opacity="0.25"/>
+  </g>
+  <rect x="18" y="18" width="1564" height="864" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  
+  <text x="800" y="850" fill="#7dd3fc" font-family="Georgia, 'Times New Roman', serif" font-size="11" letter-spacing="3.2" text-anchor="middle">ECHO EPOK</text>
+  <text x="800" y="868" fill="rgba(226,232,240,0.55)" font-family="system-ui, sans-serif" font-size="10" letter-spacing="1.6" text-anchor="middle">REŻYSERKA DŹWIĘKU · INSTRUMENTARIUM · SESJA WIELOŚLADOWA</text>
+</svg>

@@ -15,27 +15,21 @@ const {
 ---
 
 <div class={`space-y-4 ${align === 'center' ? 'text-center max-w-3xl mx-auto' : 'text-left max-w-2xl'}`}>
-  <!-- Badge -->
-  <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-sky-400/30 bg-[#0f1d38] text-sky-200 text-xs font-semibold uppercase tracking-wider font-display">
-    <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
-    <span>{badge}</span>
-  </div>
+  <p class="text-xs font-sans uppercase tracking-[0.28em] text-sky-400">
+    {badge}
+  </p>
 
-  <!-- Heading -->
-  <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-white">
+  <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-semibold tracking-tight text-white">
     {title}
   </h2>
 
-  <!-- Subtitle -->
   {subtitle && (
-    <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+    <p class="text-base sm:text-lg text-slate-400 font-sans font-light leading-relaxed">
       {subtitle}
     </p>
   )}
 
-  <div class={`flex items-center gap-3 pt-1 opacity-50 ${align === 'center' ? 'justify-center' : 'justify-start'}`}>
-    <div class="w-10 h-[1.5px] bg-gradient-to-r from-transparent to-sky-400"></div>
-    <span class="text-sky-400 text-xs">✦</span>
-    <div class="w-10 h-[1.5px] bg-gradient-to-l from-transparent to-sky-400"></div>
+  <div class={`flex items-center gap-3 pt-1 ${align === 'center' ? 'justify-center' : 'justify-start'}`}>
+    <div class="w-12 h-px bg-white/15"></div>
   </div>
 </div>
