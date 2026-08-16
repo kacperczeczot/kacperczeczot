@@ -30,7 +30,6 @@ const categories = [
     name: 'Orkiestry',
     subtitle: 'Składy dęte i symfoniczne',
     count: '3 formacje',
-    icon: 'Music',
     pos: { x: 25, y: 28 },
     ensembles: orkiestry,
   },
@@ -39,7 +38,6 @@ const categories = [
     name: 'Chóry & Zespoły',
     subtitle: 'Składy wokalne & polifonia',
     count: '2 składy',
-    icon: 'Mic',
     pos: { x: 75, y: 28 },
     ensembles: chory,
   },
@@ -48,7 +46,6 @@ const categories = [
     name: 'Scena & Teatr',
     subtitle: 'Operetka & musical',
     count: '2 produkcje',
-    icon: 'Drama',
     pos: { x: 75, y: 72 },
     ensembles: teatr,
   },
@@ -57,11 +54,12 @@ const categories = [
     name: 'Kameralistyka & Estrada',
     subtitle: 'Live sound & składy estradowe',
     count: '2 zespoły',
-    icon: 'Radio',
     pos: { x: 25, y: 72 },
     ensembles: estrada,
   },
 ];
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // Clean JSON payload for client-side zoom transitions
 const categoriesPayload = categories.map(cat => ({
@@ -76,7 +74,7 @@ const categoriesPayload = categories.map(cat => ({
     concertCount: ens.data.concertCount,
     highlights: ens.data.highlights,
     body: ens.body,
-    photos: ens.data.photos,
+    photos: ens.data.photos.map(p => (p.startsWith('/') ? `${base}${p}` : p)),
   })),
 }));
 ---
@@ -135,6 +133,8 @@ const categoriesPayload = categories.map(cat => ({
         <div
           id="bubble-center"
           data-physics-bubble
+          data-base-x="50"
+          data-base-y="50"
           style="left: 50%; top: 50%;"
           class="interactive-bubble absolute -translate-x-1/2 -translate-y-1/2 z-20"
         >
@@ -166,6 +166,8 @@ const categoriesPayload = categories.map(cat => ({
               id={`cat-bubble-${cat.id}`}
               data-cat-id={cat.id}
               data-physics-bubble
+              data-base-x={cat.pos.x}
+              data-base-y={cat.pos.y}
               role="button"
               tabindex="0"
               style={`left: ${cat.pos.x}%; top: ${cat.pos.y}%;`}
@@ -228,9 +230,9 @@ const categoriesPayload = categories.map(cat => ({
           </div>
         </div>
 
-        <!-- Level 2 Floating Ensembles Container -->
+        <!-- Level 2 Floating Ensembles Organic Cluster -->
         <div id="level-2-bubbles-container" class="relative flex-1 w-full h-full overflow-hidden">
-          <!-- Dynamically populated ensemble bubbles with physics -->
+          <!-- Dynamically populated ensemble bubbles in constellation layout -->
         </div>
       </div>
 
@@ -253,12 +255,11 @@ const categoriesPayload = categories.map(cat => ({
           </button>
 
           <button
-            id="btn-level-3-drawer-trigger"
+            id="btn-level-3-to-root"
             type="button"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-600/80 hover:bg-sky-500 border border-sky-400 text-white text-xs font-sans uppercase tracking-wider font-semibold transition-all shadow-md focus:outline-none"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-200 hover:text-white hover:border-sky-300 text-xs font-sans uppercase tracking-wider font-semibold transition-all focus:outline-none"
           >
-            <span>Otwórz panel boczny</span>
-            <Maximize2 class="w-3.5 h-3.5" />
+            <span>Wszystkie kategorie</span>
           </button>
         </div>
 
@@ -303,11 +304,14 @@ const categoriesPayload = categories.map(cat => ({
 
             <!-- Right Column: Photos Grid -->
             <div class="lg:col-span-5 space-y-3">
-              <h4 class="text-xs font-sans font-bold uppercase tracking-[0.2em] text-sky-400">
-                Kadry i materiały archiwalne
-              </h4>
+              <div class="flex items-center justify-between">
+                <h4 class="text-xs font-sans font-bold uppercase tracking-[0.2em] text-sky-400">
+                  Kadry i materiały archiwalne
+                </h4>
+                <span class="text-[10px] text-slate-500 font-sans uppercase tracking-wider">Kliknij, aby powiększyć</span>
+              </div>
               <div id="level-3-photos-grid" class="grid grid-cols-2 gap-3">
-                <!-- Dynamic photos -->
+                <!-- Dynamic photos with lightbox support -->
               </div>
             </div>
 
@@ -319,7 +323,7 @@ const categoriesPayload = categories.map(cat => ({
     </div>
 
     <!-- ======================================================= -->
-    <!-- MOBILE / TABLET TOUCH CAROUSEL & RIBBON (< 1024px)      -->
+    <!-- MOBILE / TABLET TOUCH SECTION (< 1024px)                -->
     <!-- ======================================================= -->
     <div class="block lg:hidden space-y-6">
       
@@ -377,7 +381,7 @@ const categoriesPayload = categories.map(cat => ({
                 cIdx === 0 ? 'block' : 'hidden'
               }`}
             >
-              <div class="space-y-3">
+              <div class="space-y-4">
                 <div class="flex items-center justify-between gap-2">
                   <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-sky-950/80 text-sky-300 border border-sky-400/30 font-sans">
                     {ens.data.role}
@@ -391,19 +395,41 @@ const categoriesPayload = categories.map(cat => ({
                   {ens.data.name}
                 </h3>
 
-                <p class="text-xs text-slate-300 font-sans font-light line-clamp-3 leading-relaxed">
+                <p class="text-xs text-slate-300 font-sans font-light leading-relaxed">
                   {ens.body}
                 </p>
+
+                <!-- Highlights on Mobile -->
+                {ens.data.highlights && ens.data.highlights.length > 0 && (
+                  <ul class="pt-2 border-t border-white/10 space-y-1.5 text-xs text-slate-300">
+                    {ens.data.highlights.slice(0, 2).map((h) => (
+                      <li class="flex items-start gap-2">
+                        <span class="text-sky-400 font-bold">✦</span>
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
-              <button
-                type="button"
-                data-open-drawer={ens.slug}
-                class="mt-5 w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-sky-900/40 hover:bg-sky-600/80 border border-sky-400/30 hover:border-sky-300 text-sky-200 hover:text-white transition-all text-xs font-sans uppercase tracking-wider font-semibold group/btn"
-              >
-                <span>Szczegóły</span>
-                <ArrowUpRight class="w-4 h-4 text-sky-400 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-              </button>
+              <!-- Photos Grid on Mobile -->
+              {ens.data.photos && ens.data.photos.length > 0 && (
+                <div class="mt-4 pt-3 border-t border-white/10 grid grid-cols-2 gap-2">
+                  {ens.data.photos.slice(0, 2).map((p) => {
+                    const fullPhotoUrl = p.startsWith('/') ? `${base}${p}` : p;
+                    return (
+                      <button
+                        type="button"
+                        data-lightbox-src={fullPhotoUrl}
+                        data-lightbox-alt={`${ens.data.name} — kadr`}
+                        class="aspect-[16/10] overflow-hidden rounded-lg border border-white/10 bg-[#0b1528] focus:outline-none focus:ring-2 focus:ring-sky-400"
+                      >
+                        <img src={fullPhotoUrl} alt={ens.data.name} class="w-full h-full object-cover opacity-85 hover:opacity-100 transition-opacity" loading="lazy" />
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           ))
         ))}
@@ -417,12 +443,11 @@ const categoriesPayload = categories.map(cat => ({
 <!-- Scoped Styles -->
 <style>
   .interactive-bubble {
-    transition: transform 0.15s cubic-bezier(0.2, 0, 0.2, 1);
     will-change: transform;
   }
 </style>
 
-<!-- Client Script for 3-Level Interactive Zoom and Pointer Physics -->
+<!-- Client Script for 3-Level Interactive Zoom and True Individual Proximity Physics -->
 <script define:vars={{ categoriesPayload }}>
   const container = document.getElementById('zoomable-canvas-container');
   const level1 = document.getElementById('canvas-level-1');
@@ -432,7 +457,7 @@ const categoriesPayload = categories.map(cat => ({
   const btnBackTo1 = document.getElementById('btn-back-to-level-1');
   const btnBackTo2 = document.getElementById('btn-back-to-level-2');
   const btnBackTo2Text = document.getElementById('btn-back-to-level-2-text');
-  const btnLevel3Drawer = document.getElementById('btn-level-3-drawer-trigger');
+  const btnLevel3ToRoot = document.getElementById('btn-level-3-to-root');
 
   const level2CatBadge = document.getElementById('level-2-cat-badge');
   const level2CatTitle = document.getElementById('level-2-cat-title');
@@ -449,87 +474,118 @@ const categoriesPayload = categories.map(cat => ({
   let activeCategory = null;
   let activeEnsemble = null;
 
-  // Pointer Physics State
-  let mouseX = 0;
-  let mouseY = 0;
+  // Local Proximity Physics State
+  let mouseClientX = -9999;
+  let mouseClientY = -9999;
   let isMouseInside = false;
 
-  // Physics nodes registration
   let physicsNodes = [];
 
-  function initPhysicsForLevel1() {
+  function registerPhysicsNodes(elements, containerRect) {
     physicsNodes = [];
-    const elements = level1 ? level1.querySelectorAll('[data-physics-bubble]') : [];
-    elements.forEach((el) => {
+    if (!elements || elements.length === 0 || !containerRect) return;
+
+    elements.forEach((el, index) => {
+      const rect = el.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
       physicsNodes.push({
         element: el,
+        baseCenterX: centerX,
+        baseCenterY: centerY,
         currentX: 0,
         currentY: 0,
         targetX: 0,
         targetY: 0,
-        factor: el.id === 'bubble-center' ? 0.015 : 0.035,
+        // Individual spring speed / inertia per bubble
+        springFactor: 0.08 + (index % 3) * 0.02,
+        maxPush: 30 + (index % 2) * 5,
       });
     });
   }
 
-  function initPhysicsForLevel2() {
-    physicsNodes = [];
-    if (!level2BubblesContainer) return;
-    const elements = level2BubblesContainer.querySelectorAll('[data-ensemble-bubble]');
-    elements.forEach((el, idx) => {
-      physicsNodes.push({
-        element: el,
-        currentX: 0,
-        currentY: 0,
-        targetX: 0,
-        targetY: 0,
-        factor: 0.03 + (idx * 0.01),
-      });
-    });
-  }
+  function initPhysicsForCurrentLevel() {
+    if (!container) return;
+    const containerRect = container.getBoundingClientRect();
 
-  // Animation frame loop for smooth inertia
-  function updatePhysics() {
-    if (container && isMouseInside) {
-      const rect = container.getBoundingClientRect();
-      const relX = mouseX - (rect.left + rect.width / 2);
-      const relY = mouseY - (rect.top + rect.height / 2);
-
-      physicsNodes.forEach((node) => {
-        node.targetX = relX * node.factor;
-        node.targetY = relY * node.factor;
-        node.currentX += (node.targetX - node.currentX) * 0.1;
-        node.currentY += (node.targetY - node.currentY) * 0.1;
-        node.element.style.transform = `translate(calc(-50% + ${node.currentX.toFixed(2)}px), calc(-50% + ${node.currentY.toFixed(2)}px))`;
-      });
+    if (currentLevel === 1 && level1) {
+      const elements = level1.querySelectorAll('[data-physics-bubble]');
+      registerPhysicsNodes(elements, containerRect);
+    } else if (currentLevel === 2 && level2BubblesContainer) {
+      const elements = level2BubblesContainer.querySelectorAll('[data-ensemble-bubble]');
+      registerPhysicsNodes(elements, containerRect);
     } else {
+      physicsNodes = [];
+    }
+  }
+
+  // True Local Proximity Repulsion Loop
+  const REACTION_RADIUS = 200; // Only bubbles within 200px of mouse react
+
+  function updatePhysicsLoop() {
+    if (physicsNodes.length > 0) {
       physicsNodes.forEach((node) => {
-        node.targetX = 0;
-        node.targetY = 0;
-        node.currentX += (node.targetX - node.currentX) * 0.1;
-        node.currentY += (node.targetY - node.currentY) * 0.1;
+        if (isMouseInside) {
+          const dx = node.baseCenterX - mouseClientX;
+          const dy = node.baseCenterY - mouseClientY;
+          const distance = Math.hypot(dx, dy);
+
+          if (distance < REACTION_RADIUS && distance > 1) {
+            // Repel away from mouse
+            const force = (1 - distance / REACTION_RADIUS) * node.maxPush;
+            const angle = Math.atan2(dy, dx);
+            node.targetX = Math.cos(angle) * force;
+            node.targetY = Math.sin(angle) * force;
+          } else {
+            node.targetX = 0;
+            node.targetY = 0;
+          }
+        } else {
+          node.targetX = 0;
+          node.targetY = 0;
+        }
+
+        // Smooth individual spring return
+        node.currentX += (node.targetX - node.currentX) * node.springFactor;
+        node.currentY += (node.targetY - node.currentY) * node.springFactor;
+
         node.element.style.transform = `translate(calc(-50% + ${node.currentX.toFixed(2)}px), calc(-50% + ${node.currentY.toFixed(2)}px))`;
       });
     }
-    requestAnimationFrame(updatePhysics);
+
+    requestAnimationFrame(updatePhysicsLoop);
   }
 
   if (container) {
     container.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      mouseClientX = e.clientX;
+      mouseClientY = e.clientY;
       isMouseInside = true;
+    });
+
+    container.addEventListener('mouseenter', (e) => {
+      mouseClientX = e.clientX;
+      mouseClientY = e.clientY;
+      isMouseInside = true;
+      initPhysicsForCurrentLevel();
     });
 
     container.addEventListener('mouseleave', () => {
       isMouseInside = false;
+      mouseClientX = -9999;
+      mouseClientY = -9999;
     });
 
-    requestAnimationFrame(updatePhysics);
-    initPhysicsForLevel1();
+    window.addEventListener('resize', () => {
+      initPhysicsForCurrentLevel();
+    });
+
+    requestAnimationFrame(updatePhysicsLoop);
+    setTimeout(initPhysicsForCurrentLevel, 200);
   }
 
-  // Level 1 -> Level 2: Expand Category
+  // Level 1 -> Level 2: Expand Category into Organic Constellation
   function goToLevel2(catId) {
     const category = categoriesPayload.find((c) => c.id === catId);
     if (!category || !level1 || !level2 || !level2BubblesContainer) return;
@@ -541,21 +597,23 @@ const categoriesPayload = categories.map(cat => ({
     level2CatTitle.textContent = category.name;
     if (btnBackTo2Text) btnBackTo2Text.textContent = `Wróć do: ${category.name}`;
 
-    // Populate Level 2 Ensemble Bubbles
+    // Populate Level 2 Ensemble Bubbles in Dynamic Organic Constellation
     level2BubblesContainer.innerHTML = '';
     const ensembles = category.ensembles;
     const count = ensembles.length;
 
-    // Symmetrical positions inside container
+    // Constellation layout positions
+    // For 3 ensembles: Organic Triangle (Top-center, Bottom-left, Bottom-right)
+    // For 2 ensembles: Diagonal Staggered Balance (Left-up, Right-down)
     const positions = count === 3
       ? [
-          { left: '26%', top: '50%', size: 'w-48 h-48' },
-          { left: '50%', top: '50%', size: 'w-52 h-52' },
-          { left: '74%', top: '50%', size: 'w-48 h-48' },
+          { left: '50%', top: '34%', size: 'w-48 h-48 sm:w-52 sm:h-52' }, // Główny na górze
+          { left: '28%', top: '66%', size: 'w-44 h-44 sm:w-48 sm:h-48' }, // Lewy na dole
+          { left: '72%', top: '64%', size: 'w-44 h-44 sm:w-48 sm:h-48' }, // Prawy na dole
         ]
       : [
-          { left: '35%', top: '50%', size: 'w-52 h-52' },
-          { left: '65%', top: '50%', size: 'w-52 h-52' },
+          { left: '34%', top: '44%', size: 'w-48 h-48 sm:w-52 sm:h-52' }, // Lewy wyżej
+          { left: '66%', top: '56%', size: 'w-48 h-48 sm:w-52 sm:h-52' }, // Prawy niżej
         ];
 
     ensembles.forEach((ens, index) => {
@@ -598,14 +656,14 @@ const categoriesPayload = categories.map(cat => ({
       level2BubblesContainer.appendChild(bubble);
     });
 
-    // Transitions
+    // Smooth level transitions
     level1.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
     level1.classList.add('opacity-0', 'scale-110', 'pointer-events-none');
 
     level2.classList.remove('opacity-0', 'scale-90', 'pointer-events-none');
     level2.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
 
-    initPhysicsForLevel2();
+    setTimeout(initPhysicsForCurrentLevel, 50);
   }
 
   // Level 2 -> Level 1: Back to Categories
@@ -628,10 +686,10 @@ const categoriesPayload = categories.map(cat => ({
       level1.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
     }
 
-    initPhysicsForLevel1();
+    setTimeout(initPhysicsForCurrentLevel, 50);
   }
 
-  // Level 2 -> Level 3: Expand Ensemble Details
+  // Level 2 -> Level 3: Expand Ensemble Details inside diagram
   function goToLevel3(ensemble) {
     if (!level2 || !level3 || !ensemble) return;
     activeEnsemble = ensemble;
@@ -659,10 +717,16 @@ const categoriesPayload = categories.map(cat => ({
         level3Photos.innerHTML = `<p class="text-xs text-slate-500 col-span-2">Brak materiałów archiwalnych.</p>`;
       } else {
         photos.slice(0, 4).forEach((p) => {
-          const div = document.createElement('div');
-          div.className = 'aspect-[16/10] overflow-hidden rounded-lg border border-white/10 bg-[#070d1a]';
-          div.innerHTML = `<img src="${p}" alt="${ensemble.name}" class="w-full h-full object-cover opacity-85 hover:opacity-100 hover:scale-105 transition-all duration-300" loading="lazy" />`;
-          level3Photos.appendChild(div);
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.setAttribute('data-lightbox-src', p);
+          btn.setAttribute('data-lightbox-alt', `${ensemble.name} — fotografia`);
+          btn.className = 'group relative aspect-[16/10] overflow-hidden rounded-lg border border-white/10 bg-[#070d1a] focus:outline-none focus:ring-2 focus:ring-sky-400 text-left';
+          btn.innerHTML = `
+            <img src="${p}" alt="${ensemble.name}" class="w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" loading="lazy" />
+            <span class="absolute inset-0 bg-sky-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+          `;
+          level3Photos.appendChild(btn);
         });
       }
     }
@@ -677,19 +741,6 @@ const categoriesPayload = categories.map(cat => ({
     physicsNodes = [];
   }
 
-  // Level 3 Drawer Trigger
-  if (btnLevel3Drawer) {
-    btnLevel3Drawer.addEventListener('click', () => {
-      if (activeEnsemble) {
-        window.dispatchEvent(
-          new CustomEvent('open-ensemble-drawer', {
-            detail: { id: activeEnsemble.slug, slug: activeEnsemble.slug, ensembleSlug: activeEnsemble.slug },
-          })
-        );
-      }
-    });
-  }
-
   // Category buttons click in Level 1
   document.querySelectorAll('.category-orb-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -699,6 +750,7 @@ const categoriesPayload = categories.map(cat => ({
   });
 
   if (btnBackTo1) btnBackTo1.addEventListener('click', goToLevel1);
+  if (btnLevel3ToRoot) btnLevel3ToRoot.addEventListener('click', goToLevel1);
   if (btnBackTo2) {
     btnBackTo2.addEventListener('click', () => {
       if (activeCategory) {
@@ -711,7 +763,7 @@ const categoriesPayload = categories.map(cat => ({
           level2.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
         }
         currentLevel = 2;
-        initPhysicsForLevel2();
+        setTimeout(initPhysicsForCurrentLevel, 50);
       } else {
         goToLevel1();
       }
@@ -745,20 +797,6 @@ const categoriesPayload = categories.map(cat => ({
           card.classList.add('hidden');
         }
       });
-    });
-  });
-
-  // Mobile Open Drawer Buttons
-  document.querySelectorAll('[data-open-drawer]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const slug = btn.getAttribute('data-open-drawer');
-      if (slug) {
-        window.dispatchEvent(
-          new CustomEvent('open-ensemble-drawer', {
-            detail: { id: slug, slug: slug, ensembleSlug: slug },
-          })
-        );
-      }
     });
   });
 </script>
