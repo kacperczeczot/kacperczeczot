@@ -1,9 +1,9 @@
 ---
 const credentials = [
-  { value: '300+', label: 'WYSTĘPÓW' },
-  { value: '4', label: 'OBSZARY DZIAŁALNOŚCI' },
-  { value: 'UWM', label: 'WYRÓŻNIENIE I NAGRODA' },
-  { value: 'PSM', label: 'FORTEPIAN I WOKALISTYKA' },
+  { value: '300+', label: 'Występów scenicznych' },
+  { value: '20+', label: 'Zespołów i formacji' },
+  { value: '6', label: 'Krajów tras koncertowych' },
+  { value: '3', label: 'Dyplomy z wyróżnieniem' },
 ];
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -13,27 +13,34 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end">
 
-      <div class="lg:col-span-7 space-y-8">
+      <div class="lg:col-span-7 space-y-6">
         <p class="text-xs sm:text-sm font-sans tracking-[0.24em] uppercase text-sky-400 font-semibold">
           KC · Portfolio artystyczne
         </p>
 
-        <h1 class="font-display text-5xl sm:text-6xl font-bold text-white tracking-tight leading-tight">
-          Kacper Czeczot
-        </h1>
+        <div class="space-y-3">
+          <h1 class="font-display text-5xl sm:text-6xl font-bold text-white tracking-tight leading-tight">
+            Kacper Czeczot
+          </h1>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-sky-400 font-sans tracking-tight">
+            Dyrygent · Multiinstrumentalista · Aranżer
+          </h2>
+        </div>
 
         <p class="max-w-xl text-base sm:text-lg text-slate-300 font-sans font-light leading-relaxed">
-          Dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne oraz realizacja dźwięku.
-          Warsztat łączący filharmonię, teatr muzyczny i studio nagraniowe.
+          Dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne oraz autorskie opracowania partytur.
+          Warsztat łączący salę koncertową, teatr muzyczny i studio nagraniowe.
         </p>
 
-        <a
-          href="#drzewo-radialne"
-          class="inline-flex items-center gap-3 border border-white/15 px-7 py-3.5 text-sm font-sans uppercase tracking-[0.2em] font-semibold text-white hover:border-sky-400/50 hover:text-sky-200 editorial-hover transition-all"
-        >
-          <span>Eksploruj dorobek</span>
-          <span aria-hidden="true" class="text-sky-400">→</span>
-        </a>
+        <div class="pt-2">
+          <a
+            href="#drzewo-radialne"
+            class="inline-flex items-center gap-3 border border-white/15 px-7 py-3.5 text-sm font-sans uppercase tracking-[0.2em] font-semibold text-white hover:border-sky-400/50 hover:text-sky-200 editorial-hover transition-all"
+          >
+            <span>Eksploruj dorobek</span>
+            <span aria-hidden="true" class="text-sky-400">→</span>
+          </a>
+        </div>
       </div>
 
       <div class="lg:col-span-5">
@@ -47,7 +54,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           </div>
           <figcaption class="flex items-baseline justify-between gap-4 text-xs font-sans tracking-wider uppercase text-slate-400">
             <span class="font-sans text-xs sm:text-sm tracking-wide text-sky-200/90 font-medium normal-case">
-              Dyrygentura · Wykonawstwo Sceniczne · Realizacja Dźwięku
+              Dyrygentura · Multiinstrumentalizm · Aranżacja i Dźwięk
             </span>
             <span class="hidden sm:inline font-mono text-slate-500 text-xs">01</span>
           </figcaption>
@@ -55,12 +62,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </div>
     </div>
 
-    <!-- Pasek statystyk pod Hero -->
-    <ul class="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4">
+    <!-- Pasek 4 wskaźników dorobku -->
+    <ul class="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0">
       {credentials.map((item, idx) => (
         <li class={`py-4 px-4 sm:px-6 ${idx % 2 === 0 ? 'border-r border-white/10' : ''} lg:border-r lg:border-white/10 lg:last:border-r-0 ${idx >= 2 ? 'border-t border-white/10 lg:border-t-0' : ''}`}>
-          <p class="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">{item.value}</p>
-          <p class="mt-2 text-xs sm:text-sm font-sans uppercase tracking-wider text-slate-300 font-semibold">{item.label}</p>
+          <p class="text-4xl sm:text-5xl font-extrabold text-white font-sans tracking-tight tabular-nums">
+            {item.value}
+          </p>
+          <p class="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-slate-400 mt-2 font-sans">
+            {item.label}
+          </p>
         </li>
       ))}
     </ul>

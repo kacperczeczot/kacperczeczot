@@ -281,22 +281,36 @@ const categoriesPayload = categories.map(cat => ({
               </div>
             </div>
 
-            <!-- Right Column: Photos Grid -->
-            <div class="lg:col-span-5 space-y-3">
-              <h4 class="text-sm font-sans font-bold uppercase tracking-[0.2em] text-sky-400">
-                Kadry i materiały archiwalne
-              </h4>
-              <div id="level-3-photos-grid" class="grid grid-cols-2 gap-3">
-                <!-- Dynamic photos with lightbox support -->
+            <!-- Right Column: Photos Grid & Specification Box -->
+            <div class="lg:col-span-5 space-y-5">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-sans font-bold uppercase tracking-[0.2em] text-sky-400">
+                    Kadry i materiały archiwalne
+                  </h4>
+                </div>
+                <div id="level-3-photos-grid" class="grid grid-cols-2 gap-3">
+                  <!-- Dynamic photos with lightbox support -->
+                </div>
               </div>
-            </div>
 
-          </div>
-        </div>
-
-      </div>
-                <!-- Dynamic photos with lightbox support -->
+              <!-- Metryczka formacji & specyfika składu -->
+              <div class="pt-4 border-t border-white/10 space-y-2.5">
+                <h4 class="text-xs font-sans font-bold uppercase tracking-[0.2em] text-slate-400">
+                  Specyfikacja wykonawcza
+                </h4>
+                <div class="grid grid-cols-2 gap-2 text-xs font-sans">
+                  <div class="p-3 rounded-xl bg-sky-950/40 border border-white/10 space-y-1">
+                    <span class="text-slate-400 block text-[10px] uppercase tracking-wider font-semibold">Obszar</span>
+                    <span id="level-3-spec-category" class="text-slate-100 font-medium text-xs block truncate">Formacja sceniczna</span>
+                  </div>
+                  <div class="p-3 rounded-xl bg-sky-950/40 border border-white/10 space-y-1">
+                    <span class="text-slate-400 block text-[10px] uppercase tracking-wider font-semibold">Dokumentacja</span>
+                    <span class="text-sky-300 font-medium text-xs block truncate">Zweryfikowany dorobek</span>
+                  </div>
+                </div>
               </div>
+
             </div>
 
           </div>
@@ -413,6 +427,24 @@ const categoriesPayload = categories.map(cat => ({
                   })}
                 </div>
               )}
+
+              <!-- Drawer Trigger on Mobile -->
+              <button
+                type="button"
+                data-open-drawer-ens={JSON.stringify({
+                  name: ens.data.name,
+                  role: ens.data.role,
+                  categoryName: cat.name,
+                  concertCount: ens.data.concertCount,
+                  highlights: ens.data.highlights,
+                  body: ens.body,
+                  photos: ens.data.photos.map(p => (p.startsWith('/') ? `${base}${p}` : p)),
+                })}
+                class="mobile-drawer-trigger-btn mt-4 w-full py-2.5 px-4 rounded-xl bg-sky-950/70 hover:bg-sky-900/90 border border-sky-400/30 text-sky-200 hover:text-white text-xs font-sans font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-all focus:outline-none focus:ring-2 focus:ring-sky-400"
+              >
+                <span>Szczegóły formacji</span>
+                <ArrowUpRight class="w-3.5 h-3.5 text-sky-400" />
+              </button>
             </div>
           ))
         ))}
@@ -627,23 +659,25 @@ const categoriesPayload = categories.map(cat => ({
       bubble.style.transform = 'translate(-50%, -50%)';
 
       bubble.innerHTML = `
-        <div class="relative flex flex-col items-center justify-center ${pos.size} rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/40 hover:border-sky-300 hover:scale-105 shadow-[0_0_30px_rgba(14,165,233,0.3)] hover:shadow-[0_0_45px_rgba(56,189,248,0.55)] transition-all duration-300 p-4 text-center">
-          
-          <span class="text-xs font-sans font-bold uppercase tracking-wider text-sky-300 px-3 py-1 rounded-full bg-[#070d1a]/90 border border-sky-400/30 mb-1.5 max-w-[90%] truncate">
-            ${ens.role}
-          </span>
-
-          <h4 class="font-display font-bold text-base sm:text-lg text-white group-hover:text-sky-200 transition-colors leading-snug px-2 line-clamp-2">
+        <div class="relative flex items-center justify-center ${pos.size} rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/40 hover:border-sky-300 hover:scale-105 shadow-[0_0_30px_rgba(14,165,233,0.3)] hover:shadow-[0_0_45px_rgba(56,189,248,0.55)] transition-all duration-300 p-5 text-center">
+          <span class="text-sm sm:text-base font-bold text-white font-sans leading-snug text-balance text-center px-3 group-hover:text-sky-200 transition-colors">
             ${ens.name}
-          </h4>
-
-          <span class="text-xs sm:text-sm font-sans text-sky-200/80 font-medium mt-1">
-            ${ens.concertCount}
           </span>
         </div>
       `;
 
       bubble.addEventListener('click', () => {
+        window.dispatchEvent(new CustomEvent('open-ensemble-drawer', {
+          detail: {
+            name: ens.name,
+            role: ens.role,
+            categoryName: activeCategory ? activeCategory.name : '',
+            concertCount: ens.concertCount,
+            highlights: ens.highlights,
+            body: ens.body,
+            photos: ens.photos,
+          }
+        }));
         goToLevel3(ens);
       });
 
@@ -694,12 +728,15 @@ const categoriesPayload = categories.map(cat => ({
     if (level3ConcertCount) level3ConcertCount.textContent = ensemble.concertCount;
     if (level3Desc) level3Desc.textContent = ensemble.body || 'Działalność wykonawcza i dyrygencka.';
 
+    const specCat = document.getElementById('level-3-spec-category');
+    if (specCat && activeCategory) specCat.textContent = activeCategory.name;
+
     if (level3Highlights) {
       level3Highlights.innerHTML = '';
       (ensemble.highlights || []).forEach((h) => {
         const li = document.createElement('li');
-        li.className = 'flex items-start gap-2 text-slate-300';
-        li.innerHTML = `<span class="text-sky-400 font-bold">✦</span><span>${h}</span>`;
+        li.className = 'flex items-start gap-2.5 text-slate-300';
+        li.innerHTML = `<span class="text-sky-400 font-bold mt-0.5">✦</span><span>${h}</span>`;
         level3Highlights.appendChild(li);
       });
     }
@@ -708,17 +745,25 @@ const categoriesPayload = categories.map(cat => ({
       level3Photos.innerHTML = '';
       const photos = ensemble.photos || [];
       if (photos.length === 0) {
-        level3Photos.innerHTML = `<p class="text-xs text-slate-500 col-span-2">Brak materiałów archiwalnych.</p>`;
+        level3Photos.innerHTML = `<p class="text-xs text-slate-500 col-span-2">Brak materiałów archiwalnych dla tej formacji.</p>`;
       } else {
-        photos.slice(0, 4).forEach((p) => {
+        photos.slice(0, 4).forEach((p, pIdx) => {
           const btn = document.createElement('button');
           btn.type = 'button';
           btn.setAttribute('data-lightbox-src', p);
-          btn.setAttribute('data-lightbox-alt', `${ensemble.name} — fotografia`);
-          btn.className = 'group relative aspect-[16/10] overflow-hidden rounded-lg border border-white/10 bg-[#070d1a] focus:outline-none focus:ring-2 focus:ring-sky-400 text-left';
+          btn.setAttribute('data-lightbox-alt', `${ensemble.name} — fotografia archiwalna`);
+          btn.className = 'group relative aspect-[16/10] overflow-hidden rounded-xl border border-white/15 bg-[#0b1528] focus:outline-none focus:ring-2 focus:ring-sky-400 text-left shadow-lg';
           btn.innerHTML = `
-            <img src="${p}" alt="${ensemble.name}" class="w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" loading="lazy" />
-            <span class="absolute inset-0 bg-sky-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            <img src="${p}" alt="${ensemble.name}" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#070d1a]/90 via-transparent to-black/30 flex flex-col justify-between p-2.5">
+              <span class="self-start text-[9px] font-sans font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-sky-300 border border-white/10">
+                Kadr ${pIdx + 1}
+              </span>
+              <div class="flex items-center gap-1.5 text-xs text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <svg class="w-3.5 h-3.5 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                <span>Powiększ</span>
+              </div>
+            </div>
           `;
           level3Photos.appendChild(btn);
         });
@@ -791,6 +836,21 @@ const categoriesPayload = categories.map(cat => ({
           card.classList.add('hidden');
         }
       });
+    });
+  });
+
+  // Mobile Drawer Triggers
+  document.querySelectorAll('[data-open-drawer-ens]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const dataStr = btn.getAttribute('data-open-drawer-ens');
+      if (dataStr) {
+        try {
+          const detail = JSON.parse(dataStr);
+          window.dispatchEvent(new CustomEvent('open-ensemble-drawer', { detail }));
+        } catch (e) {
+          console.error(e);
+        }
+      }
     });
   });
 </script>

@@ -2,15 +2,15 @@
 name: "Orkiestra Dęta OSP w Rębowie"
 pillar: "orkiestry"
 role: "Zastępca Dyrygenta / Instruktor"
-concertCount: "21 występów (od 2024)"
+concertCount: "Kwiecień 2024 – obecnie · 21 udokumentowanych występów"
 highlights:
-  - "Zastępca kapelmistrza i instruktor gry na instrumentach dętych"
-  - "Prowadzenie prób sekcyjnych i przygotowanie młodego aparatu orkiestrowego"
-  - "Oprawa uroczystości państwowych, strażackich i koncertów wyjazdowych"
+  - "Przygotowanie i poprowadzenie 21 występów galowych, państwowych i festiwalowych"
+  - "Autorski program warsztatów sekcyjnych dla młodych adeptów instrumentów dętych"
+  - "Opracowanie i wdrożenie nowych aranżacji marszowych do stałego repertuaru"
 photos:
   - "/images/ensembles/rebowo-1.svg"
   - "/images/ensembles/rebowo-2.svg"
 order: 2
 ---
 
-Działalność od kwietnia 2024 roku w roli Zastępcy Dyrygenta i Instruktora: 21 udokumentowanych występów, praca warsztatowa z dziećmi i młodzieżą oraz oprawa uroczystości.
+Prowadzenie prób sekcyjnych i przygotowanie młodego aparatu orkiestrowego w roli zastępcy kapelmistrza. Praca warsztatowa z dziećmi i młodzieżą, oprawa uroczystości oraz realizacja wyjazdów koncertowych.

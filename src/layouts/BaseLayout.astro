@@ -2,6 +2,7 @@
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Lightbox from '../components/Lightbox.astro';
+import EnsembleDrawer from '../components/EnsembleDrawer.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -13,8 +14,8 @@ interface Props {
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const {
-  title = 'Kacper Czeczot — Dyrygent, Muzyk & Reżyser Dźwięku',
-  description = 'Oficjalne portfolio artystyczne Kacpra Czeczota: dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne, autorskie produkcje muzyczne oraz warsztat twórczy.',
+  title = 'Kacper Czeczot — Dyrygent · Multiinstrumentalista · Aranżer',
+  description = 'Oficjalne portfolio artystyczne Kacpra Czeczota: dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne, opracowania partytur oraz realizacja dźwięku.',
   image = `${base}/images/og-cover.svg`,
 } = Astro.props;
 
@@ -71,6 +72,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kacpercz
     <Footer />
 
     <!-- Global Components -->
+    <EnsembleDrawer />
     <Lightbox />
   </body>
 </html>
