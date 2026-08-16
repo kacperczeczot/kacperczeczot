@@ -236,6 +236,7 @@ content:
         fields:
           - { name: label, label: Etykieta, type: string }
           - { name: value, label: Wartość, type: string }
+          - { name: url, label: Link (opcjonalny), type: string }
       - name: youtubeVideos
         label: Filmy YouTube
         type: object

@@ -79,7 +79,20 @@ function cmsImage(path?: string | null) {
                   {work.data.metrics.map((row, idx) => (
                     <div class={`flex justify-between gap-4 py-3 ${idx === 0 ? 'first:pt-0' : ''} ${idx === work.data.metrics.length - 1 ? 'last:pb-0' : ''}`}>
                       <dt class="text-slate-400 uppercase tracking-wider text-[11px] font-sans">{row.label}</dt>
-                      <dd class={`font-display text-right ${idx === work.data.metrics.length - 1 ? 'text-sky-300' : 'text-white'}`}>{row.value}</dd>
+                      <dd class={`font-display text-right ${idx === work.data.metrics.length - 1 ? 'text-sky-300' : 'text-white'}`}>
+                        {row.url ? (
+                          <a
+                            href={row.url}
+                            class="text-sky-300 hover:text-sky-200 underline underline-offset-4 decoration-sky-500/40 hover:decoration-sky-300"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {row.value}
+                          </a>
+                        ) : (
+                          row.value
+                        )}
+                      </dd>
                     </div>
                   ))}
                 </dl>

@@ -34,6 +34,7 @@ const worksCollection = defineCollection({
       z.object({
         label: z.string(),
         value: z.string(),
+        url: z.string().optional(),
       })
     ).default([]),
     videoHeading: z.string().optional().default('Zapis wideo'),

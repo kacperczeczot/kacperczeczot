@@ -16,13 +16,14 @@ metrics:
     value: "Kacper Czeczot"
   - label: "Promotor dzieła"
     value: "dr hab. Tomasz Szymuś"
+    url: "https://ws.uwm.edu.pl/pracownicy-ogloszenia-i-aktualnosci/dr-habtomasz-szymus"
 videoHeading: "Zapis wideo"
 order: 2
 ---
 
 ## Dzieło dyplomowe „Echo Epok”
 
-Autorski projekt audiowizualny stanowiący integralną część dyplomu artystycznego na kierunku Produkcja Muzyczna i Realizacja Dźwięku (Wydział Sztuki UWM). Promotor dzieła: dr hab. Tomasz Szymuś. Materiał opublikowany w 2026 roku.
+Autorski projekt audiowizualny stanowiący integralną część dyplomu artystycznego na kierunku Produkcja Muzyczna i Realizacja Dźwięku (Wydział Sztuki UWM). Promotor dzieła: [dr hab. Tomasz Szymuś](https://ws.uwm.edu.pl/pracownicy-ogloszenia-i-aktualnosci/dr-habtomasz-szymus). Materiał opublikowany w 2026 roku.
 
 Wielowarstwowa podróż przez ewolucję stylów muzycznych, instrumentacji oraz akustyki architektonicznej na przestrzeni wieków. Role połączone w jednym opracowaniu: kompozytor, wykonawca-multiinstrumentalista i realizator dźwięku — historia sztuki, fizyka dźwięku i technologia DAW.
 
