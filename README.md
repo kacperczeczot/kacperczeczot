@@ -23,7 +23,7 @@
 * **Typografia:** `Plus Jakarta Sans` (Google Fonts)
 * **Ikony:** [lucide-astro](https://lucide.dev/)
 * **Fizyka ruchu:** Natywny silnik interpolacji sprężystości (*Spring Lerp*) i przyciągania magnetycznego (*Magnetic Parallax*)
-* **Zarządzanie treścią:** Astro Content Collections z walidacją typów [Zod](https://zod.dev/)
+* **Zarządzanie treścią:** [Sveltia CMS](https://github.com/sveltia/sveltia-cms) — panel na GitHub Pages (`/admin`), logowanie GitHub, zapis do repozytorium bez pracy na lokalnym klonie
 
 ---
 
@@ -41,6 +41,9 @@ npm install
 
 # Uruchomienie serwera deweloperskiego (http://localhost:4321)
 npm run dev
+
+# Edycja treści bez lokalnego repo:
+# https://kacperczeczot.github.io/admin  (logowanie GitHub)
 
 # Kompilacja produkcyjna (katalog dist/)
 npm run build

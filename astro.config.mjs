@@ -5,4 +5,7 @@ export default defineConfig({
   site: 'https://kacperczeczot.github.io',
   output: 'static',
   integrations: [tailwind()],
+  redirects: {
+    '/admin': '/admin/index.html',
+  },
 });
