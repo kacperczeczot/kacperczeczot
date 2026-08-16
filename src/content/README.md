@@ -4,7 +4,7 @@
 
 ---
 
-Ten katalog zarządza zorganizowanymi danymi w formacie Markdown z walidacją schematów Zod za pośrednictwem modułu `config.ts`.
+Ten katalog zarządza zorganizowanymi danymi w formacie Markdown z walidacją schematów Zod za pośrednictwem modułu `config.ts`. Edycja online: [Pages CMS](../../CMS.md).
 
 ## 📂 Kolekcje
 

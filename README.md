@@ -23,7 +23,7 @@
 * **Typografia:** `Plus Jakarta Sans` (Google Fonts)
 * **Ikony:** [lucide-astro](https://lucide.dev/)
 * **Fizyka ruchu:** Natywny silnik interpolacji sprężystości (*Spring Lerp*) i przyciągania magnetycznego (*Magnetic Parallax*)
-* **Zarządzanie treścią:** [Sveltia CMS](https://github.com/sveltia/sveltia-cms) — panel na GitHub Pages (`/admin`), logowanie GitHub, zapis do repozytorium bez pracy na lokalnym klonie
+* **Zarządzanie treścią:** [Pages CMS](https://pagescms.org) — edycja w przeglądarce ([app.pagescms.org](https://app.pagescms.org)), logowanie GitHub, zapis do repozytorium bez lokalnego klona. Skrót: [`CMS.md`](CMS.md)
 
 ---
 
@@ -43,7 +43,8 @@ npm install
 npm run dev
 
 # Edycja treści bez lokalnego repo:
-# https://kacperczeczot.github.io/admin  (logowanie GitHub)
+# https://app.pagescms.org  (logowanie GitHub)
+# https://kacperczeczot.github.io/admin/
 
 # Kompilacja produkcyjna (katalog dist/)
 npm run build
