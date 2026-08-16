@@ -1,16 +1,16 @@
 ---
 name: "Musical „Pora Jeziora”"
 pillar: "teatr"
-role: "Śpiew / Aktor (Drwal)"
-concertCount: "3 spektakle"
-years: "2022"
+role: "Śpiew / aktor (Drwal)"
+concertCount: "4 spektakle"
+years: "grudzień 2022"
 highlights:
-  - "Rola solowo-aktorska: Drwal"
-  - "Wystawienie w Filharmonii Warmińsko-Mazurskiej w Olsztynie (14.12.2022)"
-  - "Wystawienie w Operze Krakowskiej (21–22.12.2022)"
+  - "Rola: Drwal"
+  - "Filharmonia Warmińsko-Mazurska w Olsztynie (14 grudnia 2022)"
+  - "Opera Krakowska (21–22 grudnia 2022)"
 photos:
   - "/images/ensembles/porajeziora-1.svg"
-order: 2
+order: 3
 ---
 
-Udział w profesjonalnej produkcji musicalowej opartej na warmińskich legendach w grudniu 2022 roku: rola Drwala na scenach Filharmonii Warmińsko-Mazurskiej w Olsztynie oraz Opery Krakowskiej.
+Profesjonalna produkcja musicalowa oparta na warmińskich legendach: rola Drwala na scenach filharmonii w Olsztynie i Opery Krakowskiej.

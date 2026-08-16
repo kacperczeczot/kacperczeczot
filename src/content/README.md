@@ -27,18 +27,27 @@ Zawiera pliki Markdown opisujące poszczególne formacje artystyczne, z którymi
 
 #### Lista formacji:
 * **Orkiestry (`pillar: "orkiestry"`):**
-  * `opinogora.md` — Orkiestra GOK w Opinogórze Górnej
-  * `rebowo.md` — Orkiestra Dęta OSP w Rębowie
+  * `opinogora.md` — Orkiestra GOK w Opinogórze
+  * `rebowo.md` — Orkiestra Dęta OSP Rębowo
+  * `chociszewo.md` — Orkiestra Dęta OSP Chociszewo
+  * `wieczfnia.md` — Młodzieżowa Orkiestra Dęta Wieczfnia Kościelna
   * `chorzele.md` — Miejska Młodzieżowa Orkiestra Dęta w Chorzelach
+  * `orkiestra-psm-mlawa.md` — Orkiestra PSM w Mławie
+  * `bogate.md` — Orkiestra Dęta OSP Bogate
+  * `przasnysz.md` — Orkiestra Dęta OSP Przasnysz
 * **Chóry (`pillar: "chory"`):**
-  * `chor-wawrzyczek.md` — Chór im. prof. Wiktora Wawrzyczka UWM w Olsztynie
-  * `ars-vocale.md` — Chór „Ars Vocale” Instytutu Muzyki UWM
+  * `chor-wawrzyczek.md` — Chór im. prof. Wiktora Wawrzyczka UWM
+  * `cantores-varmienses.md` — Chór „Cantores Varmienses”
+  * `ars-vocale.md` — Chór „Ars Vocale” Instytutu Muzyki
+  * `proforma.md` — Chór „ProForma Project”
 * **Scena & Teatr (`pillar: "teatr"`):**
   * `grupa-operetkowa.md` — Grupa Operetkowa przy PSM w Mławie
-  * `musical-pora-jeziora.md` — Musical „Pora Jeziora” (Filharmonia Warmińsko-Mazurska / Opera Krakowska)
+  * `teatr-muzyczny-uwm.md` — Teatr Muzyczny UWM
+  * `musical-pora-jeziora.md` — Musical „Pora Jeziora”
 * **Kameralistyka & Estrada (`pillar: "estrada"`):**
-  * `zakrecony-band.md` — Zakręcony Band
-  * `cztery-glosy.md` — Zespół Wokalny „Cztery Głosy”
+  * `muzoteka.md` — Zespół wokalno-instrumentalny (Muzoteka)
+  * `dyplomy-uwm.md` — Współprace dyplomowe UWM
+  * `estrada-studencka.md` — Estrada studencka i solowa
 
 ---
 

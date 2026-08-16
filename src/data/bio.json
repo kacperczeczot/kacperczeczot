@@ -1,14 +1,15 @@
 {
   "bioTitle": "Bio, Edukacja & Osiągnięcia",
-  "bioSubtitle": "Wykształcenie dyrygenckie, wokalne i instrumentalne poparte dyplomami z wyróżnieniem oraz nagrodami akademickimi i festiwalowymi.",
-  "bioHeadline": "Dyrygentura, wykonawstwo sceniczne i produkcja dźwięku",
-  "bioLeadText": "Absolwent studiów licencjackich z wyróżnieniem oraz Najlepszy Absolwent Wydziału Sztuki Uniwersytetu Warmińsko-Mazurskiego w Olsztynie (2024/2025). Kontynuuje studia magisterskie na kierunku Edukacja artystyczna w zakresie sztuki muzycznej oraz równoległe studia licencjackie na kierunku Produkcja Muzyczna i Realizacja Dźwięku.",
-  "bioSecondaryText": "Absolwent Państwowej Szkoły Muzycznej I i II st. im. A. Krzanowskiego w Mławie (I stopień w klasie fortepianu z wyróżnieniem, II stopień na wydziale wokalnym z tytułem zawodowym muzyka z wyróżnieniem).",
-  "stageText": "Działalność sceniczna obejmuje ponad 300 udokumentowanych występów: prowadzenie orkiestr dętych (Główny Dyrygent w Opinogórze Górnej, Zastępca Dyrygenta w Rębowie i Chociszewie), śpiew w chórach akademickich i filharmonicznych (m.in. Chór im. prof. W. Wawrzyczka UWM, Cantores Varmienses, Ars Vocale), role solowe w spektaklach operetkowych i musicalu „Pora Jeziora” (Filharmonia Warmińsko-Mazurska, Opera Krakowska).",
+  "bioSubtitle": "Wykształcenie dyrygenckie, wokalne i instrumentalne: dyplomy z wyróżnieniem, praca z orkiestrami dętymi i chórami, scena operetkowa i musicalowa.",
+  "bioHeadline": "Dyrygentura, wykonawstwo i produkcja dźwięku",
+  "bioLeadText": "Absolwent studiów licencjackich z wyróżnieniem na kierunku Edukacja artystyczna w zakresie sztuki muzycznej (Wydział Sztuki UWM, 2021–2025). Tytuł Najlepszego Absolwenta Wydziału Sztuki UWM za rok akademicki 2024/2025. Od października 2025 kontynuuje studia magisterskie na tym samym kierunku; równolegle (od 2023) studiuje Produkcję Muzyczną i Realizację Dźwięku (3. rok, planowany dyplom 2026).",
+  "bioSecondaryText": "Absolwent Państwowej Szkoły Muzycznej I i II st. im. A. Krzanowskiego w Mławie: I stopień w klasie fortepianu z wyróżnieniem (2010–2016; wcześniej skrzypce), II stopień na wydziale wokalnym z tytułem zawodowym muzyka z wyróżnieniem (2018–2022, klasa Michała Gogolewskiego).",
+  "stageText": "W ewidencji koncertów z lat 2022–2026 jest ponad 290 udokumentowanych aktywności: orkiestry dęte (ok. 88), chóry (87), teatr i scena (ok. 90) oraz projekty solowe i kameralne. Stała praca obejmuje m.in. kierownictwo Orkiestry GOK w Opinogórze, zastępstwo kapelmistrzowskie w Rębowie i Chociszewie oraz Chór im. prof. W. Wawrzyczka UWM (71 występów, w tym festiwale w Hiszpanii, na Litwie i we Włoszech).",
   "currentRoles": [
-    { "title": "Orkiestra GOK w Opinogórze Górnej", "detail": "Główny Dyrygent (od grudnia 2025)" },
-    { "title": "Orkiestra Dęta OSP Rębowo / Chociszewo", "detail": "Zastępca Dyrygenta i Instruktor (od 2024)" },
-    { "title": "Chór im. prof. W. Wawrzyczka UWM", "detail": "Tenor, Dyrygent, Bibliotekarz (70+ występów, od 2022)" }
+    { "title": "Orkiestra GOK w Opinogórze", "detail": "Główny dyrygent (od grudnia 2025)" },
+    { "title": "Orkiestry dęte OSP Rębowo i OSP Chociszewo", "detail": "Zastępca dyrygenta, instruktor, klarnecista (od 2024)" },
+    { "title": "Chór im. prof. W. Wawrzyczka UWM", "detail": "Tenor, bibliotekarz, dyrygent projektów (od 2022, 71 występów)" },
+    { "title": "Miejska Młodzieżowa Orkiestra Dęta w Chorzelach", "detail": "Klarnet, śpiew, organy (od 2022)" }
   ],
   "bioStageImage": "/images/bio-stage.svg",
   "bioStageCaption": "Scena teatralna · Operetka / musical",
@@ -18,26 +19,27 @@
     {
       "period": "2025 – obecnie",
       "institution": "Uniwersytet Warmińsko-Mazurski w Olsztynie — Wydział Sztuki",
-      "degree": "Studia II stopnia (Magisterskie)",
+      "degree": "Studia II stopnia (magisterskie), 1. rok",
       "specialization": "Edukacja artystyczna w zakresie sztuki muzycznej",
-      "highlights": ["Kontynuacja ścieżki dyrygenckiej i akademickiej"]
+      "highlights": ["Planowany dyplom: 2027"]
     },
     {
       "period": "2023 – obecnie",
       "institution": "Uniwersytet Warmińsko-Mazurski w Olsztynie — Wydział Sztuki",
-      "degree": "Studia I stopnia (Licencjackie, równoległe)",
+      "degree": "Studia I stopnia (licencjackie, równoległe), 3. rok",
       "specialization": "Produkcja Muzyczna i Realizacja Dźwięku",
-      "highlights": ["Inżynieria dźwięku, realizacja sesyjna i produkcja muzyczna"]
+      "highlights": ["Planowany dyplom: 2026", "Praktyki: realizacja dźwięku w MDK w Mławie; nauczyciel muzyki w SP w Łęgajnach (2024–2025)"]
     },
     {
       "period": "2021 – 2025",
       "institution": "Uniwersytet Warmińsko-Mazurski w Olsztynie — Wydział Sztuki",
-      "degree": "Dyplom z Wyróżnieniem (Licencjat)",
+      "degree": "Dyplom z wyróżnieniem (licencjat)",
       "specialization": "Edukacja artystyczna w zakresie sztuki muzycznej",
       "highlights": [
-        "Tytuł Najlepszego Absolwenta Wydziału Sztuki UWM (za rok akademicki 2024/2025)",
-        "Nagroda Dziekana za wybitne artystyczne dzieło dyplomowe (Koncert „Finale” w Filharmonii Warmińsko-Mazurskiej)",
-        "Praca dyplomowa: „Analiza i rozwiązywanie problemów wykonawczych na podstawie utworów z repertuaru dyplomowego”"
+        "Tytuł Najlepszego Absolwenta Wydziału Sztuki UWM (rok akademicki 2024/2025)",
+        "Nagroda Dziekana za wybitne artystyczne dzieło dyplomowe (koncert „Finale” w Filharmonii Warmińsko-Mazurskiej, maj 2025)",
+        "Praca dyplomowa: „Analiza i rozwiązywanie problemów wykonawczych na podstawie utworów z repertuaru dyplomowego”",
+        "Promotor pracy: dr hab. Urszula Szyryńska, prof. UWM; promotor dzieła: dr hab. Katarzyna Bojaruniec, prof. UWM"
       ]
     }
   ],
@@ -45,73 +47,82 @@
     {
       "period": "2018 – 2022",
       "institution": "Państwowa Szkoła Muzyczna I i II st. im. Andrzeja Krzanowskiego w Mławie",
-      "degree": "Dyplom z Wyróżnieniem — Tytuł zawodowy: Muzyk",
-      "specialization": "Wydział Wokalny (klasa śpiewu Michała Gogolewskiego)",
+      "degree": "Dyplom z wyróżnieniem — tytuł zawodowy: muzyk",
+      "specialization": "Wydział wokalny (klasa śpiewu Michała Gogolewskiego)",
       "highlights": [
         "Ukończenie wydziału wokalnego z wyróżnieniem",
-        "Przewodniczący Samorządu Uczniowskiego PSM (2019–2022) i założyciel Orkiestry Samorządu"
+        "Przewodniczący Samorządu Uczniowskiego PSM (2019–2022) i założyciel Orkiestry Samorządu Uczniowskiego"
       ]
     },
     {
       "period": "2010 – 2016",
       "institution": "Państwowa Szkoła Muzyczna I i II st. im. Andrzeja Krzanowskiego w Mławie",
-      "degree": "Świadectwo z Wyróżnieniem (I Stopień)",
-      "specialization": "Fortepian (klasa Ireneusza Weredy)",
-      "highlights": ["Fortepian główny (2012–2016) oraz skrzypce (2010–2012)"]
+      "degree": "Świadectwo z wyróżnieniem (I stopień)",
+      "specialization": "Fortepian (klasa Ireneusza Weredy, 2012–2016); wcześniej skrzypce (klasa Iwony Siwiec, 2010–2012)",
+      "highlights": [
+        "Fortepian jako instrument główny I stopnia",
+        "Pierwszy kontakt z instrumentem dętym: klarnet u Mieczysława Piechockiego (orkiestra dęta SP nr 7 w Mławie)"
+      ]
     }
   ],
   "individualAwards": [
     {
       "year": "2025",
       "title": "Najlepszy Absolwent Wydziału Sztuki UWM",
-      "issuer": "Uniwersytet Warmińsko-Mazurski w Olsztynie"
+      "issuer": "Uniwersytet Warmińsko-Mazurski w Olsztynie (rok akademicki 2024/2025)"
     },
     {
       "year": "2025",
-      "title": "Nagroda Dziekana za Wybitne Dzieło Dyplomowe",
-      "issuer": "Koncert Dyplomowy „Finale” w Filharmonii Warmińsko-Mazurskiej"
+      "title": "Nagroda Dziekana za wybitne artystyczne dzieło dyplomowe",
+      "issuer": "Koncert dyplomowy „Finale” w Filharmonii Warmińsko-Mazurskiej"
     },
     {
       "year": "2025",
-      "title": "Złoty i Srebrny Dyplom — Canco Mediterrania (Hiszpania)",
-      "issuer": "XIV Międzynarodowy Festiwal Chóralny (z Chórem UWM)"
+      "title": "Złoty i srebrny dyplom — Canco Mediterrania",
+      "issuer": "XIV Międzynarodowy Festiwal Chóralny, Lloret de Mar (Hiszpania), z Chórem UWM"
+    },
+    {
+      "year": "2025",
+      "title": "Brązowy dyplom — Kaunas Cantat",
+      "issuer": "XIII Międzynarodowy Festiwal, Litwa, z Chórem UWM"
     },
     {
       "year": "2024",
-      "title": "I Miejsce — Karnolsky Summer Camp (Bułgaria)",
-      "issuer": "Kategoria instrumentalna (z MMOD w Chorzelach, klarnet)"
+      "title": "I miejsce — Karnolsky Summer Camp",
+      "issuer": "Kategoria instrumentalna, Bułgaria, z MMOD w Chorzelach (klarnet)"
     },
     {
       "year": "2023",
-      "title": "Złoty Dyplom — Festiwal „O, Warmio moja miła”",
-      "issuer": "Z Chórem Ars Vocale Instytutu Muzyki"
+      "title": "Złoty dyplom — Festiwal „O, Warmio moja miła”",
+      "issuer": "XIX Festiwal w Olsztynie, z Chórem Ars Vocale Instytutu Muzyki"
     }
   ],
   "mainInstruments": [
     {
       "name": "Dyrygentura",
       "category": "Główna dyscyplina",
-      "desc": "Dyrygentura orkiestrowa (dęta i symfoniczna) oraz chóralna. Przygotowanie aparatu wykonawczego i prowadzenie koncertów."
+      "desc": "Dyrygentura orkiestr dętych i projektów chóralnych; kierownictwo artystyczne, próby i koncerty."
     },
     {
       "name": "Klarnet",
       "category": "Instrument główny",
-      "desc": "Wykonawstwo w orkiestrach dętych i składach kameralnych."
+      "desc": "Wykonawstwo w orkiestrach dętych; pierwszy nauczyciel: Mieczysław Piechocki (SP nr 7, Mława)."
     },
     {
       "name": "Fortepian",
       "category": "Instrument główny",
-      "desc": "Wykształcenie w klasie fortepianu, akompaniament oraz praca z wyciągami fortepianowymi."
+      "desc": "Klasa Ireneusza Weredy (PSM I st.); akompaniament dyplomowy, muzyka na żywo w teatrze, aranżacje."
     },
     {
-      "name": "Śpiew / Wokal (Tenor)",
-      "category": "Głos solowy & chóralny",
-      "desc": "Dyplom z wokalistyki z wyróżnieniem. Role operetkowe, musicalowe oraz partie tenorowe w chórach."
+      "name": "Śpiew (tenor, także bas w wybranych składach)",
+      "category": "Głos solowy i chóralny",
+      "desc": "Dyplom wokalny z wyróżnieniem. Role operetkowe i musicalowe, partie chóralne, występy estradowe."
     }
   ],
   "additionalInstruments": [
-    { "name": "Organy liturgiczne", "desc": "Oprawa muzyczna i akompaniament liturgiczny." },
-    { "name": "Perkusja / Kotły", "desc": "Sekcja perkusyjna w składach orkiestrowych." },
-    { "name": "Skrzypce / Akordeon", "desc": "Edukacja wczesnoszkolna i instrumentarium dodatkowe." }
+    { "name": "Organy", "desc": "Oprawa liturgiczna i występy z orkiestrami (m.in. Chorzele)." },
+    { "name": "Perkusja", "desc": "Sekcja perkusyjna w orkiestrach dętych (m.in. Wieczfnia Kościelna, PSM Mława)." },
+    { "name": "Skrzypce", "desc": "Klasa Iwony Siwiec, PSM I st. (2010–2012)." },
+    { "name": "Trąbka, gitara, akordeon", "desc": "Instrumentarium dodatkowe wykorzystywane w praktyce zespołowej." }
   ]
 }

@@ -1,19 +1,19 @@
 {
   "heroName": "Kacper Czeczot",
-  "heroRole": "Dyrygent · Multiinstrumentalista · Aranżer",
-  "heroIntro": "Dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne oraz autorskie opracowania partytur. Warsztat łączący salę koncertową, teatr muzyczny i studio nagraniowe.",
+  "heroRole": "Dyrygent · Multiinstrumentalista · Wokalista",
+  "heroIntro": "Student Wydziału Sztuki UWM: dyrygentura, wykonawstwo (klarnet, fortepian, śpiew) oraz produkcja i realizacja dźwięku. Praca z orkiestrami dętymi, chórami akademickimi i sceną muzyczną.",
   "heroImage": "/images/dyplomhero.jpeg",
   "credentials": [
     {
-      "value": "300+",
-      "label": "Występów scenicznych"
+      "value": "290+",
+      "label": "Udokumentowanych występów"
     },
     {
-      "value": "20+",
+      "value": "18",
       "label": "Zespołów i formacji"
     },
     {
-      "value": "6",
+      "value": "5",
       "label": "Krajów tras koncertowych"
     },
     {
@@ -22,33 +22,25 @@
     }
   ],
   "contactEmail": "kacperczeczot7@gmail.com",
-  "contactInvitation": "Projekty orkiestrowe, opracowania partytur oraz współpraca koncertowa.",
+  "contactInvitation": "Projekty orkiestrowe i chóralne, aranżacje oraz współpraca koncertowa.",
   "githubUrl": "https://github.com/kacperczeczot",
   "youtubeUrl": "https://youtube.com/@kacperczeczot3530",
   "directory": [
     {
       "index": "01",
-      "category": "Dyrygentura & Kompozycja",
-      "title": "Dzieła Autorskie & Dyplomowe",
+      "category": "Dyrygentura & produkcja",
+      "title": "Dzieła autorskie i dyplomowe",
       "link": "/projekty-autorskie",
       "image": "/images/work-finale.svg",
       "imageAlt": "Koncert Finale"
     },
     {
       "index": "02",
-      "category": "Edukacja & Instrumentarium",
-      "title": "Bio & Doświadczenie",
+      "category": "Edukacja & instrumentarium",
+      "title": "Bio i doświadczenie",
       "link": "/bio",
       "image": "/images/bio-stage.svg",
       "imageAlt": "Scena teatralna"
-    },
-    {
-      "index": "03",
-      "category": "Technologie & Software",
-      "title": "Laboratorium Twórcze",
-      "link": "/lab",
-      "image": "/images/work-echo-epok.svg",
-      "imageAlt": "Studio nagraniowe"
     }
   ]
 }

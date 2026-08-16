@@ -24,12 +24,20 @@ const teatr = allEnsembles.filter(e => e.data.pillar === 'teatr').sort((a, b) =>
 const estrada = allEnsembles.filter(e => e.data.pillar === 'estrada').sort((a, b) => a.data.order - b.data.order);
 
 // 4 Main Categories
+function countLabel(n: number, one: string, few: string, many: string) {
+  const mod10 = n % 10;
+  const mod100 = n % 100;
+  if (n === 1) return `1 ${one}`;
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return `${n} ${few}`;
+  return `${n} ${many}`;
+}
+
 const categories = [
   {
     id: 'orkiestry',
     name: 'Orkiestry',
     subtitle: 'Składy dęte i symfoniczne',
-    count: '3 formacje',
+    count: countLabel(orkiestry.length, 'formacja', 'formacje', 'formacji'),
     pos: { x: 25, y: 28 },
     ensembles: orkiestry,
   },
@@ -37,7 +45,7 @@ const categories = [
     id: 'chory',
     name: 'Chóry & Zespoły',
     subtitle: 'Składy wokalne & polifonia',
-    count: '2 składy',
+    count: countLabel(chory.length, 'skład', 'składy', 'składów'),
     pos: { x: 75, y: 28 },
     ensembles: chory,
   },
@@ -45,7 +53,7 @@ const categories = [
     id: 'teatr',
     name: 'Scena & Teatr',
     subtitle: 'Operetka & musical',
-    count: '2 produkcje',
+    count: countLabel(teatr.length, 'produkcja', 'produkcje', 'produkcji'),
     pos: { x: 75, y: 72 },
     ensembles: teatr,
   },
@@ -53,7 +61,7 @@ const categories = [
     id: 'estrada',
     name: 'Kameralistyka & Estrada',
     subtitle: 'Live sound & składy estradowe',
-    count: '2 zespoły',
+    count: countLabel(estrada.length, 'zespół', 'zespoły', 'zespołów'),
     pos: { x: 25, y: 72 },
     ensembles: estrada,
   },
@@ -615,19 +623,34 @@ const categoriesPayload = categories.map(cat => ({
     const ensembles = category.ensembles;
     const count = ensembles.length;
 
-    // Constellation layout positions
-    // For 3 ensembles: Organic Triangle (Top-center, Bottom-left, Bottom-right)
-    // For 2 ensembles: Diagonal Staggered Balance (Left-up, Right-down)
-    const positions = count === 3
-      ? [
-          { left: '50%', top: '34%', size: 'w-48 h-48 sm:w-52 sm:h-52' }, // Główny na górze
-          { left: '28%', top: '66%', size: 'w-44 h-44 sm:w-48 sm:h-48' }, // Lewy na dole
-          { left: '72%', top: '64%', size: 'w-44 h-44 sm:w-48 sm:h-48' }, // Prawy na dole
-        ]
-      : [
-          { left: '34%', top: '44%', size: 'w-48 h-48 sm:w-52 sm:h-52' }, // Lewy wyżej
-          { left: '66%', top: '56%', size: 'w-48 h-48 sm:w-52 sm:h-52' }, // Prawy niżej
+    const positions = (() => {
+      if (count <= 1) {
+        return [{ left: '50%', top: '50%', size: 'w-48 h-48 sm:w-52 sm:h-52' }];
+      }
+      if (count === 2) {
+        return [
+          { left: '34%', top: '44%', size: 'w-48 h-48 sm:w-52 sm:h-52' },
+          { left: '66%', top: '56%', size: 'w-48 h-48 sm:w-52 sm:h-52' },
         ];
+      }
+      if (count === 3) {
+        return [
+          { left: '50%', top: '34%', size: 'w-48 h-48 sm:w-52 sm:h-52' },
+          { left: '28%', top: '66%', size: 'w-44 h-44 sm:w-48 sm:h-48' },
+          { left: '72%', top: '64%', size: 'w-44 h-44 sm:w-48 sm:h-48' },
+        ];
+      }
+      const radius = count > 6 ? 34 : 30;
+      const size = count > 6 ? 'w-28 h-28 sm:w-32 sm:h-32' : 'w-36 h-36 sm:w-40 sm:h-40';
+      return Array.from({ length: count }, (_, i) => {
+        const angle = (Math.PI * 2 * i) / count - Math.PI / 2;
+        return {
+          left: `${50 + radius * Math.cos(angle)}%`,
+          top: `${50 + radius * Math.sin(angle)}%`,
+          size,
+        };
+      });
+    })();
 
     ensembles.forEach((ens, index) => {
       const pos = positions[index] || { left: '50%', top: '50%', size: 'w-48 h-48' };
@@ -640,9 +663,10 @@ const categoriesPayload = categories.map(cat => ({
       bubble.style.top = pos.top;
       bubble.style.transform = 'translate(-50%, -50%)';
 
+      const nameSize = count > 6 ? 'text-xs sm:text-sm' : 'text-sm sm:text-base';
       bubble.innerHTML = `
-        <div class="relative flex items-center justify-center ${pos.size} rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/40 hover:border-sky-300 hover:scale-105 shadow-[0_0_30px_rgba(14,165,233,0.3)] hover:shadow-[0_0_45px_rgba(56,189,248,0.55)] transition-all duration-300 p-5 text-center">
-          <span class="text-sm sm:text-base font-bold text-white font-sans leading-snug text-balance text-center px-3 group-hover:text-sky-200 transition-colors">
+        <div class="relative flex items-center justify-center ${pos.size} rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/40 hover:border-sky-300 hover:scale-105 shadow-[0_0_30px_rgba(14,165,233,0.3)] hover:shadow-[0_0_45px_rgba(56,189,248,0.55)] transition-all duration-300 p-4 text-center">
+          <span class="${nameSize} font-bold text-white font-sans leading-snug text-balance text-center px-2 group-hover:text-sky-200 transition-colors">
             ${ens.name}
           </span>
         </div>
