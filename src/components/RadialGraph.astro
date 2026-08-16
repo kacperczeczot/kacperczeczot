@@ -146,7 +146,7 @@ const categoriesPayload = categories.map(cat => ({
               300+
             </span>
             <span class="text-sm sm:text-base font-display font-bold text-slate-100 uppercase tracking-wider text-center px-4 leading-tight mt-1.5">
-              Występów<br />Scenicznych
+              Występów
             </span>
           </div>
         </div>
@@ -172,16 +172,12 @@ const categoriesPayload = categories.map(cat => ({
             >
               <div class="relative flex flex-col items-center justify-center w-48 h-48 rounded-full backdrop-blur-md bg-gradient-to-br from-sky-900/50 via-sky-950/75 to-[#070d1a]/90 border border-sky-400/35 hover:border-sky-300 hover:scale-105 shadow-lg shadow-sky-950/60 hover:shadow-[0_0_35px_rgba(14,165,233,0.4)] transition-all duration-300 p-4 text-center">
                 
-                <span class="p-3 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-300 mb-2 shadow-inner group-hover:text-white group-hover:border-sky-300 transition-all">
-                  <IconComponent class="w-6 h-6" />
+                <span class="p-3.5 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-300 mb-2.5 shadow-inner group-hover:text-white group-hover:border-sky-300 transition-all">
+                  <IconComponent class="w-7 h-7" />
                 </span>
 
                 <span class="font-display font-bold text-base sm:text-lg text-slate-100 leading-tight group-hover:text-sky-200 transition-colors px-2">
                   {cat.name}
-                </span>
-                
-                <span class="text-xs sm:text-sm font-sans text-sky-200/80 font-medium mt-1">
-                  {cat.count}
                 </span>
               </div>
             </div>
@@ -208,14 +204,9 @@ const categoriesPayload = categories.map(cat => ({
             <span>Wszystkie kategorie</span>
           </button>
 
-          <div class="flex items-center gap-3 min-w-0">
-            <span id="level-2-cat-badge" class="px-3.5 py-1 rounded-full text-xs sm:text-sm font-sans uppercase tracking-wider bg-sky-950/80 border border-sky-400/30 text-sky-300 font-semibold flex-shrink-0">
-              Kategoria
-            </span>
-            <h3 id="level-2-cat-title" class="font-display font-bold text-2xl text-white tracking-tight truncate">
-              Nazwa kategorii
-            </h3>
-          </div>
+          <h3 id="level-2-cat-title" class="font-display font-bold text-2xl text-white tracking-tight truncate">
+            Nazwa kategorii
+          </h3>
         </div>
 
         <!-- Level 2 Floating Ensembles Organic Cluster -->
@@ -327,7 +318,7 @@ const categoriesPayload = categories.map(cat => ({
             Dorobek Artystyczny
           </span>
           <h3 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
-            300+ Występów Scenicznych
+            300+ Występów
           </h3>
           <p class="text-sm text-slate-300 font-sans">
             W 4 kategoriach wykonawczych i dyrygenckich
@@ -358,7 +349,6 @@ const categoriesPayload = categories.map(cat => ({
             >
               <IconComponent class="w-4 h-4" />
               <span>{cat.name}</span>
-              <span class="text-xs opacity-80 font-normal">({cat.ensembles.length})</span>
             </button>
           );
         })}
@@ -452,7 +442,6 @@ const categoriesPayload = categories.map(cat => ({
   const btnBackTo2Text = document.getElementById('btn-back-to-level-2-text');
   const btnLevel3ToRoot = document.getElementById('btn-level-3-to-root');
 
-  const level2CatBadge = document.getElementById('level-2-cat-badge');
   const level2CatTitle = document.getElementById('level-2-cat-title');
   const level2BubblesContainer = document.getElementById('level-2-bubbles-container');
 
@@ -604,7 +593,6 @@ const categoriesPayload = categories.map(cat => ({
     activeCategory = category;
     currentLevel = 2;
 
-    level2CatBadge.textContent = `${category.count}`;
     level2CatTitle.textContent = category.name;
     if (btnBackTo2Text) btnBackTo2Text.textContent = `Wróć do: ${category.name}`;
 
