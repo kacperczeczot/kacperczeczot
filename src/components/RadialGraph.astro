@@ -76,9 +76,9 @@ const pillars = [
     
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20 space-y-4">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/60 border border-sky-400/25 text-sky-300 text-xs font-sans uppercase tracking-[0.22em] shadow-sm backdrop-blur-md">
-        <Sparkles class="w-3.5 h-3.5 text-sky-400 animate-pulse" />
-        <span>Interaktywny Układ Dorobku</span>
+      <div class="inline-flex items-center gap-2.5 text-sky-200 text-xs font-sans uppercase tracking-[0.28em]">
+        <Sparkles class="w-3.5 h-3.5 text-sky-400" />
+        <span>Działalność Zespołowa</span>
       </div>
       
       <h2 class="text-4xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
@@ -86,13 +86,13 @@ const pillars = [
       </h2>
       
       <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-sans font-light leading-relaxed">
-        Odkrywaj formacje muzyczne w interaktywnej konstelacji. Kliknij dowolny filar, aby rozwinąć pływające zespoły i zapoznać się ze szczegółami.
+        Orkiestry dęte i symfoniczne, chóry akademickie i kameralne, teatr muzyczny i operetka oraz zespoły estradowe.
       </p>
 
-      <div class="flex items-center justify-center gap-2 pt-2 text-xs font-sans text-sky-400/80 tracking-widest uppercase">
-        <span>Kliknij filar lub zespół</span>
-        <span class="text-sky-300 font-bold">✦</span>
-        <span>Otwórz kartę panelu</span>
+      <div class="flex items-center justify-center gap-3 pt-1 opacity-50">
+        <div class="w-12 h-[1.5px] bg-gradient-to-r from-transparent to-sky-400"></div>
+        <span class="text-sky-400 text-xs">✦</span>
+        <div class="w-12 h-[1.5px] bg-gradient-to-l from-transparent to-sky-400"></div>
       </div>
     </div>
 
@@ -131,7 +131,7 @@ const pillars = [
         id="center-main-bubble"
         role="button"
         tabindex="0"
-        title="Kliknij, aby zresetować widok"
+        title="Dorobek sceniczny"
         style="left: 50%; top: 50%;"
         class="absolute -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer group focus:outline-none animate-float-center"
       >
@@ -192,7 +192,7 @@ const pillars = [
 
               <!-- Status Tag -->
               <span class="pillar-status-badge absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-[#070d1a] border border-sky-400/30 text-sky-200 text-[10px] font-sans uppercase tracking-wider group-hover:border-sky-400 transition-all shadow-md">
-                Eksploruj
+                Formacje
               </span>
             </div>
           </div>
@@ -202,10 +202,9 @@ const pillars = [
       <!-- 3. DYNAMIC SATELLITE BUBBLES LAYER -->
       <div id="satellite-bubbles-container" class="absolute inset-0 z-25 pointer-events-none"></div>
 
-      <!-- Hint Badge bottom right -->
+      <!-- Info Badge bottom right -->
       <div class="absolute bottom-4 right-6 text-xs text-slate-400 font-sans font-medium flex items-center gap-2 bg-[#070d1a]/80 px-4 py-1.5 rounded-full border border-white/10 backdrop-blur-sm">
-        <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
-        <span>Wybierz formację, by otworzyć panel</span>
+        <span>Orkiestry • Chóry • Teatr • Estrada</span>
       </div>
 
     </div>
@@ -289,7 +288,7 @@ const pillars = [
                 data-open-drawer={ens.slug}
                 class="mt-5 w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-sky-900/40 hover:bg-sky-600/80 border border-sky-400/30 hover:border-sky-300 text-sky-200 hover:text-white transition-all text-xs font-sans uppercase tracking-wider font-semibold group/btn"
               >
-                <span>Otwórz pełny panel</span>
+                <span>Szczegóły</span>
                 <ArrowUpRight class="w-4 h-4 text-sky-400 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
               </button>
             </div>
@@ -456,7 +455,7 @@ const pillars = [
       }
       const badge = btn.querySelector('.pillar-status-badge');
       if (badge) {
-        badge.textContent = 'Eksploruj';
+        badge.textContent = 'Formacje';
         badge.classList.remove('bg-sky-500', 'text-white', 'border-sky-300');
       }
     });
