@@ -3,7 +3,7 @@ name: "Chór „ProForma Project”"
 pillar: "chory"
 role: "Chórzysta (bas)"
 concertCount: "3 występy"
-years: "2023 – 2024"
+years: "2023–2024"
 highlights:
   - "Widowiska estradowe i edukacyjne, m.in. „Era śpiewa. Warmia Mazury — Gwiazdy i Chóry”"
   - "„Opowieści z Afryki”"
@@ -12,4 +12,4 @@ photos: []
 order: 4
 ---
 
-Skład projektowy na widowiska estradowe i edukacyjne w latach 2023–2024.
+Skład projektowy na widowiska estradowe i edukacyjne w latach 2023–2024: współpraca z gwiazdami i chórami regionu oraz koncerty poza Olsztynem.

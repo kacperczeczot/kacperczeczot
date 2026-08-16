@@ -1,15 +1,15 @@
 ---
 name: "Młodzieżowa Orkiestra Dęta Wieczfnia Kościelna"
 pillar: "orkiestry"
-role: "Klarnecista, perkusista, wokalista, instruktor, aranżer"
+role: "Klarnecista / Instruktor / Aranżer"
 concertCount: "30+ występów"
-years: "grudzień 2022 – maj 2026"
+years: "Grudzień 2022 – maj 2026"
 highlights:
-  - "Największa liczba udokumentowanych występów wśród orkiestr dętych"
-  - "Oprawa świąt kościelnych, uroczystości państwowych, dożynek i odpustów"
-  - "Okazjonalne dyrygowanie, szkolenie zespołu i aranżacje na aparat dęty"
+  - "Ponad 30 udokumentowanych występów: święta kościelne, uroczystości państwowe, dożynki i odpusty"
+  - "Okazjonalne dyrygowanie oraz szkolenie członków zespołu"
+  - "Aranżacje na aparat dęty; wykonawstwo na klarnecie, perkusji i wokalnie"
 photos: []
 order: 4
 ---
 
-Wieloletnia współpraca (zakończona w maju 2026): regularne występy jako klarnecista, perkusista i wokalista, praca instruktorska oraz opracowania utworów na orkiestrę dętą.
+Wieloletnia współpraca (zakończona w maju 2026): regularna oprawa uroczystości w regionie, praca instruktorska oraz opracowania utworów na orkiestrę dętą. Największa liczba udokumentowanych występów wśród składów dętych.

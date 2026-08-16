@@ -1,9 +1,9 @@
 ---
 name: "Estrada studencka i solowa"
 pillar: "estrada"
-role: "Solista (śpiew / fortepian) / zespoły rozrywkowe"
+role: "Solista (śpiew / fortepian)"
 concertCount: "przeglądy i koncerty od 2023"
-years: "2023 – obecnie"
+years: "od 2023"
 highlights:
   - "Dwa wyróżnienia na Estradzie Studenckiej UWM (2023) — trio fortepianowe oraz zespół rozrywkowy"
   - "Kolejne występy na Estradzie Studenckiej: fortepian (2023), śpiew (2024, 2025)"

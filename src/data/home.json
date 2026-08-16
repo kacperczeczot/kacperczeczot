@@ -1,12 +1,12 @@
 {
   "heroName": "Kacper Czeczot",
-  "heroRole": "Dyrygent · Multiinstrumentalista · Wokalista",
-  "heroIntro": "Student Wydziału Sztuki UWM: dyrygentura, wykonawstwo (klarnet, fortepian, śpiew) oraz produkcja i realizacja dźwięku. Praca z orkiestrami dętymi, chórami akademickimi i sceną muzyczną.",
+  "heroRole": "Dyrygent · Multiinstrumentalista · Aranżer",
+  "heroIntro": "Dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne oraz autorskie opracowania partytur. Warsztat łączący salę koncertową, teatr muzyczny i studio nagraniowe.",
   "heroImage": "/images/dyplomhero.jpeg",
   "credentials": [
     {
       "value": "290+",
-      "label": "Udokumentowanych występów"
+      "label": "Występów scenicznych"
     },
     {
       "value": "18",
@@ -22,22 +22,22 @@
     }
   ],
   "contactEmail": "kacperczeczot7@gmail.com",
-  "contactInvitation": "Projekty orkiestrowe i chóralne, aranżacje oraz współpraca koncertowa.",
+  "contactInvitation": "Projekty orkiestrowe, opracowania partytur oraz współpraca koncertowa.",
   "githubUrl": "https://github.com/kacperczeczot",
   "youtubeUrl": "https://youtube.com/@kacperczeczot3530",
   "directory": [
     {
       "index": "01",
-      "category": "Dyrygentura & produkcja",
-      "title": "Dzieła autorskie i dyplomowe",
+      "category": "Dyrygentura & Kompozycja",
+      "title": "Dzieła Autorskie & Dyplomowe",
       "link": "/projekty-autorskie",
       "image": "/images/work-finale.svg",
       "imageAlt": "Koncert Finale"
     },
     {
       "index": "02",
-      "category": "Edukacja & instrumentarium",
-      "title": "Bio i doświadczenie",
+      "category": "Edukacja & Instrumentarium",
+      "title": "Bio & Doświadczenie",
       "link": "/bio",
       "image": "/images/bio-stage.svg",
       "imageAlt": "Scena teatralna"

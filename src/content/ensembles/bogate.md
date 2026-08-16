@@ -1,14 +1,14 @@
 ---
 name: "Orkiestra Dęta OSP Bogate"
 pillar: "orkiestry"
-role: "Klarnecista / instruktor / pianista"
+role: "Klarnecista / Instruktor"
 concertCount: "3 występy"
-years: "lipiec 2025 – obecnie"
+years: "Lipiec 2025 – obecnie"
 highlights:
-  - "Współpraca przy uroczystościach plenerowych"
-  - "Koncerty okolicznościowe; instruktaż i fortepian"
+  - "Uroczystości plenerowe i koncerty okolicznościowe"
+  - "Instruktaż oraz wsparcie pianistyczne"
 photos: []
 order: 7
 ---
 
-Współpraca od lipca 2025 roku podczas uroczystości plenerowych i koncertów okolicznościowych.
+Współpraca od lipca 2025 roku: występy plenerowe, praca instruktorska i wykonawstwo w sekcji klarnetów.

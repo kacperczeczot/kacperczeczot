@@ -3,11 +3,11 @@ name: "Orkiestra Dęta OSP Przasnysz"
 pillar: "orkiestry"
 role: "Klarnecista"
 concertCount: "1 występ"
-years: "listopad 2025 – obecnie"
+years: "Listopad 2025 – obecnie"
 highlights:
-  - "Reprezentowanie orkiestry na festiwalach i przeglądach"
+  - "Reprezentowanie orkiestry podczas festiwali i przeglądów"
 photos: []
 order: 8
 ---
 
-Współpraca od listopada 2025 roku: udział klarnetowy w festiwalach i przeglądach orkiestr.
+Współpraca od listopada 2025 roku: udział klarnetowy w festiwalach i przeglądach orkiestr dętych.

@@ -1,17 +1,17 @@
 ---
-name: "Orkiestra GOK w Opinogórze"
+name: "Orkiestra GOK w Opinogórze Górnej"
 pillar: "orkiestry"
-role: "Główny dyrygent"
-concertCount: "2 udokumentowane występy"
-years: "grudzień 2025 – obecnie"
+role: "Główny Dyrygent"
+concertCount: "Inauguracja sezonu 2025/2026"
+years: "Grudzień 2025 – obecnie"
 highlights:
-  - "Kierownictwo artystyczne orkiestry od grudnia 2025"
-  - "Cykl koncertów kolędowych połączony z oprawą liturgiczną"
-  - "Autorskie aranżacje na potrzeby repertuaru"
+  - "Przygotowanie i poprowadzenie Koncertu Noworocznego oraz cyklu galowego 2025/2026"
+  - "Wdrożenie nowego profilu repertuarowego: standardy muzyki filmowej i estradowej"
+  - "Reorganizacja sekcji instrumentów dętych drewnianych i blaszanych"
 photos:
   - "/images/ensembles/opinogora-1.svg"
   - "/images/ensembles/opinogora-2.svg"
 order: 1
 ---
 
-Objęcie kierownictwa artystycznego Orkiestry Gminnego Ośrodka Kultury w Opinogórze w grudniu 2025 roku. Prowadzenie koncertów, opraw liturgicznych oraz przygotowanie aranżacji na aparat dęty.
+Kierownictwo artystyczne i dyrygentura orkiestry dętej od grudnia 2025 roku. Prowadzenie prób całego aparatu orkiestrowego, praca nad intonacją i zgraniem sekcyjnym oraz kompleksowa realizacja bieżącego programu koncertowego.

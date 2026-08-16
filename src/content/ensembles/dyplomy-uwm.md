@@ -1,11 +1,11 @@
 ---
 name: "Współprace dyplomowe UWM"
 pillar: "estrada"
-role: "Pianista-akompaniator / wokalista"
+role: "Pianista-akompaniator / Wokalista"
 concertCount: "akompaniament i składy kameralne"
-years: "2023 – obecnie"
+years: "od 2023"
 highlights:
-  - "Akompaniament fortepianowy: Adam Mielnicki, Paulina Kaczorowska (2023); Kamil Brydziński, Patrycja Rogalska (2024); Wiktoria Karnecka (2025)"
+  - "Akompaniament fortepianowy na dyplomach m.in. Adama Mielnickiego, Pauliny Kaczorowskiej, Kamila Brydzińskiego, Patrycji Rogalskiej i Wiktorii Karneckiej"
   - "Trio fortepianowe z Pauliną Szczech (2023, 2025)"
   - "Śpiew w oktetcie — dyplom Jakuba Maślanki (2025)"
 photos: []

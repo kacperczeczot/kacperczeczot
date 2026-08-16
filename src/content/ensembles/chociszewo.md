@@ -1,15 +1,15 @@
 ---
 name: "Orkiestra Dęta OSP Chociszewo"
 pillar: "orkiestry"
-role: "Zastępca dyrygenta / klarnecista"
+role: "Zastępca Dyrygenta / Klarnecista"
 concertCount: "11 występów"
-years: "kwiecień 2024 – obecnie"
+years: "Kwiecień 2024 – obecnie"
 highlights:
   - "Regularne dyrygowanie podczas uroczystości religijnych i lokalnych"
   - "Projekty plenerowe, m.in. procesja na wodzie w Czerwińsku nad Wisłą"
-  - "Gra w sekcji klarnetów"
+  - "Wykonawstwo w sekcji klarnetów"
 photos: []
 order: 3
 ---
 
-Współpraca równoległa z orkiestrą w Rębowie od kwietnia 2024 roku: samodzielne prowadzenie zespołu w regionie Czerwińska nad Wisłą i Chociszewa.
+Stała współpraca od kwietnia 2024 roku, równolegle z orkiestrą w Rębowie: samodzielne prowadzenie zespołu, oprawa uroczystości w regionie Czerwińska nad Wisłą oraz gra w sekcji klarnetów.
