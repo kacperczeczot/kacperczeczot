@@ -6,30 +6,32 @@ import {
   Mic,
   Drama,
   Radio,
+  ArrowLeft,
   ArrowUpRight,
-  ChevronRight,
-  Layers,
+  Maximize2,
+  Calendar,
+  Award,
+  Users,
 } from 'lucide-astro';
 
-// Fetch all ensembles from Content Collections
+// Fetch all verified ensembles from Content Collections
 const allEnsembles = await getCollection('ensembles');
 
-// Group ensembles by pillar
+// Group ensembles by category
 const orkiestry = allEnsembles.filter(e => e.data.pillar === 'orkiestry').sort((a, b) => a.data.order - b.data.order);
 const chory = allEnsembles.filter(e => e.data.pillar === 'chory').sort((a, b) => a.data.order - b.data.order);
 const teatr = allEnsembles.filter(e => e.data.pillar === 'teatr').sort((a, b) => a.data.order - b.data.order);
 const estrada = allEnsembles.filter(e => e.data.pillar === 'estrada').sort((a, b) => a.data.order - b.data.order);
 
-// 4 Pillars definition
-const pillars = [
+// 4 Main Categories
+const categories = [
   {
     id: 'orkiestry',
     name: 'Orkiestry',
     subtitle: 'Składy dęte i symfoniczne',
     count: '3 formacje',
-    icon: Music,
-    pos: { x: 24, y: 28 }, // percent coords
-    floatClass: 'animate-float-1',
+    icon: 'Music',
+    pos: { x: 25, y: 28 },
     ensembles: orkiestry,
   },
   {
@@ -37,9 +39,8 @@ const pillars = [
     name: 'Chóry & Zespoły',
     subtitle: 'Składy wokalne & polifonia',
     count: '2 składy',
-    icon: Mic,
-    pos: { x: 76, y: 28 },
-    floatClass: 'animate-float-2',
+    icon: 'Mic',
+    pos: { x: 75, y: 28 },
     ensembles: chory,
   },
   {
@@ -47,22 +48,37 @@ const pillars = [
     name: 'Scena & Teatr',
     subtitle: 'Operetka & musical',
     count: '2 produkcje',
-    icon: Drama,
-    pos: { x: 76, y: 72 },
-    floatClass: 'animate-float-3',
+    icon: 'Drama',
+    pos: { x: 75, y: 72 },
     ensembles: teatr,
   },
   {
     id: 'estrada',
     name: 'Kameralistyka & Estrada',
-    subtitle: 'Live sound & formacje estradowe',
+    subtitle: 'Live sound & składy estradowe',
     count: '2 zespoły',
-    icon: Radio,
-    pos: { x: 24, y: 72 },
-    floatClass: 'animate-float-4',
+    icon: 'Radio',
+    pos: { x: 25, y: 72 },
     ensembles: estrada,
   },
 ];
+
+// Clean JSON payload for client-side zoom transitions
+const categoriesPayload = categories.map(cat => ({
+  id: cat.id,
+  name: cat.name,
+  subtitle: cat.subtitle,
+  count: cat.count,
+  ensembles: cat.ensembles.map(ens => ({
+    slug: ens.slug,
+    name: ens.data.name,
+    role: ens.data.role,
+    concertCount: ens.data.concertCount,
+    highlights: ens.data.highlights,
+    body: ens.body,
+    photos: ens.data.photos,
+  })),
+}));
 ---
 
 <section id="drzewo-radialne" class="relative py-28 md:py-36 overflow-hidden bg-[#070d1a] border-t border-white/10 select-none">
@@ -82,7 +98,7 @@ const pillars = [
       </div>
       
       <h2 class="text-4xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
-        Cztery Filary Działalności <span class="text-blue-gradient">Scenicznej</span>
+        Działalność Sceniczna i <span class="text-blue-gradient">Zespołowa</span>
       </h2>
       
       <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-sans font-light leading-relaxed">
@@ -97,124 +113,217 @@ const pillars = [
     </div>
 
     <!-- ======================================================= -->
-    <!-- DESKTOP FLOATING BUBBLES CONSTELLATION (>= 1024px)     -->
+    <!-- DESKTOP INTERACTIVE ZOOM CANVAS (>= 1024px)             -->
     <!-- ======================================================= -->
     <div
-      id="floating-constellation-container"
-      class="hidden lg:block relative w-full max-w-5xl mx-auto h-[660px] rounded-3xl border border-white/10 bg-gradient-to-b from-[#0b1528]/80 via-[#070d1a]/90 to-[#0b1528]/80 backdrop-blur-xl p-6 overflow-hidden shadow-2xl shadow-sky-950/40"
+      id="zoomable-canvas-container"
+      class="hidden lg:block relative w-full max-w-5xl mx-auto h-[660px] rounded-3xl border border-white/10 bg-gradient-to-b from-[#0b1528]/90 via-[#070d1a]/95 to-[#0b1528]/90 backdrop-blur-2xl p-6 overflow-hidden shadow-2xl shadow-sky-950/50"
     >
       <!-- Soft ambient backdrop rings -->
       <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div class="w-[520px] h-[520px] rounded-full border border-sky-400/10 animate-spin-reverse-slow"></div>
-        <div class="absolute w-[320px] h-[320px] rounded-full border border-sky-400/15 animate-pulse"></div>
-        <div class="absolute w-[180px] h-[180px] rounded-full bg-sky-500/10 blur-2xl"></div>
+        <div class="w-[540px] h-[540px] rounded-full border border-sky-400/10"></div>
+        <div class="absolute w-[340px] h-[340px] rounded-full border border-sky-400/15"></div>
+        <div class="absolute w-[200px] h-[200px] rounded-full bg-sky-500/10 blur-2xl"></div>
       </div>
 
-      <!-- Connecting SVG Lines Canvas for smooth dynamic links -->
-      <svg
-        id="bubble-connections-svg"
-        class="absolute inset-0 w-full h-full pointer-events-none z-10"
-        viewBox="0 0 1000 660"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <linearGradient id="bubbleBeamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
-            <stop offset="100%" stop-color="#0284c7" stop-opacity="0.2" />
-          </linearGradient>
-        </defs>
-        <g id="satellite-svg-lines"></g>
-      </svg>
+      <!-- ========================================== -->
+      <!-- LEVEL 1: CATEGORIES OVERVIEW               -->
+      <!-- ========================================== -->
+      <div id="canvas-level-1" class="absolute inset-0 transition-all duration-500 opacity-100 scale-100 pointer-events-auto">
+        
+        <!-- 1. Central Orb -->
+        <div
+          id="bubble-center"
+          data-physics-bubble
+          style="left: 50%; top: 50%;"
+          class="interactive-bubble absolute -translate-x-1/2 -translate-y-1/2 z-20"
+        >
+          <div class="relative flex flex-col items-center justify-center w-52 h-52 rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/45 shadow-[0_0_35px_rgba(14,165,233,0.25)]">
+            <span class="text-[10px] font-sans font-bold uppercase tracking-[0.22em] text-sky-300 mb-1">
+              Dorobek Sceniczny
+            </span>
+            <span class="font-display font-extrabold text-4xl sm:text-5xl text-blue-gradient tracking-tight">
+              300+
+            </span>
+            <span class="text-xs font-display font-semibold text-slate-100 uppercase tracking-wider text-center px-4 leading-tight mt-1">
+              Występów<br />Scenicznych
+            </span>
+            <span class="mt-2 text-[9px] font-sans font-medium uppercase tracking-widest text-sky-300/80 px-2.5 py-0.5 rounded-full bg-sky-950/80 border border-sky-400/20">
+              4 Kategorie
+            </span>
+          </div>
+        </div>
 
-      <!-- 1. CENTRAL HERO BUBBLE (50%, 50%) -->
+        <!-- 2. Four Category Orbs -->
+        {categories.map((cat) => {
+          let IconComponent = Music;
+          if (cat.id === 'chory') IconComponent = Mic;
+          if (cat.id === 'teatr') IconComponent = Drama;
+          if (cat.id === 'estrada') IconComponent = Radio;
+
+          return (
+            <div
+              id={`cat-bubble-${cat.id}`}
+              data-cat-id={cat.id}
+              data-physics-bubble
+              role="button"
+              tabindex="0"
+              style={`left: ${cat.pos.x}%; top: ${cat.pos.y}%;`}
+              class="interactive-bubble category-orb-btn absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group focus:outline-none"
+            >
+              <div class="relative flex flex-col items-center justify-center w-44 h-44 rounded-full backdrop-blur-md bg-gradient-to-br from-sky-900/50 via-sky-950/75 to-[#070d1a]/90 border border-sky-400/35 hover:border-sky-300 hover:scale-105 shadow-lg shadow-sky-950/60 hover:shadow-[0_0_35px_rgba(14,165,233,0.4)] transition-all duration-300 p-4 text-center">
+                
+                <span class="p-2.5 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-300 mb-1.5 shadow-inner group-hover:text-white group-hover:border-sky-300 transition-all">
+                  <IconComponent class="w-5 h-5" />
+                </span>
+
+                <span class="font-display font-bold text-sm text-slate-100 leading-tight group-hover:text-sky-200 transition-colors px-2">
+                  {cat.name}
+                </span>
+                
+                <span class="text-[11px] font-sans text-sky-300/80 font-medium mt-0.5">
+                  {cat.count}
+                </span>
+
+                <span class="absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-[#070d1a] border border-sky-400/30 text-sky-200 text-[10px] font-sans uppercase tracking-wider group-hover:border-sky-400 transition-all shadow-md">
+                  Otwórz
+                </span>
+              </div>
+            </div>
+          );
+        })}
+
+        <!-- Bottom right info -->
+        <div class="absolute bottom-4 right-6 text-xs text-slate-400 font-sans font-medium flex items-center gap-2 bg-[#070d1a]/80 px-4 py-1.5 rounded-full border border-white/10 backdrop-blur-sm">
+          <span>Orkiestry • Chóry • Teatr • Estrada</span>
+        </div>
+
+      </div>
+
+      <!-- ========================================== -->
+      <!-- LEVEL 2: EXPANDED CATEGORY ENSEMBLES       -->
+      <!-- ========================================== -->
       <div
-        id="center-main-bubble"
-        role="button"
-        tabindex="0"
-        title="Dorobek sceniczny"
-        style="left: 50%; top: 50%;"
-        class="absolute -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer group focus:outline-none animate-float-center"
+        id="canvas-level-2"
+        class="absolute inset-0 transition-all duration-500 opacity-0 scale-90 pointer-events-none z-30 flex flex-col p-6"
       >
-        <div class="relative flex flex-col items-center justify-center w-52 h-52 rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/80 to-[#070d1a]/95 border-2 border-sky-400/50 shadow-[0_0_40px_rgba(14,165,233,0.3)] group-hover:shadow-[0_0_55px_rgba(56,189,248,0.5)] group-hover:border-sky-300 group-hover:scale-105 transition-all duration-500">
-          
-          <!-- Outer Pulsing Halo -->
-          <div class="absolute -inset-2.5 rounded-full border border-sky-400/30 animate-pulse pointer-events-none"></div>
-          <div class="absolute -inset-5 rounded-full border border-sky-400/15 animate-ping opacity-25 pointer-events-none"></div>
-          
-          <span class="text-[10px] font-sans font-bold uppercase tracking-[0.22em] text-sky-300 mb-1">
-            Dorobek Sceniczny
-          </span>
+        <!-- Level 2 Navigation Bar -->
+        <div class="flex items-center justify-between pb-4 border-b border-white/10 flex-shrink-0 z-40">
+          <button
+            id="btn-back-to-level-1"
+            type="button"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-200 hover:text-white hover:border-sky-300 text-xs font-sans uppercase tracking-wider font-semibold transition-all focus:outline-none"
+          >
+            <ArrowLeft class="w-4 h-4" />
+            <span>Wszystkie kategorie</span>
+          </button>
 
-          <span class="font-display font-extrabold text-4xl sm:text-5xl text-blue-gradient tracking-tight drop-shadow-sm">
-            300+
-          </span>
+          <div class="flex items-center gap-3">
+            <span id="level-2-cat-badge" class="px-3 py-1 rounded-full text-xs font-sans uppercase tracking-wider bg-sky-950/80 border border-sky-400/30 text-sky-300 font-semibold">
+              Kategoria
+            </span>
+            <h3 id="level-2-cat-title" class="font-display font-bold text-xl text-white tracking-tight">
+              Nazwa kategorii
+            </h3>
+          </div>
+        </div>
 
-          <span class="text-xs font-display font-semibold text-slate-100 uppercase tracking-wider text-center px-4 leading-tight mt-1">
-            Występów<br />Scenicznych
-          </span>
-
-          <span class="mt-2 text-[9px] font-sans font-medium uppercase tracking-widest text-sky-300/80 px-2.5 py-0.5 rounded-full bg-sky-950/80 border border-sky-400/20 group-hover:border-sky-400/50 transition-colors">
-            4 Filary
-          </span>
+        <!-- Level 2 Floating Ensembles Container -->
+        <div id="level-2-bubbles-container" class="relative flex-1 w-full h-full overflow-hidden">
+          <!-- Dynamically populated ensemble bubbles with physics -->
         </div>
       </div>
 
-      <!-- 2. FOUR PILLAR FLOATING BUBBLES -->
-      {pillars.map((pillar) => {
-        const Icon = pillar.icon;
-        return (
-          <div
-            id={`pillar-bubble-${pillar.id}`}
-            data-pillar-id={pillar.id}
-            data-pos-x={pillar.pos.x}
-            data-pos-y={pillar.pos.y}
-            role="button"
-            tabindex="0"
-            style={`left: ${pillar.pos.x}%; top: ${pillar.pos.y}%;`}
-            class={`pillar-bubble-btn absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group focus:outline-none ${pillar.floatClass}`}
+      <!-- ========================================== -->
+      <!-- LEVEL 3: EXPANDED ENSEMBLE FULL VIEW       -->
+      <!-- ========================================== -->
+      <div
+        id="canvas-level-3"
+        class="absolute inset-0 transition-all duration-500 opacity-0 scale-90 pointer-events-none z-40 flex flex-col p-6 bg-gradient-to-b from-[#0b1528] via-[#070d1a] to-[#0b1528]"
+      >
+        <!-- Level 3 Navigation Bar -->
+        <div class="flex items-center justify-between pb-4 border-b border-white/10 flex-shrink-0 z-50">
+          <button
+            id="btn-back-to-level-2"
+            type="button"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-200 hover:text-white hover:border-sky-300 text-xs font-sans uppercase tracking-wider font-semibold transition-all focus:outline-none"
           >
-            <div class="relative flex flex-col items-center justify-center w-40 h-40 rounded-full backdrop-blur-md bg-gradient-to-br from-sky-900/50 via-sky-950/70 to-[#070d1a]/90 border border-sky-400/30 hover:border-sky-300 hover:scale-110 shadow-lg shadow-sky-950/60 hover:shadow-[0_0_35px_rgba(14,165,233,0.4)] transition-all duration-300 p-4 text-center">
-              
-              <!-- Icon with glow -->
-              <span class="p-2.5 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-300 mb-1.5 shadow-inner group-hover:text-white group-hover:border-sky-300 transition-all">
-                <Icon class="w-5 h-5" />
-              </span>
+            <ArrowLeft class="w-4 h-4" />
+            <span id="btn-back-to-level-2-text">Wróć do listy zespołów</span>
+          </button>
 
-              <!-- Title -->
-              <span class="font-display font-bold text-sm text-slate-100 leading-tight group-hover:text-sky-200 transition-colors px-2">
-                {pillar.name}
-              </span>
-              
-              <!-- Count -->
-              <span class="text-[11px] font-sans text-sky-300/80 font-medium mt-0.5">
-                {pillar.count}
-              </span>
+          <button
+            id="btn-level-3-drawer-trigger"
+            type="button"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-600/80 hover:bg-sky-500 border border-sky-400 text-white text-xs font-sans uppercase tracking-wider font-semibold transition-all shadow-md focus:outline-none"
+          >
+            <span>Otwórz panel boczny</span>
+            <Maximize2 class="w-3.5 h-3.5" />
+          </button>
+        </div>
 
-              <!-- Status Tag -->
-              <span class="pillar-status-badge absolute -bottom-2.5 px-3 py-0.5 rounded-full bg-[#070d1a] border border-sky-400/30 text-sky-200 text-[10px] font-sans uppercase tracking-wider group-hover:border-sky-400 transition-all shadow-md">
-                Formacje
-              </span>
+        <!-- Level 3 Content Grid -->
+        <div class="flex-1 overflow-y-auto pt-6 space-y-6 scrollbar-none pr-1">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Left Column: Details & Highlights -->
+            <div class="lg:col-span-7 space-y-6">
+              <div>
+                <span id="level-3-role-badge" class="px-3 py-1 rounded-full text-xs font-sans font-bold uppercase tracking-wider bg-sky-950/80 text-sky-300 border border-sky-400/30">
+                  Rola
+                </span>
+                <h3 id="level-3-ensemble-name" class="text-3xl font-display font-bold text-white tracking-tight mt-3 leading-tight">
+                  Nazwa Zespołu
+                </h3>
+                <p id="level-3-concert-count" class="text-sm font-sans text-sky-200/80 font-medium mt-1">
+                  Liczba występów
+                </p>
+              </div>
+
+              <!-- Highlights -->
+              <div class="space-y-2">
+                <h4 class="text-xs font-sans font-bold uppercase tracking-[0.2em] text-sky-400">
+                  Kluczowe osiągnięcia
+                </h4>
+                <ul id="level-3-highlights-list" class="space-y-2 text-sm text-slate-300 font-sans font-light leading-relaxed">
+                  <!-- Highlights items -->
+                </ul>
+              </div>
+
+              <!-- Description -->
+              <div class="space-y-2">
+                <h4 class="text-xs font-sans font-bold uppercase tracking-[0.2em] text-slate-400">
+                  Opis działalności
+                </h4>
+                <p id="level-3-description-text" class="text-sm text-slate-300 font-sans font-light leading-relaxed">
+                  Opis formacji...
+                </p>
+              </div>
             </div>
+
+            <!-- Right Column: Photos Grid -->
+            <div class="lg:col-span-5 space-y-3">
+              <h4 class="text-xs font-sans font-bold uppercase tracking-[0.2em] text-sky-400">
+                Kadry i materiały archiwalne
+              </h4>
+              <div id="level-3-photos-grid" class="grid grid-cols-2 gap-3">
+                <!-- Dynamic photos -->
+              </div>
+            </div>
+
           </div>
-        );
-      })}
+        </div>
 
-      <!-- 3. DYNAMIC SATELLITE BUBBLES LAYER -->
-      <div id="satellite-bubbles-container" class="absolute inset-0 z-25 pointer-events-none"></div>
-
-      <!-- Info Badge bottom right -->
-      <div class="absolute bottom-4 right-6 text-xs text-slate-400 font-sans font-medium flex items-center gap-2 bg-[#070d1a]/80 px-4 py-1.5 rounded-full border border-white/10 backdrop-blur-sm">
-        <span>Orkiestry • Chóry • Teatr • Estrada</span>
       </div>
 
     </div>
 
     <!-- ======================================================= -->
-    <!-- MOBILE / TABLET TOUCH RIBBON & CAROUSEL (< 1024px)      -->
+    <!-- MOBILE / TABLET TOUCH CAROUSEL & RIBBON (< 1024px)      -->
     <!-- ======================================================= -->
     <div class="block lg:hidden space-y-6">
       
-      <!-- Mobile Center Highlight Card -->
+      <!-- Mobile Overview Header -->
       <div class="flex items-center justify-between p-5 rounded-2xl backdrop-blur-md bg-gradient-to-r from-sky-950/60 to-[#070d1a] border border-sky-400/30 shadow-lg">
         <div class="space-y-1">
           <span class="text-[10px] font-sans uppercase tracking-widest text-sky-300 font-semibold">
@@ -224,7 +333,7 @@ const pillars = [
             300+ Występów Scenicznych
           </h3>
           <p class="text-xs text-slate-300 font-sans">
-            W 4 filarach wykonawczych i dyrygenckich
+            W 4 kategoriach wykonawczych i dyrygenckich
           </p>
         </div>
         <div class="w-12 h-12 rounded-full bg-sky-500/20 border border-sky-400/40 flex items-center justify-center flex-shrink-0">
@@ -232,36 +341,40 @@ const pillars = [
         </div>
       </div>
 
-      <!-- Mobile Pillar Switcher Pills (Horizontal Scroll) -->
-      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none snap-x" id="mobile-pillar-ribbon">
-        {pillars.map((pillar, idx) => {
-          const Icon = pillar.icon;
+      <!-- Mobile Category Tabs -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none snap-x" id="mobile-cat-ribbon">
+        {categories.map((cat, idx) => {
+          let IconComponent = Music;
+          if (cat.id === 'chory') IconComponent = Mic;
+          if (cat.id === 'teatr') IconComponent = Drama;
+          if (cat.id === 'estrada') IconComponent = Radio;
+
           return (
             <button
               type="button"
-              data-mobile-pillar-btn={pillar.id}
-              class={`mobile-pillar-btn flex items-center gap-2 px-4 py-3 rounded-full border text-xs font-sans tracking-wide uppercase font-semibold whitespace-nowrap transition-all snap-start flex-shrink-0 backdrop-blur-md ${
+              data-mobile-cat-btn={cat.id}
+              class={`mobile-cat-tab-btn flex items-center gap-2 px-4 py-3 rounded-full border text-xs font-sans tracking-wide uppercase font-semibold whitespace-nowrap transition-all snap-start flex-shrink-0 backdrop-blur-md ${
                 idx === 0
                   ? 'bg-sky-600 border-sky-400 text-white shadow-md shadow-sky-600/30'
                   : 'bg-sky-950/40 border-sky-400/20 text-slate-300 hover:text-white'
               }`}
             >
-              <Icon class="w-4 h-4" />
-              <span>{pillar.name}</span>
-              <span class="text-[10px] opacity-80 font-normal">({pillar.ensembles.length})</span>
+              <IconComponent class="w-4 h-4" />
+              <span>{cat.name}</span>
+              <span class="text-[10px] opacity-80 font-normal">({cat.ensembles.length})</span>
             </button>
           );
         })}
       </div>
 
-      <!-- Mobile Ensembles Carousel / Grid -->
+      <!-- Mobile Ensembles Grid -->
       <div id="mobile-ensembles-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {pillars.map((pillar, pIdx) => (
-          pillar.ensembles.map((ens) => (
+        {categories.map((cat, cIdx) => (
+          cat.ensembles.map((ens) => (
             <div
-              data-mobile-pillar-parent={pillar.id}
+              data-mobile-cat-parent={cat.id}
               class={`mobile-ensemble-card p-6 rounded-2xl backdrop-blur-md bg-gradient-to-b from-sky-950/40 to-[#070d1a] border border-sky-400/25 hover:border-sky-300 transition-all flex flex-col justify-between group shadow-lg ${
-                pIdx === 0 ? 'block' : 'hidden'
+                cIdx === 0 ? 'block' : 'hidden'
               }`}
             >
               <div class="space-y-3">
@@ -301,288 +414,320 @@ const pillars = [
   </div>
 </section>
 
-<!-- Scoped CSS for organic floating bubbles & animations -->
+<!-- Scoped Styles -->
 <style>
-  @keyframes float-center {
-    0%, 100% {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    33% {
-      transform: translate(-50%, calc(-50% - 6px)) rotate(0.5deg);
-    }
-    66% {
-      transform: translate(-50%, calc(-50% + 5px)) rotate(-0.5deg);
-    }
-  }
-
-  @keyframes float-1 {
-    0%, 100% {
-      transform: translate(-50%, -50%) translate(0px, 0px);
-    }
-    33% {
-      transform: translate(-50%, -50%) translate(8px, -10px);
-    }
-    66% {
-      transform: translate(-50%, -50%) translate(-6px, 8px);
-    }
-  }
-
-  @keyframes float-2 {
-    0%, 100% {
-      transform: translate(-50%, -50%) translate(0px, 0px);
-    }
-    33% {
-      transform: translate(-50%, -50%) translate(-8px, 10px);
-    }
-    66% {
-      transform: translate(-50%, -50%) translate(7px, -7px);
-    }
-  }
-
-  @keyframes float-3 {
-    0%, 100% {
-      transform: translate(-50%, -50%) translate(0px, 0px);
-    }
-    33% {
-      transform: translate(-50%, -50%) translate(9px, 8px);
-    }
-    66% {
-      transform: translate(-50%, -50%) translate(-8px, -9px);
-    }
-  }
-
-  @keyframes float-4 {
-    0%, 100% {
-      transform: translate(-50%, -50%) translate(0px, 0px);
-    }
-    33% {
-      transform: translate(-50%, -50%) translate(-7px, -9px);
-    }
-    66% {
-      transform: translate(-50%, -50%) translate(8px, 6px);
-    }
-  }
-
-  @keyframes satellite-pop {
-    0% {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.3);
-    }
-    70% {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1.08);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
-    }
-  }
-
-  .animate-float-center {
-    animation: float-center 8s ease-in-out infinite;
-  }
-
-  .animate-float-1 {
-    animation: float-1 7s ease-in-out infinite;
-  }
-
-  .animate-float-2 {
-    animation: float-2 8.5s ease-in-out infinite 0.5s;
-  }
-
-  .animate-float-3 {
-    animation: float-3 7.8s ease-in-out infinite 1s;
-  }
-
-  .animate-float-4 {
-    animation: float-4 8.2s ease-in-out infinite 1.5s;
-  }
-
-  .animate-satellite-in {
-    animation: satellite-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  .interactive-bubble {
+    transition: transform 0.15s cubic-bezier(0.2, 0, 0.2, 1);
+    will-change: transform;
   }
 </style>
 
-<!-- Client Script for Interactive Orbit & Bubbles -->
-<script define:vars={{ pillarsData: pillars }}>
-  let activePillarId = null;
-  const container = document.getElementById('floating-constellation-container');
-  const satellitesLayer = document.getElementById('satellite-bubbles-container');
-  const svgLinesLayer = document.getElementById('satellite-svg-lines');
-  const centerBubble = document.getElementById('center-main-bubble');
-  const pillarBtns = document.querySelectorAll('.pillar-bubble-btn');
+<!-- Client Script for 3-Level Interactive Zoom and Pointer Physics -->
+<script define:vars={{ categoriesPayload }}>
+  const container = document.getElementById('zoomable-canvas-container');
+  const level1 = document.getElementById('canvas-level-1');
+  const level2 = document.getElementById('canvas-level-2');
+  const level3 = document.getElementById('canvas-level-3');
 
-  // Relative percentage offsets for satellite bubbles surrounding each pillar
-  const satelliteOffsets = {
-    orkiestry: [
-      { dx: -13.5, dy: -5.5 }, // top left
-      { dx: -13.0, dy: 6.5 },  // bottom left
-      { dx: 1.0, dy: -13.0 },  // top right
-    ],
-    chory: [
-      { dx: 13.5, dy: -5.5 },  // top right
-      { dx: -1.0, dy: -13.0 }, // top left
-    ],
-    teatr: [
-      { dx: 13.5, dy: 5.5 },   // bottom right
-      { dx: -1.0, dy: 13.0 },  // bottom left
-    ],
-    estrada: [
-      { dx: -13.5, dy: 5.5 },  // bottom left
-      { dx: 1.0, dy: 13.0 },   // bottom right
-    ],
-  };
+  const btnBackTo1 = document.getElementById('btn-back-to-level-1');
+  const btnBackTo2 = document.getElementById('btn-back-to-level-2');
+  const btnBackTo2Text = document.getElementById('btn-back-to-level-2-text');
+  const btnLevel3Drawer = document.getElementById('btn-level-3-drawer-trigger');
 
-  function selectPillar(pillarId) {
-    if (activePillarId === pillarId) {
-      clearSatellites();
-      activePillarId = null;
-      return;
-    }
+  const level2CatBadge = document.getElementById('level-2-cat-badge');
+  const level2CatTitle = document.getElementById('level-2-cat-title');
+  const level2BubblesContainer = document.getElementById('level-2-bubbles-container');
 
-    activePillarId = pillarId;
-    renderSatellites(pillarId);
-  }
+  const level3RoleBadge = document.getElementById('level-3-role-badge');
+  const level3Name = document.getElementById('level-3-ensemble-name');
+  const level3ConcertCount = document.getElementById('level-3-concert-count');
+  const level3Highlights = document.getElementById('level-3-highlights-list');
+  const level3Desc = document.getElementById('level-3-description-text');
+  const level3Photos = document.getElementById('level-3-photos-grid');
 
-  function clearSatellites() {
-    if (satellitesLayer) satellitesLayer.innerHTML = '';
-    if (svgLinesLayer) svgLinesLayer.innerHTML = '';
+  let currentLevel = 1;
+  let activeCategory = null;
+  let activeEnsemble = null;
 
-    pillarBtns.forEach((btn) => {
-      const card = btn.querySelector('div');
-      if (card) {
-        card.classList.remove('border-sky-300', 'scale-110', 'shadow-[0_0_35px_rgba(14,165,233,0.6)]', 'bg-sky-900/70');
-      }
-      const badge = btn.querySelector('.pillar-status-badge');
-      if (badge) {
-        badge.textContent = 'Formacje';
-        badge.classList.remove('bg-sky-500', 'text-white', 'border-sky-300');
-      }
+  // Pointer Physics State
+  let mouseX = 0;
+  let mouseY = 0;
+  let isMouseInside = false;
+
+  // Physics nodes registration
+  let physicsNodes = [];
+
+  function initPhysicsForLevel1() {
+    physicsNodes = [];
+    const elements = level1 ? level1.querySelectorAll('[data-physics-bubble]') : [];
+    elements.forEach((el) => {
+      physicsNodes.push({
+        element: el,
+        currentX: 0,
+        currentY: 0,
+        targetX: 0,
+        targetY: 0,
+        factor: el.id === 'bubble-center' ? 0.015 : 0.035,
+      });
     });
   }
 
-  function renderSatellites(pillarId) {
-    clearSatellites();
+  function initPhysicsForLevel2() {
+    physicsNodes = [];
+    if (!level2BubblesContainer) return;
+    const elements = level2BubblesContainer.querySelectorAll('[data-ensemble-bubble]');
+    elements.forEach((el, idx) => {
+      physicsNodes.push({
+        element: el,
+        currentX: 0,
+        currentY: 0,
+        targetX: 0,
+        targetY: 0,
+        factor: 0.03 + (idx * 0.01),
+      });
+    });
+  }
 
-    const pillar = pillarsData.find((p) => p.id === pillarId);
-    if (!pillar) return;
+  // Animation frame loop for smooth inertia
+  function updatePhysics() {
+    if (container && isMouseInside) {
+      const rect = container.getBoundingClientRect();
+      const relX = mouseX - (rect.left + rect.width / 2);
+      const relY = mouseY - (rect.top + rect.height / 2);
 
-    // Highlight selected pillar bubble
-    const activeBtn = document.getElementById(`pillar-bubble-${pillarId}`);
-    if (activeBtn) {
-      const card = activeBtn.querySelector('div');
-      if (card) {
-        card.classList.add('border-sky-300', 'scale-110', 'shadow-[0_0_35px_rgba(14,165,233,0.6)]', 'bg-sky-900/70');
-      }
-      const badge = activeBtn.querySelector('.pillar-status-badge');
-      if (badge) {
-        badge.textContent = 'Aktywny';
-        badge.classList.add('bg-sky-500', 'text-white', 'border-sky-300');
-      }
+      physicsNodes.forEach((node) => {
+        node.targetX = relX * node.factor;
+        node.targetY = relY * node.factor;
+        node.currentX += (node.targetX - node.currentX) * 0.1;
+        node.currentY += (node.targetY - node.currentY) * 0.1;
+        node.element.style.transform = `translate(calc(-50% + ${node.currentX.toFixed(2)}px), calc(-50% + ${node.currentY.toFixed(2)}px))`;
+      });
+    } else {
+      physicsNodes.forEach((node) => {
+        node.targetX = 0;
+        node.targetY = 0;
+        node.currentX += (node.targetX - node.currentX) * 0.1;
+        node.currentY += (node.targetY - node.currentY) * 0.1;
+        node.element.style.transform = `translate(calc(-50% + ${node.currentX.toFixed(2)}px), calc(-50% + ${node.currentY.toFixed(2)}px))`;
+      });
+    }
+    requestAnimationFrame(updatePhysics);
+  }
+
+  if (container) {
+    container.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      isMouseInside = true;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      isMouseInside = false;
+    });
+
+    requestAnimationFrame(updatePhysics);
+    initPhysicsForLevel1();
+  }
+
+  // Level 1 -> Level 2: Expand Category
+  function goToLevel2(catId) {
+    const category = categoriesPayload.find((c) => c.id === catId);
+    if (!category || !level1 || !level2 || !level2BubblesContainer) return;
+
+    activeCategory = category;
+    currentLevel = 2;
+
+    level2CatBadge.textContent = `${category.count}`;
+    level2CatTitle.textContent = category.name;
+    if (btnBackTo2Text) btnBackTo2Text.textContent = `Wróć do: ${category.name}`;
+
+    // Populate Level 2 Ensemble Bubbles
+    level2BubblesContainer.innerHTML = '';
+    const ensembles = category.ensembles;
+    const count = ensembles.length;
+
+    // Symmetrical positions inside container
+    const positions = count === 3
+      ? [
+          { left: '26%', top: '50%', size: 'w-48 h-48' },
+          { left: '50%', top: '50%', size: 'w-52 h-52' },
+          { left: '74%', top: '50%', size: 'w-48 h-48' },
+        ]
+      : [
+          { left: '35%', top: '50%', size: 'w-52 h-52' },
+          { left: '65%', top: '50%', size: 'w-52 h-52' },
+        ];
+
+    ensembles.forEach((ens, index) => {
+      const pos = positions[index] || { left: '50%', top: '50%', size: 'w-48 h-48' };
+      const bubble = document.createElement('div');
+      bubble.setAttribute('data-ensemble-bubble', ens.slug);
+      bubble.setAttribute('role', 'button');
+      bubble.setAttribute('tabindex', '0');
+      bubble.className = 'interactive-bubble absolute cursor-pointer group z-30 focus:outline-none';
+      bubble.style.left = pos.left;
+      bubble.style.top = pos.top;
+      bubble.style.transform = 'translate(-50%, -50%)';
+
+      bubble.innerHTML = `
+        <div class="relative flex flex-col items-center justify-center ${pos.size} rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/40 hover:border-sky-300 hover:scale-105 shadow-[0_0_30px_rgba(14,165,233,0.3)] hover:shadow-[0_0_45px_rgba(56,189,248,0.55)] transition-all duration-300 p-4 text-center">
+          
+          <span class="text-[9px] font-sans font-bold uppercase tracking-wider text-sky-300 px-2.5 py-0.5 rounded-full bg-[#070d1a]/90 border border-sky-400/30 mb-1.5 max-w-[90%] truncate">
+            ${ens.role}
+          </span>
+
+          <h4 class="font-display font-bold text-sm sm:text-base text-white group-hover:text-sky-200 transition-colors leading-tight px-2 line-clamp-2">
+            ${ens.name}
+          </h4>
+
+          <span class="text-[11px] font-sans text-sky-200/70 font-medium mt-1">
+            ${ens.concertCount}
+          </span>
+
+          <span class="mt-2 text-[10px] font-sans font-bold uppercase tracking-wider text-sky-300 group-hover:text-white flex items-center gap-1">
+            <span>Szczegóły</span>
+            <span class="text-sky-400 group-hover:translate-x-0.5 transition-transform">→</span>
+          </span>
+        </div>
+      `;
+
+      bubble.addEventListener('click', () => {
+        goToLevel3(ens);
+      });
+
+      level2BubblesContainer.appendChild(bubble);
+    });
+
+    // Transitions
+    level1.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+    level1.classList.add('opacity-0', 'scale-110', 'pointer-events-none');
+
+    level2.classList.remove('opacity-0', 'scale-90', 'pointer-events-none');
+    level2.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+
+    initPhysicsForLevel2();
+  }
+
+  // Level 2 -> Level 1: Back to Categories
+  function goToLevel1() {
+    currentLevel = 1;
+    activeCategory = null;
+
+    if (level2) {
+      level2.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+      level2.classList.add('opacity-0', 'scale-90', 'pointer-events-none');
     }
 
-    const offsets = satelliteOffsets[pillarId] || [];
+    if (level3) {
+      level3.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+      level3.classList.add('opacity-0', 'scale-90', 'pointer-events-none');
+    }
 
-    pillar.ensembles.forEach((ens, index) => {
-      const offset = offsets[index] || { dx: (index + 1) * 8, dy: (index + 1) * 6 };
-      const satXPercent = pillar.pos.x + offset.dx;
-      const satYPercent = pillar.pos.y + offset.dy;
+    if (level1) {
+      level1.classList.remove('opacity-0', 'scale-110', 'pointer-events-none');
+      level1.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+    }
 
-      // 1. Draw SVG Connecting Beam
-      if (svgLinesLayer) {
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', (pillar.pos.x * 10).toString());
-        line.setAttribute('y1', (pillar.pos.y * 6.6).toString());
-        line.setAttribute('x2', (satXPercent * 10).toString());
-        line.setAttribute('y2', (satYPercent * 6.6).toString());
-        line.setAttribute('stroke', 'url(#bubbleBeamGrad)');
-        line.setAttribute('stroke-width', '2');
-        line.setAttribute('stroke-dasharray', '4 4');
-        line.setAttribute('opacity', '0.85');
-        svgLinesLayer.appendChild(line);
-      }
+    initPhysicsForLevel1();
+  }
 
-      // 2. Create Floating Satellite Bubble
-      if (satellitesLayer) {
-        const satBubble = document.createElement('div');
-        satBubble.className = 'satellite-bubble absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto cursor-pointer group z-30 animate-satellite-in';
-        satBubble.style.left = `${satXPercent}%`;
-        satBubble.style.top = `${satYPercent}%`;
-        satBubble.style.animationDelay = `${index * 80}ms`;
+  // Level 2 -> Level 3: Expand Ensemble Details
+  function goToLevel3(ensemble) {
+    if (!level2 || !level3 || !ensemble) return;
+    activeEnsemble = ensemble;
+    currentLevel = 3;
 
-        satBubble.innerHTML = `
-          <div class="relative flex flex-col items-center justify-center w-36 h-36 sm:w-40 sm:h-40 rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/80 via-sky-950/90 to-[#070d1a]/95 border-2 border-sky-400/40 hover:border-sky-300 hover:scale-110 shadow-[0_0_25px_rgba(14,165,233,0.3)] hover:shadow-[0_0_40px_rgba(56,189,248,0.6)] transition-all duration-300 p-3 text-center">
-            
-            <span class="text-[9px] font-sans font-bold uppercase tracking-wider text-sky-300 px-2.5 py-0.5 rounded-full bg-[#070d1a]/90 border border-sky-400/30 mb-1 max-w-[90%] truncate">
-              ${ens.data.role}
-            </span>
+    if (level3RoleBadge) level3RoleBadge.textContent = ensemble.role;
+    if (level3Name) level3Name.textContent = ensemble.name;
+    if (level3ConcertCount) level3ConcertCount.textContent = ensemble.concertCount;
+    if (level3Desc) level3Desc.textContent = ensemble.body || 'Działalność wykonawcza i dyrygencka.';
 
-            <h4 class="font-display font-bold text-xs sm:text-[13px] text-white group-hover:text-sky-200 transition-colors leading-tight line-clamp-2 px-1">
-              ${ens.data.name}
-            </h4>
+    if (level3Highlights) {
+      level3Highlights.innerHTML = '';
+      (ensemble.highlights || []).forEach((h) => {
+        const li = document.createElement('li');
+        li.className = 'flex items-start gap-2 text-slate-300';
+        li.innerHTML = `<span class="text-sky-400 font-bold">✦</span><span>${h}</span>`;
+        level3Highlights.appendChild(li);
+      });
+    }
 
-            <span class="text-[10px] font-sans text-sky-200/70 font-medium mt-1">
-              ${ens.data.concertCount}
-            </span>
-
-            <div class="mt-1 flex items-center gap-1 text-[9px] font-sans font-bold uppercase tracking-wider text-sky-300 group-hover:text-white">
-              <span>Szczegóły</span>
-              <span class="text-sky-400 group-hover:translate-x-0.5 transition-transform">→</span>
-            </div>
-          </div>
-        `;
-
-        // Directly open the full ensemble drawer on click
-        satBubble.addEventListener('click', () => {
-          window.dispatchEvent(
-            new CustomEvent('open-ensemble-drawer', {
-              detail: { id: ens.slug, slug: ens.slug, ensembleSlug: ens.slug },
-            })
-          );
+    if (level3Photos) {
+      level3Photos.innerHTML = '';
+      const photos = ensemble.photos || [];
+      if (photos.length === 0) {
+        level3Photos.innerHTML = `<p class="text-xs text-slate-500 col-span-2">Brak materiałów archiwalnych.</p>`;
+      } else {
+        photos.slice(0, 4).forEach((p) => {
+          const div = document.createElement('div');
+          div.className = 'aspect-[16/10] overflow-hidden rounded-lg border border-white/10 bg-[#070d1a]';
+          div.innerHTML = `<img src="${p}" alt="${ensemble.name}" class="w-full h-full object-cover opacity-85 hover:opacity-100 hover:scale-105 transition-all duration-300" loading="lazy" />`;
+          level3Photos.appendChild(div);
         });
+      }
+    }
 
-        satellitesLayer.appendChild(satBubble);
+    // Transitions
+    level2.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+    level2.classList.add('opacity-0', 'scale-110', 'pointer-events-none');
+
+    level3.classList.remove('opacity-0', 'scale-90', 'pointer-events-none');
+    level3.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+
+    physicsNodes = [];
+  }
+
+  // Level 3 Drawer Trigger
+  if (btnLevel3Drawer) {
+    btnLevel3Drawer.addEventListener('click', () => {
+      if (activeEnsemble) {
+        window.dispatchEvent(
+          new CustomEvent('open-ensemble-drawer', {
+            detail: { id: activeEnsemble.slug, slug: activeEnsemble.slug, ensembleSlug: activeEnsemble.slug },
+          })
+        );
       }
     });
   }
 
-  // Desktop Event Listeners
-  pillarBtns.forEach((btn) => {
+  // Category buttons click in Level 1
+  document.querySelectorAll('.category-orb-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const pillarId = btn.getAttribute('data-pillar-id');
-      if (pillarId) selectPillar(pillarId);
+      const catId = btn.getAttribute('data-cat-id');
+      if (catId) goToLevel2(catId);
     });
   });
 
-  if (centerBubble) {
-    centerBubble.addEventListener('click', () => {
-      // Toggle or reset
-      if (activePillarId) {
-        clearSatellites();
-        activePillarId = null;
+  if (btnBackTo1) btnBackTo1.addEventListener('click', goToLevel1);
+  if (btnBackTo2) {
+    btnBackTo2.addEventListener('click', () => {
+      if (activeCategory) {
+        if (level3) {
+          level3.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+          level3.classList.add('opacity-0', 'scale-90', 'pointer-events-none');
+        }
+        if (level2) {
+          level2.classList.remove('opacity-0', 'scale-110', 'pointer-events-none');
+          level2.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+        }
+        currentLevel = 2;
+        initPhysicsForLevel2();
       } else {
-        selectPillar('orkiestry');
+        goToLevel1();
       }
     });
   }
 
-  // Auto-activate first pillar on load for desktop
-  if (window.innerWidth >= 1024) {
-    setTimeout(() => {
-      selectPillar('orkiestry');
-    }, 450);
-  }
+  // Mobile Tabs
+  const mobileCatBtns = document.querySelectorAll('[data-mobile-cat-btn]');
+  const mobileCards = document.querySelectorAll('[data-mobile-cat-parent]');
 
-  // Mobile Ribbon Tabs Logic
-  const mobilePillarBtns = document.querySelectorAll('[data-mobile-pillar-btn]');
-  const mobileCards = document.querySelectorAll('[data-mobile-pillar-parent]');
-
-  mobilePillarBtns.forEach((btn) => {
+  mobileCatBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const pillarId = btn.getAttribute('data-mobile-pillar-btn');
-      if (!pillarId) return;
+      const catId = btn.getAttribute('data-mobile-cat-btn');
+      if (!catId) return;
 
-      mobilePillarBtns.forEach((b) => {
+      mobileCatBtns.forEach((b) => {
         b.classList.remove('bg-sky-600', 'border-sky-400', 'text-white', 'shadow-md', 'shadow-sky-600/30');
         b.classList.add('bg-sky-950/40', 'border-sky-400/20', 'text-slate-300');
       });
@@ -591,8 +736,8 @@ const pillars = [
       btn.classList.add('bg-sky-600', 'border-sky-400', 'text-white', 'shadow-md', 'shadow-sky-600/30');
 
       mobileCards.forEach((card) => {
-        const parentPillar = card.getAttribute('data-mobile-pillar-parent');
-        if (parentPillar === pillarId) {
+        const parent = card.getAttribute('data-mobile-cat-parent');
+        if (parent === catId) {
           card.classList.remove('hidden');
           card.classList.add('block');
         } else {
