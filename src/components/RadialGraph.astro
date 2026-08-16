@@ -195,24 +195,24 @@ const categoriesPayload = categories.map(cat => ({
       <!-- ========================================== -->
       <div
         id="canvas-level-2"
-        class="absolute inset-0 transition-all duration-500 opacity-0 scale-90 pointer-events-none z-30 flex flex-col p-6"
+        class="absolute inset-0 transition-all duration-500 opacity-0 scale-90 pointer-events-none z-30 flex flex-col px-9 py-8"
       >
         <!-- Level 2 Navigation Bar -->
-        <div class="flex items-center justify-between pb-4 border-b border-white/10 flex-shrink-0 z-40">
+        <div class="flex items-center justify-between pb-4 border-b border-white/10 flex-shrink-0 z-40 gap-4">
           <button
             id="btn-back-to-level-1"
             type="button"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-200 hover:text-white hover:border-sky-300 text-xs font-sans uppercase tracking-wider font-semibold transition-all focus:outline-none"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-200 hover:text-white hover:border-sky-300 text-xs font-sans uppercase tracking-wider font-semibold transition-all focus:outline-none flex-shrink-0"
           >
             <ArrowLeft class="w-4 h-4" />
             <span>Wszystkie kategorie</span>
           </button>
 
-          <div class="flex items-center gap-3">
-            <span id="level-2-cat-badge" class="px-3 py-1 rounded-full text-xs font-sans uppercase tracking-wider bg-sky-950/80 border border-sky-400/30 text-sky-300 font-semibold">
+          <div class="flex items-center gap-3 min-w-0">
+            <span id="level-2-cat-badge" class="px-3 py-1 rounded-full text-xs font-sans uppercase tracking-wider bg-sky-950/80 border border-sky-400/30 text-sky-300 font-semibold flex-shrink-0">
               Kategoria
             </span>
-            <h3 id="level-2-cat-title" class="font-display font-bold text-xl text-white tracking-tight">
+            <h3 id="level-2-cat-title" class="font-display font-bold text-xl text-white tracking-tight truncate">
               Nazwa kategorii
             </h3>
           </div>
@@ -229,10 +229,10 @@ const categoriesPayload = categories.map(cat => ({
       <!-- ========================================== -->
       <div
         id="canvas-level-3"
-        class="absolute inset-0 transition-all duration-500 opacity-0 scale-90 pointer-events-none z-40 flex flex-col p-6 bg-gradient-to-b from-[#0b1528] via-[#070d1a] to-[#0b1528]"
+        class="absolute inset-0 transition-all duration-500 opacity-0 scale-90 pointer-events-none z-40 flex flex-col px-9 py-8 bg-gradient-to-b from-[#0b1528] via-[#070d1a] to-[#0b1528]"
       >
         <!-- Level 3 Navigation Bar -->
-        <div class="flex items-center justify-between pb-4 border-b border-white/10 flex-shrink-0 z-50">
+        <div class="flex items-center justify-between pb-4 border-b border-white/10 flex-shrink-0 z-50 gap-4">
           <button
             id="btn-back-to-level-2"
             type="button"
