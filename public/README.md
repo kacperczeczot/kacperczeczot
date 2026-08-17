@@ -8,11 +8,6 @@ Katalog `public/` zawiera statyczne pliki serwowane bezpośrednio do przeglądar
 
 ## 📂 Zawartość katalogu
 
-* ⚙️ [**`admin/`**](admin/) — strona przekierowująca do panelu [Pages CMS](https://app.pagescms.org).
-* **`favicon.svg`:** Wektorowa ikona witryny (monogram KC).
-* **`images/`:**
-  * `hero-portrait.svg` — Sylwetka artysty w świetle rampy na stronie głównej.
-  * `og-cover.svg` — Okładka Open Graph / Twitter Card (`1200x630`).
-  * `work-*.svg` — Ilustracje dzieł autorskich i produkcji studyjnych.
-  * `bio-*.svg` — Kadry biograficzne i edukacyjne.
-  * `ensembles/` — Wektorowe kadry archiwalne przypisane do poszczególnych formacji muzycznych (opinogora, rebowo, chorzele, wawrzyczek, arsvocale, operetka, porajeziora, zakrecony, czteryglosy).
+* ⚙️ [**`admin/`**](admin/) — Przekierowanie do panelu [Pages CMS](https://app.pagescms.org).
+* **`favicon.svg`** — Ikona witryny.
+* **`images/`** — Pliki graficzne (zdjęcia, okładki, grafiki wektorowe i materiały archiwalne).
