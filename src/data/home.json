@@ -28,6 +28,14 @@
   "directory": [
     {
       "index": "01",
+      "category": "Wykonawstwo",
+      "title": "Scena i Zespoły",
+      "link": "/scena-i-zespoly",
+      "image": "/images/ensembles/opinogora-2.svg",
+      "imageAlt": "Scena i zespoły"
+    },
+    {
+      "index": "02",
       "category": "Dyrygentura & Kompozycja",
       "title": "Dzieła Autorskie & Dyplomowe",
       "link": "/projekty-autorskie",
@@ -35,7 +43,7 @@
       "imageAlt": "Koncert Finale"
     },
     {
-      "index": "02",
+      "index": "03",
       "category": "Edukacja & Instrumentarium",
       "title": "Bio & Doświadczenie",
       "link": "/bio",

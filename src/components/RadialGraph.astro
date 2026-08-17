@@ -87,35 +87,29 @@ const categoriesPayload = categories.map(cat => ({
 }));
 ---
 
-<section id="drzewo-radialne" class="relative py-28 md:py-36 overflow-hidden bg-[#070d1a] border-t border-white/10 select-none">
+<section id="drzewo-radialne" class="relative pt-24 pb-6 lg:pb-8 overflow-hidden bg-[#070d1a] select-none">
   
   <!-- Ambient background glow spots -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-sky-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-  <div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-  <div class="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vmin] h-[70vmin] bg-sky-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+  <div class="absolute top-1/4 left-1/4 w-[40vmin] h-[40vmin] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-[45vmin] h-[45vmin] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <div class="w-full max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20 space-y-4">
+    <div id="radial-graph-header" class="text-center max-w-3xl mx-auto mb-6 lg:mb-8 space-y-3">
       <div class="inline-flex items-center gap-2.5 text-sky-200 text-xs font-sans uppercase tracking-[0.28em]">
         <Sparkles class="w-3.5 h-3.5 text-sky-400" />
         <span>Działalność Zespołowa</span>
       </div>
       
-      <h2 class="text-4xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white tracking-tight leading-tight">
         Działalność Sceniczna i <span class="text-blue-gradient">Zespołowa</span>
-      </h2>
+      </h1>
       
-      <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-sans font-light leading-relaxed">
+      <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto font-sans font-light leading-relaxed">
         Orkiestry dęte i symfoniczne, chóry akademickie i kameralne, teatr muzyczny i operetka oraz zespoły estradowe.
       </p>
-
-      <div class="flex items-center justify-center gap-3 pt-1 opacity-50">
-        <div class="w-12 h-[1.5px] bg-gradient-to-r from-transparent to-sky-400"></div>
-        <span class="text-sky-400 text-xs">✦</span>
-        <div class="w-12 h-[1.5px] bg-gradient-to-l from-transparent to-sky-400"></div>
-      </div>
     </div>
 
     <!-- ======================================================= -->
@@ -123,13 +117,13 @@ const categoriesPayload = categories.map(cat => ({
     <!-- ======================================================= -->
     <div
       id="zoomable-canvas-container"
-      class="hidden lg:block relative w-full mx-auto h-[700px] rounded-3xl border border-white/10 bg-gradient-to-b from-[#0b1528]/90 via-[#070d1a]/95 to-[#0b1528]/90 backdrop-blur-2xl overflow-hidden shadow-2xl shadow-sky-950/50"
+      class="hidden lg:block relative w-full mx-auto rounded-3xl border border-white/10 bg-gradient-to-b from-[#0b1528]/90 via-[#070d1a]/95 to-[#0b1528]/90 backdrop-blur-2xl overflow-hidden shadow-2xl shadow-sky-950/50"
     >
       <!-- Soft ambient backdrop rings -->
-      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div class="w-[620px] h-[620px] rounded-full border border-sky-400/10"></div>
-        <div class="absolute w-[400px] h-[400px] rounded-full border border-sky-400/15"></div>
-        <div class="absolute w-[240px] h-[240px] rounded-full bg-sky-500/10 blur-2xl"></div>
+      <div id="canvas-backdrop-rings" class="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-500">
+        <div class="w-[70%] max-h-[70%] aspect-square rounded-full border border-sky-400/10"></div>
+        <div class="absolute w-[46%] max-h-[46%] aspect-square rounded-full border border-sky-400/15"></div>
+        <div class="absolute w-[28%] max-h-[28%] aspect-square rounded-full bg-sky-500/10 blur-2xl"></div>
       </div>
 
       <!-- ========================================== -->
@@ -146,7 +140,7 @@ const categoriesPayload = categories.map(cat => ({
           style="left: 50%; top: 50%;"
           class="interactive-bubble absolute -translate-x-1/2 -translate-y-1/2 z-20"
         >
-          <div class="relative flex flex-col items-center justify-center w-56 h-56 rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/45 shadow-[0_0_35px_rgba(14,165,233,0.25)]">
+          <div class="orb-center relative flex flex-col items-center justify-center rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/45 shadow-[0_0_35px_rgba(14,165,233,0.25)]">
             <span class="text-xs sm:text-[13px] font-sans font-bold uppercase tracking-[0.2em] text-sky-300 mb-1.5">
               Dorobek Sceniczny
             </span>
@@ -178,7 +172,7 @@ const categoriesPayload = categories.map(cat => ({
               style={`left: ${cat.pos.x}%; top: ${cat.pos.y}%;`}
               class="interactive-bubble category-orb-btn absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group focus:outline-none"
             >
-              <div class="relative flex flex-col items-center justify-center w-48 h-48 rounded-full backdrop-blur-md bg-gradient-to-br from-sky-900/50 via-sky-950/75 to-[#070d1a]/90 border border-sky-400/35 hover:border-sky-300 hover:scale-105 shadow-lg shadow-sky-950/60 hover:shadow-[0_0_35px_rgba(14,165,233,0.4)] transition-all duration-300 p-4 text-center">
+              <div class="orb-category relative flex flex-col items-center justify-center rounded-full backdrop-blur-md bg-gradient-to-br from-sky-900/50 via-sky-950/75 to-[#070d1a]/90 border border-sky-400/35 hover:border-sky-300 hover:scale-105 shadow-lg shadow-sky-950/60 hover:shadow-[0_0_35px_rgba(14,165,233,0.4)] transition-all duration-300 p-4 text-center">
                 
                 <span class="p-3.5 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-300 mb-2.5 shadow-inner group-hover:text-white group-hover:border-sky-300 transition-all">
                   <IconComponent class="w-7 h-7" />
@@ -202,7 +196,7 @@ const categoriesPayload = categories.map(cat => ({
         class="absolute inset-0 transition-all duration-500 opacity-0 scale-90 pointer-events-none z-30 flex flex-col px-9 py-8"
       >
         <!-- Level 2 Navigation Bar -->
-        <div class="flex items-center justify-between pb-4 border-b border-white/10 flex-shrink-0 z-40 gap-4">
+        <div id="level-2-toolbar" class="flex items-center justify-between pb-4 border-b border-white/10 flex-shrink-0 z-40 gap-4">
           <button
             id="btn-back-to-level-1"
             type="button"
@@ -450,6 +444,22 @@ const categoriesPayload = categories.map(cat => ({
   .interactive-bubble {
     will-change: transform;
   }
+
+  #zoomable-canvas-container {
+    --tile-scale: 1;
+    height: calc(100dvh - 13.5rem);
+    min-height: 32rem;
+  }
+
+  #zoomable-canvas-container .orb-center {
+    width: calc(14rem * var(--tile-scale));
+    height: calc(14rem * var(--tile-scale));
+  }
+
+  #zoomable-canvas-container .orb-category {
+    width: calc(12rem * var(--tile-scale));
+    height: calc(12rem * var(--tile-scale));
+  }
 </style>
 
 <!-- Client Script for 3-Level Interactive Zoom and True Individual Proximity Physics -->
@@ -458,6 +468,12 @@ const categoriesPayload = categories.map(cat => ({
   const level1 = document.getElementById('canvas-level-1');
   const level2 = document.getElementById('canvas-level-2');
   const level3 = document.getElementById('canvas-level-3');
+  const backdropRings = document.getElementById('canvas-backdrop-rings');
+
+  function setBackdropRingsVisible(visible) {
+    if (!backdropRings) return;
+    backdropRings.classList.toggle('opacity-0', !visible);
+  }
 
   const btnBackTo1 = document.getElementById('btn-back-to-level-1');
   const btnBackTo2 = document.getElementById('btn-back-to-level-2');
@@ -477,6 +493,7 @@ const categoriesPayload = categories.map(cat => ({
   let currentLevel = 1;
   let activeCategory = null;
   let activeEnsemble = null;
+  let level2Interactive = false;
 
   // Magnetic Parallax Physics State
   let mouseClientX = -9999;
@@ -484,6 +501,36 @@ const categoriesPayload = categories.map(cat => ({
   let isMouseInside = false;
 
   let physicsNodes = [];
+
+  function currentTileScale() {
+    if (!container) return 1;
+    const raw = getComputedStyle(container).getPropertyValue('--tile-scale');
+    const parsed = parseFloat(raw);
+    return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
+  }
+
+  function syncCanvasToWindow() {
+    if (!container) return;
+    if (window.matchMedia('(max-width: 1023px)').matches) {
+      container.style.height = '';
+      container.style.removeProperty('--tile-scale');
+      return;
+    }
+
+    const section = document.getElementById('drzewo-radialne');
+    const header = document.getElementById('radial-graph-header');
+    const sectionStyles = section ? getComputedStyle(section) : null;
+    const padTop = sectionStyles ? parseFloat(sectionStyles.paddingTop) || 0 : 0;
+    const padBottom = sectionStyles ? parseFloat(sectionStyles.paddingBottom) || 0 : 0;
+    const headerH = header ? header.offsetHeight : 0;
+    const headerMb = header ? parseFloat(getComputedStyle(header).marginBottom) || 0 : 0;
+    const height = Math.max(520, window.innerHeight - padTop - padBottom - headerH - headerMb);
+    container.style.height = `${height}px`;
+
+    const basis = Math.min(container.clientWidth, height);
+    const scale = Math.max(0.9, Math.min(1.65, basis / 720));
+    container.style.setProperty('--tile-scale', scale.toFixed(3));
+  }
 
   function registerPhysicsNodes(elements, containerRect) {
     physicsNodes = [];
@@ -526,13 +573,14 @@ const categoriesPayload = categories.map(cat => ({
   }
 
   // Continuous Magnetic Attraction & Parallax Loop
-  const MAGNETIC_RADIUS = 380; // Smooth magnetic attraction range
+  const MAGNETIC_RADIUS_BASE = 380;
 
   function updatePhysicsLoop() {
     if (physicsNodes.length > 0 && container) {
       const containerRect = container.getBoundingClientRect();
       const containerCenterX = containerRect.left + containerRect.width / 2;
       const containerCenterY = containerRect.top + containerRect.height / 2;
+      const magneticRadius = MAGNETIC_RADIUS_BASE * currentTileScale();
 
       // Normalized mouse offset from canvas center (-1 to 1)
       const normX = Math.max(-1, Math.min(1, (mouseClientX - containerCenterX) / (containerRect.width / 2)));
@@ -552,9 +600,9 @@ const categoriesPayload = categories.map(cat => ({
           let magneticX = 0;
           let magneticY = 0;
 
-          if (dist < MAGNETIC_RADIUS && dist > 1) {
+          if (dist < magneticRadius && dist > 1) {
             // Smooth quadratic falloff towards cursor
-            const falloff = Math.pow(1 - dist / MAGNETIC_RADIUS, 1.8);
+            const falloff = Math.pow(1 - dist / magneticRadius, 1.8);
             const pull = falloff * node.maxMagneticPull;
             const angle = Math.atan2(dy, dx);
             magneticX = Math.cos(angle) * pull;
@@ -600,11 +648,20 @@ const categoriesPayload = categories.map(cat => ({
     });
 
     window.addEventListener('resize', () => {
-      initPhysicsForCurrentLevel();
+      syncCanvasToWindow();
+      if (currentLevel === 2 && activeCategory) {
+        goToLevel2(activeCategory.id);
+      } else {
+        initPhysicsForCurrentLevel();
+      }
     });
 
+    syncCanvasToWindow();
     requestAnimationFrame(updatePhysicsLoop);
-    setTimeout(initPhysicsForCurrentLevel, 200);
+    setTimeout(() => {
+      syncCanvasToWindow();
+      initPhysicsForCurrentLevel();
+    }, 200);
   }
 
   // Level 1 -> Level 2: Expand Category into Organic Constellation
@@ -618,38 +675,69 @@ const categoriesPayload = categories.map(cat => ({
     level2CatTitle.textContent = category.name;
     if (btnBackTo2Text) btnBackTo2Text.textContent = `Wróć do: ${category.name}`;
 
-    // Populate Level 2 Ensemble Bubbles in Dynamic Organic Constellation
+    // Zigzag across the full canvas, then charge-repulsion packing
     level2BubblesContainer.innerHTML = '';
     const ensembles = category.ensembles;
     const count = ensembles.length;
 
     const positions = (() => {
-      if (count <= 1) {
-        return [{ left: '50%', top: '50%', size: 'w-48 h-48 sm:w-52 sm:h-52' }];
+      const w = Math.max(level2BubblesContainer.clientWidth || container?.clientWidth || 800, 320);
+      const h = Math.max(level2BubblesContainer.clientHeight || (container?.clientHeight ?? 0) - 96, 280);
+      const size = Math.round(Math.max(110, Math.min(
+        210,
+        Math.min(w / Math.max(count, 1) * 1.15, h * 0.42),
+        Math.sqrt((w * h) / count) * 0.5
+      )));
+      const margin = size / 2 + 18;
+      const minDist = size * 1.32;
+
+      const pts = [];
+      if (count === 1) {
+        pts.push({ x: w * 0.5, y: h * 0.5 });
+      } else {
+        const startLow = count % 2 === 1;
+        for (let i = 0; i < count; i++) {
+          const t = (i + 0.5) / count;
+          const x = margin + t * (w - 2 * margin);
+          const high = startLow ? (i % 2 === 1) : (i % 2 === 0);
+          const y = high ? h * 0.32 : h * 0.68;
+          pts.push({ x, y });
+        }
       }
-      if (count === 2) {
-        return [
-          { left: '34%', top: '44%', size: 'w-48 h-48 sm:w-52 sm:h-52' },
-          { left: '66%', top: '56%', size: 'w-48 h-48 sm:w-52 sm:h-52' },
-        ];
+
+      for (let iter = 0; iter < 180; iter++) {
+        const damp = 0.18 * (1 - iter / 180);
+        for (let i = 0; i < pts.length; i++) {
+          let fx = 0;
+          let fy = 0;
+          for (let j = 0; j < pts.length; j++) {
+            if (i === j) continue;
+            const dx = pts[i].x - pts[j].x;
+            const dy = pts[i].y - pts[j].y;
+            const d = Math.hypot(dx, dy) || 0.01;
+            if (d < minDist * 2.2) {
+              const push = ((minDist * minDist) / (d * d)) * 14;
+              fx += (dx / d) * push;
+              fy += (dy / d) * push;
+            }
+          }
+          fx += 28 / Math.max(pts[i].x - margin, 6);
+          fx -= 28 / Math.max(w - margin - pts[i].x, 6);
+          fy += 28 / Math.max(pts[i].y - margin, 6);
+          fy -= 28 / Math.max(h - margin - pts[i].y, 6);
+
+          pts[i].x += fx * damp;
+          pts[i].y += fy * damp;
+          pts[i].x = Math.min(w - margin, Math.max(margin, pts[i].x));
+          pts[i].y = Math.min(h - margin, Math.max(margin, pts[i].y));
+        }
       }
-      if (count === 3) {
-        return [
-          { left: '50%', top: '34%', size: 'w-48 h-48 sm:w-52 sm:h-52' },
-          { left: '28%', top: '66%', size: 'w-44 h-44 sm:w-48 sm:h-48' },
-          { left: '72%', top: '64%', size: 'w-44 h-44 sm:w-48 sm:h-48' },
-        ];
-      }
-      const radius = count > 6 ? 34 : 30;
-      const size = count > 6 ? 'w-28 h-28 sm:w-32 sm:h-32' : 'w-36 h-36 sm:w-40 sm:h-40';
-      return Array.from({ length: count }, (_, i) => {
-        const angle = (Math.PI * 2 * i) / count - Math.PI / 2;
-        return {
-          left: `${50 + radius * Math.cos(angle)}%`,
-          top: `${50 + radius * Math.sin(angle)}%`,
-          size,
-        };
-      });
+
+      return pts.map((p) => ({
+        left: `${p.x}px`,
+        top: `${p.y}px`,
+        size: `${size}px`,
+      }));
     })();
 
     ensembles.forEach((ens, index) => {
@@ -665,14 +753,16 @@ const categoriesPayload = categories.map(cat => ({
 
       const nameSize = count > 6 ? 'text-xs sm:text-sm' : 'text-sm sm:text-base';
       bubble.innerHTML = `
-        <div class="relative flex items-center justify-center ${pos.size} rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/40 hover:border-sky-300 hover:scale-105 shadow-[0_0_30px_rgba(14,165,233,0.3)] hover:shadow-[0_0_45px_rgba(56,189,248,0.55)] transition-all duration-300 p-4 text-center">
+        <div class="relative flex items-center justify-center rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/40 hover:border-sky-300 hover:scale-105 shadow-[0_0_30px_rgba(14,165,233,0.3)] hover:shadow-[0_0_45px_rgba(56,189,248,0.55)] transition-all duration-300 p-4 text-center" style="width:${pos.size};height:${pos.size}">
           <span class="${nameSize} font-bold text-white font-sans leading-snug text-balance text-center px-2 group-hover:text-sky-200 transition-colors">
             ${ens.name}
           </span>
         </div>
       `;
 
-      bubble.addEventListener('click', () => {
+      bubble.addEventListener('click', (event) => {
+        event.stopPropagation();
+        if (!level2Interactive) return;
         goToLevel3(ens);
       });
 
@@ -683,13 +773,24 @@ const categoriesPayload = categories.map(cat => ({
     level1.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
     level1.classList.add('opacity-0', 'scale-110', 'pointer-events-none');
 
-    level2.classList.remove('opacity-0', 'scale-90', 'pointer-events-none');
-    level2.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+    level2.classList.remove('opacity-0', 'scale-90', 'pointer-events-auto');
+    level2.classList.add('opacity-100', 'scale-100', 'pointer-events-none');
+
+    setBackdropRingsVisible(false);
+
+    level2Interactive = false;
+    const unlockLevel2 = () => {
+      if (currentLevel !== 2) return;
+      level2Interactive = true;
+      level2.classList.remove('pointer-events-none');
+      level2.classList.add('pointer-events-auto');
+    };
+    window.addEventListener('pointerup', unlockLevel2, { once: true });
+    setTimeout(unlockLevel2, 400);
 
     setTimeout(initPhysicsForCurrentLevel, 50);
   }
 
-  // Level 2 -> Level 1: Back to Categories
   function goToLevel1() {
     currentLevel = 1;
     activeCategory = null;
@@ -709,12 +810,14 @@ const categoriesPayload = categories.map(cat => ({
       level1.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
     }
 
+    setBackdropRingsVisible(true);
+
     setTimeout(initPhysicsForCurrentLevel, 50);
   }
 
-  // Level 2 -> Level 3: Expand Ensemble Details inside diagram
   function goToLevel3(ensemble) {
     if (!level2 || !level3 || !ensemble) return;
+    if (!level2Interactive) return;
     activeEnsemble = ensemble;
     currentLevel = 3;
 
@@ -777,7 +880,8 @@ const categoriesPayload = categories.map(cat => ({
 
   // Category buttons click in Level 1
   document.querySelectorAll('.category-orb-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (event) => {
+      event.stopPropagation();
       const catId = btn.getAttribute('data-cat-id');
       if (catId) goToLevel2(catId);
     });
@@ -797,6 +901,7 @@ const categoriesPayload = categories.map(cat => ({
           level2.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
         }
         currentLevel = 2;
+        level2Interactive = true;
         setTimeout(initPhysicsForCurrentLevel, 50);
       } else {
         goToLevel1();

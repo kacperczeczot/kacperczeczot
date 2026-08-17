@@ -51,7 +51,7 @@ content:
           - { name: value, label: Liczba (np. 300+), type: string }
           - { name: label, label: Podpis, type: string }
       - name: directory
-        label: Kafelki Domeny
+        label: Nawigacja na stronie głównej
         type: object
         list: true
         fields:

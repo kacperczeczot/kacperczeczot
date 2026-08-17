@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import RadialGraph from '../components/RadialGraph.astro';
 import homeData from '../data/home.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -26,15 +25,13 @@ const directory = (homeData.directory || []).map((item) => ({
 >
   <Hero />
 
-  <RadialGraph />
-
-  <section class="py-20 border-t border-white/10 bg-[#070d1a]">
+  <section id="nawigacja" class="py-20 border-t border-white/10 bg-[#070d1a]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-8">
-        Domeny
+        Nawigacja
       </h2>
 
-      <nav aria-label="Katalog sekcji" class="border-t border-white/10">
+      <nav aria-label="Nawigacja po stronach" class="border-t border-white/10">
         {directory.map((item) => (
           <a
             href={item.href}
