@@ -1,60 +1,55 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  html {
-    scroll-behavior: smooth;
-    color-scheme: dark;
-    background-color: #070d1a;
-    color: #f1f5f9;
-  }
-
-  body {
-    min-height: 100vh;
-    overflow-x: hidden;
-    background-color: #070d1a;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: #f1f5f9;
-  }
-
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #0b1528;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #1c3464;
-    border-radius: 3px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #0284c7;
-  }
+/* Base styling */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background-color: #070d1a;
+  color: #f1f5f9;
 }
 
-@layer utilities {
-  .text-blue-gradient {
-    background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 50%, #60a5fa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .ocean-nav {
-    background: rgba(7, 13, 26, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .editorial-hover {
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .editorial-hover:hover {
-    background-color: rgba(15, 29, 56, 0.4);
-    border-color: rgba(56, 189, 248, 0.3);
-  }
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #070d1a;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #f1f5f9;
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1528;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c3464;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* Custom utility & component classes */
+.text-blue-gradient {
+  background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ocean-nav {
+  background: rgba(7, 13, 26, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.editorial-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-hover:hover {
+  background-color: rgba(15, 29, 56, 0.4);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
