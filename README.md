@@ -59,11 +59,11 @@ npm run preview
 ## 📐 Architektura i Kluczowe Moduły
 
 1. **[Hero Section](src/components/README.md#1-heroastro):**
-   * Prezentacja sylwetki artystycznej, tytułów oraz 4-kolumnowego paska wskaźników dorobku (`300+ Występów scenicznych`, `20+ Zespołów i formacji`, `6 Krajów tras koncertowych`, `3 Dyplomy z wyróżnieniem`).
+   * Prezentacja sylwetki artystycznej, tytułów oraz wskaźników dorobku scenicznego i akademickiego.
 2. **[Radial Graph](src/components/README.md#2-radialgraphastro):**
-   * Trójpoziomowy interaktywny diagram konstelacji formacji muzycznych z płynnym zoomem, fizyką magnetyczną i wbudowaną kartą szczegółów (Poziom 3).
+   * Trójpoziomowy interaktywny diagram konstelacji formacji muzycznych z płynnym zoomem, fizyką magnetyczną i kartami szczegółów.
 3. **[Content Collections](src/content/README.md):**
-   * Formalna baza markdown dla orkiestr, chórów, teatru muzycznego, zespołów estradowych oraz dzieł autorskich.
+   * Baza Markdown z walidacją typów dla formacji muzycznych oraz dzieł autorskich i dyplomowych.
 
 ---
 

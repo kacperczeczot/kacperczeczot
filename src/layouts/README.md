@@ -8,15 +8,7 @@ W tym katalogu znajduje się główny layout strony odpowiedzialny za strukturę
 
 ## 📄 `BaseLayout.astro`
 
-### Odpowiedzialności:
-1. **Zarządzanie SEO i Open Graph:**
-   * Tytuł domyślny: `Kacper Czeczot — Dyrygent · Multiinstrumentalista · Aranżer`
-   * Opis meta: `Oficjalne portfolio artystyczne Kacpra Czeczota: dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne, opracowania partytur oraz realizacja dźwięku.`
-   * Canonical URL, tagi Twitter Card i Open Graph.
-2. **Ładowanie typografii:**
-   * Import Google Font `Plus Jakarta Sans` (grubości 300–800) z `preconnect`.
-3. **Globalna struktura strony:**
-   * Pasek nawigacyjny `<Navbar />`
-   * Kontener głównej treści `<main><slot /></main>`
-   * Stopka kontaktowa `<Footer />`
-   * Globalny podgląd zdjęć `<Lightbox />`
+Szablon bazowy dla wszystkich podstron serwisu, odpowiedzialny za:
+1. **Zarządzanie SEO i Open Graph:** Generowanie tagów `<title>`, `<meta description>`, tagów Open Graph / Twitter Card oraz canonical URL.
+2. **Ładowanie typografii:** Preconnect i import fontu `Plus Jakarta Sans`.
+3. **Globalny szkielet witryny:** Osadzenie paska `<Navbar />`, kontenera głównego `<main><slot /></main>`, stopki `<Footer />` oraz globalnego modalu `<Lightbox />`.
