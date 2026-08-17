@@ -12,4 +12,4 @@ photos: []
 order: 3
 ---
 
-Stała współpraca od kwietnia 2024 roku, równolegle z orkiestrą w Rębowie: samodzielne prowadzenie zespołu, oprawa uroczystości w regionie Czerwińska nad Wisłą oraz gra w sekcji klarnetów.
+Samodzielne prowadzenie zespołu i dyrygentura podczas uroczystości w regionie Czerwińska nad Wisłą, praca warsztatowa oraz gra w sekcji klarnetów.

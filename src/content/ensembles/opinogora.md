@@ -14,4 +14,4 @@ photos:
 order: 1
 ---
 
-Kierownictwo artystyczne i dyrygentura orkiestry dętej od grudnia 2025 roku. Prowadzenie prób całego aparatu orkiestrowego, praca nad intonacją i zgraniem sekcyjnym oraz kompleksowa realizacja bieżącego programu koncertowego.
+Kierownictwo artystyczne i dyrygentura orkiestry dętej: prowadzenie prób całego aparatu orkiestrowego, praca nad intonacją i zgraniem sekcyjnym oraz kompleksowa realizacja bieżącego programu koncertowego.

@@ -16,4 +16,4 @@ photos:
 order: 1
 ---
 
-Główny zespół wokalny w trakcie studiów (od 2022 roku, 71 udokumentowanych występów): partie tenorowe, prowadzenie prób i dyrygentura w projektach dyplomowych, zarządzanie biblioteką nutową oraz nagrody na międzynarodowych festiwalach w Hiszpanii, na Litwie i we Włoszech.
+Główny akademicki zespół wokalny: partie tenorowe, prowadzenie prób i dyrygentura w projektach dyplomowych, zarządzanie biblioteką nutową oraz udział w międzynarodowych trasach festiwalowych.

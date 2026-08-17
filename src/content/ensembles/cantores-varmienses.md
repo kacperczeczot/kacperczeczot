@@ -12,4 +12,4 @@ photos: []
 order: 2
 ---
 
-Udział w dużych składach przy Filharmonii Warmińsko-Mazurskiej w latach 2023–2024: koncerty symfoniczne, widowiska promujące region oraz uroczystości jubileuszowe.
+Występy w składzie oratoryjno-symfonicznym przy Filharmonii Warmińsko-Mazurskiej: wielkie dzieła wokalno-instrumentalne, widowiska promujące region oraz uroczystości jubileuszowe.

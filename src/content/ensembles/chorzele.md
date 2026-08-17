@@ -13,4 +13,4 @@ photos:
 order: 5
 ---
 
-Współpraca od listopada 2022 roku (15 udokumentowanych występów): wykonawstwo instrumentalne w sekcji klarnetów, oprawa organowa oraz zdobycie I miejsca na festiwalu w Bułgarii.
+Wykonawstwo instrumentalne w sekcji klarnetów, oprawa organowa podczas uroczystości oraz występy na festiwalach krajowych i zagranicznych.

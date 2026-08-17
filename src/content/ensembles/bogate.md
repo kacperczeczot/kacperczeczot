@@ -11,4 +11,4 @@ photos: []
 order: 7
 ---
 
-Współpraca od lipca 2025 roku: występy plenerowe, praca instruktorska i wykonawstwo w sekcji klarnetów.
+Występy plenerowe, praca instruktorska z członkami orkiestry oraz wykonawstwo w sekcji klarnetów.

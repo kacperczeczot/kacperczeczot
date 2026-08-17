@@ -12,4 +12,4 @@ photos: []
 order: 4
 ---
 
-Skład projektowy na widowiska estradowe i edukacyjne w latach 2023–2024: współpraca z gwiazdami i chórami regionu oraz koncerty poza Olsztynem.
+Skład projektowy na widowiska estradowe i edukacyjne: współpraca z solistami i chórami regionu oraz realizacja koncertów scenicznych.

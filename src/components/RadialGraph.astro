@@ -77,8 +77,10 @@ const categoriesPayload = categories.map(cat => ({
   ensembles: cat.ensembles.map(ens => ({
     slug: ens.slug,
     name: ens.data.name,
+    categoryName: cat.name,
     role: ens.data.role,
-    concertCount: [ens.data.years, ens.data.concertCount].filter(Boolean).join(' · '),
+    years: ens.data.years || '',
+    concertCount: ens.data.concertCount || '',
     highlights: ens.data.highlights,
     body: ens.body,
     photos: (ens.data.photos || []).filter(Boolean).map(p => (p.startsWith('/') ? `${base}${p}` : p)),
@@ -256,15 +258,12 @@ const categoriesPayload = categories.map(cat => ({
                 <h3 id="level-3-ensemble-name" class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight mt-3 leading-tight">
                   Nazwa Zespołu
                 </h3>
-                <p id="level-3-concert-count" class="text-base font-sans text-sky-200/90 font-medium mt-1.5">
-                  Liczba występów
-                </p>
               </div>
 
               <!-- Highlights -->
               <div class="space-y-2.5">
                 <h4 class="text-sm font-sans font-bold uppercase tracking-[0.2em] text-sky-400">
-                  Kluczowe osiągnięcia
+                  Kluczowe osiągnięcia i projekty
                 </h4>
                 <ul id="level-3-highlights-list" class="space-y-2.5 text-base text-slate-300 font-sans font-light leading-relaxed">
                   <!-- Highlights items -->
@@ -274,7 +273,7 @@ const categoriesPayload = categories.map(cat => ({
               <!-- Description -->
               <div class="space-y-2.5">
                 <h4 class="text-sm font-sans font-bold uppercase tracking-[0.2em] text-slate-400">
-                  Opis działalności
+                  Profil działalności
                 </h4>
                 <p id="level-3-description-text" class="text-base text-slate-300 font-sans font-light leading-relaxed">
                   Opis formacji...
@@ -282,7 +281,7 @@ const categoriesPayload = categories.map(cat => ({
               </div>
             </div>
 
-            <!-- Right Column: Photos Grid & Specification Box -->
+            <!-- Right Column: Photos Grid & Metadata Tiles -->
             <div class="lg:col-span-5 space-y-5">
               <div class="space-y-3">
                 <div class="flex items-center justify-between">
@@ -295,19 +294,19 @@ const categoriesPayload = categories.map(cat => ({
                 </div>
               </div>
 
-              <!-- Metryczka formacji & specyfika składu -->
+              <!-- Metryka działalności formacji -->
               <div class="pt-4 border-t border-white/10 space-y-2.5">
                 <h4 class="text-xs font-sans font-bold uppercase tracking-[0.2em] text-slate-400">
-                  Specyfikacja wykonawcza
+                  Metryka działalności
                 </h4>
                 <div class="grid grid-cols-2 gap-2 text-xs font-sans">
                   <div class="p-3 rounded-xl bg-sky-950/40 border border-white/10 space-y-1">
-                    <span class="text-slate-400 block text-[10px] uppercase tracking-wider font-semibold">Obszar</span>
-                    <span id="level-3-spec-category" class="text-slate-100 font-medium text-xs block truncate">Formacja sceniczna</span>
+                    <span class="text-slate-400 block text-[10px] uppercase tracking-wider font-semibold">Okres współpracy</span>
+                    <span id="level-3-meta-years" class="text-slate-100 font-medium text-xs block truncate">—</span>
                   </div>
                   <div class="p-3 rounded-xl bg-sky-950/40 border border-white/10 space-y-1">
-                    <span class="text-slate-400 block text-[10px] uppercase tracking-wider font-semibold">Dokumentacja</span>
-                    <span class="text-sky-300 font-medium text-xs block truncate">Zweryfikowany dorobek</span>
+                    <span class="text-slate-400 block text-[10px] uppercase tracking-wider font-semibold">Występy / Dorobek</span>
+                    <span id="level-3-meta-concerts" class="text-sky-300 font-medium text-xs block truncate">—</span>
                   </div>
                 </div>
               </div>
@@ -822,11 +821,12 @@ const categoriesPayload = categories.map(cat => ({
 
     if (level3RoleBadge) level3RoleBadge.textContent = ensemble.role;
     if (level3Name) level3Name.textContent = ensemble.name;
-    if (level3ConcertCount) level3ConcertCount.textContent = ensemble.concertCount;
     if (level3Desc) level3Desc.textContent = ensemble.body || 'Działalność wykonawcza i dyrygencka.';
 
-    const specCat = document.getElementById('level-3-spec-category');
-    if (specCat && activeCategory) specCat.textContent = activeCategory.name;
+    const metaYears = document.getElementById('level-3-meta-years');
+    const metaConcerts = document.getElementById('level-3-meta-concerts');
+    if (metaYears) metaYears.textContent = ensemble.years || 'Współpraca bieżąca';
+    if (metaConcerts) metaConcerts.textContent = ensemble.concertCount || 'Działalność sceniczna';
 
     if (level3Highlights) {
       level3Highlights.innerHTML = '';

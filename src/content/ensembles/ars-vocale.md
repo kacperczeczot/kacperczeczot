@@ -13,4 +13,4 @@ photos:
 order: 3
 ---
 
-Działalność w latach 2022–2025 (8 udokumentowanych występów): polifonia dawna i sakralna, śpiew w głosie tenora, partie klarnetu oraz Złoty Dyplom na festiwalu w Olsztynie.
+Polifonia dawna i sakralna, śpiew w głosie tenora oraz partie klarnetu w repertuarze a cappella i wokalno-instrumentalnym.

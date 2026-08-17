@@ -5,7 +5,7 @@ role: "Zastępca Dyrygenta / Instruktor"
 concertCount: "18 występów"
 years: "Kwiecień 2024 – obecnie"
 highlights:
-  - "Przygotowanie i poprowadzenie 18 występów galowych, państwowych i festiwalowych"
+  - "Prowadzenie występów galowych, państwowych i festiwalowych"
   - "Autorski program warsztatów sekcyjnych dla młodych adeptów instrumentów dętych"
   - "Opracowanie i wdrożenie nowych aranżacji marszowych do stałego repertuaru"
 photos:

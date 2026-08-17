@@ -13,4 +13,4 @@ photos:
 order: 3
 ---
 
-Udział w profesjonalnej produkcji musicalowej opartej na warmińskich legendach w grudniu 2022 roku: rola Drwala na scenach Filharmonii Warmińsko-Mazurskiej w Olsztynie oraz Opery Krakowskiej.
+Udział w profesjonalnej produkcji musicalowej opartej na warmińskich legendach: kreacja sceniczna Drwala na deskach Filharmonii Warmińsko-Mazurskiej w Olsztynie oraz Opery Krakowskiej.

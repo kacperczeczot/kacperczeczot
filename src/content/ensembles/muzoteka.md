@@ -2,7 +2,7 @@
 name: "Zespół wokalno-instrumentalny (Muzoteka)"
 pillar: "estrada"
 role: "Kierownik muzyczny / Aranżer / Pianista"
-concertCount: "projekty sezonu 2022/2023"
+concertCount: "Programy tematyczne"
 years: "2022–2023"
 highlights:
   - "Koncert pieśni patriotycznych (listopad 2022)"

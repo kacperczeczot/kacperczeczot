@@ -12,4 +12,4 @@ photos: []
 order: 6
 ---
 
-Współpraca z orkiestrą macierzystej szkoły muzycznej od 2022 roku: koncerty szkolne, opracowania repertuaru oraz wsparcie sekcji dętej i perkusyjnej.
+Współpraca z orkiestrą macierzystej szkoły muzycznej: koncerty szkolne i środowiskowe, opracowania partytur na skład dęty oraz wykonawstwo w sekcji dętej i perkusyjnej.

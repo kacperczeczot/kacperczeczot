@@ -14,4 +14,4 @@ photos:
 order: 1
 ---
 
-Wieloletnia działalność w latach 2016–2024 (ok. 70 spektakli scenicznych): kreacje solowe i aktorskie, kierownictwo muzyczne w spektaklu „Krakowiacy i Górale” oraz spektakle w całym regionie.
+Kreacje solowe i aktorskie w klasyce operetkowej i teatrze muzycznym, kierownictwo muzyczne spektakli oraz regularna działalność objazdowa w regionie.
