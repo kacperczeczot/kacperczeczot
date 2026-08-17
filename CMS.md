@@ -1,25 +1,24 @@
-# Edycja treści
+# Zarządzanie Treścią (Pages CMS)
 
-Nie ruszasz żadnej konfiguracji. `.pages.yml` jest już ustawione.
+Witryna korzysta z bezserwerowego systemu [Pages CMS](https://pagescms.org), który umożliwia aktualizację tekstów, danych oraz multimediów bezpośrednio przez przeglądarkę z automatycznym zapisem do repozytorium GitHub.
 
-## Raz (tylko za pierwszym razem)
+---
 
-1. Otwórz [app.pagescms.org](https://app.pagescms.org)
-2. Zaloguj się GitHubem
-3. Gdy poprosi o dostęp do repozytorium, wybierz **kacperczeczot/kacperczeczot.github.io**
-4. Wejdź w to repo, gałąź **main**
+## Konfiguracja i pierwsze logowanie
 
-Jeśli GitHub pyta o instalację aplikacji: [Pages CMS na Marketplace](https://github.com/marketplace/pages-cms) → Install → tylko to jedno repo.
+1. Przejdź do [app.pagescms.org](https://app.pagescms.org) (lub pod adres `/admin` w witrynie).
+2. Zaloguj się za pomocą konta GitHub.
+3. Nadaj uprawnienia do repozytorium **kacperczeczot/kacperczeczot.github.io** (gałąź `main`).
 
-## Potem (codziennie)
+---
 
-W menu po lewej są cztery pozycje:
+## Dostępne sekcje
 
-| Menu | Co zmieniasz |
-| --- | --- |
-| **Strona główna** | Imię, zdjęcie, liczby, kafelki Domeny, kontakt |
-| **Bio** | Teksty, stanowiska, studia, nagrody, instrumenty, zdjęcia |
-| **Formacje** | Zespoły na diagramie (dodajesz nowy przyciskiem) |
-| **Projekty** | Dzieła autorskie (nowy projekt też się pojawi na stronie) |
+| Sekcja w CMS | Zakres edycji |
+| :--- | :--- |
+| **Strona główna** | Imię, nagłówek, wprowadzenie, wskaźniki dorobku, kafelki nawigacji, dane kontaktowe |
+| **Bio** | Biogram, stanowiska, edukacja wyższa i muzyczna, nagrody, instrumentarium, zdjęcia |
+| **Formacje** | Zespoły i chóry w diagramie radialnym (dodawanie nowych formacji, przypisanie do filarów, kadry) |
+| **Projekty** | Dzieła autorskie i dyplomowe, metryki wydań, linki i rejestracje wideo YouTube |
 
-Zapisz → odczekaj minutę → odśwież [kacperczeczot.github.io](https://kacperczeczot.github.io).
+Po zapisaniu zmian w panelu GitHub Actions automatycznie uruchamia proces budowy i wdraża zaktualizowaną wersję strony.

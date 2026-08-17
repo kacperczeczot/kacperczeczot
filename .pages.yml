@@ -38,35 +38,35 @@ content:
     operations: { create: false, rename: false, delete: false }
     fields:
       - { name: heroName, label: Imię i nazwisko, type: string }
-      - { name: heroRole, label: Tytuł pod imieniem, type: string }
-      - { name: heroIntro, label: Krótki opis pod tytułem, type: text }
+      - { name: heroRole, label: Tytuł artystyczny, type: string }
+      - { name: heroIntro, label: Krótkie wprowadzenie, type: text }
       - name: heroImage
-        label: Zdjęcie główne
+        label: Zdjęcie główne (Hero)
         type: image
       - name: credentials
-        label: Cztery liczby na stronie głównej
+        label: Wskaźniki dorobku
         type: object
         list: true
         fields:
-          - { name: value, label: Liczba (np. 300+), type: string }
-          - { name: label, label: Podpis, type: string }
+          - { name: value, label: Wartość (np. 300+), type: string }
+          - { name: label, label: Podpis wskaźnika, type: string }
       - name: directory
-        label: Nawigacja na stronie głównej
+        label: Kafelki nawigacji
         type: object
         list: true
         fields:
-          - { name: index, label: Numer (01), type: string }
-          - { name: category, label: Mała etykieta, type: string }
+          - { name: index, label: Numeracja (np. 01), type: string }
+          - { name: category, label: Kategoria, type: string }
           - { name: title, label: Tytuł kafelka, type: string }
-          - { name: link, label: Adres (np. /bio), type: string }
+          - { name: link, label: Adres docelowy (np. /bio), type: string }
           - name: image
             label: Zdjęcie kafelka
             type: image
-          - { name: imageAlt, label: Opis zdjęcia, type: string }
-      - { name: contactEmail, label: E-mail, type: string }
-      - { name: contactInvitation, label: Tekst zaproszenia w stopce, type: text }
-      - { name: githubUrl, label: Link GitHub, type: string }
-      - { name: youtubeUrl, label: Link YouTube, type: string }
+          - { name: imageAlt, label: Tekst alternatywny zdjęcia, type: string }
+      - { name: contactEmail, label: Adres e-mail, type: string }
+      - { name: contactInvitation, label: Tekst zaproszenia do kontaktu, type: text }
+      - { name: githubUrl, label: Link do profilu GitHub, type: string }
+      - { name: youtubeUrl, label: Link do kanału YouTube, type: string }
 
   - name: bio
     label: Bio
@@ -78,52 +78,52 @@ content:
       - { name: bioTitle, label: Tytuł strony, type: string }
       - { name: bioSubtitle, label: Podtytuł, type: text }
       - { name: bioHeadline, label: Nagłówek biogramu, type: string }
-      - { name: bioLeadText, label: Pierwszy akapit, type: text }
-      - { name: bioSecondaryText, label: Drugi akapit, type: text }
-      - { name: stageText, label: Akapit o działalności scenicznej, type: text }
+      - { name: bioLeadText, label: Wprowadzenie biogramu, type: text }
+      - { name: bioSecondaryText, label: Rozwinięcie biogramu, type: text }
+      - { name: stageText, label: Działalność sceniczna, type: text }
       - name: currentRoles
-        label: Aktualne stanowiska
+        label: Aktualne stanowiska i role
         type: object
         list: true
         fields:
-          - { name: title, label: Zespół / instytucja, type: string }
-          - { name: detail, label: Rola i lata, type: string }
+          - { name: title, label: Zespół / Instytucja, type: string }
+          - { name: detail, label: Stanowisko i lata, type: string }
       - name: bioStageImage
-        label: Zdjęcie przy biogramie
+        label: Fotografia sceniczna
         type: image
-      - { name: bioStageCaption, label: Podpis pod zdjęciem scenicznym, type: string }
+      - { name: bioStageCaption, label: Podpis fotografii scenicznej, type: string }
       - name: bioScoreImage
-        label: Zdjęcie partytury
+        label: Fotografia partytury
         type: image
-      - { name: bioScoreCaption, label: Podpis pod partyturą, type: string }
+      - { name: bioScoreCaption, label: Podpis fotografii partytury, type: string }
       - name: higherEducation
-        label: Studia (UWM)
+        label: Szkolnictwo wyższe (UWM)
         component: education
       - name: musicSchoolEducation
         label: Szkoła muzyczna (PSM)
         component: education
       - name: individualAwards
-        label: Nagrody
+        label: Nagrody i wyróżnienia
         type: object
         list: true
         fields:
           - { name: year, label: Rok, type: string }
-          - { name: title, label: Nazwa, type: string }
-          - { name: issuer, label: Kto przyznał, type: string }
+          - { name: title, label: Nazwa nagrody, type: string }
+          - { name: issuer, label: Instytucja przyznająca, type: string }
       - name: mainInstruments
-        label: Główne dyscypliny
+        label: Główne dyscypliny i instrumentarium
         type: object
         list: true
         fields:
-          - { name: name, label: Nazwa, type: string }
+          - { name: name, label: Nazwa instrumentu / dyscypliny, type: string }
           - { name: category, label: Kategoria, type: string }
           - { name: desc, label: Opis, type: text }
       - name: additionalInstruments
-        label: Instrumenty dodatkowe
+        label: Instrumentarium dodatkowe
         type: object
         list: true
         fields:
-          - { name: name, label: Nazwa, type: string }
+          - { name: name, label: Nazwa instrumentu, type: string }
           - { name: desc, label: Opis, type: text }
 
   - name: ensembles
@@ -140,9 +140,9 @@ content:
       sort: [name]
       search: [name, role]
     fields:
-      - { name: name, label: Nazwa, type: string }
+      - { name: name, label: Nazwa formacji, type: string }
       - name: pillar
-        label: Grupa na diagramie
+        label: Kategoria w diagramie
         type: select
         options:
           values:
@@ -150,23 +150,23 @@ content:
             - { value: chory, label: Chóry }
             - { value: teatr, label: Teatr }
             - { value: estrada, label: Estrada }
-      - { name: role, label: Twoja rola, type: string }
-      - { name: years, label: Lata, type: string }
-      - { name: concertCount, label: Liczba koncertów (tekst), type: string }
-      - { name: order, label: Kolejność (1 = wyżej), type: number }
+      - { name: role, label: Pełniona rola, type: string }
+      - { name: years, label: Lata działalności, type: string }
+      - { name: concertCount, label: Liczba występów (np. 40+ koncertów), type: string }
+      - { name: order, label: Kolejność sortowania (1 = najwyżej), type: number }
       - name: highlights
-        label: Osiągnięcia (kolejne punkty)
+        label: Kluczowe osiągnięcia
         type: string
         list: true
       - name: photos
-        label: Zdjęcia
+        label: Fotografie archiwalne
         type: image
         options:
           path: public/images/ensembles
           multiple:
             max: 24
       - name: body
-        label: Dłuższy opis
+        label: Opis szczegółowy
         type: rich-text
 
   - name: works
@@ -183,40 +183,40 @@ content:
       sort: [title]
       search: [title, subtitle]
     fields:
-      - { name: title, label: Tytuł, type: string }
+      - { name: title, label: Tytuł dzieła, type: string }
       - { name: subtitle, label: Podtytuł, type: string }
       - name: type
-        label: Rodzaj
+        label: Rodzaj projektu
         type: select
         options:
           values:
             - { value: conducting, label: Dyrygentura }
             - { value: production, label: Produkcja }
-      - { name: year, label: Rok, type: string }
-      - { name: description, label: Krótki opis, type: text }
+      - { name: year, label: Rok realizacji, type: string }
+      - { name: description, label: Opis projektu, type: text }
       - name: cover
-        label: Okładka
+        label: Okładka projektu
         type: image
         options:
           path: public/images/works
-      - { name: videoUrl, label: Link do wideo (może być pusty), type: string }
-      - { name: order, label: Kolejność (1 = wyżej), type: number }
+      - { name: videoUrl, label: Link zewnętrzny do wideo, type: string }
+      - { name: order, label: Kolejność sortowania (1 = najwyżej), type: number }
       - name: metrics
-        label: Metryka (tabelka z boku)
+        label: Metryka projektu
         type: object
         list: true
         fields:
-          - { name: label, label: Etykieta, type: string }
+          - { name: label, label: Etykieta parametru, type: string }
           - { name: value, label: Wartość, type: string }
-          - { name: url, label: Link (opcjonalny), type: string }
+          - { name: url, label: Link opcjonalny, type: string }
       - name: youtubeVideos
-        label: Filmy YouTube
+        label: Nagrania YouTube
         type: object
         list: true
         fields:
-          - { name: title, label: Tytuł, type: string }
-          - { name: youtubeId, label: ID z YouTube (to po v=), type: string }
-      - { name: videoHeading, label: Nagłówek nad filmami, type: string }
+          - { name: title, label: Tytuł nagrania, type: string }
+          - { name: youtubeId, label: Identyfikator wideo YouTube (np. v=ID), type: string }
+      - { name: videoHeading, label: Nagłówek sekcji wideo, type: string }
       - name: body
-        label: Dłuższy opis
+        label: Opis szczegółowy
         type: rich-text
