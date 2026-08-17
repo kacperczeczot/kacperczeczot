@@ -12,7 +12,7 @@ W tym katalogu znajdują się wszystkie modularne komponenty interfejsu użytkow
 * **Przeznaczenie:** Sekcja powitalna na stronie głównej.
 * **Elementy:**
   * Główny nagłówek H1 `Kacper Czeczot` i H2 `Dyrygent · Multiinstrumentalista · Aranżer`.
-  * Krótki opis artystyczny oraz przycisk CTA kierujący do diagramu.
+  * Krótki opis artystyczny oraz przycisk CTA kierujący do katalogu nawigacji.
   * Portret sceniczny z podpisem.
   * **Pasek 4 wskaźników dorobku:**
     1. `300+` — `Występów scenicznych`

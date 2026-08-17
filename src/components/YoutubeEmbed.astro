@@ -12,9 +12,9 @@ const { youtubeId = '', title, partNumber, featured = false } = Astro.props;
 const hasValidVideo = youtubeId && youtubeId.trim().length > 0 && youtubeId !== 'dQw4w9WgXcQ';
 ---
 
-<div class={`group relative overflow-hidden border border-white/10 bg-[#0b1528] transition-all duration-300 hover:border-sky-400/40 ${featured ? 'p-1' : ''}`}>
+<div class={`group relative overflow-hidden border border-white/10 bg-ocean-900 transition-all duration-300 hover:border-sky-400/40 ${featured ? 'p-1' : ''}`}>
   <!-- Video Header Bar -->
-  <div class="px-5 py-3.5 bg-[#070d1a] border-b border-sky-500/15 flex items-center justify-between gap-3">
+  <div class="px-5 py-3.5 bg-ocean-950 border-b border-sky-500/15 flex items-center justify-between gap-3">
     <div class="flex items-center gap-3 min-w-0">
       <span class="flex items-center justify-center w-7 h-7 border border-white/15 text-sky-300 text-xs font-display font-semibold flex-shrink-0">
         {partNumber ? `0${partNumber}` : <Film class="w-3.5 h-3.5 text-sky-400" />}
@@ -30,7 +30,7 @@ const hasValidVideo = youtubeId && youtubeId.trim().length > 0 && youtubeId !== 
   </div>
 
   <!-- Video Container (16:9) -->
-  <div class="relative w-full aspect-video bg-[#070d1a] overflow-hidden flex items-center justify-center">
+  <div class="relative w-full aspect-video bg-ocean-950 overflow-hidden flex items-center justify-center">
     {hasValidVideo ? (
       <iframe
         src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&modestbranding=1`}

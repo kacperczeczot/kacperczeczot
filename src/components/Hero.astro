@@ -1,5 +1,6 @@
 ---
 import homeData from '../data/home.json';
+import { base, cmsImage } from '../utils/cms';
 
 const credentials = homeData.credentials || [
   { value: '300+', label: 'Występów scenicznych' },
@@ -8,18 +9,7 @@ const credentials = homeData.credentials || [
   { value: '3', label: 'Dyplomy z wyróżnieniem' },
 ];
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-
-function cmsImage(path?: string) {
-  const fallback = `${base}/images/hero-portrait.svg`;
-  if (!path) return fallback;
-  if (path.startsWith('http')) return path;
-  if (path.startsWith('/')) return `${base}${path}`;
-  if (path.startsWith('images/')) return `${base}/${path}`;
-  return `${base}/images/${path}`;
-}
-
-const heroImage = cmsImage(homeData.heroImage);
+const heroImage = cmsImage(homeData.heroImage, `${base}/images/hero-portrait.svg`);
 ---
 
 <section class="relative pt-28 pb-16 md:pt-36 md:pb-24 border-b border-white/10">
@@ -53,14 +43,14 @@ const heroImage = cmsImage(homeData.heroImage);
 
       <div class="lg:col-span-5">
         <figure class="space-y-3">
-          <div class="relative border border-white/10 rounded-2xl overflow-hidden bg-[#0b1528] shadow-2xl">
+          <div class="relative border border-white/10 rounded-2xl overflow-hidden bg-ocean-900 shadow-2xl">
             <img
               src={heroImage}
               alt="Portret sceniczny — sylwetka dyrygenta w świetle rampy"
               class="w-full aspect-[4/5] object-cover scale-115 object-[85%_25%]"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#070d1a]/80 via-transparent to-transparent pointer-events-none"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-[#070d1a]/40 via-transparent to-transparent pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-ocean-950/80 via-transparent to-transparent pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-ocean-950/40 via-transparent to-transparent pointer-events-none"></div>
           </div>
           
         </figure>

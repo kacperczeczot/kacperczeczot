@@ -2,8 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import bioData from '../data/bio.json';
-
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+import { base, cmsImage } from '../utils/cms';
 
 const higherEducation = bioData.higherEducation || [];
 const musicSchoolEducation = bioData.musicSchoolEducation || [];
@@ -12,20 +11,13 @@ const mainInstruments = bioData.mainInstruments || [];
 const additionalInstruments = bioData.additionalInstruments || [];
 const currentRoles = bioData.currentRoles || [];
 const stageText = bioData.stageText || '';
-
-function cmsImage(path?: string) {
-  if (!path) return '';
-  if (path.startsWith('http')) return path;
-  if (path.startsWith('/')) return `${base}${path}`;
-  return `${base}/${path}`;
-}
 ---
 
 <BaseLayout
   title="Bio, Edukacja & Osiągnięcia — Kacper Czeczot"
   description="Zweryfikowana sylwetka artystyczna: wykształcenie na UWM i w PSM w Mławie z wyróżnieniem, nagrody, instrumentarium oraz dorobek dyrygencki."
 >
-  <section class="relative pt-36 pb-16 md:pt-44 md:pb-20 border-b border-white/10 bg-[#070d1a]">
+  <section class="relative pt-36 pb-16 md:pt-44 md:pb-20 border-b border-white/10 bg-ocean-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <SectionHeader
         badge="Sylwetka & Doświadczenie"
@@ -36,7 +28,7 @@ function cmsImage(path?: string) {
     </div>
   </section>
 
-  <article class="bg-[#070d1a]">
+  <article class="bg-ocean-950">
     <section class="py-20 border-b border-white/10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -138,7 +130,7 @@ function cmsImage(path?: string) {
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10">
             {musicSchoolEducation.map((item) => (
-              <div class="bg-[#070d1a] p-7 space-y-3 border border-white/10">
+              <div class="bg-ocean-950 p-7 space-y-3 border border-white/10">
                 <p class="text-xs font-sans uppercase tracking-widest text-sky-400">{item.period}</p>
                 <h4 class="text-lg font-display text-white">{item.degree}</h4>
                 <p class="text-xs text-sky-200/70">{item.specialization}</p>
@@ -183,7 +175,7 @@ function cmsImage(path?: string) {
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
           {mainInstruments.map((inst) => (
-            <div class="bg-[#070d1a] p-7 space-y-3">
+            <div class="bg-ocean-950 p-7 space-y-3">
               <p class="text-[11px] font-sans uppercase tracking-widest text-sky-400">{inst.category}</p>
               <h3 class="text-2xl font-display text-white">{inst.name}</h3>
               <p class="text-sm text-slate-400 font-sans font-light leading-relaxed">{inst.desc}</p>

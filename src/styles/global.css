@@ -42,29 +42,11 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .ocean-card {
-    background: rgba(11, 21, 40, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .ocean-card-hover {
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .ocean-card-hover:hover {
-    background: rgba(15, 29, 56, 0.4);
-    border-color: rgba(56, 189, 248, 0.3);
-  }
-
   .ocean-nav {
     background: rgba(7, 13, 26, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .editorial-border {
-    border-color: rgba(255, 255, 255, 0.08);
   }
 
   .editorial-hover {

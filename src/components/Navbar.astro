@@ -1,7 +1,7 @@
 ---
 import { Music, Radio, User, Mail, Menu, X } from 'lucide-astro';
+import { base } from '../utils/cms';
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const pathname = new URL(Astro.request.url).pathname;
 
 const navItems = [
@@ -73,7 +73,7 @@ const navItems = [
   </div>
 
   <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-b border-sky-500/20 bg-[#0b1528]/98 backdrop-blur-2xl px-5 pt-3 pb-7 space-y-2 shadow-2xl">
+  <div id="mobile-menu" class="hidden md:hidden border-b border-sky-500/20 bg-ocean-900/98 backdrop-blur-2xl px-5 pt-3 pb-7 space-y-2 shadow-2xl">
     {navItems.map((item) => {
       const Icon = item.icon;
       return (

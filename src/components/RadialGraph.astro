@@ -13,6 +13,7 @@ import {
   Award,
   Users,
 } from 'lucide-astro';
+import { base } from '../utils/cms';
 
 // Fetch all verified ensembles from Content Collections
 const allEnsembles = await getCollection('ensembles');
@@ -67,8 +68,6 @@ const categories = [
   },
 ];
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-
 // Clean JSON payload for client-side zoom transitions
 const categoriesPayload = categories.map(cat => ({
   id: cat.id,
@@ -87,7 +86,7 @@ const categoriesPayload = categories.map(cat => ({
 }));
 ---
 
-<section id="drzewo-radialne" class="relative pt-24 pb-6 lg:pb-8 overflow-hidden bg-[#070d1a] select-none">
+<section id="drzewo-radialne" class="relative pt-24 pb-6 lg:pb-8 overflow-hidden bg-ocean-950 select-none">
   
   <!-- Ambient background glow spots -->
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vmin] h-[70vmin] bg-sky-500/10 rounded-full blur-[140px] pointer-events-none"></div>
@@ -117,7 +116,7 @@ const categoriesPayload = categories.map(cat => ({
     <!-- ======================================================= -->
     <div
       id="zoomable-canvas-container"
-      class="hidden lg:block relative w-full mx-auto rounded-3xl border border-white/10 bg-gradient-to-b from-[#0b1528]/90 via-[#070d1a]/95 to-[#0b1528]/90 backdrop-blur-2xl overflow-hidden shadow-2xl shadow-sky-950/50"
+      class="hidden lg:block relative w-full mx-auto rounded-3xl border border-white/10 bg-gradient-to-b from-ocean-900/90 via-ocean-950/95 to-ocean-900/90 backdrop-blur-2xl overflow-hidden shadow-2xl shadow-sky-950/50"
     >
       <!-- Soft ambient backdrop rings -->
       <div id="canvas-backdrop-rings" class="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-500">
@@ -140,7 +139,7 @@ const categoriesPayload = categories.map(cat => ({
           style="left: 50%; top: 50%;"
           class="interactive-bubble absolute -translate-x-1/2 -translate-y-1/2 z-20"
         >
-          <div class="orb-center relative flex flex-col items-center justify-center rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/45 shadow-[0_0_35px_rgba(14,165,233,0.25)]">
+          <div class="orb-center relative flex flex-col items-center justify-center rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-ocean-950/95 border-2 border-sky-400/45 shadow-[0_0_35px_rgba(14,165,233,0.25)]">
             <span class="text-xs sm:text-[13px] font-sans font-bold uppercase tracking-[0.2em] text-sky-300 mb-1.5">
               Dorobek Sceniczny
             </span>
@@ -172,7 +171,7 @@ const categoriesPayload = categories.map(cat => ({
               style={`left: ${cat.pos.x}%; top: ${cat.pos.y}%;`}
               class="interactive-bubble category-orb-btn absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group focus:outline-none"
             >
-              <div class="orb-category relative flex flex-col items-center justify-center rounded-full backdrop-blur-md bg-gradient-to-br from-sky-900/50 via-sky-950/75 to-[#070d1a]/90 border border-sky-400/35 hover:border-sky-300 hover:scale-105 shadow-lg shadow-sky-950/60 hover:shadow-[0_0_35px_rgba(14,165,233,0.4)] transition-all duration-300 p-4 text-center">
+              <div class="orb-category relative flex flex-col items-center justify-center rounded-full backdrop-blur-md bg-gradient-to-br from-sky-900/50 via-sky-950/75 to-ocean-950/90 border border-sky-400/35 hover:border-sky-300 hover:scale-105 shadow-lg shadow-sky-950/60 hover:shadow-[0_0_35px_rgba(14,165,233,0.4)] transition-all duration-300 p-4 text-center">
                 
                 <span class="p-3.5 rounded-full bg-sky-950/80 border border-sky-400/30 text-sky-300 mb-2.5 shadow-inner group-hover:text-white group-hover:border-sky-300 transition-all">
                   <IconComponent class="w-7 h-7" />
@@ -222,7 +221,7 @@ const categoriesPayload = categories.map(cat => ({
       <!-- ========================================== -->
       <div
         id="canvas-level-3"
-        class="absolute inset-0 transition-all duration-500 opacity-0 scale-90 pointer-events-none z-40 flex flex-col px-9 py-8 bg-gradient-to-b from-[#0b1528] via-[#070d1a] to-[#0b1528]"
+        class="absolute inset-0 transition-all duration-500 opacity-0 scale-90 pointer-events-none z-40 flex flex-col px-9 py-8 bg-gradient-to-b from-ocean-900 via-ocean-950 to-ocean-900"
       >
         <!-- Level 3 Navigation Bar -->
         <div class="flex items-center justify-between pb-4 border-b border-white/10 flex-shrink-0 z-50 gap-4">
@@ -328,7 +327,7 @@ const categoriesPayload = categories.map(cat => ({
     <div class="block lg:hidden space-y-6">
       
       <!-- Mobile Overview Header -->
-      <div class="flex items-center justify-between p-5 rounded-2xl backdrop-blur-md bg-gradient-to-r from-sky-950/60 to-[#070d1a] border border-sky-400/30 shadow-lg">
+      <div class="flex items-center justify-between p-5 rounded-2xl backdrop-blur-md bg-gradient-to-r from-sky-950/60 to-ocean-950 border border-sky-400/30 shadow-lg">
         <div class="space-y-1">
           <span class="text-xs font-sans uppercase tracking-widest text-sky-300 font-semibold">
             Dorobek Artystyczny
@@ -376,7 +375,7 @@ const categoriesPayload = categories.map(cat => ({
           cat.ensembles.map((ens) => (
             <div
               data-mobile-cat-parent={cat.id}
-              class={`mobile-ensemble-card p-6 rounded-2xl backdrop-blur-md bg-gradient-to-b from-sky-950/40 to-[#070d1a] border border-sky-400/25 hover:border-sky-300 transition-all flex flex-col justify-between group shadow-lg ${
+              class={`mobile-ensemble-card p-6 rounded-2xl backdrop-blur-md bg-gradient-to-b from-sky-950/40 to-ocean-950 border border-sky-400/25 hover:border-sky-300 transition-all flex flex-col justify-between group shadow-lg ${
                 cIdx === 0 ? 'block' : 'hidden'
               }`}
             >
@@ -421,7 +420,7 @@ const categoriesPayload = categories.map(cat => ({
                         type="button"
                         data-lightbox-src={fullPhotoUrl}
                         data-lightbox-alt={`${ens.data.name} — kadr`}
-                        class="aspect-[16/10] overflow-hidden rounded-lg border border-white/10 bg-[#0b1528] focus:outline-none focus:ring-2 focus:ring-sky-400"
+                        class="aspect-[16/10] overflow-hidden rounded-lg border border-white/10 bg-ocean-900 focus:outline-none focus:ring-2 focus:ring-sky-400"
                       >
                         <img src={fullPhotoUrl} alt={ens.data.name} class="w-full h-full object-cover opacity-85 hover:opacity-100 transition-opacity" loading="lazy" />
                       </button>
@@ -753,7 +752,7 @@ const categoriesPayload = categories.map(cat => ({
 
       const nameSize = count > 6 ? 'text-xs sm:text-sm' : 'text-sm sm:text-base';
       bubble.innerHTML = `
-        <div class="relative flex items-center justify-center rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-[#070d1a]/95 border-2 border-sky-400/40 hover:border-sky-300 hover:scale-105 shadow-[0_0_30px_rgba(14,165,233,0.3)] hover:shadow-[0_0_45px_rgba(56,189,248,0.55)] transition-all duration-300 p-4 text-center" style="width:${pos.size};height:${pos.size}">
+        <div class="relative flex items-center justify-center rounded-full backdrop-blur-xl bg-gradient-to-br from-sky-900/70 via-sky-950/85 to-ocean-950/95 border-2 border-sky-400/40 hover:border-sky-300 hover:scale-105 shadow-[0_0_30px_rgba(14,165,233,0.3)] hover:shadow-[0_0_45px_rgba(56,189,248,0.55)] transition-all duration-300 p-4 text-center" style="width:${pos.size};height:${pos.size}">
           <span class="${nameSize} font-bold text-white font-sans leading-snug text-balance text-center px-2 group-hover:text-sky-200 transition-colors">
             ${ens.name}
           </span>
@@ -850,10 +849,10 @@ const categoriesPayload = categories.map(cat => ({
           btn.type = 'button';
           btn.setAttribute('data-lightbox-src', p);
           btn.setAttribute('data-lightbox-alt', `${ensemble.name} — fotografia archiwalna`);
-          btn.className = 'group relative aspect-[16/10] overflow-hidden rounded-xl border border-white/15 bg-[#0b1528] focus:outline-none focus:ring-2 focus:ring-sky-400 text-left shadow-lg';
+          btn.className = 'group relative aspect-[16/10] overflow-hidden rounded-xl border border-white/15 bg-ocean-900 focus:outline-none focus:ring-2 focus:ring-sky-400 text-left shadow-lg';
           btn.innerHTML = `
             <img src="${p}" alt="${ensemble.name}" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#070d1a]/90 via-transparent to-black/30 flex flex-col justify-between p-2.5">
+            <div class="absolute inset-0 bg-gradient-to-t from-ocean-950/90 via-transparent to-black/30 flex flex-col justify-between p-2.5">
               <span class="self-start text-[9px] font-sans font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-sky-300 border border-white/10">
                 Kadr ${pIdx + 1}
               </span>

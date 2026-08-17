@@ -10,7 +10,8 @@
 * 📁 [**`src/components/`**](src/components/README.md) — Komponenty interfejsu (Hero, diagram radialny, nawigacja, stopka)
 * 📁 [**`src/content/`**](src/content/README.md) — Baza danych Markdown i Content Collections (formacje, dzieła)
 * 📁 [**`src/layouts/`**](src/layouts/README.md) — Szablony bazowe, struktura HTML i tagi SEO
-* 📁 [**`src/pages/`**](src/pages/_README.md) — Trasy i podstrony serwisu (`/`, `/projekty-autorskie`, `/bio`)
+* 📁 [**`src/pages/`**](src/pages/_README.md) — Trasy i podstrony serwisu (`/`, `/scena-i-zespoly`, `/projekty-autorskie`, `/bio`)
+* 📁 [**`src/utils/`**](src/utils/README.md) — Narzędzia pomocnicze (`cms.ts` – zarządzanie base URL i zasobami CMS)
 * 📁 [**`public/`**](public/README.md) — Statyczne zasoby graficzne, wektory SVG i portrety
 * 📁 [**`scripts/`**](scripts/README.md) — Skrypty pomocnicze i generatory assetów
 

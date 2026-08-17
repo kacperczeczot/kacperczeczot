@@ -3,28 +3,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import YoutubeEmbed from '../components/YoutubeEmbed.astro';
 import { getCollection } from 'astro:content';
+import { cmsImage } from '../utils/cms';
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const works = (await getCollection('works')).sort((a, b) => a.data.order - b.data.order);
 
 const typeLabel = {
   conducting: 'Dyrygentura symfoniczno-chóralna',
   production: 'Produkcja muzyczna',
 };
-
-function cmsImage(path?: string | null) {
-  if (!path) return '';
-  if (path.startsWith('http')) return path;
-  if (path.startsWith('/')) return `${base}${path}`;
-  return `${base}/${path}`;
-}
 ---
 
 <BaseLayout
   title="Dzieła Autorskie & Projekty Dyplomowe — Kacper Czeczot"
   description="Dzieła dyplomowe Kacpra Czeczota: Koncert Dyplomowy „Finale” (dyrygentura) oraz „Echo Epok” (produkcja muzyczna i realizacja dźwięku)."
 >
-  <section class="relative pt-36 pb-16 md:pt-44 md:pb-20 border-b border-white/10 bg-[#070d1a]">
+  <section class="relative pt-36 pb-16 md:pt-44 md:pb-20 border-b border-white/10 bg-ocean-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <SectionHeader
         badge="Dzieła Autorskie & Dyplomowe"
@@ -73,7 +66,7 @@ function cmsImage(path?: string | null) {
               />
             )}
             {work.data.metrics.length > 0 && (
-              <div class="bg-[#0b1528]/80 border border-white/10 rounded-2xl p-6 shadow-xl space-y-4">
+              <div class="bg-ocean-900/80 border border-white/10 rounded-2xl p-6 shadow-xl space-y-4">
                 <h4 class="text-xs font-sans uppercase tracking-[0.2em] font-semibold text-sky-400">Metryka Dzieła</h4>
                 <dl class="divide-y divide-white/10 text-sm">
                   {work.data.metrics.map((row, idx) => (

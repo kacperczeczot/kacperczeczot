@@ -28,11 +28,6 @@ export default {
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
         display: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
-      boxShadow: {
-        'ocean-card': '0 8px 30px -6px rgba(2, 6, 23, 0.6), 0 2px 8px -2px rgba(14, 165, 233, 0.1)',
-        'ocean-hover': '0 16px 36px -4px rgba(2, 132, 199, 0.25), 0 4px 12px -2px rgba(2, 6, 23, 0.7)',
-        'blue-glow': '0 0 35px -5px rgba(14, 165, 233, 0.35)',
-      },
     },
   },
   plugins: [],
