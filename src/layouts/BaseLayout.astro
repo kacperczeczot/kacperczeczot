@@ -3,21 +3,85 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Lightbox from '../components/Lightbox.astro';
 import { base } from '../utils/cms';
+import homeData from '../data/home.json';
 import '../styles/global.css';
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
+  type?: 'website' | 'article' | 'profile';
+  jsonLd?: Record<string, any> | Record<string, any>[];
 }
 
 const {
   title = 'Kacper Czeczot — Dyrygent · Multiinstrumentalista · Aranżer',
   description = 'Oficjalne portfolio artystyczne Kacpra Czeczota: dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne, opracowania partytur oraz realizacja dźwięku.',
   image = `${base}/images/og-cover.svg`,
+  type = 'website',
+  jsonLd,
 } = Astro.props;
 
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://kacperczeczot.github.io';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kacperczeczot.github.io');
+
+const absoluteImage = image.startsWith('http://') || image.startsWith('https://')
+  ? image
+  : `${siteUrl}${image.startsWith('/') ? image : `/${image}`}`;
+
+const defaultPersonSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${siteUrl}/#person`,
+  name: 'Kacper Czeczot',
+  url: siteUrl,
+  image: `${siteUrl}/images/dyplomhero.jpeg`,
+  jobTitle: ['Dyrygent', 'Multiinstrumentalista', 'Aranżer', 'Kierownik muzyczny'],
+  description: 'Dyrygent symfoniczny i chóralny, multiinstrumentalista, aranżer oraz realizator dźwięku.',
+  email: homeData.contactEmail,
+  sameAs: [
+    homeData.youtubeUrl,
+    homeData.githubUrl,
+  ].filter(Boolean),
+  alumniOf: [
+    {
+      '@type': 'EducationalOrganization',
+      name: 'Uniwersytet Warmińsko-Mazurski w Olsztynie',
+      description: 'Instytut Muzyki — Dyrygentura (studia ukończone z wyróżnieniem)'
+    },
+    {
+      '@type': 'EducationalOrganization',
+      name: 'Państwowa Szkoła Muzyczna I i II st. im. A. Krzanowskiego w Mławie'
+    }
+  ],
+  knowsAbout: [
+    'Dyrygentura symfoniczna',
+    'Dyrygentura chóralna',
+    'Aranżacja muzyczna',
+    'Orkiestracja i opracowanie partytur',
+    'Teatr muzyczny i estrada',
+    'Produkcja muzyczna i realizacja dźwięku'
+  ]
+};
+
+const defaultWebsiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  url: siteUrl,
+  name: 'Kacper Czeczot — Portfolio Artystyczne',
+  description: 'Oficjalne portfolio artystyczne Kacpra Czeczota: dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne, opracowania partytur oraz realizacja dźwięku.',
+  publisher: {
+    '@id': `${siteUrl}/#person`
+  },
+  inLanguage: 'pl-PL'
+};
+
+const schemas = [
+  defaultPersonSchema,
+  defaultWebsiteSchema,
+  ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [])
+];
 ---
 
 <!doctype html>
@@ -33,21 +97,31 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kacpercz
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Kacper Czeczot" />
+    <meta name="keywords" content="Kacper Czeczot, dyrygent, multiinstrumentalista, aranżer, dyrygentura symfoniczna, chór, orkiestra, teatr muzyczny, produkcja muzyczna, partytury, Olsztyn, Mława" />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#070d1a" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kacper Czeczot" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={absoluteImage} />
+    <meta property="og:image:alt" content={title} />
 
     <!-- Twitter Card -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={image} />
+    <meta property="twitter:image" content={absoluteImage} />
+
+    <!-- Schema.org JSON-LD -->
+    {schemas.map((schema) => (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+    ))}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
