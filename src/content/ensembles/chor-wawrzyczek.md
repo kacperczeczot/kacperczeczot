@@ -2,8 +2,9 @@
 name: "Chór im. prof. Wiktora Wawrzyczka UWM"
 pillar: "chory"
 role: "Tenor / Dyrygent / Bibliotekarz"
+leader: "dr hab. Katarzyna Bojaruniec, prof. UWM"
 concertCount: "71 występów"
-years: "od 2022"
+years: "2022–obecnie"
 highlights:
   - "Złoty i Srebrny Dyplom na XIV Międzynarodowym Festiwalu „Canco Mediterrania” w Hiszpanii (2025)"
   - "Brązowy Dyplom na XIII Międzynarodowym Festiwalu Kaunas Cantat na Litwie (2025)"

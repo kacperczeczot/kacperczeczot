@@ -2,6 +2,7 @@
 name: "Chór „Cantores Varmienses”"
 pillar: "chory"
 role: "Chórzysta (bas)"
+leader: "prof. dr hab. Benedykt Błoński"
 concertCount: "7 występów"
 years: "2023–2024"
 highlights:

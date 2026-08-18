@@ -151,6 +151,7 @@ content:
             - { value: teatr, label: Teatr }
             - { value: estrada, label: Estrada }
       - { name: role, label: Pełniona rola, type: string }
+      - { name: leader, label: "Główny dyrygent / Kierownictwo / Lider", type: string }
       - { name: years, label: Lata działalności, type: string }
       - { name: concertCount, label: Liczba występów (np. 40+ koncertów), type: string }
       - { name: order, label: Kolejność sortowania (1 = najwyżej), type: number }

@@ -2,6 +2,7 @@
 name: "Musical „Pora Jeziora”"
 pillar: "teatr"
 role: "Śpiew / Aktor (Drwal)"
+leader: "Piotr Sułkowski, Tomasz Szymuś (Kier. muz.) / Jerzy Jan Połoński (Reż.)"
 concertCount: "4 spektakle"
 years: "2022"
 highlights:

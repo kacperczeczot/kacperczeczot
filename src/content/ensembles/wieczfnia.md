@@ -2,8 +2,9 @@
 name: "Młodzieżowa Orkiestra Dęta Wieczfnia Kościelna"
 pillar: "orkiestry"
 role: "Klarnecista / Instruktor / Aranżer"
+leader: "Tomasz Wesołowski (Kapelmistrz)"
 concertCount: "30+ występów"
-years: "Grudzień 2022 – maj 2026"
+years: "2022–2026"
 highlights:
   - "Koncerty galowe, święta kościelne, uroczystości państwowe i dożynki"
   - "Okazjonalne dyrygowanie oraz szkolenie członków zespołu"

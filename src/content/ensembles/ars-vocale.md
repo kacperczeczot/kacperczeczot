@@ -2,6 +2,7 @@
 name: "Chór „Ars Vocale” Instytutu Muzyki"
 pillar: "chory"
 role: "Tenor / Klarnecista"
+leader: "dr hab. Karol Kisiel, prof. UWM"
 concertCount: "8 występów"
 years: "2022–2025"
 highlights:

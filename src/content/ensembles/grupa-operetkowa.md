@@ -2,6 +2,7 @@
 name: "Grupa Operetkowa przy PSM w Mławie"
 pillar: "teatr"
 role: "Solista / Aktor / Kier. Muzyczne"
+leader: "Michał Gogolewski (Reżyseria) / Anna Chocholska"
 concertCount: "ok. 70 spektakli"
 years: "2016–2024"
 highlights:

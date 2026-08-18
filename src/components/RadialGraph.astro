@@ -7,11 +7,6 @@ import {
   Drama,
   Radio,
   ArrowLeft,
-  ArrowUpRight,
-  Maximize2,
-  Calendar,
-  Award,
-  Users,
 } from 'lucide-astro';
 import { base } from '../utils/cms';
 
@@ -79,6 +74,7 @@ const categoriesPayload = categories.map(cat => ({
     name: ens.data.name,
     categoryName: cat.name,
     role: ens.data.role,
+    leader: ens.data.leader || '',
     years: ens.data.years || '',
     concertCount: ens.data.concertCount || '',
     highlights: ens.data.highlights,
@@ -301,12 +297,16 @@ const categoriesPayload = categories.map(cat => ({
                 </h4>
                 <div class="grid grid-cols-2 gap-2 text-xs font-sans">
                   <div class="p-3 rounded-xl bg-sky-950/40 border border-white/10 space-y-1">
-                    <span class="text-slate-400 block text-[10px] uppercase tracking-wider font-semibold">Okres współpracy</span>
+                    <span class="text-slate-400 block text-[10px] uppercase tracking-wider font-semibold">Lata</span>
                     <span id="level-3-meta-years" class="text-slate-100 font-medium text-xs block truncate">—</span>
                   </div>
                   <div class="p-3 rounded-xl bg-sky-950/40 border border-white/10 space-y-1">
-                    <span class="text-slate-400 block text-[10px] uppercase tracking-wider font-semibold">Występy / Dorobek</span>
+                    <span class="text-slate-400 block text-[10px] uppercase tracking-wider font-semibold">Występy</span>
                     <span id="level-3-meta-concerts" class="text-sky-300 font-medium text-xs block truncate">—</span>
+                  </div>
+                  <div id="level-3-meta-leader-container" class="p-3 rounded-xl bg-sky-950/40 border border-white/10 space-y-1 col-span-2">
+                    <span class="text-slate-400 block text-[10px] uppercase tracking-wider font-semibold">Kierownictwo / Dyrygent</span>
+                    <span id="level-3-meta-leader" class="text-sky-200 font-medium text-xs block truncate">—</span>
                   </div>
                 </div>
               </div>
@@ -388,9 +388,16 @@ const categoriesPayload = categories.map(cat => ({
                   </span>
                 </div>
 
-                <h3 class="font-display font-bold text-xl sm:text-2xl text-white group-hover:text-sky-300 transition-colors leading-snug">
-                  {ens.data.name}
-                </h3>
+                <div>
+                  <h3 class="font-display font-bold text-xl sm:text-2xl text-white group-hover:text-sky-300 transition-colors leading-snug">
+                    {ens.data.name}
+                  </h3>
+                  {ens.data.leader && (
+                    <p class="text-xs text-sky-400 font-sans font-medium mt-1">
+                      Kierownictwo: {ens.data.leader}
+                    </p>
+                  )}
+                </div>
 
                 <p class="text-sm text-slate-300 font-sans font-light leading-relaxed">
                   {ens.body}
@@ -461,7 +468,7 @@ const categoriesPayload = categories.map(cat => ({
 </style>
 
 <!-- Client Script for 3-Level Interactive Zoom and True Individual Proximity Physics -->
-<script define:vars={{ categoriesPayload }}>
+<script is:inline define:vars={{ categoriesPayload }}>
   const container = document.getElementById('zoomable-canvas-container');
   const level1 = document.getElementById('canvas-level-1');
   const level2 = document.getElementById('canvas-level-2');
@@ -483,14 +490,12 @@ const categoriesPayload = categories.map(cat => ({
 
   const level3RoleBadge = document.getElementById('level-3-role-badge');
   const level3Name = document.getElementById('level-3-ensemble-name');
-  const level3ConcertCount = document.getElementById('level-3-concert-count');
   const level3Highlights = document.getElementById('level-3-highlights-list');
   const level3Desc = document.getElementById('level-3-description-text');
   const level3Photos = document.getElementById('level-3-photos-grid');
 
   let currentLevel = 1;
   let activeCategory = null;
-  let activeEnsemble = null;
   let level2Interactive = false;
 
   // Magnetic Parallax Physics State
@@ -825,8 +830,19 @@ const categoriesPayload = categories.map(cat => ({
 
     const metaYears = document.getElementById('level-3-meta-years');
     const metaConcerts = document.getElementById('level-3-meta-concerts');
+    const metaLeader = document.getElementById('level-3-meta-leader');
+    const metaLeaderContainer = document.getElementById('level-3-meta-leader-container');
+
     if (metaYears) metaYears.textContent = ensemble.years || 'Współpraca bieżąca';
     if (metaConcerts) metaConcerts.textContent = ensemble.concertCount || 'Działalność sceniczna';
+    if (metaLeader && metaLeaderContainer) {
+      if (ensemble.leader) {
+        metaLeader.textContent = ensemble.leader;
+        metaLeaderContainer.classList.remove('hidden');
+      } else {
+        metaLeaderContainer.classList.add('hidden');
+      }
+    }
 
     if (level3Highlights) {
       level3Highlights.innerHTML = '';

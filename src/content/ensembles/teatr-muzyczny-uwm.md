@@ -2,6 +2,7 @@
 name: "Teatr Muzyczny UWM"
 pillar: "teatr"
 role: "Aktor / Śpiew / Fortepian"
+leader: "dr hab. Grzegorz Lewandowski (Reżyseria)"
 concertCount: "15 spektakli"
 years: "2022–2024"
 highlights:

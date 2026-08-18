@@ -2,6 +2,7 @@
 name: "Chór „ProForma Project”"
 pillar: "chory"
 role: "Chórzysta (bas)"
+leader: "prof. dr hab. Marcin Wawruk"
 concertCount: "3 występy"
 years: "2023–2024"
 highlights:

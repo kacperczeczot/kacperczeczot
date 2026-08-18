@@ -2,6 +2,7 @@
 name: "Zespół wokalno-instrumentalny (Muzoteka)"
 pillar: "estrada"
 role: "Kierownik muzyczny / Aranżer / Pianista"
+leader: "Kacper Czeczot (Kierownik muzyczny)"
 concertCount: "Programy tematyczne"
 years: "2022–2023"
 highlights:

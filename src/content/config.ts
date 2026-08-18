@@ -8,6 +8,7 @@ const ensemblesCollection = defineCollection({
     role: z.string(),
     concertCount: z.string(),
     years: z.string().optional().default(''),
+    leader: z.string().optional().default(''),
     highlights: z.array(z.string()).default([]),
     photos: z.array(z.string()).default([]),
     order: z.number(),
