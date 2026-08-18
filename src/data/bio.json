@@ -4,10 +4,10 @@
   "bioHeadline": "Dyrygentura, wykonawstwo sceniczne i produkcja dźwięku",
   "bioLeadText": "Absolwent studiów licencjackich z wyróżnieniem oraz Najlepszy Absolwent Wydziału Sztuki Uniwersytetu Warmińsko-Mazurskiego w Olsztynie (2024/2025). Kontynuuje studia magisterskie na kierunku Edukacja artystyczna w zakresie sztuki muzycznej oraz równoległe studia licencjackie na kierunku Produkcja Muzyczna i Realizacja Dźwięku.",
   "bioSecondaryText": "Absolwent Państwowej Szkoły Muzycznej I i II st. im. A. Krzanowskiego w Mławie (I stopień w klasie fortepianu z wyróżnieniem, II stopień na wydziale wokalnym z tytułem zawodowym muzyka z wyróżnieniem).",
-  "stageText": "Działalność sceniczna obejmuje ponad 300 występów: prowadzenie orkiestr dętych (Główny Dyrygent w Opinogórze Górnej, Zastępca Dyrygenta w Rębowie i Chociszewie), śpiew w chórach akademickich i filharmonicznych (m.in. Chór im. prof. W. Wawrzyczka UWM, Cantores Varmienses, Ars Vocale), role solowe w spektaklach operetkowych i musicalu „Pora Jeziora” (Filharmonia Warmińsko-Mazurska, Opera Krakowska).",
+  "stageText": "Działalność sceniczna obejmuje ponad 300 występów: prowadzenie orkiestr dętych (Kapelmistrz w Opinogórze Górnej, Zastępca Kapelmistrza w Rębowie i Chociszewie), śpiew w chórach akademickich i filharmonicznych (m.in. Chór im. prof. W. Wawrzyczka UWM, Cantores Varmienses, Ars Vocale), role solowe w spektaklach operetkowych i musicalu „Pora Jeziora” (Filharmonia Warmińsko-Mazurska, Opera Krakowska).",
   "currentRoles": [
-    { "title": "Orkiestra GOK w Opinogórze Górnej", "detail": "Główny Dyrygent (od grudnia 2025)" },
-    { "title": "Orkiestra Dęta OSP Rębowo / Chociszewo", "detail": "Zastępca Dyrygenta i Instruktor (od 2024)" },
+    { "title": "Orkiestra GOK w Opinogórze Górnej", "detail": "Kapelmistrz (od grudnia 2025)" },
+    { "title": "Orkiestra Dęta OSP Rębowo / Chociszewo", "detail": "Zastępca Kapelmistrza i Instruktor (od 2024)" },
     { "title": "Chór im. prof. W. Wawrzyczka UWM", "detail": "Tenor, Dyrygent, Bibliotekarz (71 występów, od 2022)" },
     { "title": "Miejska Młodzieżowa Orkiestra Dęta w Chorzelach", "detail": "Klarnecista, organista, śpiewak (od 2022)" }
   ],

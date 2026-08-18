@@ -1,8 +1,8 @@
 ---
 name: "Orkiestra GOK w Opinogórze Górnej"
 pillar: "orkiestry"
-role: "Główny Dyrygent"
-leader: "Kacper Czeczot (Główny Dyrygent)"
+role: "Kapelmistrz"
+leader: "Kacper Czeczot (Kapelmistrz)"
 concertCount: "Inauguracja sezonu 2025/2026"
 years: "2025–obecnie"
 highlights:

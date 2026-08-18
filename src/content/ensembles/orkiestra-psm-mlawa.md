@@ -2,7 +2,7 @@
 name: "Orkiestra PSM I i II st. w Mławie"
 pillar: "orkiestry"
 role: "Dyrygent / Aranżer / Klarnecista"
-leader: "Tomasz Wesołowski (Kapelmistrz)"
+leader: "Tomasz Wesołowski (Dyrygent)"
 concertCount: "7 występów"
 years: "2022–obecnie"
 highlights:
