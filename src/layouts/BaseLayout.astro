@@ -69,7 +69,8 @@ const defaultWebsiteSchema = {
   '@type': 'WebSite',
   '@id': `${siteUrl}/#website`,
   url: siteUrl,
-  name: 'Kacper Czeczot — Portfolio Artystyczne',
+  name: 'Kacper Czeczot',
+  alternateName: ['Kacper Czeczot Portfolio', 'kacperczeczot.github.io'],
   description: 'Oficjalne portfolio artystyczne Kacpra Czeczota: dyrygentura symfoniczna i chóralna, wykonawstwo sceniczne, opracowania partytur oraz realizacja dźwięku.',
   publisher: {
     '@id': `${siteUrl}/#person`
@@ -89,9 +90,15 @@ const schemas = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg?v=2`} />
-    <link rel="alternate icon" href={`${base}/favicon.ico?v=2`} sizes="32x32" />
-    <link rel="apple-touch-icon" href={`${base}/favicon.svg?v=2`} />
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" href={`${base}/favicon.ico`} sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="icon" type="image/png" sizes="48x48" href={`${base}/favicon-48x48.png`} />
+    <link rel="icon" type="image/png" sizes="96x96" href={`${base}/favicon-96x96.png`} />
+    <link rel="icon" type="image/png" sizes="192x192" href={`${base}/favicon-192x192.png`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${base}/apple-touch-icon.png`} />
+    <link rel="manifest" href={`${base}/site.webmanifest`} />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalURL} />
 
