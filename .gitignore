@@ -7,7 +7,11 @@ node_modules/
 
 # Environment variables
 .env
+.env*
+.env.local
+.env.development
 .env.production
+.env.*.local
 
 # macOS
 .DS_Store

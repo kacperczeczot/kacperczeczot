@@ -8,6 +8,7 @@ description: Koncert Dyplomowy „Finale” zrealizowany 13 maja 2025 roku w sal
   Olsztynie. Dyrygentura oraz autorskie opracowania symfoniczno-chóralne
   wykonane przez Chór im. prof. Wiktora Wawrzyczka UWM oraz orkiestrę (Nagroda
   Dziekana Wydziału Sztuki UWM za wybitne artystyczne dzieło dyplomowe).
+cover: "/images/work-finale.svg"
 order: 1
 metrics:
   - label: Orkiestra

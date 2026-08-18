@@ -4,6 +4,7 @@ subtitle: "Produkcja muzyczna — projekt audiowizualny"
 type: "production"
 year: "2026"
 description: "Autorskie dzieło dyplomowe: wielowarstwowa podróż przez ewolucję stylów muzycznych, instrumentacji oraz akustyki architektonicznej. Kompozycja, wykonawstwo multiinstrumentalne i realizacja dźwięku — historia sztuki połączona z fizyką dźwięku i technologią DAW."
+cover: "/images/work-echo-epok.svg"
 youtubeVideos:
   - title: "ECHO EPOK — projekt dyplomowy"
     youtubeId: "SsdzQjqi0x0"
